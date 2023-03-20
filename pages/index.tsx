@@ -15,13 +15,17 @@ export default function Home({seo, content}: any) {
 			<MetaTag title={`MponjoliMpeli`} seo={seo} />
 
 			<main>
-				<TestComponent props="Test Component" />
 				<Image
 					alt=""
 					width={500}
 					height={500}
 					className="w-[50px] h-[50px] mx-auto"
 					src="/img/Logos/MponjoliMpeli Apartments Logo Icon.png"
+				/>
+
+				<TestComponent
+					props="Test Component"
+					paragraph="<p>In our latest episode, CBRE’s <a href='www.google.com' target='blank'>Andrew Saunderson</a>, Head of UK Residential Capital Markets discusses the future of our cities with renowned urbanist, Professor Greg Clark. They uncover the long term impact of the pandemic, dive into why our cities must reinvent themselves to remain fit for purpose and look at the active role our cities need to play in helping to tackle climate change. </p>"
 				/>
 
 				<section className="pt-24 pb-32 overflow-hidden bg-gradient-green">

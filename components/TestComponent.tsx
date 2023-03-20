@@ -5,12 +5,12 @@ import {motion} from "framer-motion";
 import {fadeInUp, fadeIn, fadeInTwo, stagger} from "../animations/animations";
 
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import React, {useEffect, useRef, useState, FC} from "react";
 import Paragraph from "./Elements/Paragraph";
 
 interface IProps {
 	props: string;
+	paragraph: string;
 }
 
 // styling
@@ -42,27 +42,7 @@ const TestComponentStyling = styled.div`
 	}
 `;
 
-const TestComponent: FC<IProps> = ({props}) => {
-	/* Check if paragraph content is null
-	 And Displays content if it null */
-	function isParagraphContent(isParagraphContent: string) {
-		let contentStyling: string;
-		if (isParagraphContent === null || isParagraphContent === undefined) {
-			contentStyling =
-				"hidden mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]";
-		} else {
-			contentStyling =
-				"block mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]";
-		}
-		return contentStyling;
-	}
-
-	function createParagraphMarkup(paragraphContent: string) {
-		return {
-			__html: DOMPurify.sanitize(paragraphContent),
-		};
-	}
-
+const TestComponent: FC<IProps> = ({props, paragraph}) => {
 	return (
 		<TestComponentStyling>
 			<div className="relative w-full px-4 py-20 mx-auto lg:w-3/5">
@@ -93,7 +73,7 @@ const TestComponent: FC<IProps> = ({props}) => {
 									In-Depth Data
 								</h2>
 								<Paragraph
-									content="<p>Expand your reporting capabilities, without costly, additional third-party apps. Access a number of pre-built reports and our powerful custom report builder.</p>"
+									content={paragraph}
 									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>

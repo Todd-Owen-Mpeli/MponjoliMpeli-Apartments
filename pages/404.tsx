@@ -35,7 +35,7 @@ const noPageExits = ({}: any) => {
 								<button type="button">
 									<Link
 										href={`/`}
-										className="py-4 px-6 lg:py-6 lg:px-20 flex flex-row font-[700] text-white text-base leading-4 bg-limeGreen rounded-lg hover:bg-blue transition-all ease-in-out duration-[0.5s]"
+										className="py-4 px-6 lg:py-6 lg:px-20 flex flex-row font-[700] text-white text-base leading-4 bg-green rounded-lg hover:bg-greenTwo transition-all ease-in-out duration-500"
 									>
 										<svg
 											className="mr-2.5 text-white"

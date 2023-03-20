@@ -1,5 +1,5 @@
-import DOMPurify from "isomorphic-dompurify";
 import React, {FC} from "react";
+import DOMPurify from "isomorphic-dompurify";
 
 interface ParagraphProps {
 	content: string;
@@ -8,7 +8,6 @@ interface ParagraphProps {
 
 const Paragraph: FC<ParagraphProps> = ({content, tailwindStyling}) => {
 	/* Sanitize paragraph content */
-
 	function createParagraphMarkup(paragraphContent: string) {
 		return {
 			__html: DOMPurify.sanitize(paragraphContent),
@@ -17,9 +16,7 @@ const Paragraph: FC<ParagraphProps> = ({content, tailwindStyling}) => {
 
 	return (
 		<div
-			className={
-				content ? `block ${tailwindStyling}` : `hidden ${tailwindStyling}`
-			}
+			className={content ? `block ${tailwindStyling}` : `hidden`}
 			dangerouslySetInnerHTML={createParagraphMarkup(content)}
 		/>
 	);
