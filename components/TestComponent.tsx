@@ -7,6 +7,7 @@ import {fadeInUp, fadeIn, fadeInTwo, stagger} from "../animations/animations";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
 import React, {useEffect, useRef, useState, FC} from "react";
+import Paragraph from "./Elements/Paragraph";
 
 interface IProps {
 	props: string;
@@ -20,7 +21,7 @@ const TestComponentStyling = styled.div`
 		z-index: -1;
 		padding: 0rem;
 		border-radius: 1.5rem;
-		background-color: rgba(13, 23, 42, 0.9);
+		background-color: #012a2d;
 		clip-path: circle(100% at 50% calc(50%));
 		transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
 
@@ -75,11 +76,9 @@ const TestComponent: FC<IProps> = ({props}) => {
 								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
 									Real-Time
 								</h2>
-								<div
-									className={isParagraphContent(`<p></p>`)}
-									dangerouslySetInnerHTML={createParagraphMarkup(
-										`<p>BlueInventory connects with your point of sale system and your e-commerce store so you have an instant snapshot of how your business is performing as a whole.</p>`
-									)}
+								<Paragraph
+									content="<p>BlueInventory connects with your point of sale system and your e-commerce store so you have an instant snapshot of how your business is performing as a whole.</p>"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
@@ -87,17 +86,15 @@ const TestComponent: FC<IProps> = ({props}) => {
 					<article className="relative w-full px-4 mb-12 not-active md:w-1/2 md:mb-0 md:mt-40">
 						<div className="relative z-10 px-8 pt-16 pb-20 leading-4 border border-black md:px-12 2xl:px-8 border-opacity-10 rounded-3xl">
 							<div>
-								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-blue">
+								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">2</span>
 								</div>
 								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
 									In-Depth Data
 								</h2>
-								<div
-									className={isParagraphContent(`<p></p>`)}
-									dangerouslySetInnerHTML={createParagraphMarkup(
-										`<p>Expand your reporting capabilities, without costly, additional third-party apps. Access a number of pre-built reports and our powerful custom report builder.</p>`
-									)}
+								<Paragraph
+									content="<p>Expand your reporting capabilities, without costly, additional third-party apps. Access a number of pre-built reports and our powerful custom report builder.</p>"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
@@ -105,17 +102,15 @@ const TestComponent: FC<IProps> = ({props}) => {
 					<article className="not-active relative w-full px-4  md:w-1/2 mt-[-8.5rem]">
 						<div className="relative z-10 px-8 pt-16 pb-20 leading-4 border border-black md:px-12 2xl:px-8 border-opacity-10 rounded-3xl">
 							<div>
-								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-blue">
+								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">3</span>
 								</div>
 								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
 									User Friendly
 								</h2>
-								<div
-									className={isParagraphContent(`<p></p>`)}
-									dangerouslySetInnerHTML={createParagraphMarkup(
-										`<p>Our reports are easy to use with lots of filters and customization options. Slice and dice the exact data you want and export as a CSV to simplify bookkeeping.</p>`
-									)}
+								<Paragraph
+									content="<p>Our reports are easy to use with lots of filters and customization options. Slice and dice the exact data you want and export as a CSV to simplify bookkeeping.</p>"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
