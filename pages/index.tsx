@@ -24,20 +24,20 @@ export default function Home({seo, content}: any) {
 					src="/img/Logos/MponjoliMpeli Apartments Logo Icon.png"
 				/>
 
-				<section className="pt-24 pb-32 overflow-hidden bg-gradient-gray2">
+				<section className="pt-24 pb-32 overflow-hidden bg-gradient-green">
 					<div className="container px-4 mx-auto">
 						<div className="max-w-md mx-auto mb-20">
-							<h2 className="mb-4 text-6xl font-semibold text-center text-gray-900 sm:text-7xl">
+							<h2 className="mb-4 text-6xl font-semibold text-center text-green sm:text-7xl">
 								Got questions?
 							</h2>
-							<p className="text-lg text-center text-gray-600">
+							<p className="text-lg text-center text-green">
 								Frequently Asked Questions
 							</p>
 						</div>
 						<div className="flex flex-wrap mb-24 -m-6">
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										Is it really unlimited downloads?
 									</h2>
 									<p className="text-base text-black">
@@ -50,7 +50,7 @@ export default function Home({seo, content}: any) {
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										Is it really unlimited downloads?
 									</h2>
 									<p className="text-base text-black">
@@ -63,7 +63,7 @@ export default function Home({seo, content}: any) {
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										Do you offer discounts on annual plans?
 									</h2>
 									<p className="text-base text-black">
@@ -76,7 +76,7 @@ export default function Home({seo, content}: any) {
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										Do you offer discounts on annual plans?
 									</h2>
 									<p className="text-base text-black">
@@ -89,7 +89,7 @@ export default function Home({seo, content}: any) {
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										What kind of file do you offer with the packages?
 									</h2>
 									<p className="text-base text-black">
@@ -102,7 +102,7 @@ export default function Home({seo, content}: any) {
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-gray-900 text-medium">
+									<h2 className="mb-4 font-medium text-green text-medium">
 										What kind of file do you offer with the packages?
 									</h2>
 									<p className="text-base text-black">
@@ -115,10 +115,10 @@ export default function Home({seo, content}: any) {
 							</div>
 						</div>
 						<a
-							className="block mx-auto overflow-hidden text-base font-medium text-gray-900 group max-w-max hover:text-gray-800"
+							className="block mx-auto overflow-hidden text-base font-medium text-green group max-w-max"
 							href="#"
 						>
-							<p className="mb-1">
+							<p className="mb-1 hover:text-brightGreen">
 								Didn&rsquo;t find the answer? Contact us here
 							</p>
 							<div className="w-full h-px transition duration-500 ease-in-out transform -translate-x-0 group-hover:translate-x-full bg-gradient-cyan"></div>

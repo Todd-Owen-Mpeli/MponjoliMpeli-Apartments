@@ -26,7 +26,6 @@ module.exports = {
 		colors: {
 			// Base colors Variables
 			black: "#111",
-			blue: "#2563eb",
 			grey: "#686868",
 			white: "#ffffff",
 			pureBlack: "#000",
@@ -34,17 +33,14 @@ module.exports = {
 			lightGrey: "#f7f7f7",
 
 			// Main colors
-			orange: "#FF8300",
-			pinkRed: "#ff002f",
-			blueTwo: "#3978ff",
+			blue: "#2563eb",
+			green: "#00946a",
+			greenTwo: "#003f2d",
 			darkBlue: "#0d172a",
-			limeGreen: "#a2e603",
-			lightBlue: "#3d77f3",
-			darkOrange: "#ff9900",
-			flatPinkRed: "#f95674",
-			flatLightBlue: "#77b5f8",
-			flatLimeGreen: "#cfe798",
-			yellow: "rgb(255, 201, 21)",
+			flatGreen: "#538184",
+			darkGreen: "#012a2d",
+			brightGreen: "#00c68e",
+			flatGreyGreen: "#435254",
 		},
 	},
 	plugins: [],

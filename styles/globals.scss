@@ -16,22 +16,22 @@ body {
 }
 
 body::-webkit-scrollbar {
-	display: none;
+	// display: none;
 	width: 0.65rem;
 	height: 0.65rem;
 }
 
 body::-webkit-scrollbar-track {
-	background: $darkBlue;
+	background: $darkGreen;
 }
 
 body::-webkit-scrollbar-thumb {
-	background: $blue;
+	background: $green;
 	border-radius: 100px;
 
 	&:hover {
 		transition: all 0.5s;
-		background-color: $limeGreen;
+		background-color: $greenTwo;
 	}
 }
 
@@ -65,7 +65,7 @@ button {
 li,
 p {
 	a {
-		@apply text-blue transition-all ease-in-out duration-[0.5s] hover:text-limeGreen focus:text-limeGreen;
+		@apply text-green transition-all ease-in-out duration-[0.5s] hover:text-green focus:text-green;
 	}
 }
 

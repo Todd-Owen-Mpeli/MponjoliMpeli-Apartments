@@ -69,7 +69,7 @@ const TestComponent: FC<IProps> = ({props}) => {
 					<article className="relative w-full px-4 active md:w-1/2">
 						<div className="relative z-10 px-8 pt-16 pb-20 leading-4 border border-black md:px-12 2xl:px-8 border-opacity-10 rounded-3xl">
 							<div>
-								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-blue">
+								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">1</span>
 								</div>
 								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
