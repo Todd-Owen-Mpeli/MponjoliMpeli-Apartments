@@ -17,6 +17,28 @@
 	clip-path: circle(30px at calc(100% - 65px) 65px);
 }
 
+.nav {
+	::-webkit-scrollbar {
+		// display: none;
+		width: 0.65rem;
+		height: 0.65rem;
+	}
+
+	::-webkit-scrollbar-track {
+		background: $darkGreen;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: $green;
+		border-radius: 100px;
+
+		&:hover {
+			transition: all 0.5s;
+			background-color: $brightGreen;
+		}
+	}
+}
+
 // Reveal Fullscreen Nav
 .navReveal {
 	visibility: visible;
@@ -85,14 +107,14 @@
 	cursor: pointer;
 	position: fixed;
 	z-index: 999;
-	right: 10px;
-	top: 5px;
+	right: 20px;
+	top: 10px;
 	padding: 0;
 	width: 50px;
 	height: 50px;
 	border: none;
 	line-height: 0.6;
-	border-radius: 50%;
+	border-radius: 15%;
 	text-align: center;
 	background: $green;
 
@@ -120,8 +142,8 @@
 			transition: all 200ms;
 		}
 		&:after {
-			top: -1px;
-			left: 2px;
+			top: -2px;
+			left: 1px;
 			transform: rotate(-45deg);
 		}
 		&:before {

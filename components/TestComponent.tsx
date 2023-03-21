@@ -58,7 +58,7 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 								</h2>
 								<Paragraph
 									content="<p>BlueInventory connects with your point of sale system and your e-commerce store so you have an instant snapshot of how your business is performing as a whole.</p>"
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[500] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
@@ -74,7 +74,7 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 								</h2>
 								<Paragraph
 									content={paragraph}
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[500] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
@@ -90,7 +90,7 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 								</h2>
 								<Paragraph
 									content="<p>Our reports are easy to use with lots of filters and customization options. Slice and dice the exact data you want and export as a CSV to simplify bookkeeping.</p>"
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[500] text-darkGrey text-medium text-left leading-[1.5rem]"
 								/>
 							</div>
 						</div>
