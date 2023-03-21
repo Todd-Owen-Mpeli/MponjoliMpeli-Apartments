@@ -7,6 +7,7 @@ import {client} from "../config/apollo";
 // Components
 import MetaTag from "../components/Meta/MetaTag";
 import TestComponent from "../components/TestComponent";
+import Hero from "@/components/Hero";
 
 export default function Home({seo, content}: any) {
 	return (
@@ -15,12 +16,9 @@ export default function Home({seo, content}: any) {
 			<MetaTag title={`MponjoliMpeli`} seo={seo} />
 
 			<main>
-				<Image
-					alt=""
-					width={500}
-					height={500}
-					className="w-[50px] h-[50px] mx-auto"
-					src="/img/Logos/MponjoliMpeli Apartments Logo Icon.png"
+				<Hero
+					props="Test Component"
+					backgroundImage="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571453-scaled.jpg"
 				/>
 
 				<TestComponent
