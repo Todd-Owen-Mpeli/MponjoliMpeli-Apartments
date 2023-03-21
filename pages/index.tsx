@@ -3,13 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import {gql} from "@apollo/client";
 import {client} from "../config/apollo";
+import {getThemesOptionsContent} from "../lib/themesOptions";
 
 // Components
+import Hero from "@/components/Hero";
 import MetaTag from "../components/Meta/MetaTag";
 import TestComponent from "../components/TestComponent";
-import Hero from "@/components/Hero";
 
-export default function Home({seo, content}: any) {
+export default function Home({seo, content, themesOptionsContent}: any) {
 	return (
 		<>
 			{/* <!--===== META TAG =====--> */}
@@ -17,8 +18,17 @@ export default function Home({seo, content}: any) {
 
 			<main>
 				<Hero
-					props="Test Component"
-					backgroundImage="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571453-scaled.jpg"
+					title={content?.heroSection?.title}
+					paragraph={content?.heroSection?.paragraph}
+					buttonLink={content?.heroSection?.buttonLink}
+					buttonLinkTwo={content?.heroSection?.buttonLinkTwo}
+					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
+					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
+					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
+					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
+					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
+					mbeziContent={themesOptionsContent?.themesOptions?.mbeziContent}
+					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 				/>
 
 				<TestComponent
@@ -166,6 +176,25 @@ export async function getStaticProps() {
 								mediaItemUrl
 							}
 						}
+						homePage {
+							heroSection {
+								title
+								paragraph
+								buttonLink {
+									url
+									title
+									target
+								}
+								buttonLinkTwo {
+									url
+									title
+									target
+								}
+								backgroundImage {
+									sourceUrl
+								}
+							}
+						}
 					}
 				}
 			}
@@ -176,9 +205,13 @@ export async function getStaticProps() {
 		query: getHomePageContent,
 	});
 
+	const themesOptionsContent: object = await getThemesOptionsContent();
+
 	return {
 		props: {
+			themesOptionsContent,
 			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
+			content: response.data?.mainContent?.edges[0]?.node?.homePage,
 		},
 		revalidate: 60,
 	};

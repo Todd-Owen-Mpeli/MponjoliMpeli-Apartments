@@ -1,14 +1,66 @@
-import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {useState, FC} from "react";
+
+// Components
+import NavLink from "./Elements/NavLink";
 import Paragraph from "./Elements/Paragraph";
 
+// Styling
+import styles from "../styles/components/Hero.module.scss";
+
 interface HeroProps {
-	props: string;
+	title: string;
+	paragraph: string;
+	linkedinLink: string;
+	instagramLink: string;
+	facebookLink: string;
+	twitterLink: string;
+	mbeziContent: {
+		email: string;
+		title: string;
+		phoneNumber: string;
+		contactAddress: string;
+	};
+	mbweniContent: {
+		email: string;
+		title: string;
+		phoneNumber: string;
+		contactAddress: string;
+	};
+	buttonLink: {
+		url: string;
+		title: string;
+		target: string;
+	};
+	buttonLinkTwo: {
+		url: string;
+		title: string;
+		target: string;
+	};
 	backgroundImage: string;
 }
 
-const Hero: FC<HeroProps> = ({props, backgroundImage}) => {
+const Hero: FC<HeroProps> = ({
+	title,
+	paragraph,
+	buttonLink,
+	twitterLink,
+	facebookLink,
+	linkedinLink,
+	instagramLink,
+	mbeziContent,
+	mbweniContent,
+	buttonLinkTwo,
+	backgroundImage,
+}) => {
+	/* Hides or Displays the Full Nav Menu */
+	const [menuActive, setMenuActive] = useState(false);
+
+	function toggleMenu() {
+		setMenuActive(!menuActive);
+	}
+
 	return (
 		<section className="skewed-bottom-right">
 			<div
@@ -17,161 +69,109 @@ const Hero: FC<HeroProps> = ({props, backgroundImage}) => {
 					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
 				}}
 			>
-				<nav className="relative px-6 py-6 flex justify-between items-center">
-					<Link className="text-white text-3xl font-bold leading-none" href="/">
-						<Image
-							className="h-12 w-full"
-							src="/img/Logos/MponjoliMpeli Apartments Logo Icon.png"
-							alt=""
-							height={500}
-							width={500}
-						/>
-					</Link>
-					<div className="lg:hidden">
-						<button className="navbar-burger flex items-center text-white p-3">
-							<svg
-								className="block h-4 w-4 fill-current"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<title>Mobile menu</title>
-								<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-							</svg>
-						</button>
-					</div>
-					<ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+				<nav className="relative flex items-center justify-between px-6 py-6">
+					<ul className="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:my-6 lg:items-center lg:w-auto lg:gap-x-20">
 						<li>
 							<Link
-								className="text-sm text-white hover:text-brightGreen"
+								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
 								href="/about"
 							>
 								About
 							</Link>
 						</li>
-						<li className="text-white">
-							<svg
-								className="w-4 h-4 current-fill"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-								></path>
-							</svg>
-						</li>
 						<li>
 							<Link
-								className="text-sm text-white hover:text-brightGreen"
+								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
 								href="/apartments"
 							>
 								Apartments
 							</Link>
 						</li>
-						<li className="text-white">
-							<svg
-								className="w-4 h-4 current-fill"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-								></path>
-							</svg>
-						</li>
 						<li>
 							<Link
-								className="text-sm text-white hover:text-brightGreen"
+								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
 								href="/locations"
 							>
 								Locations
 							</Link>
 						</li>
+						{/* <NavLink
+							tailwindStyling="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
+							link={}
+						/> */}
 					</ul>
-					<Link
-						className="hidden lg:block py-2 px-6 bg-brightGreen hover:bg-brightGreen text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
-						href="#"
+					<button
+						type="button"
+						onClick={toggleMenu}
+						aria-label="toggle menu"
+						className={menuActive ? styles.navToggleOpen : styles.navToggle}
 					>
-						Contact Us
-					</Link>
+						<span aria-hidden="true"></span>
+					</button>
 				</nav>
-				<div className="flex flex-col justify-center items-baseline text-center sm:text-left container m-auto px-0">
+				<div className="container flex flex-col items-baseline justify-center px-0 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
 						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
-							<span>Find your new Home</span>
-							<span className="text-brightGreen ml-2">Today</span>
+							<span>{title}</span>
+							<span className="ml-2 text-brightGreen">Today</span>
 						</h1>
 					</div>
 					<div className="max-w-lg">
 						<Paragraph
-							content={`<br>MponjoliMpeli Apartments are an award-winning apartment complex and rated 4.7 out of 5 on Google. </br> </br> View our available apartments or get in touch to get an idea of your future home or monthly lettings fees.</p>`}
+							content={paragraph}
 							tailwindStyling="mb-6 text-white leading-[1.75rem] font-[400] text-medium text-center sm:text-left"
 						/>
-						<div className="flex justify-center sm:justify-start item-center gap-4">
+						<div className="flex justify-center gap-4 sm:justify-start item-center">
 							<Link
-								className="w-fit sm:mx-0 py-2 px-6 bg-white hover:bg-brightGreen text-green hover:text-white font-semibold rounded-l-lg rounded-t-lg transition duration-200"
-								href="/"
+								href={buttonLink?.url}
+								target={buttonLink?.target}
+								className="px-6 py-2 font-semibold transition duration-200 bg-white rounded-t-lg rounded-l-lg w-fit sm:mx-0 hover:bg-brightGreen text-green hover:text-white"
 							>
-								Get Started
+								{buttonLink?.title}
 							</Link>
 							<Link
-								className="w-fit sm:mx-0 py-2 px-6 text-white font-semibold bg-green hover:bg-brightGreen rounded-l-lg rounded-t-lg transition duration-200"
-								href="/"
+								href={buttonLinkTwo?.url}
+								target={buttonLinkTwo?.target}
+								className="px-6 py-2 font-semibold text-white transition duration-200 rounded-t-lg rounded-l-lg w-fit sm:mx-0 bg-green hover:bg-brightGreen"
 							>
-								How it works
+								{buttonLinkTwo?.title}
 							</Link>
 						</div>
 					</div>
 				</div>
 			</div>
+			{/* Green SVG */}
 			<div className="mr-for-radius">
 				<svg
-					className="h-8 md:h-12 lg:h-20 w-full text-green"
+					className="w-full h-8 md:h-12 lg:h-20 text-green"
 					viewBox="0 0 10 10"
 					preserveAspectRatio="none"
 				>
 					<polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
 				</svg>
 			</div>
-			<div className={`hidden fixed top-0 right-0 bottom-0 w-5/6 max-w-lg`}>
-				<div className="fixed inset-0 bg-darkGreen opacity-25"></div>
-				<nav className="relative flex flex-col py-6 px-6 h-full w-full bg-white overflow-y-auto">
+
+			{/* Hidden Side Menu */}
+			<div
+				className={
+					menuActive
+						? `${styles.navReveal} ${styles.nav}`
+						: `hidden ${styles.nav}`
+				}
+			>
+				<div className="fixed inset-0 opacity-25 bg-darkGreen"></div>
+				<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-y-auto bg-white">
 					<div className="flex flex-col items-center mb-8">
-						<button className="fixed top-0 right-0 m-2">
-							<svg
-								className="h-6 w-6 text-darkGreen cursor-pointer hover:text-darkGreen"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M6 18L18 6M6 6l12 12"
-								></path>
-							</svg>
-						</button>
 						<Link
-							className="mt-6 mr-auto text-3xl font-bold leading-none"
-							href="#"
+							className="mt-10 mr-auto text-3xl font-bold leading-none"
+							href="/"
 						>
 							<Image
-								className="h-75 w-full"
-								src="/img/logos/MponjoliMpeli Apartments Logo One.png"
-								alt=""
 								height={500}
 								width={500}
+								className="object-contain object-center w-full h-75"
+								src="/img/logos/MponjoliMpeli Apartments Logo One.png"
+								alt="MponjoliMpeli Apartments Logo One"
 							/>
 						</Link>
 					</div>
@@ -228,13 +228,13 @@ const Hero: FC<HeroProps> = ({props, backgroundImage}) => {
 						</ul>
 					</div>
 					<div className="mt-auto">
-						<div className="flex justify-start items-center gap-2 text-center">
+						<div className="flex items-center justify-start gap-2 text-center">
 							<Link
 								className="inline-block px-1 text-green"
-								href="www.facebook.com"
+								href={facebookLink}
 							>
 								<Image
-									alt=""
+									alt="facebook icon"
 									width={500}
 									height={500}
 									className="w-6 h-6"
@@ -243,16 +243,42 @@ const Hero: FC<HeroProps> = ({props, backgroundImage}) => {
 							</Link>
 							<Link
 								className="inline-block px-1 text-green"
-								href="www.instagram.com"
+								href={instagramLink}
 							>
 								<Image
-									alt=""
+									alt="Instagram Icon"
 									width={500}
 									height={500}
 									className="w-6 h-6"
 									src="/svg/instagram.svg"
 								/>
 							</Link>
+						</div>
+						<div className="flex items-center justify-between gap-4">
+							<div className="flex flex-col items-baseline justify-center my-6">
+								<h2 className="text-green font-[600] text-medium">
+									{mbeziContent?.title}
+								</h2>
+								<Paragraph
+									content={mbeziContent?.contactAddress}
+									tailwindStyling="my-3 text-black leading-[1.75rem] font-[400] text-medium text-center sm:text-left"
+								/>
+								<div className="flex flex-col gap-2">
+									<Link
+										className="text-base leading-none transition-all duration-500 ease-in-out hover:text-green"
+										href={`tel:${mbeziContent?.phoneNumber}`}
+									>
+										{mbeziContent?.phoneNumber}
+									</Link>
+									<Link
+										className="text-base leading-none transition-all duration-500 ease-in-out hover:text-green"
+										href={`mailto:${mbeziContent?.email}`}
+									>
+										{mbeziContent?.email}
+									</Link>
+								</div>
+							</div>
+							<div className="flex flex-col items-baseline justify-center"></div>
 						</div>
 						<p className="my-4 text-xs text-center text-darkGreen">
 							<span>&copy; 2023 All rights reserved.</span>

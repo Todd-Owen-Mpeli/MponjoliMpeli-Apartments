@@ -1,45 +1,47 @@
 import {DocumentNode, gql} from "@apollo/client";
-import {client} from "../lib/apollo";
-
-interface getThemesOptionsContent {
-	themesOptions: any;
-}
+import {client} from "../config/apollo";
 
 // Themes Options Content
-// export async function getThemesOptionsContent() {
-// 	const content: DocumentNode = gql`
-// 		{
-// 			themesOptions(where: {id: 187, status: PUBLISH, name: "Themes Options"}) {
-// 				edges {
-// 					node {
-// 						themesOptions {
-// 							email
-// 							openingHours
-// 							twitterLink
-// 							phoneNumber
-// 							linkedinLink
-// 							contactAddress
-// 							contactPostcode
-// 							contactPostcodeText
-// 							phoneNumberOptionTwo
-// 							instagramLink
-// 							facebookLink
-// 							emailOptionTwo
-// 							companyLogo {
-// 								sourceUrl
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	`;
+export async function getThemesOptionsContent() {
+	const content: DocumentNode = gql`
+		{
+			themesOptions(where: {id: 153, status: PUBLISH}) {
+				edges {
+					node {
+						themeOptions {
+							email
+							emailOptionTwo
+							phoneNumber
+							phoneNumberOptionTwo
+							phoneNumberOptionThree
+							linkedinLink
+							instagramLink
+							facebookLink
+							twitterLink
+							mbeziContent {
+								title
+								phoneNumber
+								email
+								contactAddress
+							}
+							mbweniContent {
+								title
+								phoneNumber
+								email
+								contactAddress
+							}
+						}
+					}
+				}
+			}
+		}
+	`;
 
-// 	const response: any = await client.query({
-// 		query: content,
-// 	});
+	const response: any = await client.query({
+		query: content,
+	});
 
-// 	return {
-// 		themesOptions: response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
-// 	};
-// }
+	return {
+		themesOptions: response?.data?.themesOptions?.edges[0]?.node?.themeOptions,
+	};
+}
