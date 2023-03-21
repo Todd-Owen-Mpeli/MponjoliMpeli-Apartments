@@ -4,13 +4,26 @@ import Image from "next/image";
 import {gql} from "@apollo/client";
 import {client} from "../config/apollo";
 import {getThemesOptionsContent} from "../lib/themesOptions";
+import {
+	getMainMenuLinks,
+	getHeroMenuLinks,
+	getLocationMenuLinks,
+} from "../lib/MenuLinks";
 
 // Components
 import Hero from "@/components/Hero";
 import MetaTag from "../components/Meta/MetaTag";
 import TestComponent from "../components/TestComponent";
 
-export default function Home({seo, content, themesOptionsContent}: any) {
+export default function Home({
+	seo,
+	content,
+	mainMenuLinks,
+	heroMenuLinks,
+	locationMenuLinks,
+	themesOptionsContent,
+}: any) {
+	// console.log(mainMenuLinks);
 	return (
 		<>
 			{/* <!--===== META TAG =====--> */}
@@ -20,6 +33,8 @@ export default function Home({seo, content, themesOptionsContent}: any) {
 				<Hero
 					title={content?.heroSection?.title}
 					paragraph={content?.heroSection?.paragraph}
+					mainMenuLinks={mainMenuLinks?.mainMenuLinks}
+					heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 					buttonLink={content?.heroSection?.buttonLink}
 					buttonLinkTwo={content?.heroSection?.buttonLinkTwo}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
@@ -205,10 +220,16 @@ export async function getStaticProps() {
 		query: getHomePageContent,
 	});
 
+	const mainMenuLinks: object = await getMainMenuLinks();
+	const heroMenuLinks: object = await getHeroMenuLinks();
+	const locationMenuLinks: object = await getLocationMenuLinks();
 	const themesOptionsContent: object = await getThemesOptionsContent();
 
 	return {
 		props: {
+			mainMenuLinks,
+			heroMenuLinks,
+			locationMenuLinks,
 			themesOptionsContent,
 			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
 			content: response.data?.mainContent?.edges[0]?.node?.homePage,

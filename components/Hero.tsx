@@ -3,8 +3,8 @@ import Image from "next/image";
 import {useState, FC} from "react";
 
 // Components
-import NavLink from "./Elements/NavLink";
 import Paragraph from "./Elements/Paragraph";
+import NavbarMenuLinks from "./Elements/NavbarMenuLinks";
 
 // Styling
 import styles from "../styles/components/Hero.module.scss";
@@ -16,6 +16,39 @@ interface HeroProps {
 	instagramLink: string;
 	facebookLink: string;
 	twitterLink: string;
+	backgroundImage: string;
+	buttonLink: {
+		url: string;
+		title: string;
+		target: string;
+	};
+	buttonLinkTwo: {
+		url: string;
+		title: string;
+		target: string;
+	};
+
+	// Menu Links
+	mainMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
+	heroMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
+
+	// Address Content
 	mbeziContent: {
 		email: string;
 		title: string;
@@ -28,17 +61,6 @@ interface HeroProps {
 		phoneNumber: string;
 		contactAddress: string;
 	};
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-	buttonLinkTwo: {
-		url: string;
-		title: string;
-		target: string;
-	};
-	backgroundImage: string;
 }
 
 const Hero: FC<HeroProps> = ({
@@ -52,6 +74,8 @@ const Hero: FC<HeroProps> = ({
 	mbeziContent,
 	mbweniContent,
 	buttonLinkTwo,
+	mainMenuLinks,
+	heroMenuLinks,
 	backgroundImage,
 }) => {
 	/* Hides or Displays the Full Nav Menu */
@@ -71,34 +95,16 @@ const Hero: FC<HeroProps> = ({
 			>
 				<nav className="relative flex items-center justify-between px-6 py-6">
 					<ul className="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:my-6 lg:items-center lg:w-auto lg:gap-x-20">
-						<li>
-							<Link
-								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
-								href="/about"
-							>
-								About
-							</Link>
-						</li>
-						<li>
-							<Link
-								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
-								href="/apartments"
-							>
-								Apartments
-							</Link>
-						</li>
-						<li>
-							<Link
-								className="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
-								href="/locations"
-							>
-								Locations
-							</Link>
-						</li>
-						{/* <NavLink
-							tailwindStyling="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
-							link={}
-						/> */}
+						{/* Menu Link*/}
+						{heroMenuLinks?.map((keys) => (
+							<li key={keys?.node?.id}>
+								<NavbarMenuLinks
+									url={keys?.node?.url}
+									label={keys?.node?.label}
+									tailwindStyling="text-lg tracking-[.25rem] text-white hover:text-brightGreen"
+								/>
+							</li>
+						))}
 					</ul>
 					<button
 						type="button"
@@ -177,54 +183,19 @@ const Hero: FC<HeroProps> = ({
 					</div>
 					<div className="px-4">
 						<ul>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/about"
+							{/* Menu Link*/}
+							{mainMenuLinks?.map((keys) => (
+								<li
+									key={keys?.node?.id}
+									className="mb-1 border-b-[1px] border-green border-opacity-50"
 								>
-									About
-								</Link>
-							</li>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/locations"
-								>
-									Our Locations
-								</Link>
-							</li>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/development"
-								>
-									Development
-								</Link>
-							</li>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/landlords"
-								>
-									Landlords
-								</Link>
-							</li>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/firstTimeLettings"
-								>
-									First Time Lettings
-								</Link>
-							</li>
-							<li className="mb-1 border-b-[1px] border-green">
-								<Link
-									className="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
-									href="/testimonials"
-								>
-									Testimonials
-								</Link>
-							</li>
+									<NavbarMenuLinks
+										url={keys?.node?.url}
+										label={keys?.node?.label}
+										tailwindStyling="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
+									/>
+								</li>
+							))}
 						</ul>
 					</div>
 					<div className="mt-20">
@@ -386,9 +357,6 @@ const Hero: FC<HeroProps> = ({
 							</div>
 						</div>
 					</div>
-					<p className="my-4 text-xs text-center text-darkGreen">
-						<span>&copy; 2023 All rights reserved.</span>
-					</p>
 				</nav>
 			</div>
 		</section>
