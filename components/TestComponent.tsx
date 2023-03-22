@@ -46,7 +46,7 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 	return (
 		<TestComponentStyling>
 			<div className="relative w-full px-4 py-20 mx-auto lg:w-3/5">
-				<div className="flex flex-wrap items-start mx-4 mainContent gap-y-6">
+				<div className="flex flex-wrap items-start mainContent gap-y-6">
 					<article className="relative w-full px-4 active bg-darkGreen md:w-1/2">
 						<div className="relative z-10 px-8 pt-16 pb-20 leading-4 border border-black md:px-12 2xl:px-8 border-opacity-10 rounded-3xl">
 							<div>

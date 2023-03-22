@@ -18,6 +18,8 @@ import TestComponent from "../components/TestComponent";
 import Paragraph from "@/components/Elements/Paragraph";
 import TextBoxImage from "@/components/TextBoxImage";
 import TextImageGrid from "@/components/TextImageGrid";
+import Newsletter from "@/components/Newsletter";
+import Logos from "@/components/Logos";
 
 export default function Home({
 	seo,
@@ -67,15 +69,94 @@ export default function Home({
 					paragraph={content?.firstTimeLettings?.paragraph}
 				/>
 
+				<Logos
+					title={content?.trustedBrands?.title}
+					logoGrid={content?.trustedBrands?.logos}
+				/>
+
 				{/* CONTENT GRID */}
 				<TextImageGrid gridContent={content?.howItWorks?.gridContent} />
+
+				<section
+					className="py-20 xl:pt-24 bg-white bg-cover bg-center bg-no-repeat"
+					style={{
+						backgroundImage: `url("flex-ui-assets/elements/pattern-white.svg")`,
+					}}
+				>
+					<div className="container px-4 mx-auto">
+						<div className="flex flex-wrap items-center -mx-4">
+							<div className="w-full lg:w-1/2 px-4 mb-10">
+								<div className="max-w-lg">
+									<span className="text-gold text-base font-medium uppercase">
+										Sustainability
+									</span>
+									<h3 className="text-darkGreen text-center sm:text-left tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl mt-6 mb-10">
+										Our Commitment
+									</h3>
+									<Paragraph
+										content={`<p>A sustainable, environmentally focused approach recognizing the responsibility and the opportunity to influence the way buildings are built, sourced, managed, occupied and sold.</p>`}
+										tailwindStyling="text-medium text-greenTwo font-medium"
+									/>
+								</div>
+							</div>
+							<div className="w-full lg:w-1/2 px-4">
+								<div className="grid grid-cols-2 justify-center items-center">
+									<div className="px-4 mb-8">
+										<div className="flex items-center px-4 md:px-8">
+											<Image
+												alt=""
+												width={550}
+												height={550}
+												className="mx-auto object-cover object-center w-25 h-25 "
+												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/metlife-1.svg"
+											/>
+										</div>
+									</div>
+									<div className="px-4 mb-8 lg:mb-0">
+										<div className="flex items-center px-4 md:px-8">
+											<Image
+												alt=""
+												width={550}
+												height={550}
+												className="mx-auto object-cover object-center w-25 h-25 "
+												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/satshot.svg"
+											/>
+										</div>
+									</div>
+									<div className="px-4 mb-8 lg:mb-0">
+										<div className="flex items-center px-4 md:px-8">
+											<Image
+												alt=""
+												width={550}
+												height={550}
+												className="mx-auto object-cover object-center w-25 h-25"
+												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/nano-3.svg"
+											/>
+										</div>
+									</div>
+									<div className="px-4 mb-8 md:mb-0">
+										<div className="flex items-center px-4 md:px-8">
+											<Image
+												alt=""
+												width={550}
+												height={550}
+												className="mx-auto object-cover object-center w-25 h-25"
+												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/eiffage-construction.svg"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 				{/* IMAGE ARTICLE BANNER */}
 				<section
 					className="overflow-hidden bg-fixed bg-black bg-center bg-no-repeat bg-cover py-28"
 					style={{
 						backgroundImage:
-							"url('http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571472-scaled.jpg')",
+							"url('http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571467-1-scaled.jpg')",
 					}}
 				>
 					<div className="container px-4 mx-auto">
@@ -83,12 +164,12 @@ export default function Home({
 							className="px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
 							style={{backdropFilter: "blur(10px)"}}
 						>
-							<h2 className="mb-4 text-6xl font-bold leading-tight text-white md:text-7xl tracking-px-n">
+							<h2 className="mb-8 text-4xl font-medium leading-tight 2xl:text-5xl text-white">
 								Tenants; Help Us To Help You
 							</h2>
 							<Paragraph
 								content="<p>Our Letting agents love the challenge of helping you find your ideal home. Sometimes however, it can be more of a challenge than need be. So if you are looking to rent a property, here are a few guidelines that will really help us to help you. </p>"
-								tailwindStyling="text-lg font-medium leading-normal text-white mb-11"
+								tailwindStyling="text-medium leading-normal text-white my-11"
 							/>
 							<Link
 								className="inline-flex flex-wrap items-center text-white hover:text-darkGrey"
@@ -117,112 +198,12 @@ export default function Home({
 					</div>
 				</section>
 
-				<TestComponent
-					props="Test Component"
-					paragraph="<p>In our latest episode, CBRE’s <a href='www.google.com' target='blank'>Andrew Saunderson</a>, Head of UK Residential Capital Markets discusses the future of our cities with renowned urbanist, Professor Greg Clark. They uncover the long term impact of the pandemic, dive into why our cities must reinvent themselves to remain fit for purpose and look at the active role our cities need to play in helping to tackle climate change.</p>"
+				<Newsletter
+					title={content?.newsletterSignUp?.title}
+					titleTwo={content?.newsletterSignUp?.titleTwo}
+					paragraph={content?.newsletterSignUp?.paragraph}
+					paragraphTwo={content?.newsletterSignUp?.paragraphTwo}
 				/>
-
-				<section className="pt-24 pb-32 overflow-hidden bg-gradient-green">
-					<div className="container px-4 mx-auto">
-						<div className="max-w-md mx-auto mb-20">
-							<h2 className="mb-4 text-6xl font-semibold text-center text-darkGreen sm:text-7xl">
-								Got questions?
-							</h2>
-							<p className="text-lg text-center text-green">
-								Frequently Asked Questions
-							</p>
-						</div>
-						<div className="flex flex-wrap mb-24 -m-6">
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										Is it really unlimited downloads?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										Is it really unlimited downloads?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										Do you offer discounts on annual plans?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										Do you offer discounts on annual plans?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										What kind of file do you offer with the packages?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-							<div className="w-full p-6 md:w-1/2">
-								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-darkGreen text-medium">
-										What kind of file do you offer with the packages?
-									</h2>
-									<p className="text-base text-black">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Sagittis euismod ornare aenean ut justo elit amet. Gravida
-										pulvinar ac elementum praesent vel quis accumsan, proin
-										rhoncus.
-									</p>
-								</div>
-							</div>
-						</div>
-						<Link
-							className="block mx-auto overflow-hidden font-medium text-medium text-darkGreen group max-w-max"
-							href="#"
-						>
-							<p className="mb-1 hover:text-brightGreen">
-								Didn&rsquo;t find the answer? Contact us here
-							</p>
-							<div className="w-full h-px transition duration-500 ease-in-out transform -translate-x-0 group-hover:translate-x-full bg-gradient-cyan"></div>
-						</Link>
-					</div>
-				</section>
 			</main>
 		</>
 	);
@@ -313,6 +294,19 @@ export async function getStaticProps() {
 									}
 								}
 							}
+							trustedBrands {
+								title
+								logos {
+									image {
+										altText
+										sourceUrl
+										mediaDetails {
+											height
+											width
+										}
+									}
+								}
+							}
 							firstTimeLettings {
 								title
 								subtitle
@@ -341,6 +335,12 @@ export async function getStaticProps() {
 										}
 									}
 								}
+							}
+							newsletterSignUp {
+								title
+								titleTwo
+								paragraph
+								paragraphTwo
 							}
 						}
 					}
