@@ -2,7 +2,6 @@ import Image from "next/image";
 import {useState, FC} from "react";
 import Paragraph from "./Elements/Paragraph";
 import TextBoxCard from "./Cards/TextBoxCard";
-import {boolean} from "yup";
 
 interface IProps {
 	gridContent: [

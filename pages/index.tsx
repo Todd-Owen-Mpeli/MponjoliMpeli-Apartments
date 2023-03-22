@@ -1,7 +1,7 @@
 // Import
 import Link from "next/link";
-import Image from "next/image";
 import {gql} from "@apollo/client";
+import Image from "next/image";
 import {client} from "../config/apollo";
 import {getThemesOptionsContent} from "../lib/themesOptions";
 import {
@@ -12,14 +12,17 @@ import {
 
 // Components
 import Hero from "@/components/Hero";
+import Logos from "@/components/Logos";
+import Newsletter from "@/components/Newsletter";
 import MetaTag from "../components/Meta/MetaTag";
+import TextBoxImage from "@/components/TextBoxImage";
 import IntroSection from "@/components/IntroSection";
+import TextImageGrid from "@/components/TextImageGrid";
 import TestComponent from "../components/TestComponent";
 import Paragraph from "@/components/Elements/Paragraph";
-import TextBoxImage from "@/components/TextBoxImage";
-import TextImageGrid from "@/components/TextImageGrid";
-import Newsletter from "@/components/Newsletter";
-import Logos from "@/components/Logos";
+
+// Styling
+import styles from "../styles/components/IntroSection.module.scss";
 
 export default function Home({
 	seo,
@@ -78,71 +81,45 @@ export default function Home({
 				<TextImageGrid gridContent={content?.howItWorks?.gridContent} />
 
 				<section
-					className="py-20 xl:pt-24 bg-white bg-cover bg-center bg-no-repeat"
-					style={{
-						backgroundImage: `url("flex-ui-assets/elements/pattern-white.svg")`,
-					}}
+					className={`py-24 bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
 				>
-					<div className="container px-4 mx-auto">
-						<div className="flex flex-wrap items-center -mx-4">
-							<div className="w-full lg:w-1/2 px-4 mb-10">
-								<div className="max-w-lg">
-									<span className="text-gold text-base font-medium uppercase">
-										Sustainability
-									</span>
-									<h3 className="text-darkGreen text-center sm:text-left tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl mt-6 mb-10">
-										Our Commitment
-									</h3>
-									<Paragraph
-										content={`<p>A sustainable, environmentally focused approach recognizing the responsibility and the opportunity to influence the way buildings are built, sourced, managed, occupied and sold.</p>`}
-										tailwindStyling="text-medium text-greenTwo font-medium"
-									/>
-								</div>
+					<div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
+						<div className="grid items-center grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-36">
+							<div className="flex flex-col">
+								<span className="mb-4 text-gold text-base font-bold uppercase tracking-[0.25rem]">
+									Sustainability
+								</span>
+								<h2 className="mb-8 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+									Our Commitment to Sustainability.
+								</h2>
+								<Paragraph
+									content={`<p>A sustainable, environmentally focused approach recognizing the responsibility and the opportunity to influence the way buildings are built, sourced, managed, occupied and sold.</p>`}
+									tailwindStyling="text-medium text-white"
+								/>
 							</div>
-							<div className="w-full lg:w-1/2 px-4">
-								<div className="grid grid-cols-2 justify-center items-center">
-									<div className="px-4 mb-8">
-										<div className="flex items-center px-4 md:px-8">
-											<Image
-												alt=""
-												width={550}
-												height={550}
-												className="mx-auto object-cover object-center w-25 h-25 "
-												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/metlife-1.svg"
-											/>
-										</div>
-									</div>
-									<div className="px-4 mb-8 lg:mb-0">
-										<div className="flex items-center px-4 md:px-8">
-											<Image
-												alt=""
-												width={550}
-												height={550}
-												className="mx-auto object-cover object-center w-25 h-25 "
-												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/satshot.svg"
-											/>
-										</div>
-									</div>
-									<div className="px-4 mb-8 lg:mb-0">
-										<div className="flex items-center px-4 md:px-8">
-											<Image
-												alt=""
-												width={550}
-												height={550}
-												className="mx-auto object-cover object-center w-25 h-25"
-												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/nano-3.svg"
-											/>
-										</div>
-									</div>
-									<div className="px-4 mb-8 md:mb-0">
-										<div className="flex items-center px-4 md:px-8">
-											<Image
-												alt=""
-												width={550}
-												height={550}
-												className="mx-auto object-cover object-center w-25 h-25"
-												src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/eiffage-construction.svg"
-											/>
+
+							<div className="relative pl-20 pr-6 sm:pl-6 md:px-0">
+								<div className="relative">
+									<Image
+										alt=""
+										width={1050}
+										height={1050}
+										className="mx-auto object-cover object-center w-full lg:w-[700px] h-full min-h-[450px]"
+										src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/cr-planet-hero-972x1296-1.jpg"
+									/>
+
+									<div className="absolute bg-white -bottom-10 -left-16">
+										<div className="bg-yellow-300">
+											<div className="px-8 py-10">
+												<span className="block text-4xl font-bold text-black lg:text-5xl">
+													93%
+												</span>
+												<span className="block mt-2 text-base leading-tight text-black">
+													Tenant home
+													<br />
+													delight & satisfaction
+												</span>
+											</div>
 										</div>
 									</div>
 								</div>

@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const TextBoxCard: FC<IProps> = ({title, image, paragraph, cardPosition}) => {
-	console.log(cardPosition);
+	// console.log(cardPosition);
 
 	const cardPositioningStyling: string =
 		"w-full px-4 mb-8 lg:w-1/2 order-0 lg:order";
