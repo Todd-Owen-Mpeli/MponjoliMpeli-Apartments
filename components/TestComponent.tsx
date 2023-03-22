@@ -47,18 +47,18 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 		<TestComponentStyling>
 			<div className="relative w-full px-4 py-20 mx-auto lg:w-3/5">
 				<div className="flex flex-wrap items-start mx-4 mainContent gap-y-6">
-					<article className="relative w-full px-4 active md:w-1/2">
+					<article className="relative w-full px-4 active bg-darkGreen md:w-1/2">
 						<div className="relative z-10 px-8 pt-16 pb-20 leading-4 border border-black md:px-12 2xl:px-8 border-opacity-10 rounded-3xl">
 							<div>
 								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">1</span>
 								</div>
-								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
+								<h2 className="mb-8 text-4xl font-medium leading-tight 2xl:text-5xl">
 									Real-Time
 								</h2>
 								<Paragraph
 									content="<p>BlueInventory connects with your point of sale system and your e-commerce store so you have an instant snapshot of how your business is performing as a whole.</p>"
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-normal"
 								/>
 							</div>
 						</div>
@@ -69,12 +69,12 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">2</span>
 								</div>
-								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
+								<h2 className="mb-8 text-4xl font-medium leading-tight 2xl:text-5xl">
 									In-Depth Data
 								</h2>
 								<Paragraph
 									content={paragraph}
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-normal"
 								/>
 							</div>
 						</div>
@@ -85,12 +85,12 @@ const TestComponent: FC<IProps> = ({props, paragraph}) => {
 								<div className="relative inline-flex items-center justify-center w-12 h-12 mb-8 leading-6 text-white rounded-full bg-green">
 									<span className="text-2xl font-bold">3</span>
 								</div>
-								<h2 className="font-medium leading-tight mb-8 text-4xl 2xl:text-5xl font-heading">
+								<h2 className="mb-8 text-4xl font-medium leading-tight 2xl:text-5xl">
 									User Friendly
 								</h2>
 								<Paragraph
 									content="<p>Our reports are easy to use with lots of filters and customization options. Slice and dice the exact data you want and export as a CSV to simplify bookkeeping.</p>"
-									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-[1.5rem]"
+									tailwindStyling="mt-8 font-[400] text-darkGrey text-medium text-left leading-normal"
 								/>
 							</div>
 						</div>

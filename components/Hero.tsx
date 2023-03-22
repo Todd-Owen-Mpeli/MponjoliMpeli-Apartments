@@ -96,9 +96,9 @@ const Hero: FC<HeroProps> = ({
 	}
 
 	return (
-		<section className="bg-darkGreen">
+		<section className="pb-4 bg-green">
 			<div
-				className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[92vh]"
+				className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[98.5vh] rounded-br-[5%] mr-4"
 				style={{
 					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
 				}}
@@ -141,7 +141,7 @@ const Hero: FC<HeroProps> = ({
 							<Link
 								href={buttonLink?.url}
 								target={buttonLink?.target}
-								className="px-6 py-2 font-semibold transition duration-200 bg-white rounded-t-lg rounded-l-lg w-fit sm:mx-0 hover:bg-brightGreen text-green hover:text-white"
+								className="px-6 py-2 font-semibold transition duration-200 bg-white rounded-t-lg rounded-l-lg w-fit sm:mx-0 hover:bg-goldYellow text-green hover:text-white"
 							>
 								{buttonLink?.title}
 							</Link>
@@ -156,16 +156,6 @@ const Hero: FC<HeroProps> = ({
 					</div>
 				</div>
 			</div>
-			{/* Green SVG */}
-			<div className="mr-for-radius">
-				<svg
-					className="w-full h-8 md:h-12 lg:h-20 text-green"
-					viewBox="0 0 10 10"
-					preserveAspectRatio="none"
-				>
-					<polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-				</svg>
-			</div>
 
 			{/* Hidden Side Menu */}
 			<div
@@ -176,7 +166,7 @@ const Hero: FC<HeroProps> = ({
 				}
 			>
 				<div className="fixed inset-0 opacity-25 bg-darkGreen"></div>
-				<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-y-auto overflow-x-hidden bg-white">
+				<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-x-hidden overflow-y-auto bg-white">
 					<div className="flex flex-col items-center mb-8">
 						<Link
 							className="mt-10 mr-auto text-3xl font-bold leading-none"
@@ -209,7 +199,7 @@ const Hero: FC<HeroProps> = ({
 						</ul>
 					</div>
 					<div className="mt-20">
-						<div className="flex items-center justify-start gap-4 text-center mb-4">
+						<div className="flex items-center justify-start gap-4 mb-4 text-center">
 							<Link
 								className="inline-block px-1 text-green"
 								href={facebookLink}
@@ -318,7 +308,7 @@ const Hero: FC<HeroProps> = ({
 								</svg>
 							</Link>
 						</div>
-						<div className="flex flex-col sm:flex-row items-baseline gap-4">
+						<div className="flex flex-col items-baseline gap-4 sm:flex-row">
 							<div className="flex flex-col items-baseline justify-between my-6">
 								<h2 className="text-green font-[600] text-medium">
 									{mbeziContent?.title}
@@ -327,15 +317,15 @@ const Hero: FC<HeroProps> = ({
 									content={mbeziContent?.contactAddress}
 									tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 								/>
-								<div className="flex flex-col gap-y-6 mt-4">
+								<div className="flex flex-col mt-4 gap-y-6">
 									<Link
-										className="text-tiny leading-none transition-all duration-500 ease-in-out hover:text-green"
+										className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
 										href={`tel:${mbeziContent?.phoneNumber}`}
 									>
 										{mbeziContent?.phoneNumber}
 									</Link>
 									<Link
-										className="text-tiny leading-none transition-all duration-500 ease-in-out hover:text-green"
+										className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
 										href={`mailto:${mbeziContent?.email}`}
 									>
 										{mbeziContent?.email}
@@ -350,15 +340,15 @@ const Hero: FC<HeroProps> = ({
 									content={mbweniContent?.contactAddress}
 									tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 								/>
-								<div className="flex flex-col gap-y-6 mt-4">
+								<div className="flex flex-col mt-4 gap-y-6">
 									<Link
-										className="text-tiny leading-none transition-all duration-500 ease-in-out hover:text-green"
+										className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
 										href={`tel:${mbweniContent?.phoneNumber}`}
 									>
 										{mbweniContent?.phoneNumber}
 									</Link>
 									<Link
-										className="text-tiny leading-none transition-all duration-500 ease-in-out hover:text-green"
+										className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
 										href={`mailto:${mbweniContent?.email}`}
 									>
 										{mbweniContent?.email}

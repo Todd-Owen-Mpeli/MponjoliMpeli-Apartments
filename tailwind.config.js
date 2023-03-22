@@ -34,11 +34,13 @@ module.exports = {
 
 			// Main colors
 			blue: "#2563eb",
+			gold: "#d16415",
 			green: "#00946a",
 			greenTwo: "#003f2d",
 			darkBlue: "#0d172a",
 			flatGreen: "#538184",
 			darkGreen: "#012a2d",
+			goldYellow: "#D4AF37",
 			brightGreen: "#00c68e",
 			flatGreyGreen: "#435254",
 		},

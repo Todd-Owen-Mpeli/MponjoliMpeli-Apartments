@@ -13,8 +13,11 @@ import {
 // Components
 import Hero from "@/components/Hero";
 import MetaTag from "../components/Meta/MetaTag";
+import IntroSection from "@/components/IntroSection";
 import TestComponent from "../components/TestComponent";
-import TitleParagraphLetter from "@/components/TitleParagraphLetter";
+import Paragraph from "@/components/Elements/Paragraph";
+import TextBoxImage from "@/components/TextBoxImage";
+import TextImageGrid from "@/components/TextImageGrid";
 
 export default function Home({
 	seo,
@@ -46,20 +49,83 @@ export default function Home({
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
-				<TitleParagraphLetter
-					title={content?.heroSection?.title}
-					paragraph={`<p>Our friendly team will offer you a professional yet personal service that supports you at every stage of the purchasing process, enabling you to realise your dream home.</p>`}
+
+				<IntroSection
+					title={content?.introSection?.title}
+					image={content?.introSection?.image}
+					imageTwo={content?.introSection?.imageTwo}
+					paragraph={content?.introSection?.paragraph}
+					buttonLink={content?.introSection?.buttonLink}
+					imageLarge={content?.introSection?.imageLarge}
 				/>
+
+				{/* FIRST TIME BUYER */}
+				<TextBoxImage
+					title={content?.firstTimeLettings?.title}
+					image={content?.firstTimeLettings?.image}
+					subtitle={content?.firstTimeLettings?.subtitle}
+					paragraph={content?.firstTimeLettings?.paragraph}
+				/>
+
+				{/* CONTENT GRID */}
+				<TextImageGrid gridContent={content?.howItWorks?.gridContent} />
+
+				{/* IMAGE ARTICLE BANNER */}
+				<section
+					className="overflow-hidden bg-fixed bg-black bg-center bg-no-repeat bg-cover py-28"
+					style={{
+						backgroundImage:
+							"url('http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571472-scaled.jpg')",
+					}}
+				>
+					<div className="container px-4 mx-auto">
+						<div
+							className="px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
+							style={{backdropFilter: "blur(10px)"}}
+						>
+							<h2 className="mb-4 text-6xl font-bold leading-tight text-white md:text-7xl tracking-px-n">
+								Tenants; Help Us To Help You
+							</h2>
+							<Paragraph
+								content="<p>Our Letting agents love the challenge of helping you find your ideal home. Sometimes however, it can be more of a challenge than need be. So if you are looking to rent a property, here are a few guidelines that will really help us to help you. </p>"
+								tailwindStyling="text-lg font-medium leading-normal text-white mb-11"
+							/>
+							<Link
+								className="inline-flex flex-wrap items-center text-white hover:text-darkGrey"
+								href={`/`}
+							>
+								<span className="mr-2 font-semibold leading-normal tracking-wider">
+									Read Full Article
+								</span>
+								<svg
+									width="19"
+									height="18"
+									viewBox="0 0 19 18"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M11 3.75L16.25 9M16.25 9L11 14.25M16.25 9L2.75 9"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									></path>
+								</svg>
+							</Link>
+						</div>
+					</div>
+				</section>
 
 				<TestComponent
 					props="Test Component"
-					paragraph="<p>In our latest episode, CBRE’s <a href='www.google.com' target='blank'>Andrew Saunderson</a>, Head of UK Residential Capital Markets discusses the future of our cities with renowned urbanist, Professor Greg Clark. They uncover the long term impact of the pandemic, dive into why our cities must reinvent themselves to remain fit for purpose and look at the active role our cities need to play in helping to tackle climate change. </p>"
+					paragraph="<p>In our latest episode, CBRE’s <a href='www.google.com' target='blank'>Andrew Saunderson</a>, Head of UK Residential Capital Markets discusses the future of our cities with renowned urbanist, Professor Greg Clark. They uncover the long term impact of the pandemic, dive into why our cities must reinvent themselves to remain fit for purpose and look at the active role our cities need to play in helping to tackle climate change.</p>"
 				/>
 
 				<section className="pt-24 pb-32 overflow-hidden bg-gradient-green">
 					<div className="container px-4 mx-auto">
 						<div className="max-w-md mx-auto mb-20">
-							<h2 className="mb-4 text-6xl font-semibold text-center text-green sm:text-7xl">
+							<h2 className="mb-4 text-6xl font-semibold text-center text-darkGreen sm:text-7xl">
 								Got questions?
 							</h2>
 							<p className="text-lg text-center text-green">
@@ -69,7 +135,7 @@ export default function Home({
 						<div className="flex flex-wrap mb-24 -m-6">
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										Is it really unlimited downloads?
 									</h2>
 									<p className="text-base text-black">
@@ -82,7 +148,7 @@ export default function Home({
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										Is it really unlimited downloads?
 									</h2>
 									<p className="text-base text-black">
@@ -95,7 +161,7 @@ export default function Home({
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										Do you offer discounts on annual plans?
 									</h2>
 									<p className="text-base text-black">
@@ -108,7 +174,7 @@ export default function Home({
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										Do you offer discounts on annual plans?
 									</h2>
 									<p className="text-base text-black">
@@ -121,7 +187,7 @@ export default function Home({
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										What kind of file do you offer with the packages?
 									</h2>
 									<p className="text-base text-black">
@@ -134,7 +200,7 @@ export default function Home({
 							</div>
 							<div className="w-full p-6 md:w-1/2">
 								<div className="md:max-w-xl">
-									<h2 className="mb-4 font-medium text-green text-medium">
+									<h2 className="mb-4 font-medium text-darkGreen text-medium">
 										What kind of file do you offer with the packages?
 									</h2>
 									<p className="text-base text-black">
@@ -146,15 +212,15 @@ export default function Home({
 								</div>
 							</div>
 						</div>
-						<a
-							className="block mx-auto overflow-hidden text-base font-medium text-green group max-w-max"
+						<Link
+							className="block mx-auto overflow-hidden font-medium text-medium text-darkGreen group max-w-max"
 							href="#"
 						>
 							<p className="mb-1 hover:text-brightGreen">
 								Didn&rsquo;t find the answer? Contact us here
 							</p>
 							<div className="w-full h-px transition duration-500 ease-in-out transform -translate-x-0 group-hover:translate-x-full bg-gradient-cyan"></div>
-						</a>
+						</Link>
 					</div>
 				</section>
 			</main>
@@ -212,6 +278,68 @@ export async function getStaticProps() {
 								}
 								backgroundImage {
 									sourceUrl
+								}
+							}
+							introSection {
+								title
+								paragraph
+								buttonLink {
+									url
+									title
+									target
+								}
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageTwo {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageLarge {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+							}
+							firstTimeLettings {
+								title
+								subtitle
+								paragraph
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+							}
+							howItWorks {
+								gridContent {
+									card {
+										title
+										paragraph
+										image {
+											altText
+											sourceUrl
+											mediaDetails {
+												height
+												width
+											}
+										}
+									}
 								}
 							}
 						}
