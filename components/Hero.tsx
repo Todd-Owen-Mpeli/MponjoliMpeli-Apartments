@@ -38,6 +38,15 @@ interface HeroProps {
 			};
 		}
 	];
+	locationMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
 	heroMenuLinks: [
 		{
 			node: {
@@ -77,6 +86,7 @@ const Hero: FC<HeroProps> = ({
 	mainMenuLinks,
 	heroMenuLinks,
 	backgroundImage,
+	locationMenuLinks,
 }) => {
 	/* Hides or Displays the Full Nav Menu */
 	const [menuActive, setMenuActive] = useState(false);
@@ -86,9 +96,9 @@ const Hero: FC<HeroProps> = ({
 	}
 
 	return (
-		<section className="skewed-bottom-right">
+		<section className="bg-darkGreen">
 			<div
-				className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[90vh]"
+				className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[92vh]"
 				style={{
 					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
 				}}
@@ -118,7 +128,7 @@ const Hero: FC<HeroProps> = ({
 				<div className="container flex flex-col items-baseline justify-center px-0 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
 						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
-							<span>{title}</span>
+							{title}
 							<span className="ml-2 text-brightGreen">Today</span>
 						</h1>
 					</div>

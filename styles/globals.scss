@@ -45,9 +45,8 @@ a {
 	font-family: $fontStyle_main;
 }
 
-p,
 a,
-h1,
+p,
 h2,
 h3,
 h4,
@@ -62,6 +61,14 @@ button {
 	font-family: $fontStyle_main;
 }
 
+h1 {
+	font-family: $fontStyle_body;
+
+	span {
+		font-family: $fontStyle_body;
+	}
+}
+
 li,
 p {
 	a {
@@ -69,7 +76,7 @@ p {
 	}
 }
 
-/*  WASHING MACHINE
+/* SQUARES
 PAGE LOADING ANIMATION */
 .spinner-wrapper {
 	top: 0;

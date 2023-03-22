@@ -14,6 +14,7 @@ import {
 import Hero from "@/components/Hero";
 import MetaTag from "../components/Meta/MetaTag";
 import TestComponent from "../components/TestComponent";
+import TitleParagraphLetter from "@/components/TitleParagraphLetter";
 
 export default function Home({
 	seo,
@@ -23,7 +24,6 @@ export default function Home({
 	locationMenuLinks,
 	themesOptionsContent,
 }: any) {
-	// console.log(mainMenuLinks);
 	return (
 		<>
 			{/* <!--===== META TAG =====--> */}
@@ -37,13 +37,18 @@ export default function Home({
 					heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 					buttonLink={content?.heroSection?.buttonLink}
 					buttonLinkTwo={content?.heroSection?.buttonLinkTwo}
-					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
-					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
-					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
-					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
+					locationMenuLinks={locationMenuLinks?.locationMenuLinks}
 					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
 					mbeziContent={themesOptionsContent?.themesOptions?.mbeziContent}
+					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
+					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
+					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
+					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
+				/>
+				<TitleParagraphLetter
+					title={content?.heroSection?.title}
+					paragraph={`<p>Our friendly team will offer you a professional yet personal service that supports you at every stage of the purchasing process, enabling you to realise your dream home.</p>`}
 				/>
 
 				<TestComponent
