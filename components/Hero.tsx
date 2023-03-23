@@ -114,7 +114,7 @@ const Hero: FC<HeroProps> = ({
 								<NavbarMenuLinks
 									url={keys?.node?.url}
 									label={keys?.node?.label}
-									tailwindStyling="text-lg tracking-[.25rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
+									tailwindStyling="text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
 								/>
 							</li>
 						))}
@@ -128,6 +128,7 @@ const Hero: FC<HeroProps> = ({
 						<span aria-hidden="true"></span>
 					</button>
 				</nav>
+
 				<div className="container flex flex-col items-baseline justify-center px-0 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
 						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">

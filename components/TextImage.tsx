@@ -3,17 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp, fadeIn} from "../animations/animations";
-import styles from "../styles/components/IntroSection.module.scss";
+import {fadeIn} from "../animations/animations";
+import styles from "../styles/components/textImage.module.scss";
 
 interface IProps {
 	title: string;
 	paragraph: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
 	image: {
 		altText: string;
 		sourceUrl: string;
@@ -40,42 +35,32 @@ interface IProps {
 	};
 }
 
-const IntroSection: FC<IProps> = ({
+const TextImage: FC<IProps> = ({
 	title,
 	image,
 	imageTwo,
 	paragraph,
 	imageLarge,
-	buttonLink,
 }) => {
 	return (
 		<section
-			className={`flex flex-col items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
+			className={`flex flex-col items-center lg:flex-row bg-darkBlue bg-cover bg-center bg-no-repeat ${styles.textImage}`}
 		>
-			<div className="w-full px-4 py-20 lg:px-0 md:py-28 lg:w-1/2">
+			<div className="w-full px-4 py-20 lg:w-1/2">
 				<div className="flex flex-col items-center justify-center">
-					<h2 className="text-white text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-[600] text-8xl sm:text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
-						Welcome
+					<h2 className="text-white text-center w-fit mx-auto font-[600] text-8xl sm:text-8xl border-b-goldPrime border-b-2 mb-20">
+						MponjoliMpeli
 					</h2>
 					<motion.h2
 						variants={fadeIn}
-						className="text-white text-center tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl"
+						className="text-white text-center font-[400] text-2xl sm:text-3xl lg:text-5xl"
 					>
 						{title}
 					</motion.h2>
 					<Paragraph
 						content={paragraph}
-						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
+						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
 					/>
-					<motion.div variants={fadeInUp} className="mt-10">
-						<Link
-							href={buttonLink?.url}
-							target={buttonLink?.target}
-							className="px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
-						>
-							{buttonLink?.title}
-						</Link>
-					</motion.div>
 				</div>
 			</div>
 			<div className="flex w-full lg:w-1/2">
@@ -101,7 +86,7 @@ const IntroSection: FC<IProps> = ({
 						src={imageLarge?.sourceUrl}
 						width={imageLarge?.mediaDetails?.width}
 						height={imageLarge?.mediaDetails?.height}
-						className="object-cover object-center w-full min-h-full"
+						className="object-cover object-center w-full h-full min-h-[450px]"
 					/>
 				</div>
 			</div>
@@ -109,4 +94,4 @@ const IntroSection: FC<IProps> = ({
 	);
 };
 
-export default IntroSection;
+export default TextImage;

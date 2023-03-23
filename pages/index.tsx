@@ -77,7 +77,6 @@ export default function Home({
 					imageLarge={content?.introSection?.imageLarge}
 				/>
 
-				{/* FIRST TIME BUYER */}
 				<TextBoxImage
 					title={content?.firstTimeLettings?.title}
 					image={content?.firstTimeLettings?.image}
@@ -90,10 +89,8 @@ export default function Home({
 					logoGrid={content?.trustedBrands?.logos}
 				/>
 
-				{/* CONTENT GRID */}
 				<TextImageGrid gridContent={content?.howItWorks?.gridContent} />
 
-				{/* <!--===== CONTACT US BANNER =====--> */}
 				<ContactBanner
 					title={content?.contactBanner?.title}
 					paragraph={content?.contactBanner?.paragraph}
@@ -101,7 +98,6 @@ export default function Home({
 					backgroundImage={content?.contactBanner?.image?.sourceUrl}
 				/>
 
-				{/* SUSTAINABILITY */}
 				<Sustainability
 					image={content?.sustainability?.image}
 					title={content?.sustainability?.title}
