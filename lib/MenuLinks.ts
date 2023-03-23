@@ -51,6 +51,31 @@ export async function getHeroMenuLinks() {
 	};
 }
 
+// Footer Menu Links
+export async function getFooterMenuLinks() {
+	const content: any = gql`
+		{
+			footerMenuLinks: menuItems(where: {location: FOOTER}) {
+				edges {
+					node {
+						id
+						url
+						label
+					}
+				}
+			}
+		}
+	`;
+
+	const response: any = await client.query({
+		query: content,
+	});
+
+	return {
+		footerMenuLinks: response?.data?.footerMenuLinks?.edges,
+	};
+}
+
 // Location Menu Links
 export async function getLocationMenuLinks() {
 	const content: any = gql`

@@ -1,5 +1,7 @@
 import {FC} from "react";
+import {motion} from "framer-motion";
 import DOMPurify from "isomorphic-dompurify";
+import {fadeIn} from "../../animations/animations";
 
 interface ParagraphProps {
 	content: string;
@@ -15,7 +17,8 @@ const Paragraph: FC<ParagraphProps> = ({content, tailwindStyling}) => {
 	}
 
 	return (
-		<div
+		<motion.div
+			variants={fadeIn}
 			className={content ? `block ${tailwindStyling}` : `hidden`}
 			dangerouslySetInnerHTML={createParagraphMarkup(content)}
 		/>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {useState, FC} from "react";
+import {FC} from "react";
 import Paragraph from "./Elements/Paragraph";
 import TextBoxCard from "./Cards/TextBoxCard";
 
