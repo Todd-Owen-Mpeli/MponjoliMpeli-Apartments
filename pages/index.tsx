@@ -1,7 +1,7 @@
 // Import
 import Link from "next/link";
-import {gql} from "@apollo/client";
 import Image from "next/image";
+import {gql} from "@apollo/client";
 import {client} from "../config/apollo";
 import {getThemesOptionsContent} from "../lib/themesOptions";
 import {
@@ -23,6 +23,7 @@ import Paragraph from "@/components/Elements/Paragraph";
 
 // Styling
 import styles from "../styles/components/IntroSection.module.scss";
+import ImageGrid from "@/components/ImageGrid";
 
 export default function Home({
 	seo,
@@ -80,8 +81,9 @@ export default function Home({
 				{/* CONTENT GRID */}
 				<TextImageGrid gridContent={content?.howItWorks?.gridContent} />
 
+				{/* SUSTAINABILITY */}
 				<section
-					className={`py-24 bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
+					className={`py-16 bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
 				>
 					<div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
 						<div className="grid items-center grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-36">
@@ -93,7 +95,13 @@ export default function Home({
 									Our Commitment to Sustainability.
 								</h2>
 								<Paragraph
-									content={`<p>A sustainable, environmentally focused approach recognizing the responsibility and the opportunity to influence the way buildings are built, sourced, managed, occupied and sold.</p>`}
+									content={`<p>A sustainable, environmentally focused approach recognizing the responsibility and the opportunity to influence the way buildings are built, sourced, managed, occupied and sold. <br><br>
+									Our vision is to realise a more sustainable world for all. As the world’s largest manager of commercial buildings, we take proactive measures to make our properties and operations more environmentally sound.
+									<br><br>
+									We have an approved science-based greenhouse gas (GHG) emissions reduction target to significantly reduce the emissions generated through our operations and by the properties we manage. Across every service and team, both as individuals and as a company, every action matters, so we embed sustainability into everything we do.
+									<br><br>
+									We have a dedicated ESG strategy and team to ensure we deliver our global sustainability aims.
+									</p>`}
 									tailwindStyling="text-medium text-white"
 								/>
 							</div>
@@ -109,17 +117,15 @@ export default function Home({
 									/>
 
 									<div className="absolute bg-white -bottom-10 -left-16">
-										<div className="bg-yellow-300">
-											<div className="px-8 py-10">
-												<span className="block text-4xl font-bold text-black lg:text-5xl">
-													93%
-												</span>
-												<span className="block mt-2 text-base leading-tight text-black">
-													Tenant home
-													<br />
-													delight & satisfaction
-												</span>
-											</div>
+										<div className="px-8 py-10">
+											<span className="block text-4xl font-bold text-black lg:text-5xl">
+												93%
+											</span>
+											<span className="block mt-2 text-base leading-tight text-black">
+												Tenant home
+												<br />
+												delight & satisfaction
+											</span>
 										</div>
 									</div>
 								</div>
@@ -127,6 +133,78 @@ export default function Home({
 						</div>
 					</div>
 				</section>
+
+				{/* <section className="overflow-hidden py-2 bg-darkGreen">
+					<div className="flex flex-wrap">
+						<div className="flex w-1/2 flex-wrap">
+							<div className="w-1/2 p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1743228-scaled.jpg"
+								/>
+							</div>
+							<div className="w-1/2 p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1668860-scaled.jpg"
+								/>
+							</div>
+							<div className="w-full p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-11670289-scaled.jpg"
+								/>
+							</div>
+						</div>
+						<div className="flex w-1/2 flex-wrap">
+							<div className="w-full p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1571469-scaled.jpg"
+								/>
+							</div>
+							<div className="w-1/2 p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-10758464-scaled.jpg"
+								/>
+							</div>
+							<div className="w-1/2 p-1 md:p-2">
+								<Image
+									alt=""
+									width={1050}
+									height={1050}
+									className="block h-full w-full object-cover object-center"
+									src="http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-curtis-adams-8031874-scaled.jpg"
+								/>
+							</div>
+						</div>
+					</div>
+				</section> */}
+
+				<ImageGrid
+					image={content?.imageGrid?.image}
+					imageTwo={content?.imageGrid?.imageTwo}
+					imageThree={content?.imageGrid?.imageThree}
+					imageFour={content?.imageGrid?.imageFour}
+					imageFive={content?.imageGrid?.imageFive}
+					imageSix={content?.imageGrid?.imageSix}
+				/>
 
 				{/* IMAGE ARTICLE BANNER */}
 				<section
@@ -310,6 +388,56 @@ export async function getStaticProps() {
 												width
 											}
 										}
+									}
+								}
+							}
+							imageGrid {
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageTwo {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageThree {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageFour {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageFive {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageSix {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
 									}
 								}
 							}
