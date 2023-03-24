@@ -129,7 +129,7 @@ const Hero: FC<HeroProps> = ({
 					</button>
 				</nav>
 
-				<div className="container flex flex-col items-baseline justify-center px-0 m-auto text-center sm:text-left">
+				<div className="container flex flex-col items-baseline justify-center px-4 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
 						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}

@@ -35,9 +35,9 @@ const Sustainability: FC<IProps> = ({
 		<section
 			className={`py-16 bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
 		>
-			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-				<div className="grid items-center grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-36">
-					<div className="flex flex-col">
+			<div className="px-4 mx-auto max-w-7xl">
+				<div className="grid items-center grid-cols-1 gap-y-6 lg:grid-cols-2 md:gap-x-36">
+					<div className="flex flex-col px-4">
 						<span className="mb-4 text-goldPrime text-base font-[400] uppercase tracking-[0.25rem]">
 							{subtitle}
 						</span>
@@ -53,19 +53,19 @@ const Sustainability: FC<IProps> = ({
 						/>
 					</div>
 
-					<div className="relative pl-20 pr-6 sm:pl-6 md:px-0">
+					<div className="relative p-0 lg:pl-6 lg:px-0">
 						<div className="relative">
 							<Image
 								alt={image?.altText}
 								src={image?.sourceUrl}
 								width={image?.mediaDetails?.width}
 								height={image?.mediaDetails?.height}
-								className="mx-auto object-cover object-center w-full lg:w-[700px] h-full min-h-[450px]"
+								className="mx-auto object-cover object-center w-full lg:w-[700px] h-full max-h-[450px] lg:max-h-full min-h-[450px]"
 							/>
 
 							<motion.div
 								variants={fadeInTwo}
-								className="absolute bg-white -bottom-10 -left-16"
+								className="absolute bg-white -bottom-10 lg:-left-16"
 							>
 								<div className="px-8 py-10">
 									<span className="block text-4xl font-bold text-black lg:text-5xl">

@@ -11,10 +11,10 @@ interface IProps {
 
 const Newsletter: FC<IProps> = ({title, titleTwo, paragraph, paragraphTwo}) => {
 	return (
-		<section className="py-12 bg-[#07694e] bg-gradient-to-r from-greenTwo">
-			<div className="container px-4 mx-auto">
+		<section className="py-12 px-4 bg-[#07694e] bg-gradient-to-r from-greenTwo">
+			<div className="container px-0 mx-auto">
 				<div className="flex flex-wrap items-center">
-					<div className="w-full max-w-lg py-10 mx-auto mr-auto text-center lg:w-auto lg:ml-0 lg:text-left">
+					<div className="w-full max-w-lg py-10 mx-auto px-4  mr-auto text-center lg:w-auto lg:ml-0 lg:text-left">
 						<h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">
 							{title}
 						</h2>

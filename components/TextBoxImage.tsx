@@ -20,20 +20,20 @@ interface IProps {
 
 const TextBoxImage: FC<IProps> = ({title, image, subtitle, paragraph}) => {
 	return (
-		<section className="py-24 bg-white lg:px-8">
-			<div className="container px-0 mx-auto">
-				<div className="relative flex">
-					<div className="w-full xl:w-4/5 xl:ml-auto">
+		<section className="py-0 lg:py-24 bg-white lg:px-8">
+			<div className="lg:container px-0 mx-auto">
+				<div className="relative flex flex-col-reverse lg:flex-row">
+					<div className="w-full lg:w-4/5 lg:ml-auto">
 						<motion.div variants={fadeIn}>
 							<Image
 								alt={image?.altText}
 								src={image?.sourceUrl}
 								width={image?.mediaDetails?.width}
 								height={image?.mediaDetails?.height}
-								className="relative object-cover mx-auto mt-0 rounded-none sm:rounded-lg lg:mt-5 md:max-w-xl xl:max-w-4xl"
+								className="relative object-cover mx-auto mt-0 rounded-none lg:rounded-lg max-h-[450px] lg:max-h-full lg:mt-5 max-w-full lg:max-w-xl xl:max-w-4xl"
 							/>
 						</motion.div>
-						<div className="top-0 left-0 max-w-3xl px-6 py-8 mx-auto text-center rounded-none sm:rounded-lg bg-darkGreen xl:absolute xl:mx-0 lg:px-12 lg:py-16 border-green">
+						<div className="top-0 left-0 max-w-3xl px-6 py-8 mx-auto text-center rounded-none lg:rounded-lg bg-darkGreen lg:absolute xl:mx-0 lg:px-12 lg:py-16">
 							<span className="font-medium tracking-widest text-goldPrime text-medium">
 								{subtitle}
 							</span>

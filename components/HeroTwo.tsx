@@ -117,7 +117,7 @@ const HeroTwo: FunctionComponent<HeroProps> = ({
 							<span aria-hidden="true"></span>
 						</button>
 					</nav>
-					<div className="container flex flex-col items-center justify-center px-0 m-auto mt-24 text-center sm:text-left">
+					<div className="container flex flex-col items-center justify-center px-4 m-auto mt-24 text-center sm:text-left">
 						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 						</h1>

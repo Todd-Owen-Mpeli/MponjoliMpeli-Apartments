@@ -20,7 +20,7 @@ const TextBoxCard: FC<IProps> = ({title, image, paragraph, cardPosition}) => {
 	// console.log(cardPosition);
 
 	const cardPositioningStyling: string =
-		"w-full px-4 mb-8 lg:w-1/2 order-0 lg:order";
+		"w-full px-0 lg:px-4 mb-8 lg:w-1/2 order-0 lg:order";
 
 	return (
 		<div className="flex flex-wrap mb-20">

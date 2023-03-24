@@ -52,7 +52,7 @@ const IntroSection: FC<IProps> = ({
 		<section
 			className={`flex flex-col justify-center items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
-			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:px-0 lg:w-1/2">
+			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
 				<h2 className="text-white text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-semibold text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
 					Welcome
 				</h2>
@@ -93,7 +93,7 @@ const IntroSection: FC<IProps> = ({
 						className="object-cover object-center w-full h-full"
 					/>
 				</div>
-				<div>
+				<div className="hidden lg:block">
 					<Image
 						alt={imageLarge?.altText}
 						src={imageLarge?.sourceUrl}

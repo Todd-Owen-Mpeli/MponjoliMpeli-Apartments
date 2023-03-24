@@ -21,14 +21,14 @@ const ArticleImageBanner: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className="overflow-hidden bg-fixed bg-black bg-center bg-no-repeat bg-cover py-28"
+			className="overflow-hidden bg-fixed bg-black bg-center bg-no-repeat bg-cover px-4 py-28"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 			}}
 		>
-			<div className="container px-4 mx-auto">
+			<div className="container px-0 mx-auto">
 				<div
-					className="px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
+					className="px-6 sm:px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
 					style={{backdropFilter: "blur(10px)"}}
 				>
 					<h2 className="mb-8 text-4xl font-semibold leading-tight text-white 2xl:text-5xl">
