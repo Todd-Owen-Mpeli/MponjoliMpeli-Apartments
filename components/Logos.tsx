@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {motion} from "framer-motion";
 import {FunctionComponent} from "react";
 import LogoCard from "../components/Cards/LogoCard";
@@ -37,9 +36,7 @@ const Logos: FunctionComponent<IProps> = ({title, logoGrid}) => {
 						className="grid items-center justify-center grid-cols-2 gap-6 lg:gap-4 lg:grid-cols-6 lg:justify-between gap-y-8"
 					>
 						{logoGrid.map((keys) => (
-							<motion.div variants={fadeIn}>
-								<LogoCard key={keys?.id} image={keys?.image} />
-							</motion.div>
+							<LogoCard key={keys?.id} image={keys?.image} />
 						))}
 					</motion.div>
 				</div>
