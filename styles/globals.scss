@@ -73,6 +73,15 @@ h1 {
 	}
 }
 
+ol,
+ul {
+	li {
+		strong {
+			@apply text-goldPrime font-bold tracking-wider uppercase text-xl py-4;
+		}
+	}
+}
+
 li,
 p {
 	a {
@@ -100,8 +109,8 @@ PAGE LOADING ANIMATION */
 
 	.loader {
 		--duration: 3s;
-		--primary: rgba(0, 148, 106, 1);
-		--primary-light: #00946a;
+		--primary: #00c68e;
+		--primary-light: #00c68e;
 		--primary-rgba: rgba(0, 148, 106, 0);
 		width: 200px;
 		height: 320px;

@@ -2,11 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		domains: [
-			"mponjolimpeliapartments.local",
-			"mydummysite.co.uk",
-			"www.w3.org",
-		],
+		domains: ["mponjolimpeliapartments.local", "mydummysite.co.uk"],
 	},
 };
 

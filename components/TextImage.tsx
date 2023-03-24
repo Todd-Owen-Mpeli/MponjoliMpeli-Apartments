@@ -1,10 +1,8 @@
 import {FC} from "react";
-import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeIn} from "../animations/animations";
-import styles from "../styles/components/textImage.module.scss";
+import {fadeInUp} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -49,38 +47,36 @@ const TextImage: FC<IProps> = ({
 				backgroundImage: `url("/svg/backgroundStackedWaves.svg")`,
 			}}
 		>
-			<div className="w-full px-4 py-20 lg:w-1/2">
-				<div className="flex flex-col items-center justify-center max-w-lg mx-auto">
-					<h2 className="text-white text-center w-fit mx-auto font-[600] text-8xl sm:text-8xl border-b-goldPrime border-b-2 mb-20">
-						MponjoliMpeli
-					</h2>
-					<motion.h2
-						variants={fadeIn}
-						className="text-white text-center font-[400] text-2xl sm:text-3xl lg:text-5xl"
-					>
-						{title}
-					</motion.h2>
-					<Paragraph
-						content={paragraph}
-						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
-					/>
-				</div>
+			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:px-0 lg:w-1/2">
+				<h2 className="text-white text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-semibold text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
+					Welcome
+				</h2>
+				<motion.h2
+					variants={fadeInUp}
+					className="text-white text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
+				>
+					{title}
+				</motion.h2>
+				<Paragraph
+					content={paragraph}
+					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
+				/>
 			</div>
-			<div className="flex flex-col sm:flex-row w-full lg:w-1/2">
-				<div className="flex flex-col">
+			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
+				<div className="flex flex-col items-center justify-center">
 					<Image
 						alt={image?.altText}
 						src={image?.sourceUrl}
 						width={image?.mediaDetails?.width}
 						height={image?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full min-h-[450px]"
+						className="object-cover object-center w-full h-full"
 					/>
 					<Image
 						alt={imageTwo?.altText}
 						src={imageTwo?.sourceUrl}
 						width={imageTwo?.mediaDetails?.width}
 						height={imageTwo?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full min-h-[450px]"
+						className="object-cover object-center w-full h-full"
 					/>
 				</div>
 				<div>
@@ -89,7 +85,7 @@ const TextImage: FC<IProps> = ({
 						src={imageLarge?.sourceUrl}
 						width={imageLarge?.mediaDetails?.width}
 						height={imageLarge?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full min-h-[450px]"
+						className="object-cover object-center w-full min-h-[110vh]"
 					/>
 				</div>
 			</div>

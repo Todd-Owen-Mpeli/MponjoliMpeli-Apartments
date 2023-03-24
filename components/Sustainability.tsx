@@ -1,6 +1,8 @@
-import Image from "next/image";
 import {FC} from "react";
+import Image from "next/image";
+import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
+import {fadeIn, fadeInTwo} from "../animations/animations";
 
 // Styling
 import styles from "../styles/components/IntroSection.module.scss";
@@ -39,9 +41,12 @@ const Sustainability: FC<IProps> = ({
 						<span className="mb-4 text-goldPrime text-base font-[400] uppercase tracking-[0.25rem]">
 							{subtitle}
 						</span>
-						<h2 className="mb-8 text-3xl font-[400] leading-tight text-white sm:text-4xl lg:text-5xl">
+						<motion.h2
+							variants={fadeIn}
+							className="mb-8 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
+						>
 							{title}
-						</h2>
+						</motion.h2>
 						<Paragraph
 							content={paragraph}
 							tailwindStyling="text-medium text-white"
@@ -58,7 +63,10 @@ const Sustainability: FC<IProps> = ({
 								className="mx-auto object-cover object-center w-full lg:w-[700px] h-full min-h-[450px]"
 							/>
 
-							<div className="absolute bg-white -bottom-10 -left-16">
+							<motion.div
+								variants={fadeInTwo}
+								className="absolute bg-white -bottom-10 -left-16"
+							>
 								<div className="px-8 py-10">
 									<span className="block text-4xl font-bold text-black lg:text-5xl">
 										{percentage}
@@ -67,7 +75,7 @@ const Sustainability: FC<IProps> = ({
 										{imageText}
 									</span>
 								</div>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 				</div>

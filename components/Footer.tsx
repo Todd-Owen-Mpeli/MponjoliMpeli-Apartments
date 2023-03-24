@@ -1,12 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import React, {FC} from "react";
 import NavbarMenuLinks from "./Elements/NavbarMenuLinks";
-import Paragraph from "./Elements/Paragraph";
 
 interface IProps {
-	title: string;
-	paragraph: string;
 	linkedinLink: string;
 	instagramLink: string;
 	facebookLink: string;
@@ -24,8 +20,6 @@ interface IProps {
 }
 
 const Footer: FC<IProps> = ({
-	title,
-	paragraph,
 	twitterLink,
 	facebookLink,
 	linkedinLink,
@@ -35,33 +29,6 @@ const Footer: FC<IProps> = ({
 	return (
 		<section className="py-20 bg-darkGreen">
 			<div className="container px-4 mx-auto">
-				<div className="flex flex-col items-center justify-between max-w-2xl mx-auto mb-20 text-center lg:mb-40">
-					<Link
-						className="inline-block mx-auto mb-6 text-3xl font-bold leading-none text-white"
-						href="/"
-					>
-						<Image
-							alt=""
-							width={550}
-							height={550}
-							className="object-contain object-center h-12"
-							src="/img/logos/MponjoliMpeli Apartments Logo Icon.png"
-						/>
-					</Link>
-					<h2 className="mb-4 text-4xl font-bold text-white lg:text-5xl">
-						{title}
-					</h2>
-					<Paragraph
-						content={paragraph}
-						tailwindStyling="max-w-md mx-auto my-6 leading-normal text-medium text-white"
-					/>
-					<Link
-						href={`/`}
-						className="mt-4 px-6 py-4 font-[400] mx-auto tracking-widest text-white transition duration-200 rounded-t-lg rounded-l-lg bg-green w-fit sm:mx-0 hover:bg-goldYellow hover:text-white"
-					>
-						View your new home
-					</Link>
-				</div>
 				<div className="relative flex flex-wrap items-center justify-between gap-4">
 					<div className="w-full mb-6 lg:w-1/3">
 						<ul className="flex flex-wrap items-center justify-center lg:justify-start">
@@ -177,30 +144,30 @@ const Footer: FC<IProps> = ({
 						</Link>
 					</div>
 					<div className="flex justify-center w-full lg:w-1/3 lg:justify-end">
-						<span className="text-tiny text-brightGreen">
-							&copy; Copyright 2023. All rights reserved by MponjoliMpeli Plc
-						</span>
+						<Link
+							href={`/cookiesPolicy`}
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+						>
+							Cookies Policy
+						</Link>
+						<Link
+							href={`/termsConditions`}
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+						>
+							Terms &amp; Conditions
+						</Link>
+						<Link
+							href={`/privacyPolicy`}
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+						>
+							Privacy Policy
+						</Link>
 					</div>
 				</div>
 				<div className="flex items-center justify-center gap-4 mt-10">
-					<Link
-						href={`/cookiesPolicy`}
-						className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
-					>
-						Cookies Policy
-					</Link>
-					<Link
-						href={`/termsConditions`}
-						className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
-					>
-						Terms &amp; Conditions
-					</Link>
-					<Link
-						href={`/privacyPolicy`}
-						className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
-					>
-						Privacy Policy
-					</Link>
+					<span className="text-tiny text-brightGreen">
+						&copy; Copyright 2023. All rights reserved by MponjoliMpeli Plc
+					</span>
 				</div>
 			</div>
 		</section>

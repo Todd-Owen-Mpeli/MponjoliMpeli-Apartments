@@ -39,7 +39,7 @@ const TextBoxImage: FC<IProps> = ({title, image, subtitle, paragraph}) => {
 							</span>
 							<motion.h2
 								variants={fadeInUp}
-								className="max-w-lg mx-auto my-8 text-5xl font-medium leading-tight text-white"
+								className="max-w-lg mx-auto my-8 text-5xl font-semibold leading-tight text-white"
 							>
 								{title}
 							</motion.h2>

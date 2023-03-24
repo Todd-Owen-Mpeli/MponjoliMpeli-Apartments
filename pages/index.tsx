@@ -1,6 +1,4 @@
 // Import
-import Link from "next/link";
-import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -16,7 +14,6 @@ import {
 import Hero from "@/components/Hero";
 import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
-import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
 import Newsletter from "@/components/Newsletter";
 import MetaTag from "../components/Meta/MetaTag";
@@ -24,7 +21,6 @@ import TextBoxImage from "@/components/TextBoxImage";
 import IntroSection from "@/components/IntroSection";
 import ContactBanner from "@/components/ContactBanner";
 import TextImageGrid from "@/components/TextImageGrid";
-import Paragraph from "@/components/Elements/Paragraph";
 import Sustainability from "@/components/Sustainability";
 import ArticleImageBanner from "@/components/ArticleImageBanner";
 
@@ -133,9 +129,7 @@ export default function Home({
 				/>
 
 				<Footer
-					title={`The search is over, Your New Home Awaits`}
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
-					paragraph={`<p>All apartments comprises entrance hallway, living room, kitchen / diner and WC. And have rear gardens and parking spaces.</p>`}
 					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
 					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
 					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
@@ -145,6 +139,7 @@ export default function Home({
 		</motion.div>
 	);
 }
+
 export async function getStaticProps() {
 	const getHomePageContent: any = gql`
 		{

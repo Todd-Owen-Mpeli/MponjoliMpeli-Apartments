@@ -35,7 +35,7 @@ const ContactBanner: FC<IProps> = ({
 			<div className="container p-0 mx-auto">
 				<div className="flex flex-col items-center justify-between gap-10 px-0 py-8 lg:flex-row lg:px-8">
 					<div className="flex flex-col items-center justify-between gap-4 lg:items-start">
-						<h2 className="mb-4 text-3xl font-[400] leading-tight text-white sm:text-4xl lg:text-5xl">
+						<h2 className="mb-4 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
 							{title}
 						</h2>
 						<Paragraph
@@ -50,7 +50,7 @@ const ContactBanner: FC<IProps> = ({
 						<Link
 							href={`${buttonLink?.url}`}
 							target={`${buttonLink?.target}`}
-							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-[400] text-white text-base bg-green hover:bg-greenTwo transition-all ease-in-out duration-500"
+							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-[400] text-white text-base bg-green hover:bg-[#d1a855] transition-all ease-in-out duration-500"
 						>
 							{buttonLink?.title}
 						</Link>

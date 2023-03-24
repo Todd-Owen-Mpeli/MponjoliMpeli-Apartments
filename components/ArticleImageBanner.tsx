@@ -31,7 +31,7 @@ const ArticleImageBanner: FC<IProps> = ({
 					className="px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
 					style={{backdropFilter: "blur(10px)"}}
 				>
-					<h2 className="mb-8 text-4xl font-medium leading-tight text-white 2xl:text-5xl">
+					<h2 className="mb-8 text-4xl font-semibold leading-tight text-white 2xl:text-5xl">
 						{title}
 					</h2>
 					<Paragraph

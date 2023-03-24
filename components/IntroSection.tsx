@@ -50,49 +50,47 @@ const IntroSection: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`flex flex-col items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
+			className={`flex flex-col justify-center items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
-			<div className="w-full px-4 py-20 lg:px-0 md:py-28 lg:w-1/2">
-				<div className="flex flex-col items-center justify-center">
-					<h2 className="text-white text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-[600] text-8xl sm:text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
-						Welcome
-					</h2>
-					<motion.h2
-						variants={fadeIn}
-						className="text-white text-center tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl"
+			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:px-0 lg:w-1/2">
+				<h2 className="text-white text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-semibold text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
+					Welcome
+				</h2>
+				<motion.h2
+					variants={fadeIn}
+					className="text-white text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
+				>
+					{title}
+				</motion.h2>
+				<Paragraph
+					content={paragraph}
+					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
+				/>
+				<motion.div variants={fadeInUp} className="mt-10">
+					<Link
+						href={buttonLink?.url}
+						target={buttonLink?.target}
+						className="px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
 					>
-						{title}
-					</motion.h2>
-					<Paragraph
-						content={paragraph}
-						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
-					/>
-					<motion.div variants={fadeInUp} className="mt-10">
-						<Link
-							href={buttonLink?.url}
-							target={buttonLink?.target}
-							className="px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
-						>
-							{buttonLink?.title}
-						</Link>
-					</motion.div>
-				</div>
+						{buttonLink?.title}
+					</Link>
+				</motion.div>
 			</div>
-			<div className="flex flex-col sm:flex-row w-full lg:w-1/2">
-				<div className="flex flex-col">
+			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
+				<div className="flex flex-col items-center justify-center">
 					<Image
 						alt={image?.altText}
 						src={image?.sourceUrl}
 						width={image?.mediaDetails?.width}
 						height={image?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full min-h-[450px]"
+						className="object-cover object-center w-full h-full"
 					/>
 					<Image
 						alt={imageTwo?.altText}
 						src={imageTwo?.sourceUrl}
 						width={imageTwo?.mediaDetails?.width}
 						height={imageTwo?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full min-h-[450px]"
+						className="object-cover object-center w-full h-full"
 					/>
 				</div>
 				<div>
@@ -101,7 +99,7 @@ const IntroSection: FC<IProps> = ({
 						src={imageLarge?.sourceUrl}
 						width={imageLarge?.mediaDetails?.width}
 						height={imageLarge?.mediaDetails?.height}
-						className="object-cover object-center w-full min-h-full"
+						className="object-cover object-center w-full min-h-[110vh]"
 					/>
 				</div>
 			</div>
