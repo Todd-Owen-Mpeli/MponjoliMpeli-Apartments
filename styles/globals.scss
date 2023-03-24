@@ -96,13 +96,13 @@ PAGE LOADING ANIMATION */
 	position: fixed;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(13, 23, 42, 0.95);
+	background-color: rgba(1, 42, 45, 0.95);
 
 	.loader {
 		--duration: 3s;
-		--primary: rgba(39, 94, 254, 1);
-		--primary-light: #2f71ff;
-		--primary-rgba: rgba(39, 94, 254, 0);
+		--primary: rgba(0, 148, 106, 1);
+		--primary-light: #00946a;
+		--primary-rgba: rgba(0, 148, 106, 0);
 		width: 200px;
 		height: 320px;
 		position: relative;

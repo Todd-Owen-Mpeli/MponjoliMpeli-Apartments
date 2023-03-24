@@ -66,61 +66,61 @@ const about = ({
 					imageLarge={content?.introSection?.imageLarge}
 				/>
 
-				<section className="py-16 bg-darkGreen overflow-hidden">
+				<section
+					className="py-16 bg-darkGreen overflow-hidden bg-cover bg-center bg-no-repeat"
+					style={{
+						backgroundImage: `url("/svg/backgroundBlob.svg")`,
+					}}
+				>
 					<div className="container mx-auto px-0">
-						<div className="flex flex-col items-center justify-center px-8">
-							<div className="">
-								<h2 className="text-white text-center font-[400] text-2xl sm:text-3xl lg:text-5xl">
-									Grow fast, with us
+						<div className="flex flex-col lg:flex-row items-center justify-between gap-4 px-8">
+							<div className="flex flex-col items-center justify-center">
+								<h2 className="text-white text-center tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl">
+									Providing Homes for the future communities
 								</h2>
 								<Paragraph
-									content={`<p>Having built multiple of new apartments over the years, we have also completed a similar number of conversion projects. A number of these have been recognized for excellence by the local planning authorities and have received prestigious awards.
-									<br><br>
-									MponjoliMpeli Apartments works closely with a team of highly trusted local consultants with a wealth of experience.
-									<br><br>
-									Our ethos is one of excellence, we strive to create beautiful homes that people will enjoy living within.
-									</p>`}
+									content={`<p>Having built multiple of new apartments over the years, we have also completed a similar number of conversion projects. A number of these have been recognized for excellence by the local planning authorities and have received prestigious awards.</p>`}
 									tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
 								/>
 							</div>
-							{/* <div className="flex flex-wrap">
-									<div className="w-full md:w-1/2 p-4">
-										<div className="py-14 px-8 text-center h-full bg-gray-100 rounded-3xl">
-											<div className="md:max-w-xs mx-auto">
-												<h2 className="mb-6 text-5xl md:text-6xl lg:text-7xl text-grey font-black tracking-tight">
-													<span className="text-transparent bg-clip-text bg-gradient-green-dark">
-														98%
-													</span>
-												</h2>
-												<h3 className="mb-3.5 text-xl text-grey font-bold">
-													Average Satisfaction Rate
-												</h3>
-												<Paragraph
-													content={`<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor</p>`}
-													tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
-												/>
-											</div>
+							<div className="flex flex-col sm:flex-row items-center justify-center">
+								<div className="w-full lg:w-1/2 p-4">
+									<div className="py-14 px-8 text-center h-full bg-gray-100 rounded-3xl">
+										<div className="md:max-w-xs mx-auto">
+											<h2 className="mb-6 font-bold text-5xl md:text-6xl lg:text-7xl text-goldPrime">
+												<span className="text-transparent bg-clip-text bg-gradient-green-dark">
+													93%
+												</span>
+											</h2>
+											<h3 className="mb-3.5 text-xl text-goldPrime font-bold">
+												Tenant Home Delight & Satisfaction
+											</h3>
+											<Paragraph
+												content={`<p>MponjoliMpeli Apartments works closely with a team of highly trusted local consultants with a wealth of experience.</p>`}
+												tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
+											/>
 										</div>
 									</div>
-									<div className="w-full md:w-1/2 p-4">
-										<div className="py-14 px-8 text-center h-full bg-gray-100 rounded-3xl">
-											<div className="md:max-w-xs mx-auto">
-												<h2 className="mb-6 text-5xl md:text-6xl lg:text-7xl text-grey font-black tracking-tight">
-													<span className="text-transparent bg-clip-text bg-gradient-orange">
-														117%
-													</span>
-												</h2>
-												<h3 className="mb-3.5 text-xl text-grey font-bold">
-													Average ROI on Ads
-												</h3>
-												<Paragraph
-													content={`<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor</p>`}
-													tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
-												/>
-											</div>
+								</div>
+								<div className="w-full lg:w-1/2 p-4">
+									<div className="py-14 px-8 text-center h-full bg-gray-100 rounded-3xl">
+										<div className="md:max-w-xs mx-auto">
+											<h2 className="mb-6 font-bold text-5xl md:text-6xl lg:text-7xl text-goldPrime">
+												<span className="text-transparent bg-clip-text bg-gradient-orange">
+													13 Years
+												</span>
+											</h2>
+											<h3 className="mb-3.5 text-xl text-goldPrime font-bold">
+												Of experience & long term relationships
+											</h3>
+											<Paragraph
+												content={`<p>Our ethos is one of excellence, we strive to create beautiful homes that people will enjoy living within.</p>`}
+												tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
+											/>
 										</div>
 									</div>
-								</div> */}
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>

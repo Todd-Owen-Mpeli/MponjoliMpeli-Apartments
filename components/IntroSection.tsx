@@ -78,7 +78,7 @@ const IntroSection: FC<IProps> = ({
 					</motion.div>
 				</div>
 			</div>
-			<div className="flex w-full lg:w-1/2">
+			<div className="flex flex-col sm:flex-row w-full lg:w-1/2">
 				<div className="flex flex-col">
 					<Image
 						alt={image?.altText}

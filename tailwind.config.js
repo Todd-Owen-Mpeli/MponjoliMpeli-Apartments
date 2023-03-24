@@ -39,7 +39,7 @@ module.exports = {
 			greenTwo: "#003f2d",
 			darkBlue: "#0d172a",
 			goldPrime: "#dfc695",
-			flatGreen: "#538184",
+			flatGreen: "#04393d",
 			darkGreen: "#012a2d",
 			goldYellow: "#D4AF37",
 			brightGreen: "#00c68e",

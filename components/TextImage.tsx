@@ -44,10 +44,13 @@ const TextImage: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`flex flex-col items-center lg:flex-row bg-darkBlue bg-cover bg-center bg-no-repeat ${styles.textImage}`}
+			className={`flex flex-col items-center lg:flex-row bg-darkGreen bg-cover bg-center bg-no-repeat`}
+			style={{
+				backgroundImage: `url("/svg/backgroundStackedWaves.svg")`,
+			}}
 		>
 			<div className="w-full px-4 py-20 lg:w-1/2">
-				<div className="flex flex-col items-center justify-center">
+				<div className="flex flex-col items-center justify-center max-w-lg mx-auto">
 					<h2 className="text-white text-center w-fit mx-auto font-[600] text-8xl sm:text-8xl border-b-goldPrime border-b-2 mb-20">
 						MponjoliMpeli
 					</h2>
@@ -63,7 +66,7 @@ const TextImage: FC<IProps> = ({
 					/>
 				</div>
 			</div>
-			<div className="flex w-full lg:w-1/2">
+			<div className="flex flex-col sm:flex-row w-full lg:w-1/2">
 				<div className="flex flex-col">
 					<Image
 						alt={image?.altText}
