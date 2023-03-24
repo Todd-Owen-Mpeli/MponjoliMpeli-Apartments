@@ -15,7 +15,7 @@ const noPageExits = ({}: any) => {
 					className="h-[100vh] bg-cover bg-center bg-[no-repeat] flex flex-col justify-center items-center"
 					style={{
 						backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),
-									url("http://mponjolimpeliapartments.local/wp-content/uploads/2023/03/pexels-vecislavas-popa-1643383-scaled.jpg")`,
+									url("https://mydummysite.co.uk/ToddLearningTwo/wp-content/uploads/2023/03/pexels-vecislavas-popa-1643383-scaled.jpg")`,
 					}}
 				>
 					<div className="px-10 my-auto overflow-hidden py-44">
