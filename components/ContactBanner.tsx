@@ -46,7 +46,7 @@ const ContactBanner: FC<IProps> = ({
 					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
 						<motion.button
 							variants={fadeIn}
-							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-[400] text-white text-base bg-green hover:bg-[#d1a855] transition-all ease-in-out duration-500"
+							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-semibold text-white text-base bg-green hover:bg-goldPrimeDark transition-all ease-in-out duration-500"
 						>
 							{buttonLink?.title}
 						</motion.button>
