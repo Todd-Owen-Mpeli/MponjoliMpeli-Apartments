@@ -28,7 +28,7 @@ const TextBoxCard: FC<IProps> = ({title, image, paragraph, cardPosition}) => {
 				</h3>
 				<Paragraph
 					content={paragraph}
-					tailwindStyling="mt-4 text-base leading-loose md:text-medium text-darkGrey"
+					tailwindStyling="mt-4 text-center font-semibold lg:text-left leading-loose lg:leading-normal text-medium text-black"
 				/>
 			</div>
 			<div
