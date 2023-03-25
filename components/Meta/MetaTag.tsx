@@ -42,7 +42,7 @@ const MetaTag: FC<IProps> = ({seo, title}) => {
 			<meta name="description" content={seo?.metaDesc} />
 			<link
 				rel="icon"
-				href="/img/Logos/MponjoliMpeli Apartments Logo Icon.png"
+				href="/img/Logos/MponjoliMpeli-Apartments-Logo-Icon.png"
 			/>
 			<meta
 				name="robots"

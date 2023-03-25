@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {FunctionComponent} from "react";
-import {fadeIn, stagger} from "../../animations/animations";
+import {fadeIn} from "../../animations/animations";
 
 interface IProps {
 	image: {
@@ -21,7 +21,7 @@ const LogoCard: FunctionComponent<IProps> = ({image}) => {
 				src={image?.sourceUrl}
 				width={image?.mediaDetails?.width}
 				height={image?.mediaDetails?.height}
-				className="w-full h-[75px] sm:h-[100px] lg:h-[125px] object-contain object center"
+				className="w-full h-[50px] sm:h-[75px] lg:h-[125px] object-contain object center"
 			/>
 		</motion.div>
 	);
