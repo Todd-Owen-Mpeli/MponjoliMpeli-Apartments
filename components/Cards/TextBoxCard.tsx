@@ -22,13 +22,13 @@ const TextBoxCard: FC<IProps> = ({title, image, paragraph, cardPosition}) => {
 
 	return (
 		<div className="flex flex-wrap mb-20">
-			<div className="flex flex-col order-1 w-full px-4 lg:w-1/2 lg:pr-20 lg:pt-4 lg:order-0">
+			<div className="flex flex-col order-1 w-full px-4 lg:w-1/2 py-4 lg:order-0">
 				<h3 className="my-4 text-xl text-center font-bold text-greenTwo md:text-2xl">
 					{title}
 				</h3>
 				<Paragraph
 					content={paragraph}
-					tailwindStyling="mt-4 text-center font-semibold lg:text-left leading-loose lg:leading-normal text-medium text-black"
+					tailwindStyling="mt-4 text-center lg:text-left leading-loose lg:leading-normal text-medium text-darkGrey"
 				/>
 			</div>
 			<div
