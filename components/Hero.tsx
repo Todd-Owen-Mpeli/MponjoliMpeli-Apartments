@@ -114,7 +114,7 @@ const Hero: FC<HeroProps> = ({
 								<NavbarMenuLinks
 									url={keys?.node?.url}
 									label={keys?.node?.label}
-									tailwindStyling="text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
+									tailwindStyling="lg text-medium xl:text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
 								/>
 							</li>
 						))}
