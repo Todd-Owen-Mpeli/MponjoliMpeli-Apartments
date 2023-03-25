@@ -21,13 +21,13 @@ interface IProps {
 const ContentStats: FC<IProps> = ({title, statsOne, statsTwo, paragraph}) => {
 	return (
 		<section
-			className="py-16 overflow-hidden bg-center bg-no-repeat bg-cover bg-darkGreen"
+			className="py-20 overflow-hidden bg-center bg-no-repeat bg-cover bg-darkGreen"
 			style={{
 				backgroundImage: `url("/svg/backgroundBlob.svg")`,
 			}}
 		>
 			<div className="container px-0 mx-auto">
-				<div className="flex flex-col items-center justify-between gap-4 px-8 lg:flex-row">
+				<div className="flex flex-col items-center justify-between gap-x-24 px-8 lg:flex-row">
 					<div className="flex flex-col items-center justify-center">
 						<motion.h2
 							variants={fadeInUp}
@@ -42,42 +42,34 @@ const ContentStats: FC<IProps> = ({title, statsOne, statsTwo, paragraph}) => {
 					</div>
 					<motion.div
 						variants={stagger}
-						className="flex flex-col items-center justify-center sm:flex-row"
+						className="flex flex-col items-center justify-center lg:flex-row"
 					>
-						<motion.div variants={fadeInUp} className="w-full p-4 lg:w-1/2">
-							<div className="h-full px-8 text-center bg-gray-100 py-14 rounded-3xl">
-								<div className="mx-auto md:max-w-xs">
-									<h2 className="mb-6 text-5xl font-semibold md:text-6xl lg:text-7xl text-goldPrime">
-										<span className="text-transparent bg-clip-text bg-gradient-green-dark">
-											{statsOne?.subtitle}
-										</span>
-									</h2>
-									<h3 className="mb-3.5 text-xl text-goldPrime font-bold">
-										{statsOne?.title}
-									</h3>
-									<Paragraph
-										content={statsOne?.paragraph}
-										tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
-									/>
-								</div>
+						<motion.div variants={fadeInUp} className="w-full lg:w-1/2">
+							<div className="mx-auto lg:max-w-lg p-4 lg:px-8 text-center lg:py-4">
+								<h2 className="text-center mb-6 text-5xl font-semibold md:text-6xl lg:text-7xl text-goldPrime">
+									{statsOne?.subtitle}
+								</h2>
+								<h3 className="mb-3.5 text-center text-xl text-goldPrime font-bold">
+									{statsOne?.title}
+								</h3>
+								<Paragraph
+									content={statsOne?.paragraph}
+									tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
+								/>
 							</div>
 						</motion.div>
-						<motion.div variants={fadeInUp} className="w-full p-4 lg:w-1/2">
-							<div className="h-full px-8 text-center bg-gray-100 py-14 rounded-3xl">
-								<div className="mx-auto md:max-w-xs">
-									<h2 className="mb-6 text-5xl font-bold md:text-6xl lg:text-7xl text-goldPrime">
-										<span className="text-transparent bg-clip-text bg-gradient-orange">
-											{statsTwo?.subtitle}
-										</span>
-									</h2>
-									<h3 className="mb-3.5 text-xl text-goldPrime font-bold">
-										{statsTwo?.title}
-									</h3>
-									<Paragraph
-										content={statsTwo?.paragraph}
-										tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
-									/>
-								</div>
+						<motion.div variants={fadeInUp} className="w-full lg:w-1/2">
+							<div className="p-4 lg:px-8 lg:py-4 mx-auto lg:max-w-lg">
+								<h2 className="text-center mb-6 text-5xl font-bold md:text-6xl lg:text-7xl text-goldPrime">
+									{statsTwo?.subtitle}
+								</h2>
+								<h3 className="mb-3.5 text-center text-xl text-goldPrime font-bold">
+									{statsTwo?.title}
+								</h3>
+								<Paragraph
+									content={statsTwo?.paragraph}
+									tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
+								/>
 							</div>
 						</motion.div>
 					</motion.div>

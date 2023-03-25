@@ -67,6 +67,7 @@ export default function Home({
 				<IntroSection
 					title={content?.introSection?.title}
 					image={content?.introSection?.image}
+					subtitle={content?.introSection?.subtitle}
 					imageTwo={content?.introSection?.imageTwo}
 					paragraph={content?.introSection?.paragraph}
 					buttonLink={content?.introSection?.buttonLink}
@@ -195,6 +196,7 @@ export async function getStaticProps() {
 							}
 							introSection {
 								title
+								subtitle
 								paragraph
 								buttonLink {
 									url
