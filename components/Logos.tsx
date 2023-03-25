@@ -33,7 +33,7 @@ const Logos: FunctionComponent<IProps> = ({title, logoGrid}) => {
 				<div className="max-w-6xl mx-auto">
 					<motion.div
 						variants={stagger}
-						className="grid items-center justify-center grid-cols-2 gap-6 lg:gap-4 lg:grid-cols-6 lg:justify-between gap-y-8"
+						className="grid items-center justify-center grid-cols-2 gap-4 lg:grid-cols-6 lg:justify-between"
 					>
 						{logoGrid.map((keys) => (
 							<LogoCard key={keys?.id} image={keys?.image} />
