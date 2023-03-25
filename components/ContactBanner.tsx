@@ -43,18 +43,14 @@ const ContactBanner: FC<IProps> = ({
 							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white font-[400] text-medium"
 						/>
 					</div>
-					<motion.div
-						variants={fadeIn}
-						className={buttonLink?.url ? `block` : `hidden`}
-					>
-						<Link
-							href={`${buttonLink?.url}`}
-							target={`${buttonLink?.target}`}
+					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
+						<motion.button
+							variants={fadeIn}
 							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-[400] text-white text-base bg-green hover:bg-[#d1a855] transition-all ease-in-out duration-500"
 						>
 							{buttonLink?.title}
-						</Link>
-					</motion.div>
+						</motion.button>
+					</Link>
 				</div>
 			</div>
 		</section>

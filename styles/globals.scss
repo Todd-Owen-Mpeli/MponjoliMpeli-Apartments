@@ -52,6 +52,9 @@ svg:hover {
 
 a,
 p,
+h1,
+h2,
+h3,
 h4,
 h5,
 h6,
@@ -64,28 +67,12 @@ button {
 	font-family: $fontStyle_main;
 }
 
-h1,
-h2,
-h3 {
-	font-family: $fontStyle_body;
-
-	span {
-		font-family: $fontStyle_body;
-	}
-}
-
 ol,
 ul {
 	li {
 		strong {
 			@apply text-goldPrime font-bold tracking-wider uppercase text-xl py-4;
 		}
-	}
-}
-
-button {
-	a {
-		font-family: $fontStyle_body;
 	}
 }
 
