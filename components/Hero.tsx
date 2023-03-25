@@ -101,7 +101,7 @@ const Hero: FC<HeroProps> = ({
 	return (
 		<section className="pb-0 lg:pb-4 bg-green bg-gradient-to-t from-darkGreen">
 			<div
-				className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[98.5vh]"
+				className="flex flex-col bg-cover bg-center bg-no-repeat h-full min-h-[98.5vh]"
 				style={{
 					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
 				}}
