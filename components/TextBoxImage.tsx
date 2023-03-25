@@ -33,7 +33,7 @@ const TextBoxImage: FC<IProps> = ({title, image, subtitle, paragraph}) => {
 								className="relative object-cover mx-auto mt-0 rounded-none lg:rounded-lg max-h-[450px] lg:max-h-full lg:mt-5 max-w-full lg:max-w-xl xl:max-w-4xl"
 							/>
 						</motion.div>
-						<div className="top-0 left-0 max-w-3xl px-6 py-8 mx-auto text-center rounded-none lg:rounded-lg bg-darkGreen lg:absolute xl:mx-0 lg:px-12 lg:py-16">
+						<div className="top-0 left-0 max-w-3xl px-6 py-20 mx-auto text-center rounded-none lg:rounded-lg bg-darkGreen lg:absolute xl:mx-0 lg:px-12 lg:py-20">
 							<span className="font-medium tracking-widest text-goldPrime text-medium">
 								{subtitle}
 							</span>

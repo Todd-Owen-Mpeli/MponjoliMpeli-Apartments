@@ -131,7 +131,7 @@ const Hero: FC<HeroProps> = ({
 
 				<div className="container flex flex-col items-baseline justify-center px-4 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
-						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
+						<h1 className="mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 							<motion.span
 								variants={fadeInTwo}
@@ -144,7 +144,7 @@ const Hero: FC<HeroProps> = ({
 					<div className="max-w-lg">
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="mb-6 text-white leading-[1.75rem] font-[500] text-medium text-center sm:text-left"
+							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center sm:text-left"
 						/>
 						<motion.div
 							variants={stagger}

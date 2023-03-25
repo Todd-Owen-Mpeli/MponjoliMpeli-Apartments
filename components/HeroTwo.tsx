@@ -118,13 +118,13 @@ const HeroTwo: FunctionComponent<HeroProps> = ({
 						</button>
 					</nav>
 					<div className="container flex flex-col items-center justify-center px-4 m-auto mt-24 text-center sm:text-left">
-						<h1 className="mb-3 text-6xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
+						<h1 className="mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 						</h1>
 						<div className="max-w-2xl mt-10">
 							<Paragraph
 								content={paragraph}
-								tailwindStyling="mb-6 text-white leading-[1.75rem] font-[500] text-medium text-center"
+								tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center"
 							/>
 						</div>
 					</div>
