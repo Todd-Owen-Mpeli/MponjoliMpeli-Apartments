@@ -55,7 +55,7 @@ const IntroSection: FC<IProps> = ({
 			className={`flex flex-col justify-center items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
 			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
-				<h2 className="text-goldPrime text-center w-fit mx-auto tracking-normal leading-[2.75rem] font-semibold text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
+				<h2 className="text-goldPrime text-center w-fit mx-auto tracking-normal font-semibold text-6xl sm:text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
 					{subtitle}
 				</h2>
 				<motion.h2
