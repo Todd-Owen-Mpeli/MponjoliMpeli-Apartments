@@ -1,4 +1,5 @@
 // Import
+import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -16,8 +17,12 @@ import HeroTwo from "@/components/HeroTwo";
 import TextImage from "@/components/TextImage";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
+import TeamMembers from "@/components/TeamMembers";
 import ContentStats from "@/components/ContentStats";
 import ContactBanner from "@/components/ContactBanner";
+import Paragraph from "../components/Elements/Paragraph";
+import Link from "next/link";
+import TextImageTwo from "@/components/TextImageTwo";
 
 const about = ({
 	seo,
@@ -70,6 +75,20 @@ const about = ({
 					paragraph={content?.contentStats?.paragraph}
 					statsOne={content?.contentStats?.statsOne}
 					statsTwo={content?.contentStats?.statsTwo}
+				/>
+
+				<TeamMembers
+					title={content?.teamMembers?.title}
+					paragraph={content?.teamMembers?.paragraph}
+					profileGrid={content?.teamMembers?.profileGrid}
+				/>
+
+				<TextImageTwo
+					title={content?.textImage?.title}
+					image={content?.textImage?.image}
+					paragraph={content?.textImage?.paragraph}
+					imageText={content?.textImage?.imageText}
+					imageTextTwo={content?.textImage?.imageTextTwo}
 				/>
 
 				<ContactBanner
@@ -193,6 +212,38 @@ export async function getStaticProps() {
 									title
 									subtitle
 									paragraph
+								}
+							}
+							teamMembers {
+								title
+								paragraph
+								profileGrid {
+									profileCard {
+										title
+										jobPosition
+										image {
+											altText
+											sourceUrl
+											mediaDetails {
+												height
+												width
+											}
+										}
+									}
+								}
+							}
+							textImage {
+								title
+								paragraph
+								imageText
+								imageTextTwo
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
 								}
 							}
 							contactBanner {

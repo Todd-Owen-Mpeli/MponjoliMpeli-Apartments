@@ -40,7 +40,7 @@ const ContactBanner: FC<IProps> = ({
 						</h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white font-[400] text-medium"
+							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white text-medium"
 						/>
 					</div>
 					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
