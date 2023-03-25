@@ -21,7 +21,7 @@ const ArticleImageBanner: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className="overflow-hidden bg-fixed bg-black bg-center bg-no-repeat bg-cover px-4 py-28"
+			className="overflow-hidden sm:bg-fixed bg-darkGreen bg-center bg-no-repeat bg-cover px-4 py-28"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 			}}
