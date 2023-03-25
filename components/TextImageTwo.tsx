@@ -56,7 +56,7 @@ const TextImageTwo: FC<IProps> = ({
 					</div>
 
 					<div className="w-full lg:w-1/2">
-						<div className="flex items-center mx-auto md:mx-0 justify-center w-16 h-16 bg-flatGreen rounded-full">
+						<div className="flex items-center mx-auto lg:mx-0 justify-center w-16 h-16 bg-flatGreen rounded-full">
 							<svg
 								className="w-8 h-8 text-goldPrime"
 								xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const TextImageTwo: FC<IProps> = ({
 								/>
 							</svg>
 						</div>
-						<h2 className="mt-10 text-3xl font-bold leading-tight text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight">
+						<h2 className="mt-10 text-3xl text-center lg:text-left font-bold leading-tight text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight">
 							{title}
 						</h2>
 						<Paragraph
