@@ -21,7 +21,7 @@ const LogoCard: FunctionComponent<IProps> = ({image}) => {
 				src={image?.sourceUrl}
 				width={image?.mediaDetails?.width}
 				height={image?.mediaDetails?.height}
-				className="w-full h-[75px] sm:h-[125px] object-contain object center"
+				className="w-full h-[75px] sm:h-[100px] lg:h-[125px] object-contain object center"
 			/>
 		</motion.div>
 	);
