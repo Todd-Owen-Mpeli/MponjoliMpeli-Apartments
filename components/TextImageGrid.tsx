@@ -28,7 +28,7 @@ const TextImageGrid: FC<IProps> = ({gridContent}) => {
 	const cardPositioning: boolean = true;
 
 	return (
-		<section className="py-20">
+		<section className="py-20 bg-white">
 			<div className="container px-4 mx-auto">
 				{gridContent?.map((keys) => (
 					<TextBoxCard
