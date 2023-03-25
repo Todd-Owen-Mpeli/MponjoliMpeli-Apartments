@@ -5,13 +5,13 @@
 }
 
 @font-face {
-	font-family: Lexend Deca;
-	src: url("./fonts/LexendDeca-VariableFont_wght.ttf");
+	font-family: Inter;
+	src: url("./fonts/InterTight-VariableFont_wght.ttf");
 }
 
 // Font Stack Properties
 $fontStyle_main: "Bitter", sans-serif;
-$fontStyle_body: "Lexend Deca", sans-serif;
+$fontStyle_body: "Inter", sans-serif;
 
 // Font Sizes
 $fontSize_xSmall: 0.75rem;

@@ -150,24 +150,24 @@ const Hero: FC<HeroProps> = ({
 							variants={stagger}
 							className="flex justify-center gap-4 sm:justify-start item-center"
 						>
-							<motion.div variants={fadeInUp}>
+							<motion.button variants={fadeInUp}>
 								<Link
 									href={buttonLink?.url}
 									target={buttonLink?.target}
-									className="px-6 py-2 font-semibold transition duration-200 bg-white rounded-t-lg rounded-l-lg w-fit sm:mx-0 hover:bg-goldYellow text-green hover:text-white"
+									className="px-6 py-3 font-semibold transition duration-200 bg-white rounded-t-lg rounded-l-lg w-fit sm:mx-0 hover:bg-goldYellow text-green hover:text-white"
 								>
 									{buttonLink?.title}
 								</Link>
-							</motion.div>
-							<motion.div variants={fadeInUp}>
+							</motion.button>
+							<motion.button variants={fadeInUp}>
 								<Link
 									href={buttonLinkTwo?.url}
 									target={buttonLinkTwo?.target}
-									className="px-6 py-2 font-semibold text-white transition duration-200 rounded-t-lg rounded-l-lg w-fit sm:mx-0 bg-green hover:bg-brightGreen"
+									className="px-6 py-3 font-semibold text-white transition duration-200 rounded-t-lg rounded-l-lg w-fit sm:mx-0 bg-green hover:bg-brightGreen"
 								>
 									{buttonLinkTwo?.title}
 								</Link>
-							</motion.div>
+							</motion.button>
 						</motion.div>
 					</div>
 				</div>

@@ -52,8 +52,6 @@ svg:hover {
 
 a,
 p,
-h2,
-h3,
 h4,
 h5,
 h6,
@@ -66,7 +64,9 @@ button {
 	font-family: $fontStyle_main;
 }
 
-h1 {
+h1,
+h2,
+h3 {
 	font-family: $fontStyle_body;
 
 	span {
@@ -83,6 +83,12 @@ ul {
 	}
 }
 
+button {
+	a {
+		font-family: $fontStyle_body;
+	}
+}
+
 li,
 p {
 	a {
@@ -91,7 +97,7 @@ p {
 }
 
 p {
-	@apply tracking-wide;
+	@apply tracking-wider;
 }
 
 /* SQUARES
