@@ -1,4 +1,6 @@
 // Import
+import Link from "next/link";
+import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -11,16 +13,15 @@ import {
 } from "../lib/MenuLinks";
 
 // Components
-import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
-import IntroSection from "@/components/IntroSection";
 import ContactBanner from "@/components/ContactBanner";
-import ContentBackgroundImage from "@/components/ContentBackgroundImage";
+import Paragraph from "../components/Elements/Paragraph";
+import ContactInfo from "@/components/ContactInfo";
 
-const firstTimeLettings = ({
+const contactUs = ({
 	seo,
 	content,
 	pageTitle,
@@ -57,21 +58,13 @@ const firstTimeLettings = ({
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
 
-				<IntroSection
-					title={content?.introSection?.title}
-					image={content?.introSection?.image}
-					subtitle={content?.introSection?.subtitle}
-					imageTwo={content?.introSection?.imageTwo}
-					paragraph={content?.introSection?.paragraph}
-					buttonLink={content?.introSection?.buttonLink}
-					imageLarge={content?.introSection?.imageLarge}
-				/>
-
-				<ContentBackgroundImage gridContent={content?.gridContent} />
-
-				<Logos
-					title={content?.trustedBrands?.title}
-					logoGrid={content?.trustedBrands?.logos}
+				<ContactInfo
+					email={themesOptionsContent?.themesOptions?.email}
+					phoneNumber={themesOptionsContent?.themesOptions?.phoneNumber}
+					phoneNumberTwo={themesOptionsContent?.themesOptions?.phoneNumber}
+					contactAddress={
+						themesOptionsContent?.themesOptions?.mbeziContent?.contactAddress
+					}
 				/>
 
 				<ContactBanner
@@ -102,19 +95,19 @@ const firstTimeLettings = ({
 	);
 };
 
-export default firstTimeLettings;
+export default contactUs;
 
 export async function getStaticProps() {
-	const getFirstTimeLettingsPageContent: any = gql`
+	const getContactUsPagePageContent: any = gql`
 		{
-			pageTitle: pages(where: {id: 447, status: PUBLISH}) {
+			pageTitle: pages(where: {id: 610, status: PUBLISH}) {
 				edges {
 					node {
 						title
 					}
 				}
 			}
-			mainContent: pages(where: {id: 447, status: PUBLISH}) {
+			mainContent: pages(where: {id: 610, status: PUBLISH}) {
 				edges {
 					node {
 						seo {
@@ -146,68 +139,12 @@ export async function getStaticProps() {
 								mediaItemUrl
 							}
 						}
-						firstTimeLettingsPage {
+						contactUsPage {
 							heroSection {
 								title
 								paragraph
 								backgroundImage {
 									sourceUrl
-								}
-							}
-							introSection {
-								title
-								subtitle
-								paragraph
-								buttonLink {
-									url
-									title
-									target
-								}
-								image {
-									altText
-									sourceUrl
-									mediaDetails {
-										height
-										width
-									}
-								}
-								imageTwo {
-									altText
-									sourceUrl
-									mediaDetails {
-										height
-										width
-									}
-								}
-								imageLarge {
-									altText
-									sourceUrl
-									mediaDetails {
-										height
-										width
-									}
-								}
-							}
-							gridContent {
-								card {
-									title
-									paragraph
-									backgroundImage {
-										sourceUrl
-									}
-								}
-							}
-							trustedBrands {
-								title
-								logos {
-									image {
-										altText
-										sourceUrl
-										mediaDetails {
-											height
-											width
-										}
-									}
 								}
 							}
 							contactBanner {
@@ -280,7 +217,7 @@ export async function getStaticProps() {
 	`;
 
 	const response: any = await client.query({
-		query: getFirstTimeLettingsPageContent,
+		query: getContactUsPagePageContent,
 	});
 
 	const mainMenuLinks: object = await getMainMenuLinks();
@@ -298,8 +235,7 @@ export async function getStaticProps() {
 			themesOptionsContent,
 			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
 			pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
-			content:
-				response.data?.mainContent?.edges[0]?.node?.firstTimeLettingsPage,
+			content: response.data?.mainContent?.edges[0]?.node?.contactUsPage,
 		},
 		revalidate: 60,
 	};
