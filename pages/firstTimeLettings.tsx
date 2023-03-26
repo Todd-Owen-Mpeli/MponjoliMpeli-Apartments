@@ -4,6 +4,7 @@ import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
+import {fadeInUp} from "../animations/animations";
 import {getThemesOptionsContent} from "../lib/themesOptions";
 import {
 	getMainMenuLinks,
@@ -21,6 +22,7 @@ import MetaTag from "../components/Meta/MetaTag";
 import IntroSection from "@/components/IntroSection";
 import ContactBanner from "@/components/ContactBanner";
 import Paragraph from "../components/Elements/Paragraph";
+import ContentBackgroundImage from "@/components/ContentBackgroundImage";
 
 const firstTimeLettings = ({
 	seo,
@@ -69,120 +71,7 @@ const firstTimeLettings = ({
 					imageLarge={content?.introSection?.imageLarge}
 				/>
 
-				<section className="py-20 bg-goldPrimeDark">
-					<div className="container px-4 mx-auto">
-						<div className="flex flex-wrap mb-12 -mx-3">
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="p-12 text-center rounded bg-goldPrime md:p-20">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Startup
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center font-semibold text-medium"
-									/>
-								</div>
-							</div>
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="px-8 py-12 text-center rounded md:p-20 bg-goldPrime">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Development
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center text-medium"
-									/>
-								</div>
-							</div>
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="px-8 py-12 text-center rounded md:p-20 bg-goldPrime">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Startup
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center text-medium"
-									/>
-								</div>
-							</div>
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="px-8 py-12 text-center rounded md:p-20 bg-goldPrime">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Development
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center text-medium"
-									/>
-								</div>
-							</div>
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="px-8 py-12 text-center rounded md:p-20 bg-goldPrime">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Startup
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center text-medium"
-									/>
-								</div>
-							</div>
-							<div className="w-full h-full px-3 mb-6 lg:w-1/2">
-								<div className="px-8 py-12 text-center rounded md:p-20 bg-goldPrime">
-									<span className="px-4 py-3 font-semibold tracking-[0.25rem] text-white uppercase rounded-full text-tiny bg-darkGreen">
-										Development
-									</span>
-									<h3 className="mt-10 mb-2 text-2xl font-bold text-darkGreen">
-										Curabitur vestibulum odio maximus.
-									</h3>
-									<Paragraph
-										content={`<p>Aenean tempus orci eu est ultrices hendrerit. Fusce
-											suscipit, leo a semper venenatis, felis urna pulvinar
-											nibh, vitae porta erat risus sed mauris. Vestibulum
-											vehicula leo eget libero eleifend, quis dictum eros
-											bibendum. Maecenas convallis tempor varius.</p>`}
-										tailwindStyling="mb-8 w-full lg:max-w-2xl mx-auto mt-4 py-8 text-darkGreen text-center text-medium"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				<ContentBackgroundImage gridContent={content?.gridContent} />
 
 				<Logos
 					title={content?.trustedBrands?.title}
@@ -300,6 +189,15 @@ export async function getStaticProps() {
 									mediaDetails {
 										height
 										width
+									}
+								}
+							}
+							gridContent {
+								card {
+									title
+									paragraph
+									backgroundImage {
+										sourceUrl
 									}
 								}
 							}
