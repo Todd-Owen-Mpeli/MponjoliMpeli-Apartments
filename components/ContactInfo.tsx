@@ -26,7 +26,7 @@ const ContactInfo: FC<IProps> = ({
 					tailwindStyling="mb-20 text-medium text-white text-center leading-normal md:max-w-lg mx-auto"
 				/>
 				<div className="flex flex-col lg:flex-row justify-center items-center gap-4">
-					<div className="w-full md:w-1/3 p-3">
+					<div className="w-full lg:w-1/3 p-3">
 						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
 							<div className="mb-6 relative mx-auto w-16 h-16 border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
@@ -58,7 +58,7 @@ const ContactInfo: FC<IProps> = ({
 							</Link>
 						</div>
 					</div>
-					<div className="w-full md:w-1/3 p-3">
+					<div className="w-full lg:w-1/3 p-3">
 						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
 							<div className="mb-6 relative mx-auto w-16 h-16  border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
@@ -104,7 +104,7 @@ const ContactInfo: FC<IProps> = ({
 							</div>
 						</div>
 					</div>
-					<div className="w-full md:w-1/3 p-3">
+					<div className="w-full lg:w-1/3 p-3">
 						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
 							<div className="mb-6 relative mx-auto w-16 h-16 border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
