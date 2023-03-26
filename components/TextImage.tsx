@@ -65,20 +65,20 @@ const TextImage: FC<IProps> = ({
 				/>
 			</div>
 			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
-				<div className="flex flex-col items-center justify-center">
+				<div className="flex flex-row lg:flex-col items-center justify-center">
 					<Image
 						alt={image?.altText}
 						src={image?.sourceUrl}
 						width={image?.mediaDetails?.width}
 						height={image?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full"
+						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
 					/>
 					<Image
 						alt={imageTwo?.altText}
 						src={imageTwo?.sourceUrl}
 						width={imageTwo?.mediaDetails?.width}
 						height={imageTwo?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full"
+						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
 					/>
 				</div>
 				<div className="hidden lg:block">

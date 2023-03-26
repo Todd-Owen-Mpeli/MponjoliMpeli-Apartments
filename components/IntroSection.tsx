@@ -68,31 +68,30 @@ const IntroSection: FC<IProps> = ({
 					content={paragraph}
 					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
 				/>
-				<motion.div variants={fadeInUp} className="mt-10">
-					<Link
-						href={buttonLink?.url}
-						target={buttonLink?.target}
-						className="px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
+				<Link href={buttonLink?.url} target={buttonLink?.target}>
+					<motion.button
+						variants={fadeInUp}
+						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
 					>
 						{buttonLink?.title}
-					</Link>
-				</motion.div>
+					</motion.button>
+				</Link>
 			</div>
 			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
-				<div className="flex flex-col items-center justify-center">
+				<div className="flex flex-row lg:flex-col items-center justify-center">
 					<Image
 						alt={image?.altText}
 						src={image?.sourceUrl}
 						width={image?.mediaDetails?.width}
 						height={image?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full"
+						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
 					/>
 					<Image
 						alt={imageTwo?.altText}
 						src={imageTwo?.sourceUrl}
 						width={imageTwo?.mediaDetails?.width}
 						height={imageTwo?.mediaDetails?.height}
-						className="object-cover object-center w-full h-full"
+						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
 					/>
 				</div>
 				<div className="hidden lg:block">

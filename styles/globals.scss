@@ -79,7 +79,7 @@ ul {
 li,
 p {
 	a {
-		@apply text-green transition-all ease-in-out duration-500 hover:text-brightGreen focus:text-brightGreen;
+		@apply text-brightGreen transition-all ease-in-out duration-500 hover:text-goldPrime focus:text-goldPrime;
 	}
 }
 
