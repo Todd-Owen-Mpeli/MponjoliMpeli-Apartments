@@ -26,8 +26,8 @@ const ContactInfo: FC<IProps> = ({
 					tailwindStyling="mb-20 text-medium text-white text-center leading-normal md:max-w-lg mx-auto"
 				/>
 				<div className="flex flex-col lg:flex-row justify-center items-center gap-4">
-					<div className="w-full lg:w-1/3 p-3">
-						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
+					<div className="w-full h-full lg:min-h-[400px] lg:w-1/3 p-3 border border-goldPrime">
+						<div className="p-11 text-center flex flex-col justify-center items-center gap-4">
 							<div className="mb-6 relative mx-auto w-16 h-16 border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
 									<svg
@@ -52,14 +52,14 @@ const ContactInfo: FC<IProps> = ({
 							</h3>
 							<Link
 								href={`mailto:${email}`}
-								className="font-medium text-white text-medium leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-brightGreen"
+								className="font-medium text-white text-base sm:text-medium leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-brightGreen"
 							>
 								{email}
 							</Link>
 						</div>
 					</div>
-					<div className="w-full lg:w-1/3 p-3">
-						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
+					<div className="w-full h-full lg:min-h-[400px] lg:w-1/3 p-3 border border-goldPrime">
+						<div className="p-11 text-center flex flex-col justify-center items-center gap-4">
 							<div className="mb-6 relative mx-auto w-16 h-16  border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
 									<svg
@@ -82,21 +82,21 @@ const ContactInfo: FC<IProps> = ({
 							<h3 className="mb-4 text-xl font-bold text-goldPrime leading-snug">
 								Call Us
 							</h3>
-							<div className="flex flex-col items-center justify-center gap-2">
-								<span className="flex text-white text-medium font-medium  text-center lg:text-left">
+							<div className="flex flex-col items-center justify-center  gap-4 sm:gap-2">
+								<span className="flex flex-col sm:flex-row gap-4 text-white text-medium font-medium text-center lg:text-left">
 									Main Office:
 									<Link
 										href={`tel:${phoneNumber}`}
-										className="ml-2 text-white text-medium leading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
+										className="ml-2 text-white text-base sm:text-mediumleading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
 									>
 										{phoneNumber}
 									</Link>
 								</span>
-								<span className="flex text-white text-medium font-medium text-center lg:text-left">
+								<span className="flex flex-col sm:flex-row gap-4 text-white text-medium font-medium text-center lg:text-left">
 									Enquires:
 									<Link
 										href={`tel:${phoneNumberTwo}`}
-										className="ml-2 text-white text-medium leading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
+										className="ml-2 text-white text-base sm:text-medium leading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
 									>
 										{phoneNumberTwo}
 									</Link>
@@ -104,8 +104,8 @@ const ContactInfo: FC<IProps> = ({
 							</div>
 						</div>
 					</div>
-					<div className="w-full lg:w-1/3 p-3">
-						<div className="p-11 h-full text-center border border-goldPrime rounded-xl shadow-11xl">
+					<div className="w-full h-full lg:min-h-[400px] lg:w-1/3 p-3 border border-goldPrime">
+						<div className="p-11 text-center flex flex-col justify-center items-center gap-4">
 							<div className="mb-6 relative mx-auto w-16 h-16 border border-goldPrime rounded-full">
 								<div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
 									<svg
@@ -137,7 +137,7 @@ const ContactInfo: FC<IProps> = ({
 							</h3>
 							<Paragraph
 								content={contactAddress}
-								tailwindStyling="font-medium text-medium leading-relaxed text-white"
+								tailwindStyling="font-medium text-base sm:text-medium leading-relaxed text-white"
 							/>
 						</div>
 					</div>
