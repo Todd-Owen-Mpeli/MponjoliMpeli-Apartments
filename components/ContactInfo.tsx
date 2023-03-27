@@ -87,7 +87,7 @@ const ContactInfo: FC<IProps> = ({
 									Main Office:
 									<Link
 										href={`tel:${phoneNumber}`}
-										className="ml-2 text-white text-base sm:text-mediumleading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
+										className="ml-2 text-white text-base sm:text-medium leading-relaxed transition-all duration-500 ease-in-out hover:text-brightGreen"
 									>
 										{phoneNumber}
 									</Link>
