@@ -42,9 +42,9 @@ const mbeziSlugs = ({
 			</motion.h1>
 
 			{/* <!--===== META TAG =====--> */}
-			{/* <MetaTag title={pageTitle} seo={seo} />
+			{/* <MetaTag title={pageTitle} seo={seo} /> */}
 
-			<main>
+			{/* <main>
 				<Hero
 					title={content?.heroSection?.title}
 					paragraph={content?.heroSection?.paragraph}
