@@ -2,7 +2,6 @@
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../../../config/apollo";
-import {fadeInUp} from "../../../animations/animations";
 import {getThemesOptionsContent} from "../../../lib/themesOptions";
 import {
 	getMainMenuLinks,
