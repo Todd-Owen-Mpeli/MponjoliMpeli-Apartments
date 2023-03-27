@@ -107,21 +107,21 @@ const SideMenu: FC<HeroProps> = ({
 						))}
 
 						{/* Our Locations Menu Links*/}
-						<li className="mb-1 border-b-[1px] border-green border-opacity-50">
+						<li className="mb-1">
 							<span
 								onClick={displayLocationMenu}
-								className="block py-4 font-semibold text-black text-medium"
+								className="block py-4 font-semibold text-black text-medium border-b-[1px] border-green border-opacity-50border-b-[1px] border-green border-opacity-50"
 							>
 								Our Locations
 							</span>
 							{LocationMenuOpen ? (
-								<ul className="flex flex-col justify-center my-2 bg-darkPink bg-flatGreen">
+								<ul className="flex flex-col justify-center my-2 gap-2">
 									{locationMenuLinks?.map((keys) => (
 										<li key={keys?.node?.id} className="indent-8">
 											<NavbarMenuLinks
 												url={keys?.node?.url}
 												label={keys?.node?.label}
-												tailwindStyling="block py-4 text-medium text-white font-semibold hover:bg-goldPrime hover:text-white"
+												tailwindStyling="block py-4 ml-6 text-medium text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
 											/>
 										</li>
 									))}
