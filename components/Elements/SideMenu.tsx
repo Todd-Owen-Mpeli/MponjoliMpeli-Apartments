@@ -60,6 +60,13 @@ const SideMenu: FC<HeroProps> = ({
 	mainMenuLinks,
 	locationMenuLinks,
 }) => {
+	// Display Locations sublinks
+	const [LocationMenuOpen, setLocationMenuOpen]: any = useState(true);
+
+	// Hides or Display Individual Services sublinks
+	function displayLocationMenu() {
+		setLocationMenuOpen(!LocationMenuOpen);
+	}
 	return (
 		<div
 			className={
@@ -86,7 +93,6 @@ const SideMenu: FC<HeroProps> = ({
 				</div>
 				<div className="px-4">
 					<ul>
-						{/* Menu Link*/}
 						{mainMenuLinks?.map((keys) => (
 							<li
 								key={keys?.node?.id}
@@ -99,6 +105,31 @@ const SideMenu: FC<HeroProps> = ({
 								/>
 							</li>
 						))}
+
+						{/* Our Locations Menu Links*/}
+						<li className="mb-1 border-b-[1px] border-green border-opacity-50">
+							<span onClick={displayLocationMenu}>
+								<Link
+									href="/locations"
+									className="block py-4 font-semibold text-black text-medium hover:text-brightGreen"
+								>
+									Our Locations
+								</Link>
+							</span>
+							{LocationMenuOpen ? (
+								<ul className="flex flex-col justify-center my-2 bg-darkPink bg-flatGreen">
+									{locationMenuLinks?.map((keys) => (
+										<li key={keys?.node?.id} className="indent-8">
+											<NavbarMenuLinks
+												url={keys?.node?.url}
+												label={keys?.node?.label}
+												tailwindStyling="block py-4 text-medium text-white font-semibold hover:bg-goldPrime hover:text-white"
+											/>
+										</li>
+									))}
+								</ul>
+							) : null}
+						</li>
 					</ul>
 				</div>
 				<div className="mt-20">

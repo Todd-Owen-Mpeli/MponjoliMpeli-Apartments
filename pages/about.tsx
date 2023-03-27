@@ -1,5 +1,4 @@
 // Import
-import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -18,11 +17,9 @@ import TextImage from "@/components/TextImage";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
 import TeamMembers from "@/components/TeamMembers";
+import TextImageTwo from "@/components/TextImageTwo";
 import ContentStats from "@/components/ContentStats";
 import ContactBanner from "@/components/ContactBanner";
-import Paragraph from "../components/Elements/Paragraph";
-import Link from "next/link";
-import TextImageTwo from "@/components/TextImageTwo";
 
 const about = ({
 	seo,

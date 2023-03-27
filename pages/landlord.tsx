@@ -1,4 +1,6 @@
 // Import
+import Link from "next/link";
+import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -15,10 +17,12 @@ import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
-import ContactInfo from "@/components/ContactInfo";
 import ContactBanner from "@/components/ContactBanner";
+import Paragraph from "../components/Elements/Paragraph";
+import TextImageThree from "@/components/TextImageThree";
+import ContentBackgroundImage from "@/components/ContentBackgroundImage";
 
-const contactUs = ({
+const landlord = ({
 	seo,
 	content,
 	pageTitle,
@@ -55,14 +59,13 @@ const contactUs = ({
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
 
-				<ContactInfo
-					email={themesOptionsContent?.themesOptions?.email}
-					phoneNumber={themesOptionsContent?.themesOptions?.phoneNumber}
-					phoneNumberTwo={themesOptionsContent?.themesOptions?.phoneNumber}
-					contactAddress={
-						themesOptionsContent?.themesOptions?.mbeziContent?.contactAddress
-					}
+				<TextImageThree
+					title={content?.textImage?.title}
+					image={content?.textImage?.image}
+					paragraph={content?.textImage?.paragraph}
 				/>
+
+				<ContentBackgroundImage gridContent={content?.gridContent} />
 
 				<ContactBanner
 					title={content?.contactBanner?.title}
@@ -92,19 +95,19 @@ const contactUs = ({
 	);
 };
 
-export default contactUs;
+export default landlord;
 
 export async function getStaticProps() {
-	const getContactUsPageContent: any = gql`
+	const getLandlordPageContent: any = gql`
 		{
-			pageTitle: pages(where: {id: 610, status: PUBLISH}) {
+			pageTitle: pages(where: {id: 616, status: PUBLISH}) {
 				edges {
 					node {
 						title
 					}
 				}
 			}
-			mainContent: pages(where: {id: 610, status: PUBLISH}) {
+			mainContent: pages(where: {id: 616, status: PUBLISH}) {
 				edges {
 					node {
 						seo {
@@ -136,12 +139,33 @@ export async function getStaticProps() {
 								mediaItemUrl
 							}
 						}
-						contactUsPage {
+						landlordPage {
 							heroSection {
 								title
 								paragraph
 								backgroundImage {
 									sourceUrl
+								}
+							}
+							textImage {
+								title
+								paragraph
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+							}
+							gridContent {
+								card {
+									title
+									paragraph
+									backgroundImage {
+										sourceUrl
+									}
 								}
 							}
 							contactBanner {
@@ -214,7 +238,7 @@ export async function getStaticProps() {
 	`;
 
 	const response: any = await client.query({
-		query: getContactUsPageContent,
+		query: getLandlordPageContent,
 	});
 
 	const mainMenuLinks: object = await getMainMenuLinks();
@@ -232,7 +256,7 @@ export async function getStaticProps() {
 			themesOptionsContent,
 			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
 			pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
-			content: response.data?.mainContent?.edges[0]?.node?.contactUsPage,
+			content: response.data?.mainContent?.edges[0]?.node?.landlordPage,
 		},
 		revalidate: 60,
 	};

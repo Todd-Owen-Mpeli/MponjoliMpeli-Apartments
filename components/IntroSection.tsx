@@ -55,7 +55,7 @@ const IntroSection: FC<IProps> = ({
 			className={`flex flex-col justify-center items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
 			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
-				<h2 className="text-goldPrime text-center w-fit mx-auto tracking-normal font-semibold text-6xl sm:text-7xl lg:text-8xl border-b-goldPrime border-b-2 pb-8 mb-12 lg:mb-20">
+				<h2 className="pb-8 mx-auto mb-12 text-6xl font-semibold tracking-normal text-center border-b-2 text-goldPrime w-fit sm:text-7xl lg:text-8xl border-b-goldPrime lg:mb-20">
 					{subtitle}
 				</h2>
 				<motion.h2
@@ -78,7 +78,7 @@ const IntroSection: FC<IProps> = ({
 				</Link>
 			</div>
 			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
-				<div className="flex flex-row lg:flex-col items-center justify-center">
+				<div className="flex flex-row items-center justify-center lg:flex-col">
 					<Image
 						alt={image?.altText}
 						src={image?.sourceUrl}

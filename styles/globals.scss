@@ -50,27 +50,36 @@ svg:hover {
 	fill: $goldYellow !important;
 }
 
-a,
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
+button {
+	font-family: $fontStyle_main;
+
+	span {
+		font-family: $fontStyle_main;
+	}
+}
+
+a,
+p,
 ul,
 li,
 span,
 input,
-label,
-button {
-	font-family: $fontStyle_main;
+strong,
+label {
+	font-family: $fontStyle_body;
 }
 
 ol,
 ul {
 	li {
 		strong {
+			font-family: $fontStyle_main;
 			@apply text-goldPrime font-bold tracking-wider uppercase text-xl py-4;
 		}
 	}

@@ -9,9 +9,15 @@
 	src: url("./fonts/InterTight-VariableFont_wght.ttf");
 }
 
+@font-face {
+	font-family: Canela Deck;
+	src: url("./fonts/CanelaText-Regular.otf");
+}
+
 // Font Stack Properties
-$fontStyle_main: "Inter", sans-serif;
-$fontStyle_body: "Bitter", sans-serif;
+$fontStyle_main: "Canela Deck", sans-serif;
+$fontStyle_secondary: "Bitter", sans-serif;
+$fontStyle_body: "Inter", sans-serif;
 
 // Font Sizes
 $fontSize_xSmall: 0.75rem;

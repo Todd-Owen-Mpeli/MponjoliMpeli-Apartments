@@ -122,12 +122,12 @@ export default function Home({
 					}
 				/>
 
-				<Newsletter
+				{/* <Newsletter
 					title={content?.newsletterSignUp?.title}
 					titleTwo={content?.newsletterSignUp?.titleTwo}
 					paragraph={content?.newsletterSignUp?.paragraph}
 					paragraphTwo={content?.newsletterSignUp?.paragraphTwo}
-				/>
+				/> */}
 
 				<Footer
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}

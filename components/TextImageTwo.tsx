@@ -2,7 +2,7 @@ import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp, fadeIn} from "../animations/animations";
+import {fadeInUp} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -30,7 +30,7 @@ const TextImageTwo: FC<IProps> = ({
 		<section className="py-10 sm:py-16 lg:py-24">
 			<div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 				<div className="flex flex-col-reverse items-center justify-center gap-y-8 lg:flex-row gap-x-16 xl:gap-x-24">
-					<div className="relative mb-12 w-full lg:w-1/2">
+					<div className="relative w-full mb-12 lg:w-1/2">
 						<Image
 							alt={image?.altText}
 							src={image?.sourceUrl}
@@ -56,7 +56,7 @@ const TextImageTwo: FC<IProps> = ({
 					</div>
 
 					<div className="w-full lg:w-1/2">
-						<div className="flex items-center mx-auto lg:mx-0 justify-center w-16 h-16 bg-flatGreen rounded-full">
+						<div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full lg:mx-0 bg-flatGreen">
 							<svg
 								className="w-8 h-8 text-goldPrime"
 								xmlns="http://www.w3.org/2000/svg"
@@ -72,9 +72,12 @@ const TextImageTwo: FC<IProps> = ({
 								/>
 							</svg>
 						</div>
-						<h2 className="mt-10 text-3xl text-center lg:text-left font-bold leading-tight text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight">
+						<motion.h2
+							variants={fadeInUp}
+							className="mt-10 text-3xl font-bold leading-tight text-center lg:text-left text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight"
+						>
 							{title}
-						</h2>
+						</motion.h2>
 						<Paragraph
 							content={paragraph}
 							tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-medium"
