@@ -74,7 +74,7 @@ const mbeziSlugs = ({
 	);
 };
 
-export default mbweniSlugs;
+export default mbeziSlugs;
 
 // export async function getStaticProps() {
 // 	// const getMbeziPageContent: any = gql`
