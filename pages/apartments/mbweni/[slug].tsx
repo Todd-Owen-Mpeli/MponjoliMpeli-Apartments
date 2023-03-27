@@ -16,7 +16,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import MetaTag from "../../../components/Meta/MetaTag";
 
-const mbeziSlugs = ({
+const mbweniSlugs = ({
 	seo,
 	content,
 	pageTitle,
@@ -42,10 +42,10 @@ const mbeziSlugs = ({
 			</motion.h1>
 
 			{/* <!--===== META TAG =====--> */}
-			<MetaTag title={pageTitle} seo={seo} />
+			{/* <MetaTag title={pageTitle} seo={seo} />
 
 			<main>
-				{/* <Hero
+				<Hero
 					title={content?.heroSection?.title}
 					paragraph={content?.heroSection?.paragraph}
 					mainMenuLinks={mainMenuLinks?.mainMenuLinks}
@@ -60,7 +60,7 @@ const mbeziSlugs = ({
 					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
-				/> */}
+				/>
 
 				<Footer
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
@@ -69,101 +69,101 @@ const mbeziSlugs = ({
 					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
 					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 				/>
-			</main>
+			</main> */}
 		</motion.div>
 	);
 };
 
-export default mbeziSlugs;
+export default mbweniSlugs;
 
-export async function getStaticPaths() {
-	// const getMbeziPageContent: any = gql`
-	// 	{
-	// 		pageTitle: pages(where: {id: 6, status: PUBLISH}) {
-	// 			edges {
-	// 				node {
-	// 					title
-	// 				}
-	// 			}
-	// 		}
-	// 		mainContent: pages(where: {id: 6, status: PUBLISH}) {
-	// 			edges {
-	// 				node {
-	// 					seo {
-	// 						canonical
-	// 						cornerstone
-	// 						focuskw
-	// 						fullHead
-	// 						metaDesc
-	// 						metaKeywords
-	// 						metaRobotsNofollow
-	// 						metaRobotsNoindex
-	// 						opengraphAuthor
-	// 						opengraphDescription
-	// 						opengraphImage {
-	// 							mediaItemUrl
-	// 						}
-	// 						opengraphModifiedTime
-	// 						opengraphPublishedTime
-	// 						opengraphPublisher
-	// 						opengraphSiteName
-	// 						opengraphTitle
-	// 						opengraphType
-	// 						opengraphUrl
-	// 						readingTime
-	// 						title
-	// 						twitterDescription
-	// 						twitterTitle
-	// 						twitterImage {
-	// 							mediaItemUrl
-	// 						}
-	// 					}
-	// 					mbeziPage {
-	// 						heroSection {
-	// 							title
-	// 							paragraph
-	// 							buttonLink {
-	// 								url
-	// 								title
-	// 								target
-	// 							}
-	// 							buttonLinkTwo {
-	// 								url
-	// 								title
-	// 								target
-	// 							}
-	// 							backgroundImage {
-	// 								sourceUrl
-	// 							}
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `;
+// export async function getStaticProps() {
+// 	// const getMbeziPageContent: any = gql`
+// 	// 	{
+// 	// 		pageTitle: pages(where: {id: 6, status: PUBLISH}) {
+// 	// 			edges {
+// 	// 				node {
+// 	// 					title
+// 	// 				}
+// 	// 			}
+// 	// 		}
+// 	// 		mainContent: pages(where: {id: 6, status: PUBLISH}) {
+// 	// 			edges {
+// 	// 				node {
+// 	// 					seo {
+// 	// 						canonical
+// 	// 						cornerstone
+// 	// 						focuskw
+// 	// 						fullHead
+// 	// 						metaDesc
+// 	// 						metaKeywords
+// 	// 						metaRobotsNofollow
+// 	// 						metaRobotsNoindex
+// 	// 						opengraphAuthor
+// 	// 						opengraphDescription
+// 	// 						opengraphImage {
+// 	// 							mediaItemUrl
+// 	// 						}
+// 	// 						opengraphModifiedTime
+// 	// 						opengraphPublishedTime
+// 	// 						opengraphPublisher
+// 	// 						opengraphSiteName
+// 	// 						opengraphTitle
+// 	// 						opengraphType
+// 	// 						opengraphUrl
+// 	// 						readingTime
+// 	// 						title
+// 	// 						twitterDescription
+// 	// 						twitterTitle
+// 	// 						twitterImage {
+// 	// 							mediaItemUrl
+// 	// 						}
+// 	// 					}
+// 	// 					mbeziPage {
+// 	// 						heroSection {
+// 	// 							title
+// 	// 							paragraph
+// 	// 							buttonLink {
+// 	// 								url
+// 	// 								title
+// 	// 								target
+// 	// 							}
+// 	// 							buttonLinkTwo {
+// 	// 								url
+// 	// 								title
+// 	// 								target
+// 	// 							}
+// 	// 							backgroundImage {
+// 	// 								sourceUrl
+// 	// 							}
+// 	// 						}
+// 	// 					}
+// 	// 				}
+// 	// 			}
+// 	// 		}
+// 	// 	}
+// 	// `;
 
-	// const response: any = await client.query({
-	// 	query: getMbeziPageContent,
-	// });
+// 	// const response: any = await client.query({
+// 	// 	query: getMbeziPageContent,
+// 	// });
 
-	const mainMenuLinks: object = await getMainMenuLinks();
-	const heroMenuLinks: object = await getHeroMenuLinks();
-	const footerMenuLinks: object = await getFooterMenuLinks();
-	const locationMenuLinks: object = await getLocationMenuLinks();
-	const themesOptionsContent: object = await getThemesOptionsContent();
+// 	const mainMenuLinks: object = await getMainMenuLinks();
+// 	const heroMenuLinks: object = await getHeroMenuLinks();
+// 	const footerMenuLinks: object = await getFooterMenuLinks();
+// 	const locationMenuLinks: object = await getLocationMenuLinks();
+// 	const themesOptionsContent: object = await getThemesOptionsContent();
 
-	return {
-		props: {
-			mainMenuLinks,
-			heroMenuLinks,
-			footerMenuLinks,
-			locationMenuLinks,
-			themesOptionsContent,
-			// seo: response?.data?.mainContent?.edges[0]?.node?.seo,
-			// pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
-			// content: response.data?.mainContent?.edges[0]?.node?.mbeziPage,
-		},
-		revalidate: 60,
-	};
-}
+// 	return {
+// 		props: {
+// 			mainMenuLinks,
+// 			heroMenuLinks,
+// 			footerMenuLinks,
+// 			locationMenuLinks,
+// 			themesOptionsContent,
+// 			// seo: response?.data?.mainContent?.edges[0]?.node?.seo,
+// 			// pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
+// 			// content: response.data?.mainContent?.edges[0]?.node?.mbeziPage,
+// 		},
+// 		revalidate: 60,
+// 	};
+// }
