@@ -14,21 +14,11 @@ import styles from "../styles/components/Hero.module.scss";
 interface HeroProps {
 	title: string;
 	paragraph: string;
+	twitterLink: string;
+	facebookLink: string;
 	linkedinLink: string;
 	instagramLink: string;
-	facebookLink: string;
-	twitterLink: string;
 	backgroundImage: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-	buttonLinkTwo: {
-		url: string;
-		title: string;
-		target: string;
-	};
 
 	// Menu Links
 	mainMenuLinks: [
@@ -74,17 +64,15 @@ interface HeroProps {
 	};
 }
 
-const Hero: FC<HeroProps> = ({
+const HeroThree: FC<HeroProps> = ({
 	title,
 	paragraph,
-	buttonLink,
 	twitterLink,
 	facebookLink,
 	linkedinLink,
 	instagramLink,
 	mbeziContent,
 	mbweniContent,
-	buttonLinkTwo,
 	mainMenuLinks,
 	heroMenuLinks,
 	backgroundImage,
@@ -136,7 +124,7 @@ const Hero: FC<HeroProps> = ({
 								variants={fadeInTwo}
 								className="ml-2 text-brightGreen"
 							>
-								Today
+								Apartments
 							</motion.span>
 						</h1>
 					</div>
@@ -145,35 +133,6 @@ const Hero: FC<HeroProps> = ({
 							content={paragraph}
 							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center sm:text-left"
 						/>
-						<motion.div
-							variants={stagger}
-							className="flex justify-center gap-4 sm:justify-start item-center"
-						>
-							<Link href={buttonLink?.url} target={buttonLink?.target}>
-								<motion.button
-									variants={fadeInUp}
-									className={
-										buttonLink?.url
-											? `block px-6 py-3 font-semibold transition duration-200  w-fit sm:mx-0 hover:bg-goldPrimeDark text-green hover:text-white bg-white rounded-t-lg rounded-l-lg`
-											: `hidden`
-									}
-								>
-									{buttonLink?.title}
-								</motion.button>
-							</Link>
-							<Link href={buttonLinkTwo?.url} target={buttonLinkTwo?.target}>
-								<motion.button
-									variants={fadeInUp}
-									className={
-										buttonLink?.url
-											? `block px-6 py-3 font-semibold text-white transition duration-200  w-fit sm:mx-0 hover:bg-brightGreen bg-green rounded-t-lg rounded-l-lg`
-											: `hidden`
-									}
-								>
-									{buttonLinkTwo?.title}
-								</motion.button>
-							</Link>
-						</motion.div>
 					</div>
 				</div>
 			</div>
@@ -194,4 +153,4 @@ const Hero: FC<HeroProps> = ({
 	);
 };
 
-export default Hero;
+export default HeroThree;

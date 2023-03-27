@@ -108,13 +108,11 @@ const SideMenu: FC<HeroProps> = ({
 
 						{/* Our Locations Menu Links*/}
 						<li className="mb-1 border-b-[1px] border-green border-opacity-50">
-							<span onClick={displayLocationMenu}>
-								<Link
-									href="/locations"
-									className="block py-4 font-semibold text-black text-medium hover:text-brightGreen"
-								>
-									Our Locations
-								</Link>
+							<span
+								onClick={displayLocationMenu}
+								className="block py-4 font-semibold text-black text-medium"
+							>
+								Our Locations
 							</span>
 							{LocationMenuOpen ? (
 								<ul className="flex flex-col justify-center my-2 bg-darkPink bg-flatGreen">

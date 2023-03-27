@@ -16,7 +16,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import MetaTag from "../../../components/Meta/MetaTag";
 
-const mbweniSlugs = ({
+const mbeziSlugs = ({
 	seo,
 	content,
 	pageTitle,

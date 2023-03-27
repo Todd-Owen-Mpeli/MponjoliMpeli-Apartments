@@ -12,9 +12,12 @@ import {
 } from "../../../lib/MenuLinks";
 
 // Components
-import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import MetaTag from "../../../components/Meta/MetaTag";
+import HeroThree from "@/components/HeroThree";
+import ImageGrid from "@/components/ImageGrid";
+import MetaTag from "@/components/Meta/MetaTag";
+import ContactBanner from "@/components/ContactBanner";
+import ArticleImageBanner from "@/components/ArticleImageBanner";
 
 const mbweni = ({
 	seo,
@@ -34,24 +37,15 @@ const mbweni = ({
 			initial="initial"
 			animate="animate"
 		>
-			<motion.h1
-				variants={fadeInUp}
-				className="mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]"
-			>
-				Hello Mbweni
-			</motion.h1>
-
 			{/* <!--===== META TAG =====--> */}
 			<MetaTag title={pageTitle} seo={seo} />
 
 			<main>
-				{/* <Hero
+				<HeroThree
 					title={content?.heroSection?.title}
 					paragraph={content?.heroSection?.paragraph}
 					mainMenuLinks={mainMenuLinks?.mainMenuLinks}
 					heroMenuLinks={heroMenuLinks?.heroMenuLinks}
-					buttonLink={content?.heroSection?.buttonLink}
-					buttonLinkTwo={content?.heroSection?.buttonLinkTwo}
 					locationMenuLinks={locationMenuLinks?.locationMenuLinks}
 					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
 					mbeziContent={themesOptionsContent?.themesOptions?.mbeziContent}
@@ -60,7 +54,32 @@ const mbweni = ({
 					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
-				/> */}
+				/>
+
+				<ContactBanner
+					title={content?.contactBanner?.title}
+					paragraph={content?.contactBanner?.paragraph}
+					buttonLink={content?.contactBanner?.buttonLink}
+					backgroundImage={content?.contactBanner?.image?.sourceUrl}
+				/>
+
+				<ImageGrid
+					image={content?.imageGrid?.image}
+					imageTwo={content?.imageGrid?.imageTwo}
+					imageThree={content?.imageGrid?.imageThree}
+					imageFour={content?.imageGrid?.imageFour}
+					imageFive={content?.imageGrid?.imageFive}
+					imageSix={content?.imageGrid?.imageSix}
+				/>
+
+				<ArticleImageBanner
+					title={content?.articleImageBanner?.title}
+					paragraph={content?.articleImageBanner?.paragraph}
+					buttonLink={content?.articleImageBanner?.buttonLink}
+					backgroundImage={
+						content?.articleImageBanner?.backgroundImage?.sourceUrl
+					}
+				/>
 
 				<Footer
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
@@ -77,75 +96,139 @@ const mbweni = ({
 export default mbweni;
 
 export async function getStaticProps() {
-	// const getMbweniPageContent: any = gql`
-	// 	{
-	// 		pageTitle: pages(where: {id: 6, status: PUBLISH}) {
-	// 			edges {
-	// 				node {
-	// 					title
-	// 				}
-	// 			}
-	// 		}
-	// 		mainContent: pages(where: {id: 6, status: PUBLISH}) {
-	// 			edges {
-	// 				node {
-	// 					seo {
-	// 						canonical
-	// 						cornerstone
-	// 						focuskw
-	// 						fullHead
-	// 						metaDesc
-	// 						metaKeywords
-	// 						metaRobotsNofollow
-	// 						metaRobotsNoindex
-	// 						opengraphAuthor
-	// 						opengraphDescription
-	// 						opengraphImage {
-	// 							mediaItemUrl
-	// 						}
-	// 						opengraphModifiedTime
-	// 						opengraphPublishedTime
-	// 						opengraphPublisher
-	// 						opengraphSiteName
-	// 						opengraphTitle
-	// 						opengraphType
-	// 						opengraphUrl
-	// 						readingTime
-	// 						title
-	// 						twitterDescription
-	// 						twitterTitle
-	// 						twitterImage {
-	// 							mediaItemUrl
-	// 						}
-	// 					}
-	// 					mbweniPage {
-	// 						heroSection {
-	// 							title
-	// 							paragraph
-	// 							buttonLink {
-	// 								url
-	// 								title
-	// 								target
-	// 							}
-	// 							buttonLinkTwo {
-	// 								url
-	// 								title
-	// 								target
-	// 							}
-	// 							backgroundImage {
-	// 								sourceUrl
-	// 							}
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `;
+	const getMbweniPageContent: any = gql`
+		{
+			pageTitle: apartments(where: {id: 789, status: PUBLISH}) {
+				edges {
+					node {
+						title
+					}
+				}
+			}
+			mainContent: apartments(where: {id: 789, status: PUBLISH}) {
+				edges {
+					node {
+						seo {
+							canonical
+							cornerstone
+							focuskw
+							fullHead
+							metaDesc
+							metaKeywords
+							metaRobotsNofollow
+							metaRobotsNoindex
+							opengraphAuthor
+							opengraphDescription
+							opengraphImage {
+								mediaItemUrl
+							}
+							opengraphModifiedTime
+							opengraphPublishedTime
+							opengraphPublisher
+							opengraphSiteName
+							opengraphTitle
+							opengraphType
+							opengraphUrl
+							readingTime
+							title
+							twitterDescription
+							twitterTitle
+							twitterImage {
+								mediaItemUrl
+							}
+						}
+						apartmentsOptionsPage {
+							heroSection {
+								title
+								paragraph
+								backgroundImage {
+									sourceUrl
+								}
+							}
+							contactBanner {
+								title
+								paragraph
+								image {
+									sourceUrl
+								}
+								buttonLink {
+									url
+									title
+									target
+								}
+							}
+							imageGrid {
+								image {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageTwo {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageThree {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageFour {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageFive {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageSix {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+							}
+							articleImageBanner {
+								title
+								paragraph
+								buttonLink {
+									url
+									title
+									target
+								}
+								backgroundImage {
+									sourceUrl
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`;
 
-	// const response: any = await client.query({
-	// 	query: getMbweniPageContent,
-	// });
+	const response: any = await client.query({
+		query: getMbweniPageContent,
+	});
 
 	const mainMenuLinks: object = await getMainMenuLinks();
 	const heroMenuLinks: object = await getHeroMenuLinks();
@@ -160,9 +243,10 @@ export async function getStaticProps() {
 			footerMenuLinks,
 			locationMenuLinks,
 			themesOptionsContent,
-			// seo: response?.data?.mainContent?.edges[0]?.node?.seo,
-			// pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
-			// content: response.data?.mainContent?.edges[0]?.node?.mbweniPage,
+			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
+			pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
+			content:
+				response.data?.mainContent?.edges[0]?.node?.apartmentsOptionsPage,
 		},
 		revalidate: 60,
 	};
