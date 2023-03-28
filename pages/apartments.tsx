@@ -16,6 +16,7 @@ import HeroThree from "@/components/HeroThree";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "@/components/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
+import ApartmentsGrid from "@/components/ApartmentsGrid";
 
 const apartments = ({
 	seo,
@@ -53,6 +54,8 @@ const apartments = ({
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
+
+				<ApartmentsGrid apartmentsGrid={content?.apartmentsGrid} />
 
 				<ContactBanner
 					title={content?.contactBanner?.title}
@@ -132,6 +135,19 @@ export async function getStaticProps() {
 								paragraph
 								backgroundImage {
 									sourceUrl
+								}
+							}
+							apartmentsGrid {
+								card {
+									title
+									link {
+										url
+										title
+										target
+									}
+									backgroundImage {
+										sourceUrl
+									}
 								}
 							}
 							contactBanner {
