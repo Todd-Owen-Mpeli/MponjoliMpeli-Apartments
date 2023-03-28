@@ -22,7 +22,7 @@ interface IProps {
 const ApartmentsGrid: FC<IProps> = ({apartmentsGrid}) => {
 	return (
 		<section className="py-10 px-4 bg-darkGreen overflow-hidden">
-			<div className="container mx-auto px-0 flex flex-col md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 items-center justify-center gap-4 lg:gap-8">
+			<div className="container mx-auto px-0 grid grid-cols-1 md:grid md:grid-cols-2 lg:grid xl:grid-cols-3 items-center justify-center gap-4 lg:gap-8">
 				{apartmentsGrid?.map((keys) => (
 					<ApartmentCard
 						key={keys?.id}

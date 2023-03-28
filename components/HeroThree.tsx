@@ -118,7 +118,7 @@ const HeroThree: FC<HeroProps> = ({
 
 				<div className="container flex flex-col items-baseline justify-center px-4 m-auto text-center sm:text-left">
 					<div className="max-w-lg">
-						<h1 className="mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
+						<h1 className="flex flex-col sm:flex-row text-left mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 							<motion.span
 								variants={fadeInTwo}
