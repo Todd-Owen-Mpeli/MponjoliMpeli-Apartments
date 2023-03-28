@@ -97,14 +97,14 @@ export default mbweni;
 export async function getStaticProps() {
 	const getMbweniPageContent: any = gql`
 		{
-			pageTitle: apartments(where: {id: 789, status: PUBLISH}) {
+			pageTitle: locations(where: {id: 911, status: PUBLISH}) {
 				edges {
 					node {
 						title
 					}
 				}
 			}
-			mainContent: apartments(where: {id: 789, status: PUBLISH}) {
+			mainContent: locations(where: {id: 911, status: PUBLISH}) {
 				edges {
 					node {
 						seo {
@@ -136,7 +136,7 @@ export async function getStaticProps() {
 								mediaItemUrl
 							}
 						}
-						apartmentsOptionsPage {
+						locationsOptionsPage {
 							heroSection {
 								title
 								paragraph
@@ -244,8 +244,7 @@ export async function getStaticProps() {
 			themesOptionsContent,
 			seo: response?.data?.mainContent?.edges[0]?.node?.seo,
 			pageTitle: response?.data?.pageTitle?.edges[0]?.node?.title,
-			content:
-				response.data?.mainContent?.edges[0]?.node?.apartmentsOptionsPage,
+			content: response.data?.mainContent?.edges[0]?.node?.locationsOptionsPage,
 		},
 		revalidate: 60,
 	};
