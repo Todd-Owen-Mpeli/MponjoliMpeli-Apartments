@@ -4,6 +4,7 @@ import type {AppProps} from "next/app";
 import {client} from "../config/apollo";
 import {useState, useEffect} from "react";
 import {ApolloProvider} from "@apollo/client/react";
+import Layout from "@/components/Layout/Layout";
 
 export default function App({Component, pageProps}: AppProps) {
 	function Loading() {
@@ -71,8 +72,10 @@ export default function App({Component, pageProps}: AppProps) {
 
 	return (
 		<ApolloProvider client={client}>
-			<Loading />
-			<Component {...pageProps} />
+			<Layout>
+				<Loading />
+				<Component {...pageProps} />
+			</Layout>
 		</ApolloProvider>
 	);
 }

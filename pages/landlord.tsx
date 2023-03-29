@@ -1,6 +1,3 @@
-// Import
-import Link from "next/link";
-import Image from "next/image";
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
@@ -18,7 +15,6 @@ import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
-import Paragraph from "../components/Elements/Paragraph";
 import TextImageThree from "@/components/TextImageThree";
 import ContentBackgroundImage from "@/components/ContentBackgroundImage";
 

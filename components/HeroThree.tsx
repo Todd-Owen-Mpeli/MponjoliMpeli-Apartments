@@ -86,7 +86,7 @@ const HeroThree: FC<HeroProps> = ({
 	}
 
 	return (
-		<section className="pb-0 lg:pb-4 bg-green bg-gradient-to-t from-darkGreen">
+		<section className="pb-0 md:pb-4 bg-green bg-gradient-to-t from-darkGreen">
 			<div
 				className="flex flex-col bg-cover bg-center bg-no-repeat h-full min-h-[98.5vh]"
 				style={{

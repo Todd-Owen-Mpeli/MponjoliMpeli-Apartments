@@ -32,7 +32,7 @@
     "@types/nodemailer": "^6.4.7",
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.14",
-    "framer-motion": "^10.8.5",
+    "framer-motion": "^10.9.2",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
   }
