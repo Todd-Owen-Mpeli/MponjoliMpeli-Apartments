@@ -36,7 +36,10 @@ const Logos: FunctionComponent<IProps> = ({title, logoGrid}) => {
 						className="grid items-center justify-center grid-cols-2 gap-4 lg:grid-cols-6 lg:justify-between"
 					>
 						{logoGrid.map((keys) => (
-							<LogoCard key={keys?.id} image={keys?.image} />
+							<LogoCard
+								image={keys?.image}
+								key={keys?.id || Math.floor(Math.random() * 1001)}
+							/>
 						))}
 					</motion.div>
 				</div>

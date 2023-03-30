@@ -13,10 +13,11 @@ import {
 } from "../../../lib/MenuLinks";
 
 // Components
-import HeroTwo from "@/components/HeroTwo";
 import Footer from "@/components/Footer";
-import MetaTag from "@/components/Meta/MetaTag";
+import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
+import MetaTag from "@/components/Meta/MetaTag";
+import TitleParagraph from "@/components/TitleParagraph";
 
 const mbeziSlugs = ({
 	seo,
@@ -53,6 +54,11 @@ const mbeziSlugs = ({
 					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
+				/>
+
+				<TitleParagraph
+					title={content?.mainContent?.descriptionContent?.title}
+					paragraph={content?.mainContent?.descriptionContent?.paragraph}
 				/>
 
 				<ImageGrid

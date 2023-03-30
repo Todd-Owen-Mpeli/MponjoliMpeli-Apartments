@@ -18,13 +18,13 @@ interface IProps {
 
 const ContentBackgroundImage: FC<IProps> = ({gridContent}) => {
 	return (
-		<section className="py-10 px-4 bg-darkGreen overflow-hidden">
-			<div className="container mx-auto px-0 flex flex-col gap-4">
+		<section className="px-4 py-10 overflow-hidden bg-darkGreen">
+			<div className="container flex flex-col gap-4 px-0 mx-auto">
 				{gridContent?.map((keys) => (
 					<ContentImageCard
-						key={keys?.card?.id}
 						title={keys?.card?.title}
 						paragraph={keys?.card?.paragraph}
+						key={keys?.card?.id || Math.floor(Math.random() * 1001)}
 						backgroundImage={keys?.card?.backgroundImage?.sourceUrl}
 					/>
 				))}

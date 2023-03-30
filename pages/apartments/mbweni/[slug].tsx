@@ -17,6 +17,7 @@ import HeroTwo from "@/components/HeroTwo";
 import Footer from "@/components/Footer";
 import MetaTag from "@/components/Meta/MetaTag";
 import ImageGrid from "@/components/ImageGrid";
+import TitleParagraph from "@/components/TitleParagraph";
 
 const mbweniSlugs = ({
 	seo,
@@ -53,6 +54,11 @@ const mbweniSlugs = ({
 					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
 					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
+				/>
+
+				<TitleParagraph
+					title={content?.mainContent?.descriptionContent?.title}
+					paragraph={content?.mainContent?.descriptionContent?.paragraph}
 				/>
 
 				<ImageGrid

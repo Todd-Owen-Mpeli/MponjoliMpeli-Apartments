@@ -36,7 +36,7 @@ const TeamMembers: FunctionComponent<IProps> = ({
 }) => {
 	return (
 		<section
-			className="py-20 px-4 lg:px-0 overflow-hidden bg-bottom bg-no-repeat bg-cover bg-darkGreen"
+			className="px-4 py-20 overflow-hidden bg-bottom bg-no-repeat bg-cover lg:px-0 bg-darkGreen"
 			style={{
 				backgroundImage: `url("/svg/backgroundWaves.svg")`,
 			}}
@@ -54,10 +54,10 @@ const TeamMembers: FunctionComponent<IProps> = ({
 				<div className="flex flex-col mt-24 lg:flex-row">
 					{profileGrid.map((keys) => (
 						<ProfileCard
-							key={keys?.profileCard?.id}
 							title={keys?.profileCard?.title}
 							image={keys?.profileCard?.image}
 							jobPosition={keys?.profileCard?.jobPosition}
+							key={keys?.profileCard?.id || Math.floor(Math.random() * 1001)}
 						/>
 					))}
 				</div>

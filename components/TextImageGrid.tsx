@@ -32,10 +32,10 @@ const TextImageGrid: FC<IProps> = ({gridContent}) => {
 			<div className="container px-4 mx-auto">
 				{gridContent?.map((keys) => (
 					<TextBoxCard
-						key={keys?.card?.id}
 						title={keys?.card?.title}
 						image={keys?.card?.image}
 						paragraph={keys?.card?.paragraph}
+						key={keys?.card?.id || keys?.card?.title}
 						cardPosition={cardPositioning ? true : false}
 					/>
 				))}

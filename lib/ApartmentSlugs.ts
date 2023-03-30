@@ -75,6 +75,7 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
 						}
 						mainContent {
 							descriptionContent {
+								title
 								paragraph
 							}
 						}
@@ -145,7 +146,7 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
 	} catch (error) {
 		console.log(error);
 		throw new Error(
-			"Something went wrong trying to fetch apartments slugs Content"
+			"Something went wrong trying to fetch apartments slugs content"
 		);
 	}
 };

@@ -88,7 +88,7 @@ const HeroTwo: FunctionComponent<HeroProps> = ({
 
 	return (
 		<section
-			className="bg-center bg-no-repeat bg-cover min-h-[50vh]"
+			className="mb-0 md:mb-4 bg-center bg-no-repeat bg-cover min-h-[50vh]"
 			style={{
 				backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
 			}}

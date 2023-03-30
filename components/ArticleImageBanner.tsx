@@ -21,14 +21,14 @@ const ArticleImageBanner: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className="overflow-hidden xl:bg-fixed bg-darkGreen bg-center bg-no-repeat bg-cover px-4 py-28"
+			className="px-4 overflow-hidden bg-center bg-no-repeat bg-cover xl:bg-fixed bg-darkGreen py-28"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 			}}
 		>
 			<div className="container px-0 mx-auto">
 				<div
-					className="px-6 sm:px-12 pt-12 rounded-lg bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
+					className="px-6 pt-12 rounded-lg sm:px-12 bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
 					style={{backdropFilter: "blur(10px)"}}
 				>
 					<h2 className="mb-8 text-4xl font-semibold leading-tight text-white 2xl:text-5xl">
@@ -56,9 +56,9 @@ const ArticleImageBanner: FC<IProps> = ({
 							<path
 								d="M11 3.75L16.25 9M16.25 9L11 14.25M16.25 9L2.75 9"
 								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							></path>
 						</svg>
 					</Link>
