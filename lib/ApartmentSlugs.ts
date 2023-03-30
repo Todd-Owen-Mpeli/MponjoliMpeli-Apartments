@@ -73,6 +73,19 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
 								sourceUrl
 							}
 						}
+						introInfo {
+      					  monthlyPrice
+      					  briefInfo
+      					  location
+      					  iconContent {
+      					    type
+      					    bedrooms
+      					    bathrooms
+      					  }
+      					}
+      					lettingDetails {
+      					  bulletpoint
+      					}
 						mainContent {
 							descriptionContent {
 								title
