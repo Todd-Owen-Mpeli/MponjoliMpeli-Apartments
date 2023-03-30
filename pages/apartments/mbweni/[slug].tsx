@@ -1,4 +1,5 @@
 // Import
+import Link from "next/link";
 import {
 	fetchApartmentSlugs,
 	fetchApartmentSlugsContent,
@@ -181,8 +182,8 @@ const mbweniSlugs = ({
 										<div className="py-24 px-8 text-center h-full bg-flatGreen rounded-3xl">
 											<div className="flex flex-col justify-between h-full">
 												<div className="flex-initial mb-10">
-													<span className="inline-block mb-3.5 text-goldPrime  font-semibold uppercase">
-														All updates for one year
+													<span className="inline-block mb-3.5 text-goldPrime text-center font-semibold uppercase">
+														Starting at
 													</span>
 													<p className="mb-4 text-5xl md:text-7xl text-goldPrime font-semibold tracking-tight">
 														{content?.introInfo?.monthlyPrice}
@@ -197,12 +198,12 @@ const mbweniSlugs = ({
 												<div className="flex-initial">
 													<div className="flex flex-wrap justify-center -m-2">
 														<div className="w-full p-2">
-															<a
-																className="block md:max-w-xs mx-auto w-full px-8 py-3.5 text-lg text-center text-white font-bold bg-goldPrime hover:bg-goldPrimeDark focus:ring-4 focus:ring-goldPrimeDark rounded-full"
-																href="#"
+															<Link
+																className="block md:max-w-xs mx-auto w-full px-8 py-3.5 text-lg text-center text-white  tracking-wider font-semibold  rounded-lg bg-goldPrime hover:bg-goldPrimeDark focus:ring-4 focus:ring-goldPrimeDark"
+																href={`/`}
 															>
 																Purchase now
-															</a>
+															</Link>
 														</div>
 													</div>
 												</div>
