@@ -35,8 +35,8 @@ const TextImageGrid: FC<IProps> = ({gridContent}) => {
 						title={keys?.card?.title}
 						image={keys?.card?.image}
 						paragraph={keys?.card?.paragraph}
-						key={keys?.card?.id || keys?.card?.title}
 						cardPosition={cardPositioning ? true : false}
+						key={keys?.card?.id || Math.floor(Math.random() * 1001)}
 					/>
 				))}
 			</div>

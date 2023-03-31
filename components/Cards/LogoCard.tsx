@@ -1,6 +1,6 @@
+import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {FunctionComponent} from "react";
 import {fadeIn} from "../../animations/animations";
 
 interface IProps {
@@ -13,7 +13,8 @@ interface IProps {
 		};
 	};
 }
-const LogoCard: FunctionComponent<IProps> = ({image}) => {
+
+const LogoCard: FC<IProps> = ({image}) => {
 	return (
 		<motion.div variants={fadeIn} className="mx-auto">
 			<Image
