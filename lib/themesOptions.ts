@@ -19,6 +19,9 @@ export async function getThemesOptionsContent() {
 								instagramLink
 								facebookLink
 								twitterLink
+								businessHours {
+									content
+								}
 								mbeziContent {
 									title
 									phoneNumber

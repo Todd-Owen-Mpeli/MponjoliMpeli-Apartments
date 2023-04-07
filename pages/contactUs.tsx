@@ -17,6 +17,7 @@ import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "../components/Meta/MetaTag";
 import ContactInfo from "@/components/ContactInfo";
 import ContactBanner from "@/components/ContactBanner";
+import ContactForm from "@/components/ContactForm";
 
 const contactUs = ({
 	seo,
@@ -62,6 +63,11 @@ const contactUs = ({
 					contactAddress={
 						themesOptionsContent?.themesOptions?.mbeziContent?.contactAddress
 					}
+				/>
+
+				<ContactForm
+					title={content?.contactForm?.title}
+					businessHours={themesOptionsContent?.themesOptions?.businessHours}
 				/>
 
 				<ContactBanner
@@ -155,6 +161,9 @@ export async function getStaticProps() {
 									title
 									target
 								}
+							}
+							contactForm {
+								title
 							}
 							imageGrid {
 								image {
