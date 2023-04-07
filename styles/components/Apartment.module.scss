@@ -1,0 +1,19 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.apartmentSingleCard {
+	@apply py-10 overflow-hidden bg-flatGreen;
+
+	h3,
+	h4,
+	h5,
+	h6,
+	button {
+		font-family: $fontStyle_body;
+
+		span {
+			font-family: $fontStyle_body;
+		}
+	}
+}

@@ -3,8 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {fadeIn, fadeInUp} from "../../animations/animations";
-import Paragraph from "@/components/Elements/Paragraph";
+
+// Components
 import ApartSingleCardTwo from "./ApartSingleCardTwo";
+import Paragraph from "@/components/Elements/Paragraph";
+
+// Styling
+import styles from "../../styles/components/Apartment.module.scss";
 
 interface IProps {
 	location: string;
@@ -31,7 +36,7 @@ const ApartmentSingleCard: FC<IProps> = ({
 	lettingDetails,
 }) => {
 	return (
-		<section className="py-10 overflow-hidden bg-flatGreen">
+		<section className={styles.apartmentSingleCard}>
 			<div className="container px-4 mx-auto">
 				<div className="px-8 py-10 bg-white">
 					<div className="mx-auto max-w-7xl">
@@ -71,13 +76,15 @@ const ApartmentSingleCard: FC<IProps> = ({
 											<span className="inline-block mb-3.5 text-goldPrime text-center font-semibold uppercase">
 												Starting at
 											</span>
-											<p className="mb-4 text-5xl font-semibold tracking-wider md:text-7xl text-goldPrime">
+											<h3 className="mb-4 text-5xl lg:max-w-sm mx-auto font-bold tracking-wider md:text-7xl text-goldPrime">
 												{monthlyPrice}
-											</p>
-											<p className="font-semibold text-goldPrime">
+											</h3>
+											<h3 className="font-semibold text-white my-2 text-medium">
 												{briefInfo}
-											</p>
-											<p className="font-semibold text-goldPrime">{location}</p>
+											</h3>
+											<h3 className="font-semibold text-white my-2 text-medium">
+												{location}
+											</h3>
 										</div>
 										<div className="flex-initial">
 											<div className="flex flex-wrap justify-center -m-2">

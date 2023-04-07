@@ -1,5 +1,4 @@
 // Import
-import Link from "next/link";
 import {
 	fetchApartmentSlugs,
 	fetchApartmentSlugsContent,
@@ -19,7 +18,6 @@ import Footer from "@/components/Footer";
 import MetaTag from "@/components/Meta/MetaTag";
 import ImageGrid from "@/components/ImageGrid";
 import TitleParagraph from "@/components/TitleParagraph";
-import Paragraph from "@/components/Elements/Paragraph";
 import ApartmentSingleCard from "@/components/Cards/ApartmentSingleCard";
 
 const mbweniSlugs = ({
