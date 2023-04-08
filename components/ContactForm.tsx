@@ -8,6 +8,7 @@ import {fadeIn, fadeInUp, stagger} from "../animations/animations";
 
 // Styling
 import styles from "../styles/components/ContactForm.module.scss";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface IProps {
 	title: string;
@@ -68,6 +69,17 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 		return errors;
 	};
 
+	// Google ReCaptcha Validation
+	const [reCaptchaResult, setReCaptchaResult] = useState(null);
+	const googleReCaptchaValidate = (value: any) => {
+		return value;
+	};
+
+	const handleReCaptchaChange = (response: any) => {
+		const result = googleReCaptchaValidate(response);
+		setReCaptchaResult(result);
+	};
+
 	/* Contact Form Fields
 	And Initial Values */
 	const formik: any = useFormik({
@@ -84,15 +96,21 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 				...prev,
 				isLoading: true,
 			}));
-			try {
-				await sendContactForm(values);
-				setState(initState);
-			} catch (error) {
-				setState((prev: any) => ({
-					...prev,
-					isLoading: false,
-					// error: error.message,
-				}));
+			if (reCaptchaResult !== null || reCaptchaResult !== undefined) {
+				try {
+					await sendContactForm(values);
+					setState(initState);
+				} catch (error) {
+					setState((prev: any) => ({
+						...prev,
+						isLoading: false,
+						// error: error.message,
+					}));
+				}
+			} else {
+				console.log(
+					"Error Message: Something went wrong with your Google Recaptcha validation. Please try again."
+				);
 			}
 		},
 	});
@@ -223,6 +241,12 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="p-4 w-full h-48 font-[400] text-darkGrey placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen resize-none focus:ring-[1px] focus:ring-darkGreen"
 									/>
 								</motion.div>
+								<motion.div variants={fadeInUp}>
+									<ReCAPTCHA
+										sitekey={`6Lfk_24lAAAAAL2l1VdFX2EDZH_YVlmCouUyfpDI`}
+										onChange={handleReCaptchaChange}
+									/>
+								</motion.div>
 								<motion.button
 									variants={fadeInUp}
 									// isLoading={isLoading}
@@ -232,7 +256,9 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										!formik?.values?.lastName ||
 										!formik?.values?.email ||
 										!formik?.values?.subject ||
-										!formik?.values?.message
+										!formik?.values?.message ||
+										reCaptchaResult === null ||
+										reCaptchaResult === undefined
 									}
 									className="w-full text-white disabled:bg-opacity-50 disabled:cursor-not-allowed"
 									type="submit"
