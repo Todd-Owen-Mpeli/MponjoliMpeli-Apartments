@@ -5,6 +5,7 @@ const nextConfig = {
 		domains: [
 			"mponjolimpeliapartments.local",
 			"mydummysite.co.uk",
+			"cmsmponjolimpeliapartments.co.uk",
 			"mponjolimpeliapa-doz0ga0eix.live-website.com",
 		],
 	},
