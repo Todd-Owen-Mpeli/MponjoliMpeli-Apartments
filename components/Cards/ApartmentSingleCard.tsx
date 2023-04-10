@@ -63,7 +63,7 @@ const ApartmentSingleCard: FC<IProps> = ({
 										{lettingDetails?.map((keys) => (
 											<ApartSingleCardTwo
 												bulletpoint={keys?.bulletpoint}
-												key={keys?.id || Math.floor(Math.random() * 1001)}
+												key={keys?.id || keys?.bulletpoint}
 											/>
 										))}
 									</div>
@@ -76,13 +76,13 @@ const ApartmentSingleCard: FC<IProps> = ({
 											<span className="inline-block mb-3.5 text-goldPrime text-center font-semibold uppercase">
 												Starting at
 											</span>
-											<h3 className="mb-4 text-5xl lg:max-w-sm mx-auto font-bold tracking-wider md:text-7xl text-goldPrime">
+											<h3 className="mx-auto mb-4 text-5xl font-bold tracking-wider lg:max-w-sm md:text-7xl text-goldPrime">
 												{monthlyPrice}
 											</h3>
-											<h3 className="font-semibold text-white my-2 text-medium">
+											<h3 className="my-2 font-semibold text-white text-medium">
 												{briefInfo}
 											</h3>
-											<h3 className="font-semibold text-white my-2 text-medium">
+											<h3 className="my-2 font-semibold text-white text-medium">
 												{location}
 											</h3>
 										</div>

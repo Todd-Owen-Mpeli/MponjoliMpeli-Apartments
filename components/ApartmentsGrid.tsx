@@ -4,8 +4,8 @@ import ApartmentCard from "./Cards/ApartmentCard";
 interface IProps {
 	apartmentsGrid: [
 		{
-			id: string;
 			card: {
+				id: string;
 				title: string;
 				link: {
 					url: string;
@@ -27,7 +27,7 @@ const ApartmentsGrid: FC<IProps> = ({apartmentsGrid}) => {
 					<ApartmentCard
 						link={keys?.card?.link}
 						title={keys?.card?.title}
-						key={keys?.id || Math.floor(Math.random() * 1001)}
+						key={keys?.card?.id || keys?.card?.title}
 						backgroundImage={keys?.card?.backgroundImage?.sourceUrl}
 					/>
 				))}

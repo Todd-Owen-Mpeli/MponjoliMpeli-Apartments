@@ -57,7 +57,7 @@ const TeamMembers: FunctionComponent<IProps> = ({
 							title={keys?.profileCard?.title}
 							image={keys?.profileCard?.image}
 							jobPosition={keys?.profileCard?.jobPosition}
-							key={keys?.profileCard?.id || Math.floor(Math.random() * 1001)}
+							key={keys?.profileCard?.id || keys?.profileCard?.title}
 						/>
 					))}
 				</div>

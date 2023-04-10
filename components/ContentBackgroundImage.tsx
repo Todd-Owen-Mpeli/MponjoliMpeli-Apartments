@@ -24,7 +24,7 @@ const ContentBackgroundImage: FC<IProps> = ({gridContent}) => {
 					<ContentImageCard
 						title={keys?.card?.title}
 						paragraph={keys?.card?.paragraph}
-						key={keys?.card?.id || Math.floor(Math.random() * 1001)}
+						key={keys?.card?.id || keys?.card?.title}
 						backgroundImage={keys?.card?.backgroundImage?.sourceUrl}
 					/>
 				))}
