@@ -6,10 +6,16 @@ import {fadeInUp} from "../../animations/animations";
 interface IProps {
 	title: string;
 	paragraph: string;
+	contentLocation: string;
 	backgroundImage: string;
 }
 
-const ContentImageCard: FC<IProps> = ({title, backgroundImage, paragraph}) => {
+const ContentImageCard: FC<IProps> = ({
+	title,
+	paragraph,
+	contentLocation,
+	backgroundImage,
+}) => {
 	return (
 		<div
 			className="relative px-8 py-20 bg-center bg-no-repeat bg-cover"
@@ -17,7 +23,13 @@ const ContentImageCard: FC<IProps> = ({title, backgroundImage, paragraph}) => {
 				backgroundImage: `url("${backgroundImage}")`,
 			}}
 		>
-			<div className="flex flex-col items-end justify-center mx-auto max-w-7xl">
+			<div
+				className={
+					contentLocation === "Left"
+						? `flex flex-col items-end justify-center mx-auto max-w-7xl`
+						: `flex flex-col items-baseline justify-center mx-auto max-w-7xl`
+				}
+			>
 				<div className="max-w-2xl p-10 bg-white">
 					<motion.h2
 						variants={fadeInUp}

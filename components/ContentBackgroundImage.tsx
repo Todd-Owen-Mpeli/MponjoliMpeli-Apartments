@@ -8,6 +8,7 @@ interface IProps {
 				id: string;
 				title: string;
 				paragraph: string;
+				contentLocation: string;
 				backgroundImage: {
 					sourceUrl: string;
 				};
@@ -24,6 +25,7 @@ const ContentBackgroundImage: FC<IProps> = ({gridContent}) => {
 					<ContentImageCard
 						title={keys?.card?.title}
 						paragraph={keys?.card?.paragraph}
+						contentLocation={keys?.card?.contentLocation}
 						key={keys?.card?.id || keys?.card?.title}
 						backgroundImage={keys?.card?.backgroundImage?.sourceUrl}
 					/>

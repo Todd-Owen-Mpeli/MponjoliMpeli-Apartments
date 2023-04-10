@@ -159,6 +159,7 @@ export async function getStaticProps() {
 								card {
 									title
 									paragraph
+									contentLocation
 									backgroundImage {
 										sourceUrl
 									}
