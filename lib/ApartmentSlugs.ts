@@ -3,6 +3,7 @@ import {client} from "../config/apollo";
 
 type SlugResponse = {
 	slug: string;
+	modified: string;
 };
 
 interface ISlug extends Array<SlugResponse> {}
@@ -14,6 +15,7 @@ export const fetchApartmentSlugs = async (): Promise<ISlug> => {
 				apartmentsSlugArray: apartments(where: {status: PUBLISH}) {
 					nodes {
 						slug
+						modified
 					}
 				}
 			}
