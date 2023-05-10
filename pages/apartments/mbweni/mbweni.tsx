@@ -205,7 +205,7 @@ interface IMbweni {
 		];
 	};
 	themesOptionsContent: {
-		themeOptions: {
+		themesOptions: {
 			email: string;
 			emailOptionTwo: string;
 			phoneNumber: string;
