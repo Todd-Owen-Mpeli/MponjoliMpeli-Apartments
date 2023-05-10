@@ -42,6 +42,7 @@ export default async (req: any, res: any) => {
 
 	// Create a stream to write to
 	const stream = new SitemapStream({hostname: process.env.SITE_URL});
+
 	req;
 
 	res.writeHead(200, {

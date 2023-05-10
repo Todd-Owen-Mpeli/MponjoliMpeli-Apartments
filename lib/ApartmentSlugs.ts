@@ -12,7 +12,7 @@ export const fetchApartmentSlugs = async (): Promise<ISlug> => {
 	try {
 		const content: DocumentNode = gql`
 			{
-				apartmentsSlugArray: apartments(where: {status: PUBLISH}) {
+				apartmentsSlugArray: apartments(first: 100, where: {status: PUBLISH}) {
 					nodes {
 						slug
 						modified

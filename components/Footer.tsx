@@ -143,7 +143,7 @@ const Footer: FC<IProps> = ({
 							</svg>
 						</Link>
 					</div>
-					<div className="flex flex-col items-center sm:flex-row justify-center mx-auto sm:mx-0 w-full gap-4 lg:w-1/3 lg:justify-end">
+					<div className="flex flex-col items-center justify-center w-full gap-4 mx-auto sm:flex-row sm:mx-0 lg:w-1/3 lg:justify-end">
 						<Link
 							href={`/cookiesPolicy`}
 							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
@@ -165,7 +165,7 @@ const Footer: FC<IProps> = ({
 					</div>
 				</div>
 				<div className="flex items-center justify-center gap-4 mt-10">
-					<span className="text-tiny text-center text-brightGreen">
+					<span className="text-center text-tiny text-brightGreen">
 						&copy; Copyright 2023. All rights reserved by MponjoliMpeli Plc
 					</span>
 				</div>

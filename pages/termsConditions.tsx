@@ -1,6 +1,7 @@
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
+import type {NextPage, GetStaticProps} from "next";
 import {getThemesOptionsContent} from "../lib/themesOptions";
 import {
 	getMainMenuLinks,
@@ -12,11 +13,151 @@ import {
 // Components
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
-import MetaTag from "../components/Meta/MetaTag";
+import MetaTag from "../components/Layout/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
 import TitleParagraph from "@/components/TitleParagraph";
 
-const TermsConditions = ({
+interface ITermsConditions {
+	seo: {
+		canonical: string;
+		cornerstone: Boolean;
+		focuskw: string;
+		fullHead: string;
+		metaDesc: string;
+		metaKeywords: string;
+		metaRobotsNofollow: string;
+		metaRobotsNoindex: string;
+		opengraphAuthor: string;
+		opengraphDescription: string;
+		opengraphImage: {
+			mediaItemUrl: string;
+		};
+		opengraphModifiedTime: string;
+		opengraphPublishedTime: string;
+		opengraphPublisher: string;
+		opengraphSiteName: string;
+		opengraphTitle: string;
+		opengraphType: string;
+		opengraphUrl: string;
+		readingTime: number;
+		title: string;
+		twitterDescription: string;
+		twitterTitle: string;
+		twitterImage: {
+			mediaItemUrl: string;
+		};
+	};
+	pageTitle: string;
+	content: {
+		heroSection: {
+			title: string;
+			paragraph: string;
+			backgroundImage: {
+				sourceUrl: string;
+			};
+			buttonLink: {
+				url: string;
+				title: string;
+				target: string;
+			};
+			buttonLinkTwo: {
+				url: string;
+				title: string;
+				target: string;
+			};
+		};
+		contentSection: {
+			title: string;
+			paragraph: string;
+		};
+		contactBanner: {
+			title: string;
+			paragraph: string;
+			image: {
+				sourceUrl: string;
+			};
+			buttonLink: {
+				url: string;
+				title: string;
+				target: string;
+			};
+		};
+	};
+	footerMenuLinks: {
+		footerMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	mainMenuLinks: {
+		mainMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	heroMenuLinks: {
+		heroMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	locationMenuLinks: {
+		locationMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	themesOptionsContent: {
+		themesOptions: {
+			email: string;
+			emailOptionTwo: string;
+			phoneNumber: string;
+			phoneNumberOptionTwo: string;
+			phoneNumberOptionThree: string;
+			linkedinLink: string;
+			instagramLink: string;
+			facebookLink: string;
+			twitterLink: string;
+			businessHours: {
+				content: string;
+			};
+			mbeziContent: {
+				title: string;
+				phoneNumber: string;
+				email: string;
+				contactAddress: string;
+			};
+			mbweniContent: {
+				title: string;
+				phoneNumber: string;
+				email: string;
+				contactAddress: string;
+			};
+		};
+	};
+}
+
+const TermsConditions: NextPage<ITermsConditions> = ({
 	seo,
 	content,
 	pageTitle,
@@ -25,7 +166,7 @@ const TermsConditions = ({
 	footerMenuLinks,
 	locationMenuLinks,
 	themesOptionsContent,
-}: any) => {
+}) => {
 	return (
 		<motion.div
 			exit={{
@@ -80,7 +221,7 @@ const TermsConditions = ({
 
 export default TermsConditions;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
 	const getTermsConditionsPageContent: any = gql`
 		{
 			pageTitle: pages(where: {id: 366, status: PUBLISH}) {
@@ -181,4 +322,4 @@ export async function getStaticProps() {
 		},
 		revalidate: 60,
 	};
-}
+};

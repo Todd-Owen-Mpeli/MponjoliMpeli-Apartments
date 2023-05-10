@@ -2,6 +2,7 @@
 import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
+import type {NextPage, GetStaticProps} from "next";
 import {getThemesOptionsContent} from "../lib/themesOptions";
 import {
 	getMainMenuLinks,
@@ -14,12 +15,201 @@ import {
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "../components/Meta/MetaTag";
+import MetaTag from "../components/Layout/Meta/MetaTag";
 import ContactInfo from "@/components/ContactInfo";
-import ContactBanner from "@/components/ContactBanner";
 import ContactForm from "@/components/ContactForm";
+import ContactBanner from "@/components/ContactBanner";
 
-const contactUs = ({
+interface IAbout {
+	seo: {
+		canonical: string;
+		cornerstone: Boolean;
+		focuskw: string;
+		fullHead: string;
+		metaDesc: string;
+		metaKeywords: string;
+		metaRobotsNofollow: string;
+		metaRobotsNoindex: string;
+		opengraphAuthor: string;
+		opengraphDescription: string;
+		opengraphImage: {
+			mediaItemUrl: string;
+		};
+		opengraphModifiedTime: string;
+		opengraphPublishedTime: string;
+		opengraphPublisher: string;
+		opengraphSiteName: string;
+		opengraphTitle: string;
+		opengraphType: string;
+		opengraphUrl: string;
+		readingTime: number;
+		title: string;
+		twitterDescription: string;
+		twitterTitle: string;
+		twitterImage: {
+			mediaItemUrl: string;
+		};
+	};
+	pageTitle: string;
+	content: {
+		heroSection: {
+			title: string;
+			paragraph: string;
+			backgroundImage: {
+				sourceUrl: string;
+			};
+			buttonLink: {
+				url: string;
+				title: string;
+				target: string;
+			};
+			buttonLinkTwo: {
+				url: string;
+				title: string;
+				target: string;
+			};
+		};
+		contactForm: {
+			title: string;
+		};
+		contactBanner: {
+			title: string;
+			paragraph: string;
+			image: {
+				sourceUrl: string;
+			};
+			buttonLink: {
+				url: string;
+				title: string;
+				target: string;
+			};
+		};
+		imageGrid: {
+			image: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageTwo: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageThree: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageFour: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageFive: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageSix: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+		};
+	};
+	footerMenuLinks: {
+		footerMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	mainMenuLinks: {
+		mainMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	heroMenuLinks: {
+		heroMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	locationMenuLinks: {
+		locationMenuLinks: [
+			{
+				node: {
+					id: string;
+					url: string;
+					label: string;
+				};
+			}
+		];
+	};
+	themesOptionsContent: {
+		themesOptions: {
+			email: string;
+			emailOptionTwo: string;
+			phoneNumber: string;
+			phoneNumberOptionTwo: string;
+			phoneNumberOptionThree: string;
+			linkedinLink: string;
+			instagramLink: string;
+			facebookLink: string;
+			twitterLink: string;
+			businessHours: {
+				content: string;
+			};
+			mbeziContent: {
+				title: string;
+				phoneNumber: string;
+				email: string;
+				contactAddress: string;
+			};
+			mbweniContent: {
+				title: string;
+				phoneNumber: string;
+				email: string;
+				contactAddress: string;
+			};
+		};
+	};
+}
+
+const contactUs: NextPage<IAbout> = ({
 	seo,
 	content,
 	pageTitle,
@@ -28,7 +218,7 @@ const contactUs = ({
 	footerMenuLinks,
 	locationMenuLinks,
 	themesOptionsContent,
-}: any) => {
+}) => {
 	return (
 		<motion.div
 			exit={{
@@ -100,7 +290,7 @@ const contactUs = ({
 
 export default contactUs;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
 	const getContactUsPageContent: any = gql`
 		{
 			pageTitle: pages(where: {id: 610, status: PUBLISH}) {
@@ -245,4 +435,4 @@ export async function getStaticProps() {
 		},
 		revalidate: 60,
 	};
-}
+};
