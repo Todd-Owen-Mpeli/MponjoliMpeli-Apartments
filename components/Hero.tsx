@@ -98,7 +98,7 @@ const Hero: FC<HeroProps> = ({
 	}
 
 	return (
-		<section className="pb-0 md:pb-4 bg-green bg-gradient-to-t from-darkGreen">
+		<section className="pb-0 md:pb-4 bg-green-default bg-gradient-to-t from-green-dark">
 			<div
 				className="flex flex-col bg-cover bg-center bg-no-repeat h-full min-h-[98.5vh]"
 				style={{
@@ -113,7 +113,7 @@ const Hero: FC<HeroProps> = ({
 								<NavbarMenuLinks
 									url={keys?.node?.url}
 									label={keys?.node?.label}
-									tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
+									tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-green-bright transition-all ease-in-out duration-500"
 								/>
 							</li>
 						))}
@@ -134,7 +134,7 @@ const Hero: FC<HeroProps> = ({
 							{title}
 							<motion.span
 								variants={fadeInTwo}
-								className="ml-2 text-brightGreen"
+								className="ml-2 text-green-bright"
 							>
 								Today
 							</motion.span>
@@ -143,7 +143,7 @@ const Hero: FC<HeroProps> = ({
 					<div className="max-w-lg">
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center sm:text-left"
+							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-base text-center sm:text-left"
 						/>
 						<motion.div
 							variants={stagger}
@@ -166,7 +166,7 @@ const Hero: FC<HeroProps> = ({
 									variants={fadeInUp}
 									className={
 										buttonLink?.url
-											? `block px-6 py-3 font-semibold text-white transition duration-200  w-fit sm:mx-0 hover:bg-brightGreen bg-green rounded-t-lg rounded-l-lg`
+											? `block px-6 py-3 font-semibold text-white transition duration-200  w-fit sm:mx-0 hover:bg-green-bright bg-green-default rounded-t-lg rounded-l-lg`
 											: `hidden`
 									}
 								>

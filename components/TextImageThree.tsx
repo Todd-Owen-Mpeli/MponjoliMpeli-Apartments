@@ -31,7 +31,7 @@ const TextImageThree: FC<IProps> = ({title, image, paragraph}) => {
 						</motion.h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-medium"
+							tailwindStyling="mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-base"
 						/>
 					</div>
 				</div>

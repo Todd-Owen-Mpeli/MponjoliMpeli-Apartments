@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import {FC} from "react";
 import {motion} from "framer-motion";
-import Paragraph from "./Elements/Paragraph";
 import {fadeInUp} from "../animations/animations";
 import styles from "../styles/components/TitleParagraph.module.scss";
+
+// Components
+import Paragraph from "./Elements/Paragraph";
 
 interface IProps {
 	title: string;
@@ -13,7 +15,7 @@ interface IProps {
 const TitleParagraph: FC<IProps> = ({title, paragraph}) => {
 	return (
 		<section
-			className={`bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.titleParagraph}`}
+			className={`bg-green-Two bg-cover bg-center bg-no-repeat ${styles.titleParagraph}`}
 		>
 			<div className="container p-0 mx-auto">
 				<div className="flex flex-col px-4">
@@ -23,7 +25,7 @@ const TitleParagraph: FC<IProps> = ({title, paragraph}) => {
 						</h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="w-full lg:max-w-[75rem] mx-auto mt-4 py-8 text-white text-left text-medium"
+							tailwindStyling="w-full lg:max-w-[75rem] mx-auto mt-4 py-8 text-white text-left text-base"
 						/>
 					</motion.div>
 				</div>

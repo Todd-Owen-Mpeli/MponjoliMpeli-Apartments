@@ -33,7 +33,7 @@ const Sustainability: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`py-16 bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
+			className={`py-16 bg-green-Two bg-cover bg-center bg-no-repeat ${styles.sustainability}`}
 		>
 			<div className="px-4 mx-auto max-w-7xl">
 				<div className="grid items-center grid-cols-1 gap-y-6 lg:grid-cols-2 md:gap-x-36">
@@ -49,7 +49,7 @@ const Sustainability: FC<IProps> = ({
 						</motion.h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="text-medium text-white"
+							tailwindStyling="text-base text-white"
 						/>
 					</div>
 

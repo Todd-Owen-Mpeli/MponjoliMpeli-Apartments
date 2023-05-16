@@ -3,21 +3,22 @@ import type {NextPage, GetStaticProps} from "next";
 import {
 	fetchApartmentSlugs,
 	fetchApartmentSlugsContent,
-} from "@/lib/ApartmentSlugs";
+} from "@/functions/ApartmentSlugs";
 import {motion} from "framer-motion";
-import {getThemesOptionsContent} from "../../../lib/themesOptions";
+import {getThemesOptionsContent} from "../../../functions/themesOptions";
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
-} from "../../../lib/MenuLinks";
+} from "../../../functions/MenuLinks";
 
 // Components
-import HeroTwo from "@/components/HeroTwo";
+import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
-import MetaTag from "@/components/Layout/Meta/MetaTag";
+import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
+import MetaTag from "@/components/Layout/Meta/MetaTag";
 import TitleParagraph from "@/components/TitleParagraph";
 import ApartmentSingleCard from "@/components/Cards/ApartmentSingleCard";
 
@@ -84,6 +85,23 @@ interface IMbweniSlugs {
 			{
 				id: string;
 				bulletpoint: string;
+			}
+		];
+		stats: [
+			{
+				card: {
+					id: string;
+					icon: {
+						altText: string;
+						sourceUrl: string;
+						mediaDetails: {
+							height: number;
+							width: number;
+						};
+					};
+					title: string;
+					paragraph: string;
+				};
 			}
 		];
 		mainContent: {
@@ -200,7 +218,7 @@ interface IMbweniSlugs {
 		];
 	};
 	themesOptionsContent: {
-		themesOptions: {
+		themeOptions: {
 			email: string;
 			emailOptionTwo: string;
 			phoneNumber: string;
@@ -257,14 +275,16 @@ const mbweniSlugs: NextPage<IMbweniSlugs> = ({
 					mainMenuLinks={mainMenuLinks?.mainMenuLinks}
 					heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 					locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
-					mbeziContent={themesOptionsContent?.themesOptions?.mbeziContent}
-					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
-					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
+					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
+					mbeziContent={themesOptionsContent?.themeOptions?.mbeziContent}
+					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
+					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
+					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
+					mbweniContent={themesOptionsContent?.themeOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
+
+				<Stats stats={content?.stats} />
 
 				<TitleParagraph
 					title={content?.mainContent?.descriptionContent?.title}
@@ -290,10 +310,10 @@ const mbweniSlugs: NextPage<IMbweniSlugs> = ({
 
 				<Footer
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
-					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
-					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
+					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
+					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
+					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
+					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
 				/>
 			</main>
 		</motion.div>

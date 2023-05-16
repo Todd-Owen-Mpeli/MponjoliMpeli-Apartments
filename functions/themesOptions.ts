@@ -46,8 +46,7 @@ export async function getThemesOptionsContent() {
 		});
 
 		return {
-			themesOptions:
-				response?.data?.themesOptions?.edges[0]?.node?.themeOptions,
+			themeOptions: response?.data?.themesOptions?.edges[0]?.node?.themeOptions,
 		};
 	} catch (error) {
 		console.log(error);

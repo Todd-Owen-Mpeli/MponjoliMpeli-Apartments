@@ -10,6 +10,7 @@ interface IProps {
 				id: string;
 				title: string;
 				paragraph: string;
+				imageLocation: string;
 				image: {
 					altText: string;
 					sourceUrl: string;
@@ -35,8 +36,8 @@ const TextImageGrid: FC<IProps> = ({gridContent}) => {
 						title={keys?.card?.title}
 						image={keys?.card?.image}
 						paragraph={keys?.card?.paragraph}
+						imageLocation={keys?.card?.imageLocation}
 						key={keys?.card?.id || keys?.card?.title}
-						cardPosition={cardPositioning ? true : false}
 					/>
 				))}
 			</div>

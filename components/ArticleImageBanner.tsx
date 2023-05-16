@@ -21,14 +21,14 @@ const ArticleImageBanner: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className="px-4 overflow-hidden bg-center bg-no-repeat bg-cover xl:bg-fixed bg-darkGreen py-28"
+			className="px-4 overflow-hidden bg-center bg-no-repeat bg-cover xl:bg-fixed bg-green-dark py-28"
 			style={{
 				backgroundImage: `url('${backgroundImage}')`,
 			}}
 		>
 			<div className="container px-0 mx-auto">
 				<div
-					className="px-6 pt-12 rounded-lg sm:px-12 bg-darkGreen pb-9 md:max-w-xl bg-opacity-80"
+					className="px-6 pt-12 rounded-lg sm:px-12 bg-green-dark pb-9 md:max-w-xl bg-opacity-80"
 					style={{backdropFilter: "blur(10px)"}}
 				>
 					<h2 className="mb-8 text-4xl font-semibold leading-tight text-white 2xl:text-5xl">
@@ -36,7 +36,7 @@ const ArticleImageBanner: FC<IProps> = ({
 					</h2>
 					<Paragraph
 						content={paragraph}
-						tailwindStyling="text-medium leading-normal text-white my-11"
+						tailwindStyling="text-base leading-normal text-white my-11"
 					/>
 					<Link
 						href={buttonLink?.url}

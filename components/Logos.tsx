@@ -26,7 +26,7 @@ const Logos: FunctionComponent<IProps> = ({title, logoGrid}) => {
 			<div className="container px-0 mx-auto">
 				<motion.h2
 					variants={fadeIn}
-					className=" mb-20 text-greenTwo text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
+					className=" mb-20 text-green-Two text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
 				>
 					{title}
 				</motion.h2>

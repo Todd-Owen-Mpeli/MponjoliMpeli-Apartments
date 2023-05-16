@@ -103,7 +103,7 @@ const HeroTwo: FunctionComponent<HeroProps> = ({
 									<NavbarMenuLinks
 										url={keys?.node?.url}
 										label={keys?.node?.label}
-										tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
+										tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-green-bright transition-all ease-in-out duration-500"
 									/>
 								</li>
 							))}
@@ -124,7 +124,7 @@ const HeroTwo: FunctionComponent<HeroProps> = ({
 						<div className="max-w-2xl mt-10">
 							<Paragraph
 								content={paragraph}
-								tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center"
+								tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-base text-center"
 							/>
 						</div>
 					</div>

@@ -52,7 +52,7 @@ const IntroSection: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`flex flex-col justify-center items-center lg:flex-row bg-greenTwo bg-cover bg-center bg-no-repeat ${styles.introSection}`}
+			className={`flex flex-col justify-center items-center lg:flex-row bg-green-Two bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
 			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
 				<h2 className="pb-8 mx-auto mb-12 text-6xl font-semibold tracking-normal text-center border-b-2 text-goldPrime w-fit sm:text-7xl lg:text-8xl border-b-goldPrime lg:mb-20">
@@ -66,12 +66,12 @@ const IntroSection: FC<IProps> = ({
 				</motion.h2>
 				<Paragraph
 					content={paragraph}
-					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
+					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-base"
 				/>
 				<Link href={buttonLink?.url} target={buttonLink?.target}>
 					<motion.button
 						variants={fadeInUp}
-						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-darkGreen hover:font-bold"
+						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-green-darkk hover:font-bold"
 					>
 						{buttonLink?.title}
 					</motion.button>

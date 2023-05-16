@@ -86,7 +86,7 @@ const HeroThree: FC<HeroProps> = ({
 	}
 
 	return (
-		<section className="pb-0 md:pb-4 bg-green bg-gradient-to-t from-darkGreen">
+		<section className="pb-0 md:pb-4 bg-green-default bg-gradient-to-t from-green-dark">
 			<div
 				className="flex flex-col bg-cover bg-center bg-no-repeat h-full min-h-[98.5vh]"
 				style={{
@@ -101,7 +101,7 @@ const HeroThree: FC<HeroProps> = ({
 								<NavbarMenuLinks
 									url={keys?.node?.url}
 									label={keys?.node?.label}
-									tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-brightGreen transition-all ease-in-out duration-500"
+									tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-green-bright transition-all ease-in-out duration-500"
 								/>
 							</li>
 						))}
@@ -122,7 +122,7 @@ const HeroThree: FC<HeroProps> = ({
 							{title}
 							<motion.span
 								variants={fadeInTwo}
-								className="ml-2 text-brightGreen"
+								className="ml-2 text-green-bright"
 							>
 								Apartments
 							</motion.span>
@@ -131,7 +131,7 @@ const HeroThree: FC<HeroProps> = ({
 					<div className="max-w-lg">
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-medium text-center sm:text-left"
+							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-base text-center sm:text-left"
 						/>
 					</div>
 				</div>

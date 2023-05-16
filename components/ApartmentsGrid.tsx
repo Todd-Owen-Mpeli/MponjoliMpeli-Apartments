@@ -21,7 +21,7 @@ interface IProps {
 }
 const ApartmentsGrid: FC<IProps> = ({apartmentsGrid}) => {
 	return (
-		<section className="px-4 py-10 overflow-hidden bg-darkGreen">
+		<section className="px-4 py-10 overflow-hidden bg-green-dark">
 			<div className="container grid items-center justify-center grid-cols-1 gap-4 px-0 mx-auto md:grid md:grid-cols-2 lg:grid xl:grid-cols-3 lg:gap-8">
 				{apartmentsGrid?.map((keys) => (
 					<ApartmentCard

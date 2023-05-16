@@ -70,7 +70,7 @@ const ApartmentSingleCard: FC<IProps> = ({
 								</div>
 							</div>
 							<div className="w-full p-8 h-fit md:w-1/2">
-								<div className="h-full px-8 py-24 text-center bg-flatGreen">
+								<div className="h-full px-8 py-24 text-center bg-green-flat">
 									<div className="flex flex-col justify-between h-full">
 										<div className="flex-initial mb-10">
 											<span className="inline-block mb-3.5 text-goldPrime text-center font-semibold uppercase">
@@ -79,10 +79,10 @@ const ApartmentSingleCard: FC<IProps> = ({
 											<h3 className="mx-auto mb-4 text-5xl font-bold tracking-wider lg:max-w-sm md:text-7xl text-goldPrime">
 												{monthlyPrice}
 											</h3>
-											<h3 className="my-2 font-semibold text-white text-medium">
+											<h3 className="my-2 text-base font-semibold text-white">
 												{briefInfo}
 											</h3>
-											<h3 className="my-2 font-semibold text-white text-medium">
+											<h3 className="my-2 text-base font-semibold text-white">
 												{location}
 											</h3>
 										</div>

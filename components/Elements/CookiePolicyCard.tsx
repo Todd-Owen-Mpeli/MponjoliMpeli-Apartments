@@ -21,13 +21,13 @@ const CookiePolicyCard = () => {
 		<div
 			className={
 				showCookiePolicyCard
-					? `fixed bottom-0 right-0 z-50 max-w-6xl px-4 md:max-w-md z-[999]`
+					? `fixed bottom-0 right-0 max-w-6xl px-4 md:max-w-md z-[999]`
 					: `hidden`
 			}
 		>
 			<motion.div
 				variants={stagger}
-				className="px-6 pt-4 pb-6 mb-8 text-white bg-darkGreen"
+				className="px-6 pt-4 pb-6 mb-8 text-white bg-green-dark"
 			>
 				<motion.h3 variants={fadeInUp} className="font-bold font-heading">
 					Cookie Policy
@@ -45,14 +45,14 @@ const CookiePolicyCard = () => {
 					<motion.button
 						onClick={acceptCookies}
 						variants={fadeInUp}
-						className="inline-block px-6 py-3 mr-2 text-xs leading-none bg-green hover:bg-goldPrimeDarker"
+						className="inline-block px-6 py-3 mr-2 text-xs leading-none bg-green-default hover:bg-goldPrimeDarker"
 					>
 						Accept Cookies
 					</motion.button>
 					<motion.button
 						onClick={refuseCookies}
 						variants={fadeInUp}
-						className="inline-block px-6 py-3 text-xs leading-none text-white border border-green hover:border-greenTwo hover:bg-greenTwo"
+						className="inline-block px-6 py-3 text-xs leading-none text-white border border-green-default hover:border-green-Two hover:bg-green-Two"
 					>
 						Refuse Cookies
 					</motion.button>

@@ -3,13 +3,13 @@ import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../config/apollo";
 import type {NextPage, GetStaticProps} from "next";
-import {getThemesOptionsContent} from "../lib/themesOptions";
+import {getThemesOptionsContent} from "../functions/themesOptions";
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
-} from "../lib/MenuLinks";
+} from "../functions/MenuLinks";
 
 // Components
 import Hero from "@/components/Hero";
@@ -143,6 +143,7 @@ interface IHome {
 						id: string;
 						title: string;
 						paragraph: string;
+						imageLocation: string;
 						image: {
 							altText: string;
 							sourceUrl: string;
@@ -296,7 +297,7 @@ interface IHome {
 		];
 	};
 	themesOptionsContent: {
-		themesOptions: {
+		themeOptions: {
 			email: string;
 			emailOptionTwo: string;
 			phoneNumber: string;
@@ -354,12 +355,12 @@ const Home: NextPage<IHome> = ({
 					buttonLink={content?.heroSection?.buttonLink}
 					buttonLinkTwo={content?.heroSection?.buttonLinkTwo}
 					locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
-					mbeziContent={themesOptionsContent?.themesOptions?.mbeziContent}
-					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
-					mbweniContent={themesOptionsContent?.themesOptions?.mbweniContent}
+					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
+					mbeziContent={themesOptionsContent?.themeOptions?.mbeziContent}
+					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
+					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
+					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
+					mbweniContent={themesOptionsContent?.themeOptions?.mbweniContent}
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
 
@@ -430,10 +431,10 @@ const Home: NextPage<IHome> = ({
 
 				<Footer
 					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
-					twitterLink={themesOptionsContent?.themesOptions?.twitterLink}
-					linkedinLink={themesOptionsContent?.themesOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themesOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themesOptions?.instagramLink}
+					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
+					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
+					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
+					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
 				/>
 			</main>
 		</motion.div>
@@ -558,6 +559,7 @@ export const getStaticProps: GetStaticProps = async () => {
 									card {
 										title
 										paragraph
+										imageLocation
 										image {
 											altText
 											sourceUrl

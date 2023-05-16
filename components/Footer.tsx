@@ -27,7 +27,7 @@ const Footer: FC<IProps> = ({
 	footerMenuLinks,
 }) => {
 	return (
-		<section className="py-20 bg-darkGreen">
+		<section className="py-20 bg-green-dark">
 			<div className="container px-4 mx-auto">
 				<div className="relative flex flex-wrap items-center justify-between gap-4">
 					<div className="w-full mb-6 lg:w-1/3">
@@ -37,7 +37,7 @@ const Footer: FC<IProps> = ({
 									<NavbarMenuLinks
 										url={keys?.node?.url}
 										label={keys?.node?.label}
-										tailwindStyling="mx-2 text-white tracking-wider transition-all duration-500 ease-in-out hover:text-brightGreen"
+										tailwindStyling="mx-2 text-white tracking-wider transition-all duration-500 ease-in-out hover:text-green-bright"
 									/>
 								</li>
 							))}
@@ -146,26 +146,26 @@ const Footer: FC<IProps> = ({
 					<div className="flex flex-col items-center justify-center w-full gap-4 mx-auto sm:flex-row sm:mx-0 lg:w-1/3 lg:justify-end">
 						<Link
 							href={`/cookiesPolicy`}
-							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
 						>
 							Cookies Policy
 						</Link>
 						<Link
 							href={`/termsConditions`}
-							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
 						>
 							Terms &amp; Conditions
 						</Link>
 						<Link
 							href={`/privacyPolicy`}
-							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-brightGreen"
+							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
 						>
 							Privacy Policy
 						</Link>
 					</div>
 				</div>
 				<div className="flex items-center justify-center gap-4 mt-10">
-					<span className="text-center text-tiny text-brightGreen">
+					<span className="text-center text-tiny text-green-bright">
 						&copy; Copyright 2023. All rights reserved by MponjoliMpeli Plc
 					</span>
 				</div>

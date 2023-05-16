@@ -75,7 +75,7 @@ const SideMenu: FC<HeroProps> = ({
 					: `hidden ${styles.nav}`
 			}
 		>
-			<div className="fixed inset-0 opacity-25 bg-darkGreen"></div>
+			<div className="fixed inset-0 opacity-25 bg-green-dark"></div>
 			<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-x-hidden overflow-y-auto bg-white">
 				<div className="flex flex-col items-center mb-8">
 					<Link
@@ -96,12 +96,12 @@ const SideMenu: FC<HeroProps> = ({
 						{mainMenuLinks?.map((keys) => (
 							<li
 								key={keys?.node?.id}
-								className="mb-1 border-b-[1px] border-green border-opacity-50"
+								className="mb-1 border-b-[1px] border-green-default border-opacity-50"
 							>
 								<NavbarMenuLinks
 									url={keys?.node?.url}
 									label={keys?.node?.label}
-									tailwindStyling="block py-4 text-medium font-semibold text-black hover:text-brightGreen"
+									tailwindStyling="block py-4 text-base font-semibold text-black hover:text-green-bright"
 								/>
 							</li>
 						))}
@@ -110,18 +110,18 @@ const SideMenu: FC<HeroProps> = ({
 						<li className="mb-1">
 							<span
 								onClick={displayLocationMenu}
-								className="block py-4 font-semibold text-black text-medium border-b-[1px] border-green border-opacity-50border-b-[1px] border-green border-opacity-50"
+								className="block py-4 font-semibold text-black text-base border-b-[1px] border-green-default border-opacity-50border-b-[1px] border-opacity-50"
 							>
 								Our Locations
 							</span>
 							{LocationMenuOpen ? (
-								<ul className="flex flex-col justify-center my-2 gap-2">
+								<ul className="flex flex-col justify-center gap-2 my-2">
 									{locationMenuLinks?.map((keys) => (
 										<li key={keys?.node?.id} className="indent-8">
 											<NavbarMenuLinks
 												url={keys?.node?.url}
 												label={keys?.node?.label}
-												tailwindStyling="block py-4 ml-6 text-medium text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
+												tailwindStyling="block py-4 ml-6 text-base text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
 											/>
 										</li>
 									))}
@@ -233,7 +233,7 @@ const SideMenu: FC<HeroProps> = ({
 					</div>
 					<div className="flex flex-col items-baseline gap-4 sm:flex-row">
 						<div className="flex flex-col items-baseline justify-between my-6">
-							<h2 className="text-green font-[600] text-medium">
+							<h2 className="text-green font-[600] text-base">
 								{mbeziContent?.title}
 							</h2>
 							<Paragraph
@@ -256,7 +256,7 @@ const SideMenu: FC<HeroProps> = ({
 							</div>
 						</div>
 						<div className="flex flex-col items-baseline justify-between my-6">
-							<h2 className="text-green font-[600] text-medium">
+							<h2 className="text-green font-[600] text-base">
 								{mbweniContent?.title}
 							</h2>
 							<Paragraph

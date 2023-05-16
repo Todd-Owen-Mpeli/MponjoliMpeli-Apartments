@@ -61,16 +61,16 @@ const ImageGrid: FC<IProps> = ({
 	imageSix,
 }) => {
 	return (
-		<section className="overflow-hidden py-2 bg-darkGreen">
+		<section className="py-2 overflow-hidden bg-green-dark">
 			<div className="flex flex-wrap">
-				<div className="flex w-1/2 flex-wrap">
+				<div className="flex flex-wrap w-1/2">
 					<div className="w-1/2 p-1 md:p-2">
 						<Image
 							alt={image?.altText}
 							src={image?.sourceUrl}
 							width={image?.mediaDetails?.width}
 							height={image?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -79,7 +79,7 @@ const ImageGrid: FC<IProps> = ({
 							src={imageTwo?.sourceUrl}
 							width={imageTwo?.mediaDetails?.width}
 							height={imageTwo?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-full p-1 md:p-2">
@@ -88,18 +88,18 @@ const ImageGrid: FC<IProps> = ({
 							src={imageThree?.sourceUrl}
 							width={imageThree?.mediaDetails?.width}
 							height={imageThree?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 				</div>
-				<div className="flex w-1/2 flex-wrap">
+				<div className="flex flex-wrap w-1/2">
 					<div className="w-full p-1 md:p-2">
 						<Image
 							alt={imageFour?.altText}
 							src={imageFour?.sourceUrl}
 							width={imageFour?.mediaDetails?.width}
 							height={imageFour?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -108,7 +108,7 @@ const ImageGrid: FC<IProps> = ({
 							src={imageFive?.sourceUrl}
 							width={imageFive?.mediaDetails?.width}
 							height={imageFive?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -117,7 +117,7 @@ const ImageGrid: FC<IProps> = ({
 							src={imageSix?.sourceUrl}
 							width={imageSix?.mediaDetails?.width}
 							height={imageSix?.mediaDetails?.height}
-							className="block h-full w-full object-cover object-center"
+							className="block object-cover object-center w-full h-full"
 						/>
 					</div>
 				</div>

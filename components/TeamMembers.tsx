@@ -36,7 +36,7 @@ const TeamMembers: FunctionComponent<IProps> = ({
 }) => {
 	return (
 		<section
-			className="px-4 py-20 overflow-hidden bg-bottom bg-no-repeat bg-cover lg:px-0 bg-darkGreen"
+			className="px-4 py-20 overflow-hidden bg-bottom bg-no-repeat bg-cover lg:px-0 bg-green-dark"
 			style={{
 				backgroundImage: `url("/svg/backgroundWaves.svg")`,
 			}}
@@ -48,7 +48,7 @@ const TeamMembers: FunctionComponent<IProps> = ({
 				<motion.div variants={fadeIn}>
 					<Paragraph
 						content={paragraph}
-						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-medium"
+						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-base"
 					/>
 				</motion.div>
 				<div className="flex flex-col mt-24 lg:flex-row">

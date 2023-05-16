@@ -11,21 +11,21 @@ interface IProps {
 
 const Newsletter: FC<IProps> = ({title, titleTwo, paragraph, paragraphTwo}) => {
 	return (
-		<section className="py-12 px-4 bg-[#07694e] bg-gradient-to-r from-greenTwo">
+		<section className="py-12 px-4 bg-[#07694e] bg-gradient-to-r from-green-Two">
 			<div className="container px-0 mx-auto">
 				<div className="flex flex-wrap items-center">
-					<div className="w-full max-w-lg py-10 mx-auto px-4  mr-auto text-center lg:w-auto lg:ml-0 lg:text-left">
+					<div className="w-full max-w-lg px-4 py-10 mx-auto mr-auto text-center lg:w-auto lg:ml-0 lg:text-left">
 						<h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">
 							{title}
 						</h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="text-white text-medium mt-8"
+							tailwindStyling="text-white text-base mt-8"
 						/>
 					</div>
 					<div className="w-full lg:w-2/5">
 						<div className="max-w-3xl px-6 py-10 mx-auto bg-white rounded-md lg:mr-0 sm:px-12">
-							<h3 className="mb-4 text-2xl font-medium text-darkGreen">
+							<h3 className="mb-4 text-2xl font-medium text-green-dark">
 								{titleTwo}
 							</h3>
 							<Paragraph
@@ -46,7 +46,7 @@ const Newsletter: FC<IProps> = ({title, titleTwo, paragraph, paragraphTwo}) => {
 									/>
 								</div>
 								<button
-									className="inline-block w-full px-6 py-4 text-base font-medium text-center text-white transition duration-200 bg-green hover:bg-greenTwo"
+									className="inline-block w-full px-6 py-4 text-base font-medium text-center text-white transition duration-200 bg-green-default hover:bg-green-Two"
 									type="submit"
 								>
 									Sign up

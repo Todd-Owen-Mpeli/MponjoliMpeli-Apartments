@@ -40,7 +40,7 @@ const ProfileCard: FunctionComponent<IProps> = ({
 				</motion.h3>
 				<motion.h4
 					variants={fadeInUp}
-					className="text-medium text-white tracking-wider"
+					className="text-base text-white tracking-wider"
 				>
 					{jobPosition}
 				</motion.h4>

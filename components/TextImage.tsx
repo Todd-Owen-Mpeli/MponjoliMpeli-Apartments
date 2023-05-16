@@ -44,7 +44,7 @@ const TextImage: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`flex flex-col items-center lg:flex-row bg-darkGreen bg-cover bg-center bg-no-repeat`}
+			className={`flex flex-col items-center lg:flex-row bg-green-dark bg-cover bg-center bg-no-repeat`}
 			style={{
 				backgroundImage: `url("/svg/backgroundStackedWaves.svg")`,
 			}}
@@ -61,7 +61,7 @@ const TextImage: FC<IProps> = ({
 				</motion.h2>
 				<Paragraph
 					content={paragraph}
-					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-medium"
+					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-base"
 				/>
 			</div>
 			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">

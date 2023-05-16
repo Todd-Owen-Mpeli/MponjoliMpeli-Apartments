@@ -88,6 +88,20 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
       					lettingDetails {
       					  bulletpoint
       					}
+						stats {
+      					  card {
+      					    title
+      					    paragraph
+      					    icon {
+      					      altText
+      					      sourceUrl
+      					      mediaDetails {
+      					        height
+      					        width
+      					      }
+      					    }
+      					  }
+      					}
 						mainContent {
 							descriptionContent {
 								title

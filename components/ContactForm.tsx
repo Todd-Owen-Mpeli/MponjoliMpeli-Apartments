@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {motion} from "framer-motion";
 import React, {useState, FC} from "react";
-import {sendContactForm} from "../lib/api";
+import {sendContactForm} from "../functions/api";
 import Paragraph from "./Elements/Paragraph";
 import {useFormik, Formik, Field, Form} from "formik";
 import {fadeIn, fadeInUp, stagger} from "../animations/animations";
@@ -117,7 +117,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 
 	return (
 		<section
-			className="py-20 mx-auto overflow-hidden bg-center bg-no-repeat bg-cover bg-darkGreen"
+			className="py-20 mx-auto overflow-hidden bg-center bg-no-repeat bg-cover bg-green-dark"
 			style={{
 				backgroundImage: `url("/svg/backgroundWaves.svg")`,
 			}}
@@ -131,7 +131,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 						<Form className="container mx-auto transition-all ease-in-out duration-[0.5s] md:max-w-xl shadow-12xl">
 							<motion.h3
 								variants={fadeIn}
-								className="mx-auto mb-16 text-xl font-semibold text-center uppercase sm:text-2xl text-darkGreen"
+								className="mx-auto mb-16 text-xl font-semibold text-center uppercase sm:text-2xl text-green-dark"
 							>
 								{title}
 							</motion.h3>
@@ -141,7 +141,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 									variants={fadeIn}
 									className="flex items-center justify-center my-4 mb-8 gap-x-2"
 								>
-									<h4 className="text-lg font-semibold text-center uppercase text-brightGreen">
+									<h4 className="text-lg font-semibold text-center uppercase text-green-bright">
 										Message sent
 									</h4>
 								</motion.div>
@@ -151,7 +151,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 								<motion.div variants={fadeInUp}>
 									{formik?.touched?.firstName && formik?.errors?.firstName ? (
 										<div>
-											<p className="py-1 text-left text-tiny text-darkGreen font-[400]">
+											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
 												{formik?.errors?.firstName}
 											</p>
 										</div>
@@ -163,13 +163,13 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										onBlur={formik?.handleBlur}
 										onChange={formik?.handleChange}
 										value={formik?.values?.firstName}
-										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen focus:ring-[1px] focus:ring-darkGreen"
+										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
 								<motion.div variants={fadeInUp}>
 									{formik?.touched?.lastName && formik?.errors?.lastName ? (
 										<div>
-											<p className="py-1 text-left text-tiny text-darkGreen font-[400]">
+											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
 												{formik?.errors?.lastName}
 											</p>
 										</div>
@@ -181,13 +181,13 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										onBlur={formik?.handleBlur}
 										onChange={formik?.handleChange}
 										value={formik?.values?.lastName}
-										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen focus:ring-[1px] focus:ring-darkGreen"
+										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
 								<motion.div variants={fadeInUp}>
 									{formik?.errors?.email ? (
 										<div>
-											<p className="py-1 text-left text-tiny text-darkGreen font-[400]">
+											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
 												{formik?.errors?.email}
 											</p>
 										</div>
@@ -200,13 +200,13 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										onBlur={formik?.handleBlur}
 										onChange={formik?.handleChange}
 										value={formik?.values?.email}
-										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen focus:ring-[1px] focus:ring-darkGreen"
+										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
 								<motion.div variants={fadeInUp}>
 									{formik?.touched?.subject && formik?.errors?.subject ? (
 										<div>
-											<p className="py-1 text-left text-tiny text-darkGreen font-[400]">
+											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
 												{formik?.errors?.subject}
 											</p>
 										</div>
@@ -219,13 +219,13 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										onBlur={formik?.handleBlur}
 										onChange={formik?.handleChange}
 										value={formik?.values?.subject}
-										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen focus:ring-[1px] focus:ring-darkGreen"
+										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
 								<motion.div variants={fadeInUp}>
 									{formik?.touched?.message && formik?.errors?.message ? (
 										<div>
-											<p className="py-1 text-left text-tiny text-darkGreen font-[400]">
+											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
 												{formik?.errors?.message}
 											</p>
 										</div>
@@ -238,7 +238,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										onBlur={formik?.handleBlur}
 										onChange={formik?.handleChange}
 										value={formik?.values?.message}
-										className="p-4 w-full h-48 font-[400] text-darkGrey placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-darkGreen focus:border-darkGreen resize-none focus:ring-[1px] focus:ring-darkGreen"
+										className="p-4 w-full h-48 font-[400] text-darkGrey placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark resize-none focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
 								<motion.div variants={fadeInUp}>
@@ -297,7 +297,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 												</g>
 											</svg>
 										</span>
-										<h3 className="text-white uppercase text-medium">
+										<h3 className="text-white uppercase text-base">
 											Send Message
 										</h3>
 									</span>
@@ -306,9 +306,9 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 						</Form>
 					</Formik>
 				</div>
-				<div className="w-full lg:w-1/2 h-full lg:min-h-[300px] my-10 px-3 border border-darkGreen">
+				<div className="w-full lg:w-1/2 h-full lg:min-h-[300px] my-10 px-3 border border-green-dark">
 					<div className="flex flex-col items-center justify-center gap-4 text-center p-11">
-						<div className="relative w-16 h-16 mx-auto mb-6 border rounded-full border-darkGreen">
+						<div className="relative w-16 h-16 mx-auto mb-6 border rounded-full border-green-dark">
 							<div className="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
 								<svg
 									width="32"
@@ -327,12 +327,12 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 								</svg>
 							</div>
 						</div>
-						<h3 className="mb-4 text-xl font-bold leading-snug text-darkGreen">
+						<h3 className="mb-4 text-xl font-bold leading-snug text-green-dark">
 							Business Hours
 						</h3>
 						<Paragraph
 							content={businessHours?.content}
-							tailwindStyling="font-medium text-base sm:text-medium leading-relaxed text-left text-black"
+							tailwindStyling="font-medium text-base sm:text-base leading-relaxed text-left text-black"
 						/>
 					</div>
 				</div>

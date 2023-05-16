@@ -1,11 +1,11 @@
 // Import
 import {fetchAllPagesSlugs} from "@/functions/GetAllPagesLinks";
-import {fetchApartmentSlugs} from "../../lib/ApartmentSlugs";
+import {fetchApartmentSlugs} from "../../functions/ApartmentSlugs";
 
 const {SitemapStream, streamToPromise} = require("sitemap");
 const {Readable} = require("stream");
 
-const sitemap = async (req: any, res: any) => {
+export default async (req: any, res: any) => {
 	const pagesSlugs = await fetchAllPagesSlugs();
 	const apartmentsSlugs = await fetchApartmentSlugs();
 
@@ -42,6 +42,7 @@ const sitemap = async (req: any, res: any) => {
 
 	// Create a stream to write to
 	const stream = new SitemapStream({hostname: process.env.SITE_URL});
+
 	req;
 
 	res.writeHead(200, {
@@ -54,5 +55,3 @@ const sitemap = async (req: any, res: any) => {
 
 	res.end(xmlString);
 };
-
-export default sitemap;

@@ -16,14 +16,14 @@ const ContactInfo: FC<IProps> = ({
 	phoneNumberTwo,
 }) => {
 	return (
-		<section className="relative pt-24 overflow-hidden pb-36 bg-darkGreen">
+		<section className="relative pt-24 overflow-hidden pb-36 bg-green-dark">
 			<div className="container relative z-10 px-4 mx-auto">
 				<h2 className="mb-10 text-6xl font-bold leading-none text-center text-white md:text-8xl xl:text-10xl tracking-px-n">
 					Get connected
 				</h2>
 				<Paragraph
 					content={`<p>Our expert team is on hand to give help, advice and support. So what are you waiting for? Get in touch today!</p>`}
-					tailwindStyling="mb-20 text-medium text-white text-center leading-normal md:max-w-lg mx-auto"
+					tailwindStyling="mb-20 text-base text-white text-center leading-normal md:max-w-lg mx-auto"
 				/>
 				<div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
 					<div className="w-full h-full lg:min-h-[400px] lg:w-1/3 p-3 border border-goldPrime">
@@ -52,7 +52,7 @@ const ContactInfo: FC<IProps> = ({
 							</h3>
 							<Link
 								href={`mailto:${email}`}
-								className="text-base font-medium leading-relaxed text-white transition-all duration-500 ease-in-out sm:text-medium hover:text-brightGreen"
+								className="text-base font-medium leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 							>
 								{email}
 							</Link>
@@ -83,20 +83,20 @@ const ContactInfo: FC<IProps> = ({
 								Call Us
 							</h3>
 							<div className="flex flex-col items-center justify-center gap-4 sm:gap-2">
-								<span className="flex flex-col gap-4 font-medium text-center text-white sm:flex-row text-medium lg:text-left">
+								<span className="flex flex-col gap-4 text-base font-medium text-center text-white sm:flex-row lg:text-left">
 									Main Office:
 									<Link
 										href={`tel:${phoneNumber}`}
-										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out sm:text-medium hover:text-brightGreen"
+										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 									>
 										{phoneNumber}
 									</Link>
 								</span>
-								<span className="flex flex-col gap-4 font-medium text-center text-white sm:flex-row text-medium lg:text-left">
+								<span className="flex flex-col gap-4 text-base font-medium text-center text-white sm:flex-row lg:text-left">
 									Enquires:
 									<Link
 										href={`tel:${phoneNumberTwo}`}
-										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out sm:text-medium hover:text-brightGreen"
+										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 									>
 										{phoneNumberTwo}
 									</Link>
@@ -137,7 +137,7 @@ const ContactInfo: FC<IProps> = ({
 							</h3>
 							<Paragraph
 								content={contactAddress}
-								tailwindStyling="font-medium text-base sm:text-medium leading-relaxed text-white"
+								tailwindStyling="font-medium text-base leading-relaxed text-white"
 							/>
 						</div>
 					</div>

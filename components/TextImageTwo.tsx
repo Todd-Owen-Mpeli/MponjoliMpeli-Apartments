@@ -56,7 +56,7 @@ const TextImageTwo: FC<IProps> = ({
 					</div>
 
 					<div className="w-full lg:w-1/2">
-						<div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full lg:mx-0 bg-flatGreen">
+						<div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full lg:mx-0 bg-green-flat">
 							<svg
 								className="w-8 h-8 text-goldPrime"
 								xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ const TextImageTwo: FC<IProps> = ({
 						</motion.h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-medium"
+							tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-base"
 						/>
 					</div>
 				</div>

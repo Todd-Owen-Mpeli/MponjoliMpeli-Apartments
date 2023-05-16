@@ -7,6 +7,11 @@ module.exports = {
 	],
 	theme: {
 		extend: {},
+		fontFamily: {
+			CanelaDeck: ["Canela Deck", "sans-serif"],
+			Bitter: ["Bitter", "sans-serif"],
+			Inter: ["Inter", "sans-serif"],
+		},
 		fontSize: {
 			xs: ".75rem",
 			sm: ".8rem",
@@ -35,7 +40,13 @@ module.exports = {
 			// Main colors
 			blue: "#2563eb",
 			gold: "#d16415",
-			green: "#00946a",
+			green: {
+				default: "#00946a",
+				Two: "#003f2d",
+				dark: "#012a2d",
+				flat: "#04393d",
+				bright: "#00c68e",
+			},
 			greenTwo: "#003f2d",
 			darkBlue: "#0d172a",
 			goldPrime: "#dfc695",

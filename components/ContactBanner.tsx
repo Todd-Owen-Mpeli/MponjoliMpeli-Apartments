@@ -35,18 +35,18 @@ const ContactBanner: FC<IProps> = ({
 			<div className="container p-0 mx-auto">
 				<div className="flex flex-col items-center justify-between gap-10 px-0 py-8 lg:flex-row lg:px-8">
 					<div className="flex flex-col items-center justify-between gap-4 lg:items-start">
-						<h2 className="mb-4 text-3xl font-semibold leading-tight text-center lg:text-left text-white sm:text-4xl lg:text-5xl">
+						<h2 className="mb-4 text-3xl font-semibold leading-tight text-center text-white lg:text-left sm:text-4xl lg:text-5xl">
 							{title}
 						</h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white text-medium"
+							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white text-base"
 						/>
 					</div>
 					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
 						<motion.button
 							variants={fadeIn}
-							className="py-4 px-12 md:py-6 xl:px-20 tracking-widest uppercase font-semibold text-white text-base bg-green hover:bg-goldPrimeDark transition-all ease-in-out duration-500"
+							className="px-12 py-4 text-base font-semibold tracking-widest text-white uppercase transition-all duration-500 ease-in-out md:py-6 xl:px-20 bg-green-default hover:bg-goldPrimeDark"
 						>
 							{buttonLink?.title}
 						</motion.button>
