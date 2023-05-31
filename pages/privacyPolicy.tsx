@@ -13,7 +13,7 @@ import {
 // Components
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
-import MetaTag from "../components/Layout/Meta/MetaTag";
+import MetaTag from "../components/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
 import TitleParagraph from "@/components/TitleParagraph";
 

@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import {FunctionComponent} from "react";
 import Paragraph from "./Elements/Paragraph";
 import ProfileCard from "./Cards/ProfileCard";
-import {fadeIn} from "../animations/animations";
+import {fadeIn, initial, initialTwo} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -45,7 +45,11 @@ const TeamMembers: FunctionComponent<IProps> = ({
 				<h2 className="text-goldPrime max-w-4xl mb-6 mx-auto text-center tracking-normal leading-[3.75rem] font-semibold text-6xl sm:text-7xl lg:text-8xl">
 					{title}
 				</h2>
-				<motion.div variants={fadeIn}>
+				<motion.div
+					initial={initialTwo}
+					whileInView={fadeIn}
+					viewport={{once: true}}
+				>
 					<Paragraph
 						content={paragraph}
 						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center sm:text-left text-base"

@@ -2,7 +2,7 @@ import {FC} from "react";
 import Link from "next/link";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeIn} from "../animations/animations";
+import {fadeIn, initial, initialTwo} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -45,7 +45,9 @@ const ContactBanner: FC<IProps> = ({
 					</div>
 					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
 						<motion.button
-							variants={fadeIn}
+							initial={initialTwo}
+							whileInView={fadeIn}
+							viewport={{once: true}}
 							className="px-12 py-4 text-base font-semibold tracking-widest text-white uppercase transition-all duration-500 ease-in-out md:py-6 xl:px-20 bg-green-default hover:bg-goldPrimeDark"
 						>
 							{buttonLink?.title}

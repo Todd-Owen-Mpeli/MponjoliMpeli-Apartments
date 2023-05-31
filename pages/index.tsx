@@ -17,7 +17,7 @@ import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import ImageGrid from "@/components/ImageGrid";
 import Newsletter from "@/components/Newsletter";
-import MetaTag from "../components/Layout/Meta/MetaTag";
+import MetaTag from "../components/Meta/MetaTag";
 import TextBoxImage from "@/components/TextBoxImage";
 import IntroSection from "@/components/IntroSection";
 import ContactBanner from "@/components/ContactBanner";

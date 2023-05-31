@@ -18,9 +18,8 @@ import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "@/components/Layout/Meta/MetaTag";
-import TitleParagraph from "@/components/TitleParagraph";
-import ApartmentSingleCard from "@/components/Cards/ApartmentSingleCard";
+import MetaTag from "@/components/Meta/MetaTag";
+import ApartmentSingle from "@/components/ApartmentSingle";
 
 interface IMbeziSlugs {
 	seo: {
@@ -71,22 +70,6 @@ interface IMbeziSlugs {
 				target: string;
 			};
 		};
-		introInfo: {
-			monthlyPrice: string;
-			briefInfo: string;
-			location: string;
-			iconContent: {
-				type: string;
-				bedrooms: string;
-				bathrooms: string;
-			};
-		};
-		lettingDetails: [
-			{
-				id: string;
-				bulletpoint: string;
-			}
-		];
 		stats: [
 			{
 				card: {
@@ -105,9 +88,89 @@ interface IMbeziSlugs {
 			}
 		];
 		mainContent: {
-			descriptionContent: {
+			heroBackgroundImage: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+			imageGallery: [
+				{
+					image: {
+						altText: string;
+						sourceUrl: string;
+						mediaDetails: {
+							height: number;
+							width: number;
+						};
+					};
+				}
+			];
+			mainContent: {
 				title: string;
-				paragraph: string;
+				location: string;
+				description: string;
+				lettingCompany: string;
+				buttonLink: {
+					url: string;
+					title: string;
+					target: string;
+				};
+				rightSectionTitle: string;
+				weeklyInfo: {
+					title: string;
+					rent: string;
+				};
+				monthlyInfo: {
+					title: string;
+					rent: string;
+				};
+				lettingDetails: [
+					{
+						bulletPoint: string;
+					}
+				];
+				iconGrid: [
+					{
+						card: {
+							text: string;
+							icon: {
+								altText: string;
+								sourceUrl: string;
+								mediaDetails: {
+									height: number;
+									width: number;
+								};
+							};
+						};
+					}
+				];
+				highlightImages: [
+					{
+						image: {
+							altText: string;
+							sourceUrl: string;
+							mediaDetails: {
+								height: number;
+								width: number;
+							};
+						};
+					}
+				];
+				keyInfoImages: [
+					{
+						image: {
+							altText: string;
+							sourceUrl: string;
+							mediaDetails: {
+								height: number;
+								width: number;
+							};
+						};
+					}
+				];
 			};
 		};
 		contactBanner: {
@@ -284,20 +347,13 @@ const mbeziSlugs: NextPage<IMbeziSlugs> = ({
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
 
-				<ApartmentSingleCard
-					location={content?.introInfo?.location}
-					lettingDetails={content?.lettingDetails}
-					briefInfo={content?.introInfo?.briefInfo}
-					iconContent={content?.introInfo?.iconContent}
-					monthlyPrice={content?.introInfo?.monthlyPrice}
+				<ApartmentSingle
+					mainContent={content?.mainContent?.mainContent}
+					imageGallery={content?.mainContent?.imageGallery}
+					heroBackgroundImage={content?.mainContent?.heroBackgroundImage}
 				/>
 
 				<Stats stats={content?.stats} />
-
-				<TitleParagraph
-					title={content?.mainContent?.descriptionContent?.title}
-					paragraph={content?.mainContent?.descriptionContent?.paragraph}
-				/>
 
 				<ImageGrid
 					image={content?.imageGrid?.image}

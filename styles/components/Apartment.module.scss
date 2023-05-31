@@ -3,12 +3,14 @@
 @import "../colors";
 
 .apartmentSingleCard {
-	@apply py-10 overflow-hidden bg-green-flat;
+	@apply py-10 overflow-hidden bg-lightGrey;
 
+	p,
 	h3,
 	h4,
 	h5,
 	h6,
+	div,
 	button {
 		font-family: $fontStyle_body;
 

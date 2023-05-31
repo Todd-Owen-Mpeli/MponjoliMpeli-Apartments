@@ -68,7 +68,7 @@ const SideMenu: FC<HeroProps> = ({
 		setLocationMenuOpen(!LocationMenuOpen);
 	}
 	return (
-		<div
+		<section
 			className={
 				menuActive
 					? `${styles.navReveal} ${styles.nav}`
@@ -281,7 +281,7 @@ const SideMenu: FC<HeroProps> = ({
 					</div>
 				</div>
 			</nav>
-		</div>
+		</section>
 	);
 };
 

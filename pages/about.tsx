@@ -16,7 +16,7 @@ import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import TextImage from "@/components/TextImage";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "../components/Layout/Meta/MetaTag";
+import MetaTag from "../components/Meta/MetaTag";
 import TeamMembers from "@/components/TeamMembers";
 import TextImageTwo from "@/components/TextImageTwo";
 import ContentStats from "@/components/ContentStats";

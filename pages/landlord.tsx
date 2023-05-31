@@ -14,7 +14,7 @@ import {
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "../components/Layout/Meta/MetaTag";
+import MetaTag from "../components/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
 import TextImageThree from "@/components/TextImageThree";
 import ContentBackgroundImage from "@/components/ContentBackgroundImage";

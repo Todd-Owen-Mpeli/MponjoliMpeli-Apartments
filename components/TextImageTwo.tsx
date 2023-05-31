@@ -2,7 +2,7 @@ import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp} from "../animations/animations";
+import {fadeInUp, initial} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -73,7 +73,9 @@ const TextImageTwo: FC<IProps> = ({
 							</svg>
 						</div>
 						<motion.h2
-							variants={fadeInUp}
+							initial={initial}
+							whileInView={fadeInUp}
+							viewport={{once: true}}
 							className="mt-10 text-3xl font-bold leading-tight text-center lg:text-left text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight"
 						>
 							{title}

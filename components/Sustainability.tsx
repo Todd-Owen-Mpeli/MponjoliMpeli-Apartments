@@ -2,7 +2,7 @@ import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeIn, fadeInTwo} from "../animations/animations";
+import {fadeIn, fadeInTwo, initial, initialTwo} from "../animations/animations";
 
 // Styling
 import styles from "../styles/components/IntroSection.module.scss";
@@ -42,7 +42,9 @@ const Sustainability: FC<IProps> = ({
 							{subtitle}
 						</span>
 						<motion.h2
-							variants={fadeIn}
+							initial={initialTwo}
+							whileInView={fadeIn}
+							viewport={{once: true}}
 							className="mb-8 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
 						>
 							{title}
@@ -64,7 +66,9 @@ const Sustainability: FC<IProps> = ({
 							/>
 
 							<motion.div
-								variants={fadeInTwo}
+								initial={initial}
+								whileInView={fadeInTwo}
+								viewport={{once: true}}
 								className="absolute bg-white -bottom-10 lg:-left-16"
 							>
 								<div className="px-8 py-10">

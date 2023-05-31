@@ -1,7 +1,7 @@
 import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {fadeInUp} from "../../animations/animations";
+import {fadeInUp, initial} from "../../animations/animations";
 
 // Components
 import Paragraph from ".././Elements/Paragraph";
@@ -22,7 +22,9 @@ interface IProps {
 const StatsCard: FC<IProps> = ({icon, title, paragraph}) => {
 	return (
 		<motion.div
-			variants={fadeInUp}
+			initial={initial}
+			whileInView={fadeInUp}
+			viewport={{once: true}}
 			className="w-full px-4 mb-16 md:w-1/2 lg:w-1/4 lg:mb-0"
 		>
 			<div className="px-12 text-center">
@@ -36,7 +38,12 @@ const StatsCard: FC<IProps> = ({icon, title, paragraph}) => {
 					}
 				/>
 				<div className="max-w-xs px-6 mx-auto mt-4 lg:px-0">
-					<motion.h3 variants={fadeInUp} className="mb-2 text-lg font-medium">
+					<motion.h3
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
+						className="mb-2 text-lg font-medium"
+					>
 						{title}
 					</motion.h3>
 					<Paragraph

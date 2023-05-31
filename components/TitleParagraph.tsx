@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {FC} from "react";
 import {motion} from "framer-motion";
-import {fadeInUp} from "../animations/animations";
+import {fadeInUp, initial} from "../animations/animations";
 import styles from "../styles/components/TitleParagraph.module.scss";
 
 // Components
@@ -19,7 +19,12 @@ const TitleParagraph: FC<IProps> = ({title, paragraph}) => {
 		>
 			<div className="container p-0 mx-auto">
 				<div className="flex flex-col px-4">
-					<motion.div variants={fadeInUp} className="py-16 sm:py-20 md:py-28">
+					<motion.div
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
+						className="py-16 sm:py-20 md:py-28"
+					>
 						<h2 className="text-white text-center tracking-normal leading-[2.75rem] font-[600] text-2xl sm:text-3xl lg:text-5xl">
 							{title}
 						</h2>

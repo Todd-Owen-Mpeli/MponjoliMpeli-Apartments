@@ -2,7 +2,7 @@ import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp} from "../animations/animations";
+import {fadeInUp, initial} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -24,7 +24,9 @@ const TextImageThree: FC<IProps> = ({title, image, paragraph}) => {
 				<div className="flex flex-col items-center justify-center w-full py-10 sm:py-16 lg:py-24 lg:w-1/2">
 					<div className="container w-full px-4 mx-auto lg:max-w-2xl">
 						<motion.h2
-							variants={fadeInUp}
+							initial={initial}
+							whileInView={fadeInUp}
+							viewport={{once: true}}
 							className="mt-10 text-3xl font-bold leading-tight text-center lg:text-left text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight"
 						>
 							{title}

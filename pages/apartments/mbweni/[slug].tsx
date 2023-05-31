@@ -18,7 +18,7 @@ import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "@/components/Layout/Meta/MetaTag";
+import MetaTag from "@/components/Meta/MetaTag";
 import TitleParagraph from "@/components/TitleParagraph";
 import ApartmentSingleCard from "@/components/Cards/ApartmentSingleCard";
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp, fadeIn} from "../animations/animations";
+import {fadeInUp, fadeIn, initial, initialTwo} from "../animations/animations";
 import styles from "../styles/components/IntroSection.module.scss";
 
 interface IProps {
@@ -59,7 +59,9 @@ const IntroSection: FC<IProps> = ({
 					{subtitle}
 				</h2>
 				<motion.h2
-					variants={fadeIn}
+					initial={initialTwo}
+					whileInView={fadeIn}
+					viewport={{once: true}}
 					className="text-white text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
 				>
 					{title}
@@ -70,7 +72,9 @@ const IntroSection: FC<IProps> = ({
 				/>
 				<Link href={buttonLink?.url} target={buttonLink?.target}>
 					<motion.button
-						variants={fadeInUp}
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
 						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-green-darkk hover:font-bold"
 					>
 						{buttonLink?.title}

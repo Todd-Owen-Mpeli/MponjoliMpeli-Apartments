@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {useState, FC} from "react";
 import {motion} from "framer-motion";
-import {fadeInUp, fadeInTwo, stagger} from "../animations/animations";
+import {fadeInUp, fadeInTwo, stagger, initial} from "../animations/animations";
 
 // Components
 import SideMenu from "./Elements/SideMenu";
@@ -121,7 +121,9 @@ const HeroThree: FC<HeroProps> = ({
 						<h1 className="flex flex-col sm:flex-row text-left mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 							<motion.span
-								variants={fadeInTwo}
+								initial={initial}
+								whileInView={fadeInTwo}
+								viewport={{once: true}}
 								className="ml-2 text-green-bright"
 							>
 								Apartments

@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {motion} from "framer-motion";
 import Paragraph from "./../Elements/Paragraph";
-import {fadeInUp} from "../../animations/animations";
+import {fadeInUp, initial} from "../../animations/animations";
 
 interface IProps {
 	title: string;
@@ -32,7 +32,9 @@ const ContentImageCard: FC<IProps> = ({
 			>
 				<div className="max-w-2xl p-10 bg-white">
 					<motion.h2
-						variants={fadeInUp}
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
 						className="text-green-flat text-center lg:text-left tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
 					>
 						{title}

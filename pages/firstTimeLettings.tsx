@@ -16,7 +16,7 @@ import Logos from "@/components/Logos";
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "../components/Layout/Meta/MetaTag";
+import MetaTag from "../components/Meta/MetaTag";
 import IntroSection from "@/components/IntroSection";
 import ContactBanner from "@/components/ContactBanner";
 import ContentBackgroundImage from "@/components/ContentBackgroundImage";

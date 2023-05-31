@@ -15,7 +15,7 @@ import {
 import Footer from "@/components/Footer";
 import ImageGrid from "@/components/ImageGrid";
 import HeroThree from "@/components/HeroThree";
-import MetaTag from "@/components/Layout/Meta/MetaTag";
+import MetaTag from "@/components/Meta/MetaTag";
 import ContactBanner from "@/components/ContactBanner";
 import ApartmentsGrid from "@/components/ApartmentsGrid";
 import ArticleImageBanner from "@/components/ArticleImageBanner";

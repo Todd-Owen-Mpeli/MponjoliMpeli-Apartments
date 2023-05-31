@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {useState, FC} from "react";
 import {motion} from "framer-motion";
-import {fadeInUp, fadeInTwo, stagger} from "../animations/animations";
+import {fadeInUp, fadeInTwo, stagger, initial} from "../animations/animations";
 
 // Components
 import SideMenu from "./Elements/SideMenu";
@@ -133,7 +133,9 @@ const Hero: FC<HeroProps> = ({
 						<h1 className="flex flex-col sm:block text-left mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}
 							<motion.span
-								variants={fadeInTwo}
+								initial={initial}
+								whileInView={fadeInTwo}
+								viewport={{once: true}}
 								className="ml-2 text-green-bright"
 							>
 								Today
@@ -146,12 +148,16 @@ const Hero: FC<HeroProps> = ({
 							tailwindStyling="mb-6 py-6 text-white leading-[1.75rem] font-[500] text-base text-center sm:text-left"
 						/>
 						<motion.div
-							variants={stagger}
+							initial={initial}
+							whileInView={stagger}
+							viewport={{once: true}}
 							className="flex justify-center gap-4 sm:justify-start item-center"
 						>
 							<Link href={buttonLink?.url} target={buttonLink?.target}>
 								<motion.button
-									variants={fadeInUp}
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
 									className={
 										buttonLink?.url
 											? `block px-6 py-3 font-semibold transition duration-200  w-fit sm:mx-0 hover:bg-goldPrimeDark text-green hover:text-white bg-white rounded-t-lg rounded-l-lg`
@@ -163,7 +169,9 @@ const Hero: FC<HeroProps> = ({
 							</Link>
 							<Link href={buttonLinkTwo?.url} target={buttonLinkTwo?.target}>
 								<motion.button
-									variants={fadeInUp}
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
 									className={
 										buttonLink?.url
 											? `block px-6 py-3 font-semibold text-white transition duration-200  w-fit sm:mx-0 hover:bg-green-bright bg-green-default rounded-t-lg rounded-l-lg`

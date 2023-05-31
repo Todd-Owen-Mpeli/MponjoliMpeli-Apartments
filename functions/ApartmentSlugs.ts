@@ -75,19 +75,82 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
 								sourceUrl
 							}
 						}
-						introInfo {
-      					  monthlyPrice
-      					  briefInfo
-      					  location
-      					  iconContent {
-      					    type
-      					    bedrooms
-      					    bathrooms
-      					  }
-      					}
-      					lettingDetails {
-      					  bulletpoint
-      					}
+						mainContent {
+							heroBackgroundImage {
+									altText
+									sourceUrl
+									mediaDetails {
+										height
+										width
+									}
+								}
+								imageGallery {
+									image {
+										altText
+										sourceUrl
+										mediaDetails {
+											height
+											width
+										}
+									}
+								}
+								mainContent {
+									title
+									location
+									description
+									lettingCompany
+									buttonLink {
+										url
+										title
+										target
+									}
+									rightSectionTitle
+									weeklyInfo {
+										title
+										rent
+									}
+									monthlyInfo {
+										title
+										rent
+									}
+									lettingDetails {
+										bulletPoint
+									}
+									iconGrid {
+										card {
+											text
+											icon {
+												altText
+												sourceUrl
+												mediaDetails {
+													height
+													width
+												}
+											}
+										}
+									}
+									highlightImages {
+										image {
+											altText
+											sourceUrl
+											mediaDetails {
+												height
+												width
+											}
+										}
+									}
+									keyInfoImages {
+										image {
+											altText
+											sourceUrl
+											mediaDetails {
+												height
+												width
+											}
+										}
+									}
+								}
+						}
 						stats {
       					  card {
       					    title
@@ -102,12 +165,6 @@ export const fetchApartmentSlugsContent = async (slug: string) => {
       					    }
       					  }
       					}
-						mainContent {
-							descriptionContent {
-								title
-								paragraph
-							}
-						}
 						imageGrid {
 							image {
 								altText

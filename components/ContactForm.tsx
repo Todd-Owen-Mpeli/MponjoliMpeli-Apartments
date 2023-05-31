@@ -4,7 +4,13 @@ import React, {useState, FC} from "react";
 import {sendContactForm} from "../functions/api";
 import Paragraph from "./Elements/Paragraph";
 import {useFormik, Formik, Field, Form} from "formik";
-import {fadeIn, fadeInUp, stagger} from "../animations/animations";
+import {
+	fadeIn,
+	fadeInUp,
+	initial,
+	initialTwo,
+	stagger,
+} from "../animations/animations";
 
 // Styling
 import styles from "../styles/components/ContactForm.module.scss";
@@ -130,7 +136,9 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 					>
 						<Form className="container mx-auto transition-all ease-in-out duration-[0.5s] md:max-w-xl shadow-12xl">
 							<motion.h3
-								variants={fadeIn}
+								initial={initialTwo}
+								whileInView={fadeIn}
+								viewport={{once: true}}
 								className="mx-auto mb-16 text-xl font-semibold text-center uppercase sm:text-2xl text-green-dark"
 							>
 								{title}
@@ -138,7 +146,9 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 
 							{isLoading ? (
 								<motion.div
-									variants={fadeIn}
+									initial={initialTwo}
+									whileInView={fadeIn}
+									viewport={{once: true}}
 									className="flex items-center justify-center my-4 mb-8 gap-x-2"
 								>
 									<h4 className="text-lg font-semibold text-center uppercase text-green-bright">
@@ -147,8 +157,17 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 								</motion.div>
 							) : null}
 
-							<motion.div variants={stagger} className="flex flex-col gap-4">
-								<motion.div variants={fadeInUp}>
+							<motion.div
+								initial={initial}
+								whileInView={stagger}
+								viewport={{once: true}}
+								className="flex flex-col gap-4"
+							>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									{formik?.touched?.firstName && formik?.errors?.firstName ? (
 										<div>
 											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
@@ -166,7 +185,11 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
-								<motion.div variants={fadeInUp}>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									{formik?.touched?.lastName && formik?.errors?.lastName ? (
 										<div>
 											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
@@ -184,7 +207,11 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
-								<motion.div variants={fadeInUp}>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									{formik?.errors?.email ? (
 										<div>
 											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
@@ -203,7 +230,11 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
-								<motion.div variants={fadeInUp}>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									{formik?.touched?.subject && formik?.errors?.subject ? (
 										<div>
 											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
@@ -222,7 +253,11 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="px-4 py-3 w-full text-darkGrey font-[400] placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
-								<motion.div variants={fadeInUp}>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									{formik?.touched?.message && formik?.errors?.message ? (
 										<div>
 											<p className="py-1 text-left text-tiny text-green-dark font-[400]">
@@ -241,14 +276,20 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 										className="p-4 w-full h-48 font-[400] text-darkGrey placeholder-darkGrey bg-white bg-opacity-50 outline-none border-[1px] border-darkGrey active:border-green-dark focus:border-green-dark resize-none focus:ring-[1px] focus:ring-green-dark"
 									/>
 								</motion.div>
-								<motion.div variants={fadeInUp}>
+								<motion.div
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
+								>
 									<ReCAPTCHA
 										sitekey={`6Lfk_24lAAAAAL2l1VdFX2EDZH_YVlmCouUyfpDI`}
 										onChange={handleReCaptchaChange}
 									/>
 								</motion.div>
 								<motion.button
-									variants={fadeInUp}
+									initial={initial}
+									whileInView={fadeInUp}
+									viewport={{once: true}}
 									// isLoading={isLoading}
 									onClick={formik.handleSubmit}
 									disabled={
@@ -297,7 +338,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 												</g>
 											</svg>
 										</span>
-										<h3 className="text-white uppercase text-base">
+										<h3 className="text-base text-white uppercase">
 											Send Message
 										</h3>
 									</span>

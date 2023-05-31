@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {motion} from "framer-motion";
-import {stagger} from "../animations/animations";
+import {initial, stagger} from "../animations/animations";
 
 // Components
 import StatsCard from "./Cards/StatsCard";
@@ -29,7 +29,12 @@ const Stats: FC<IProps> = ({stats}) => {
 	return (
 		<section className="py-20 bg-white">
 			<div className="container px-4 mx-auto">
-				<motion.div variants={stagger} className="flex flex-wrap -mx-4">
+				<motion.div
+					initial={initial}
+					whileInView={stagger}
+					viewport={{once: true}}
+					className="flex flex-wrap -mx-4"
+				>
 					{stats?.length > 0 ? (
 						stats.map((keys) => (
 							<StatsCard

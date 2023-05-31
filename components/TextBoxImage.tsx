@@ -2,7 +2,7 @@ import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Paragraph from "./Elements/Paragraph";
-import {fadeInUp, fadeIn} from "../animations/animations";
+import {fadeInUp, fadeIn, initial, initialTwo} from "../animations/animations";
 
 interface IProps {
 	title: string;
@@ -20,11 +20,15 @@ interface IProps {
 
 const TextBoxImage: FC<IProps> = ({title, image, subtitle, paragraph}) => {
 	return (
-		<section className="py-0 lg:py-24 bg-white lg:px-8">
-			<div className="lg:container px-0 mx-auto">
+		<section className="py-0 bg-white lg:py-24 lg:px-8">
+			<div className="px-0 mx-auto lg:container">
 				<div className="relative flex flex-col-reverse lg:flex-row">
 					<div className="w-full xl:w-4/5 xl:ml-auto bg-green-dark lg:bg-white">
-						<motion.div variants={fadeIn}>
+						<motion.div
+							initial={initialTwo}
+							whileInView={fadeIn}
+							viewport={{once: true}}
+						>
 							<Image
 								alt={image?.altText}
 								src={image?.sourceUrl}
@@ -34,11 +38,13 @@ const TextBoxImage: FC<IProps> = ({title, image, subtitle, paragraph}) => {
 							/>
 						</motion.div>
 						<div className="top-0 left-0 max-w-3xl px-6 py-20 mx-auto text-center rounded-none lg:rounded-lg bg-green-dark lg:absolute lg:mx-0 lg:px-12 lg:py-20">
-							<span className="font-medium tracking-widest text-goldPrime text-base">
+							<span className="text-base font-medium tracking-widest text-goldPrime">
 								{subtitle}
 							</span>
 							<motion.h2
-								variants={fadeInUp}
+								initial={initial}
+								whileInView={fadeInUp}
+								viewport={{once: true}}
 								className="max-w-lg mx-auto my-8 text-5xl font-semibold leading-tight text-white"
 							>
 								{title}

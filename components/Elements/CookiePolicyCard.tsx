@@ -2,7 +2,7 @@ import {useState} from "react";
 import postHog from "posthog-js";
 import {motion} from "framer-motion";
 import Paragraph from "../Elements/Paragraph";
-import {fadeInUp, stagger} from "../../animations/animations";
+import {fadeInUp, initial, stagger} from "../../animations/animations";
 
 const CookiePolicyCard = () => {
 	const [showCookiePolicyCard, setShowCookiePolicyCard] = useState(true);
@@ -26,10 +26,17 @@ const CookiePolicyCard = () => {
 			}
 		>
 			<motion.div
-				variants={stagger}
+				initial={initial}
+				whileInView={stagger}
+				viewport={{once: true}}
 				className="px-6 pt-4 pb-6 mb-8 text-white bg-green-dark"
 			>
-				<motion.h3 variants={fadeInUp} className="font-bold font-heading">
+				<motion.h3
+					initial={initial}
+					whileInView={fadeInUp}
+					viewport={{once: true}}
+					className="font-bold font-heading"
+				>
 					Cookie Policy
 				</motion.h3>
 				<Paragraph
@@ -39,19 +46,25 @@ const CookiePolicyCard = () => {
 					tailwindStyling="mt-3 mb-6 text-sm text-left"
 				/>
 				<motion.div
-					variants={stagger}
+					initial={initial}
+					whileInView={stagger}
+					viewport={{once: true}}
 					className="flex items-center justify-center gap-4"
 				>
 					<motion.button
 						onClick={acceptCookies}
-						variants={fadeInUp}
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
 						className="inline-block px-6 py-3 mr-2 text-xs leading-none bg-green-default hover:bg-goldPrimeDarker"
 					>
 						Accept Cookies
 					</motion.button>
 					<motion.button
 						onClick={refuseCookies}
-						variants={fadeInUp}
+						initial={initial}
+						whileInView={fadeInUp}
+						viewport={{once: true}}
 						className="inline-block px-6 py-3 text-xs leading-none text-white border border-green-default hover:border-green-Two hover:bg-green-Two"
 					>
 						Refuse Cookies
