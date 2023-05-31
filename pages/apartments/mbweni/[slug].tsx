@@ -19,7 +19,7 @@ import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "@/components/Meta/MetaTag";
-import ApartmentSingle from "../../../components/ApartmentSingle";
+import ApartmentSingle from "@/components/ApartmentSingle";
 
 interface IMbweniSlugs {
 	seo: {
@@ -347,13 +347,13 @@ const mbweniSlugs: NextPage<IMbweniSlugs> = ({
 					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
 				/>
 
-				<Stats stats={content?.stats} />
-
 				<ApartmentSingle
 					mainContent={content?.mainContent?.mainContent}
 					imageGallery={content?.mainContent?.imageGallery}
 					heroBackgroundImage={content?.mainContent?.heroBackgroundImage}
 				/>
+
+				<Stats stats={content?.stats} />
 
 				<ImageGrid
 					image={content?.imageGrid?.image}
