@@ -119,16 +119,8 @@ const ApartmentSingle: FC<IProps> = ({
 				className="container flex flex-col px-4 mx-auto"
 			>
 				{/* Image Gallery */}
-				<motion.div
-					initial={initial}
-					whileInView={fadeInUp}
-					viewport={{once: true}}
-					className="relative"
-				>
-					<motion.div
-						initial={initialTwo}
-						whileInView={fadeIn}
-						viewport={{once: true}}
+				<div className="relative">
+					<div
 						className={heroBackgroundImage?.sourceUrl ? `block p-4 ` : `hidden`}
 					>
 						<Image
@@ -142,7 +134,7 @@ const ApartmentSingle: FC<IProps> = ({
 									: `hidden`
 							}
 						/>
-					</motion.div>
+					</div>
 					<motion.div
 						initial={initial}
 						whileInView={fadeInUp}
@@ -172,7 +164,7 @@ const ApartmentSingle: FC<IProps> = ({
 							</div>
 						</Link>
 					</motion.div>
-				</motion.div>
+				</div>
 				{/* Main Content */}
 				<motion.div
 					initial={initial}
