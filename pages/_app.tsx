@@ -12,6 +12,7 @@ import Layout from "@/components/Layout/Layout";
 
 // Styling
 import "../styles/globals.scss";
+import CookiePolicyCard from "@/components/Elements/CookiePolicyCard";
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (typeof window !== "undefined") {
@@ -104,10 +105,15 @@ export default function App({Component, pageProps}: AppProps) {
 
 	return (
 		<ApolloProvider client={client}>
-			<Layout>
+			<PostHogProvider client={postHog}>
+				{/* Cookie Policy Pop Up */}
+				{postHog.has_opted_in_capturing() ||
+				postHog.has_opted_out_capturing() ? null : (
+					<CookiePolicyCard />
+				)}
 				<Loading />
 				<Component {...pageProps} />
-			</Layout>
+			</PostHogProvider>
 		</ApolloProvider>
 	);
 }

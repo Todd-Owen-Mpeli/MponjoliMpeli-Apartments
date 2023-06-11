@@ -145,19 +145,13 @@ const Footer: FC<IProps> = ({
 					</div>
 					<div className="flex flex-col items-center justify-center w-full gap-4 mx-auto sm:flex-row sm:mx-0 lg:w-1/3 lg:justify-end">
 						<Link
-							href={`/cookiesPolicy`}
-							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
-						>
-							Cookies Policy
-						</Link>
-						<Link
-							href={`/termsConditions`}
+							href={`/terms-and-conditions`}
 							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
 						>
 							Terms &amp; Conditions
 						</Link>
 						<Link
-							href={`/privacyPolicy`}
+							href={`/privacy-policy`}
 							className="mx-2 tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-green-bright"
 						>
 							Privacy Policy

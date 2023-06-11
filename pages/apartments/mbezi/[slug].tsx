@@ -5,16 +5,16 @@ import {
 	fetchApartmentSlugs,
 	fetchApartmentSlugsContent,
 } from "@/functions/ApartmentSlugs";
-import {getThemesOptionsContent} from "../../../functions/themesOptions";
+import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
-} from "../../../functions/MenuLinks";
+} from "../../../functions/GetAllMenuLinks";
 
 // Components
-import Stats from "@/components/Stats";
+import Stats from "@/components/InfoContent";
 import Footer from "@/components/Footer";
 import HeroTwo from "@/components/HeroTwo";
 import ImageGrid from "@/components/ImageGrid";
@@ -353,7 +353,7 @@ const mbeziSlugs: NextPage<IMbeziSlugs> = ({
 					heroBackgroundImage={content?.mainContent?.heroBackgroundImage}
 				/>
 
-				<Stats stats={content?.stats} />
+				<InfoContent stats={content?.stats} />
 
 				<ImageGrid
 					image={content?.imageGrid?.image}

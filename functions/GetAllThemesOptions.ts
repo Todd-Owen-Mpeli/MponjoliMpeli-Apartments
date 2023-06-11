@@ -1,5 +1,5 @@
-import {DocumentNode, gql} from "@apollo/client";
 import {client} from "../config/apollo";
+import {DocumentNode, gql} from "@apollo/client";
 
 // Themes Options Content
 export async function getThemesOptionsContent() {

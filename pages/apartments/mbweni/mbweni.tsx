@@ -3,20 +3,20 @@ import {gql} from "@apollo/client";
 import {motion} from "framer-motion";
 import {client} from "../../../config/apollo";
 import type {NextPage, GetStaticProps} from "next";
-import {getThemesOptionsContent} from "../../../functions/themesOptions";
+import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
-} from "../../../functions/MenuLinks";
+} from "../../../functions/GetAllMenuLinks";
 
 // Components
 import Footer from "@/components/Footer";
 import HeroThree from "@/components/HeroThree";
 import ImageGrid from "@/components/ImageGrid";
 import MetaTag from "@/components/Meta/MetaTag";
-import ContactBanner from "@/components/ContactBanner";
+import CTA from "@/components/CTA";
 import ApartmentsGrid from "@/components/ApartmentsGrid";
 import ArticleImageBanner from "@/components/ArticleImageBanner";
 
@@ -273,7 +273,7 @@ const mbweni: NextPage<IMbweni> = ({
 
 				<ApartmentsGrid apartmentsGrid={content?.apartmentsGrid} />
 
-				<ContactBanner
+				<CTA
 					title={content?.contactBanner?.title}
 					paragraph={content?.contactBanner?.paragraph}
 					buttonLink={content?.contactBanner?.buttonLink}

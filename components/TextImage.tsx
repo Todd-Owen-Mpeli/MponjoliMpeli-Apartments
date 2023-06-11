@@ -6,25 +6,10 @@ import {fadeInUp, initial} from "../animations/animations";
 
 interface IProps {
 	title: string;
-	subtitle: string;
 	paragraph: string;
+	imageText: string;
+	imageTextTwo: string;
 	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageTwo: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageLarge: {
 		altText: string;
 		sourceUrl: string;
 		mediaDetails: {
@@ -34,67 +19,76 @@ interface IProps {
 	};
 }
 
-const TextImage: FC<IProps> = ({
+const TextImageTwo: FC<IProps> = ({
 	title,
 	image,
-	subtitle,
-	imageTwo,
 	paragraph,
-	imageLarge,
+	imageText,
+	imageTextTwo,
 }) => {
 	return (
-		<section
-			className={`flex flex-col items-center lg:flex-row bg-green-dark bg-cover bg-center bg-no-repeat`}
-			style={{
-				backgroundImage: `url("/svg/backgroundStackedWaves.svg")`,
-			}}
-		>
-			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
-				<h2 className="pb-8 mx-auto mb-12 text-6xl font-semibold tracking-normal text-center border-b-2 text-goldPrime w-fit sm:text-7xl lg:text-8xl border-b-goldPrime lg:mb-20">
-					{subtitle}
-				</h2>
-				<motion.h2
-					initial={initial}
-					whileInView={fadeInUp}
-					viewport={{once: true}}
-					className="text-white text-center tracking-normal leading-[2.75rem] font-semibold text-2xl sm:text-3xl lg:text-5xl"
-				>
-					{title}
-				</motion.h2>
-				<Paragraph
-					content={paragraph}
-					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-base"
-				/>
-			</div>
-			<div className="flex flex-col w-full sm:flex-row lg:w-1/2">
-				<div className="flex flex-row items-center justify-center lg:flex-col">
-					<Image
-						alt={image?.altText}
-						src={image?.sourceUrl}
-						width={image?.mediaDetails?.width}
-						height={image?.mediaDetails?.height}
-						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
-					/>
-					<Image
-						alt={imageTwo?.altText}
-						src={imageTwo?.sourceUrl}
-						width={imageTwo?.mediaDetails?.width}
-						height={imageTwo?.mediaDetails?.height}
-						className="object-cover object-center w-1/2 min-h-[250px] lg:w-full h-full"
-					/>
-				</div>
-				<div className="hidden lg:block">
-					<Image
-						alt={imageLarge?.altText}
-						src={imageLarge?.sourceUrl}
-						width={imageLarge?.mediaDetails?.width}
-						height={imageLarge?.mediaDetails?.height}
-						className="object-cover object-center w-full min-h-[110vh]"
-					/>
+		<section className="py-10 sm:py-16 lg:py-24">
+			<div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+				<div className="flex flex-col-reverse items-center justify-center gap-y-8 lg:flex-row gap-x-16 xl:gap-x-24">
+					<div className="relative w-full mb-12 lg:w-1/2">
+						<Image
+							alt={image?.altText}
+							src={image?.sourceUrl}
+							width={image?.mediaDetails?.width}
+							height={image?.mediaDetails?.height}
+							className="w-full rounded-none"
+						/>
+
+						<div className="absolute w-full max-w-xs px-4 -translate-x-1/2 sm:px-0 sm:max-w-sm left-1/2 -bottom-12">
+							<div className="overflow-hidden bg-white rounded">
+								<div className="px-10 py-6">
+									<div className="flex items-center">
+										<p className="text-3xl font-bold sm:text-4xl">
+											{imageText}
+										</p>
+										<p className="pl-6 text-sm font-medium text-black sm:text-lg">
+											{imageTextTwo}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="w-full lg:w-1/2">
+						<div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full lg:mx-0 bg-green-flat">
+							<svg
+								className="w-8 h-8 text-goldPrime"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="1.5"
+									d="M13 10V3L4 14h7v7l9-11h-7z"
+								/>
+							</svg>
+						</div>
+						<motion.h2
+							initial={initial}
+							whileInView={fadeInUp}
+							viewport={{once: true}}
+							className="mt-10 text-3xl font-bold leading-tight text-center lg:text-left text-goldPrime sm:text-4xl lg:text-5xl lg:leading-tight"
+						>
+							{title}
+						</motion.h2>
+						<Paragraph
+							content={paragraph}
+							tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center leading-relaxed sm:text-left text-base"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>
 	);
 };
 
-export default TextImage;
+export default TextImageTwo;

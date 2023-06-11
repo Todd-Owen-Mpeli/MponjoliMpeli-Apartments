@@ -70,12 +70,16 @@ const IntroSection: FC<IProps> = ({
 					content={paragraph}
 					tailwindStyling="w-full lg:max-w-2xl mx-auto mt-4 py-8 text-white text-center text-base"
 				/>
-				<Link href={buttonLink?.url} target={buttonLink?.target}>
+				<Link
+					target={buttonLink?.target}
+					href={buttonLink?.url ? buttonLink?.url : `/`}
+					className={buttonLink?.url ? `block` : `hidden`}
+				>
 					<motion.button
 						initial={initial}
 						whileInView={fadeInUp}
 						viewport={{once: true}}
-						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-green-darkk hover:font-bold"
+						className="mt-10 px-10 py-3 mx-auto uppercase font-semibold tracking-[0.35rem] text-center text-white transition duration-200 bg-transparent border-2 border-goldPrime hover:bg-goldPrime hover:text-green-dark hover:font-bold"
 					>
 						{buttonLink?.title}
 					</motion.button>
