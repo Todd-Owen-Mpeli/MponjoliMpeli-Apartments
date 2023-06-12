@@ -1,50 +1,36 @@
+// Import
 import Link from "next/link";
-import {FC} from "react";
+import {useContentContext} from "@/context/context";
+
+// Components
 import NavbarMenuLinks from "./Elements/NavbarMenuLinks";
 
-interface IProps {
-	linkedinLink: string;
-	instagramLink: string;
-	facebookLink: string;
-	twitterLink: string;
-	// Menu Links
-	footerMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-}
+const Footer = () => {
+	const content = useContentContext();
 
-const Footer: FC<IProps> = ({
-	twitterLink,
-	facebookLink,
-	linkedinLink,
-	instagramLink,
-	footerMenuLinks,
-}) => {
 	return (
 		<section className="py-20 bg-green-dark">
 			<div className="container px-4 mx-auto">
 				<div className="relative flex flex-wrap items-center justify-between gap-4">
 					<div className="w-full mb-6 lg:w-1/3">
 						<ul className="flex flex-wrap items-center justify-center lg:justify-start">
-							{footerMenuLinks?.map((keys) => (
-								<li key={keys?.node?.id}>
-									<NavbarMenuLinks
-										url={keys?.node?.url}
-										label={keys?.node?.label}
-										tailwindStyling="mx-2 text-white tracking-wider transition-all duration-500 ease-in-out hover:text-green-bright"
-									/>
-								</li>
-							))}
+							{content.footerMenuLinks.length > 0 ? (
+								content.footerMenuLinks.map((keys) => (
+									<li key={keys?.node?.id}>
+										<NavbarMenuLinks
+											url={keys?.node?.url}
+											label={keys?.node?.label}
+											tailwindStyling="mx-2 text-white tracking-wider transition-all duration-500 ease-in-out hover:text-green-bright"
+										/>
+									</li>
+								))
+							) : (
+								<></>
+							)}
 						</ul>
 					</div>
 					<div className="flex items-center justify-center mx-auto mb-6 gap-x-8">
-						<Link href={facebookLink}>
+						<Link href={content.themesOptionsContent.facebookLink}>
 							<svg
 								height="100%"
 								className="w-5 h-5"
@@ -65,7 +51,7 @@ const Footer: FC<IProps> = ({
 								/>
 							</svg>
 						</Link>
-						<Link href={instagramLink}>
+						<Link href={content.themesOptionsContent.instagramLink}>
 							<svg
 								height="100%"
 								className="w-6 h-6"
@@ -100,7 +86,7 @@ const Footer: FC<IProps> = ({
 								</g>
 							</svg>
 						</Link>
-						<Link href={twitterLink}>
+						<Link href={content.themesOptionsContent.twitterLink}>
 							<svg
 								height="100%"
 								className="w-5 h-5"
@@ -121,7 +107,7 @@ const Footer: FC<IProps> = ({
 								/>
 							</svg>
 						</Link>
-						<Link href={linkedinLink}>
+						<Link href={content.themesOptionsContent.linkedinLink}>
 							<svg
 								height="100%"
 								style={{

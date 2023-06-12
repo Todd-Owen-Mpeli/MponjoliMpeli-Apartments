@@ -1,17 +1,28 @@
 // Import
-import {fetchAllPagesSlugs} from "@/functions/GetAllPagesLinks";
-import {fetchApartmentSlugs} from "../../functions/ApartmentSlugs";
+import {
+	getAllApartmentSlugs,
+	getAllMbeziApartmentSlugs,
+	getAllMbweniApartmentSlugs,
+} from "@/functions/GetAllApartmentSlugs";
+import {Readable} from "stream";
+import {SitemapStream, streamToPromise} from "sitemap";
+import {getAllPagesSlugs} from "@/functions/GetAllPagesSlugs";
+import {getAllLocationsSlugs} from "@/functions/GetAllLocationsSlugs";
 
-const {SitemapStream, streamToPromise} = require("sitemap");
-const {Readable} = require("stream");
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: any, res: any) => {
-	const pagesSlugs = await fetchAllPagesSlugs();
-	const apartmentsSlugs = await fetchApartmentSlugs();
+	const pagesSlugs = await getAllPagesSlugs();
+	const apartmentsSlugs = await getAllApartmentSlugs();
+	const locationsSlugs = await getAllLocationsSlugs();
+	const mbeziApartmentsSlugs = await getAllMbeziApartmentSlugs();
+	const mbweniApartmentsSlugs = await getAllMbweniApartmentSlugs();
 
 	// Pages & Blogs Arrays
 	const pagesLinks: any = [];
 	const apartmentsLinks: any = [];
+	const locationsLinks: any = [];
+	const mbeziLinks: any = [];
+	const mbweniLinks: any = [];
 
 	// Pages Dynamic Links
 	pagesSlugs?.map((keys: any) => {
@@ -25,20 +36,49 @@ export default async (req: any, res: any) => {
 		pagesLinks.push(object);
 	});
 
-	// Apartment Dynamic Links
-	apartmentsSlugs?.map((keys: any) => {
+	// Apartment Locations Dynamic Links
+	locationsSlugs?.map((keys: any) => {
 		const object = {
 			url: `/apartments/${keys?.slug}`,
-			changefreq: "daily",
+			changefreq: "monthly",
 			lastmod: `${keys?.modified}`,
 			priority: 0.8,
 		};
 
-		apartmentsLinks.push(object);
+		locationsLinks.push(object);
+	});
+
+	// Mbezi Apartment Dynamic Links
+	mbeziApartmentsSlugs?.map((keys: any) => {
+		const object = {
+			url: `/apartments/mbezi/${keys?.slug}`,
+			changefreq: "monthly",
+			lastmod: `2023-06-12T14:01:09.000Z`,
+			priority: 0.8,
+		};
+
+		mbeziLinks.push(object);
+	});
+
+	// Mbweni Apartment Dynamic Links
+	mbweniApartmentsSlugs?.map((keys: any) => {
+		const object = {
+			url: `/apartments/mbweni/${keys?.slug}`,
+			changefreq: "monthly",
+			lastmod: `2023-06-12T14:01:09.000Z`,
+			priority: 0.8,
+		};
+
+		mbweniLinks.push(object);
 	});
 
 	// Arrays with your all dynamic links
-	const allLinks: any = [...pagesLinks, ...apartmentsLinks];
+	const allLinks: any = [
+		...pagesLinks,
+		...mbeziLinks,
+		...mbweniLinks,
+		...locationsLinks,
+	];
 
 	// Create a stream to write to
 	const stream = new SitemapStream({hostname: process.env.SITE_URL});

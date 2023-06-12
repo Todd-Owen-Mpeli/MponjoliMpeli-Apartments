@@ -1,9 +1,4 @@
-import Image from "next/image";
-import {motion} from "framer-motion";
-import React, {useState, FC} from "react";
-import {sendContactForm} from "../functions/api";
-import Paragraph from "./Elements/Paragraph";
-import {useFormik, Formik, Field, Form} from "formik";
+// Import
 import {
 	fadeIn,
 	fadeInUp,
@@ -11,19 +6,26 @@ import {
 	initialTwo,
 	stagger,
 } from "../animations/animations";
+import {motion} from "framer-motion";
+import React, {useState, FC} from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import {sendContactForm} from "../functions/api";
+import {useContentContext} from "@/context/context";
+import {useFormik, Formik, Field, Form} from "formik";
+
+// Components
+import Paragraph from "./Elements/Paragraph";
 
 // Styling
 import styles from "../styles/components/ContactForm.module.scss";
-import ReCAPTCHA from "react-google-recaptcha";
 
 interface IProps {
 	title: string;
-	businessHours: {
-		content: string;
-	};
 }
 
-const ContactForm: FC<IProps> = ({title, businessHours}) => {
+const ContactForm: FC<IProps> = ({title}) => {
+	const content = useContentContext();
+
 	const initState: {
 		error: string;
 		isLoading: boolean;
@@ -372,7 +374,7 @@ const ContactForm: FC<IProps> = ({title, businessHours}) => {
 							Business Hours
 						</h3>
 						<Paragraph
-							content={businessHours?.content}
+							content={content.themesOptionsContent.businessHours?.content}
 							tailwindStyling="font-medium text-base sm:text-base leading-relaxed text-left text-black"
 						/>
 					</div>

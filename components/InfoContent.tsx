@@ -6,7 +6,7 @@ import {initial, stagger} from "../animations/animations";
 import StatsCard from "./Cards/StatsCard";
 
 interface IProps {
-	stats: [
+	content: [
 		{
 			card: {
 				id: string;
@@ -25,7 +25,7 @@ interface IProps {
 	];
 }
 
-const Stats: FC<IProps> = ({stats}) => {
+const Stats: FC<IProps> = ({content}) => {
 	return (
 		<section className="py-20 bg-white">
 			<div className="container px-4 mx-auto">
@@ -35,8 +35,8 @@ const Stats: FC<IProps> = ({stats}) => {
 					viewport={{once: true}}
 					className="flex flex-wrap -mx-4"
 				>
-					{stats?.length > 0 ? (
-						stats.map((keys) => (
+					{content?.length > 0 ? (
+						content.map((keys) => (
 							<StatsCard
 								title={keys?.card?.title}
 								icon={keys?.card?.icon}

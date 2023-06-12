@@ -1,5 +1,5 @@
 // Import
-import {FC} from "react";
+import {useContentContext} from "@/context/context";
 
 // Components
 import CTA from "../CTA";
@@ -25,84 +25,15 @@ import ApartmentSingle from "../ApartmentSingle";
 import ArticleImageBanner from "../ArticleImageBanner";
 import ContentBackgroundImage from "../ContentBackgroundImage";
 
-interface IFlexibleContent {
-	content: any;
-	mainMenuLinks: {
-		mainMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	heroMenuLinks: {
-		heroMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	locationMenuLinks: {
-		locationMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	themesOptionsContent: {
-		themeOptions: {
-			email: string;
-			emailOptionTwo: string;
-			phoneNumber: string;
-			phoneNumberOptionTwo: string;
-			phoneNumberOptionThree: string;
-			linkedinLink: string;
-			instagramLink: string;
-			facebookLink: string;
-			twitterLink: string;
-			businessHours: {
-				content: string;
-			};
-			mbeziContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
-			mbweniContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
-		};
-	};
-}
+const RenderFlexibleContent = () => {
+	const content = useContentContext();
 
-const RenderFlexibleContent: FC<IFlexibleContent> = ({
-	content,
-	mainMenuLinks,
-	heroMenuLinks,
-	locationMenuLinks,
-	themesOptionsContent,
-}) => {
 	const FlexibleContentComponent =
 		"DefaultTemplate_Flexiblecontent_FlexibleContent";
 	return (
 		<>
-			{content?.length > 0 ? (
-				content.map((item: any, keys: any) => (
+			{content.content.length > 0 ? (
+				content.content.map((item: any, keys: any) => (
 					<div key={keys}>
 						{item?.fieldGroupName ===
 						`${FlexibleContentComponent}_HeroSection` ? (
@@ -112,26 +43,7 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 									paragraph={item?.paragraph}
 									buttonLink={item?.buttonLink}
 									buttonLinkTwo={item?.buttonLinkTwo}
-									mainMenuLinks={mainMenuLinks?.mainMenuLinks}
-									heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 									backgroundImage={item?.backgroundImage?.sourceUrl}
-									locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-									twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
-									mbeziContent={
-										themesOptionsContent?.themeOptions?.mbeziContent
-									}
-									linkedinLink={
-										themesOptionsContent?.themeOptions?.linkedinLink
-									}
-									facebookLink={
-										themesOptionsContent?.themeOptions?.facebookLink
-									}
-									instagramLink={
-										themesOptionsContent?.themeOptions?.instagramLink
-									}
-									mbweniContent={
-										themesOptionsContent?.themeOptions?.mbweniContent
-									}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -140,26 +52,7 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 								<HeroTwo
 									title={item?.title}
 									paragraph={item?.paragraph}
-									mainMenuLinks={mainMenuLinks?.mainMenuLinks}
-									heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 									backgroundImage={item?.backgroundImage?.sourceUrl}
-									locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-									twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
-									mbeziContent={
-										themesOptionsContent?.themeOptions?.mbeziContent
-									}
-									linkedinLink={
-										themesOptionsContent?.themeOptions?.linkedinLink
-									}
-									facebookLink={
-										themesOptionsContent?.themeOptions?.facebookLink
-									}
-									instagramLink={
-										themesOptionsContent?.themeOptions?.instagramLink
-									}
-									mbweniContent={
-										themesOptionsContent?.themeOptions?.mbweniContent
-									}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -168,26 +61,7 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 								<HeroThree
 									title={item?.title}
 									paragraph={item?.paragraph}
-									mainMenuLinks={mainMenuLinks?.mainMenuLinks}
-									heroMenuLinks={heroMenuLinks?.heroMenuLinks}
 									backgroundImage={item?.backgroundImage?.sourceUrl}
-									locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-									twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
-									mbeziContent={
-										themesOptionsContent?.themeOptions?.mbeziContent
-									}
-									linkedinLink={
-										themesOptionsContent?.themeOptions?.linkedinLink
-									}
-									facebookLink={
-										themesOptionsContent?.themeOptions?.facebookLink
-									}
-									instagramLink={
-										themesOptionsContent?.themeOptions?.instagramLink
-									}
-									mbweniContent={
-										themesOptionsContent?.themeOptions?.mbweniContent
-									}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -216,8 +90,8 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 							<>
 								<ContentStats
 									title={item?.title}
-									paragraph={item?.paragraph}
 									statsOne={item?.statsOne}
+									paragraph={item?.paragraph}
 									statsTwo={item?.statsTwo}
 								/>
 							</>
@@ -254,7 +128,7 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_InfoContent` ? (
 							<>
-								<InfoContent stats={content?.stats} />
+								<InfoContent content={item?.content} />
 							</>
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_JumboContent` ? (
@@ -322,27 +196,12 @@ const RenderFlexibleContent: FC<IFlexibleContent> = ({
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_ContactInfo` ? (
 							<>
-								<ContactInfo
-									email={themesOptionsContent?.themeOptions?.email}
-									phoneNumber={themesOptionsContent?.themeOptions?.phoneNumber}
-									phoneNumberTwo={
-										themesOptionsContent?.themeOptions?.phoneNumber
-									}
-									contactAddress={
-										themesOptionsContent?.themeOptions?.mbeziContent
-											?.contactAddress
-									}
-								/>
+								<ContactInfo />
 							</>
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_ContactForm` ? (
 							<>
-								<ContactForm
-									title={item?.title}
-									businessHours={
-										themesOptionsContent?.themeOptions?.businessHours
-									}
-								/>
+								<ContactForm title={item?.title} />
 							</>
 						) : item?.fieldGroupName === `${FlexibleContentComponent}_Cta` ? (
 							<>

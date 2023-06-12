@@ -4,20 +4,20 @@ import {
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
-} from "../../../functions/GetAllMenuLinks";
+} from "@/functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
 import type {NextPage, GetStaticProps} from "next";
 import {ContentContext} from "@/context/context";
-import {getAllApartmentSlugs} from "@/functions/GetAllApartmentSlugs";
-import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
-import {getAllSeoApartmentPagesContent} from "@/functions/GetAllSeoPagesContent";
-import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
-import {getAllApartmentPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
+import {getAllLocationsSlugs} from "@/functions/GetAllLocationsSlugs";
+import {getAllSeoLocationsPagesContent} from "@/functions/GetAllSeoPagesContent";
+import {getThemesOptionsContent} from "@/functions/GetAllThemesOptions";
+import {getAllLocationsPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
 
 // Components
 import Layout from "@/components/Layout/Layout";
+import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
 
-interface IMbeziDynamicPages {
+interface IDynamicLocationsPages {
 	seo: {
 		canonical: string;
 		cornerstone: Boolean;
@@ -112,7 +112,7 @@ interface IMbeziDynamicPages {
 	};
 }
 
-const mbeziDynamicPages: NextPage<IMbeziDynamicPages> = ({
+const dynamicLocationsPages: NextPage<IDynamicLocationsPages> = ({
 	seo,
 	content,
 	mainMenuLinks,
@@ -149,11 +149,10 @@ const mbeziDynamicPages: NextPage<IMbeziDynamicPages> = ({
 };
 
 export async function getStaticPaths() {
-	const data = await getAllApartmentSlugs();
-
-	const paths = data.map((slugUrl) => ({
+	const data = await getAllLocationsSlugs();
+	const paths = data.map((item) => ({
 		params: {
-			slug: slugUrl?.slug as String,
+			slug: item?.slug as String,
 		},
 	}));
 
@@ -162,10 +161,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({params}: any) => {
 	// Fetch priority content
-	const seoContent: any = await getAllSeoApartmentPagesContent(params?.slug);
+	const seoContent: any = await getAllSeoLocationsPagesContent(params?.slug);
 
 	const flexibleContentComponents: any =
-		await getAllApartmentPagesFlexibleContentComponents(params?.slug);
+		await getAllLocationsPagesFlexibleContentComponents(params?.slug);
 
 	// Fetch remaining content simultaneously
 	const [
@@ -196,4 +195,4 @@ export const getStaticProps: GetStaticProps = async ({params}: any) => {
 	};
 };
 
-export default mbeziDynamicPages;
+export default dynamicLocationsPages;

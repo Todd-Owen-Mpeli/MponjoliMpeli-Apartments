@@ -65,7 +65,7 @@ const ErrorPage: FC<IProps> = ({
 							<Link
 								href={buttonLink?.url ? buttonLink?.url : `/`}
 								target={buttonLink?.target}
-								className="flex flex-row px-6 py-3 leading-4 text-white transition-all duration-500 ease-in-out bg-transparent lg:py-6 lg:px-20 hover:bg-blue"
+								className="flex flex-row px-6 py-3 leading-4 text-white transition-all duration-500 ease-in-out bg-green-default lg:py-6 lg:px-20 hover:bg-green-dark"
 							>
 								<svg
 									className="mr-2.5 text-white"
@@ -101,7 +101,7 @@ const ErrorPage: FC<IProps> = ({
 							<Link
 								href={buttonLinkTwo?.url ? buttonLinkTwo?.url : `/`}
 								target={buttonLinkTwo?.target}
-								className="flex flex-row px-6 py-3 leading-4 text-white transition-all duration-500 ease-in-out bg-transparent lg:py-6 lg:px-20 hover:bg-goldPrime"
+								className="flex flex-row px-6 py-3 leading-4 text-white transition-all duration-500 ease-in-out bg-goldPrimeDark lg:py-6 lg:px-20 hover:bg-goldPrimeDarker"
 							>
 								<span className="text-base tracking-wider text-white font-[500]">
 									{buttonLinkTwo?.title}

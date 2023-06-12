@@ -45,9 +45,7 @@ export async function getThemesOptionsContent() {
 			query: content,
 		});
 
-		return {
-			themeOptions: response?.data?.themesOptions?.edges[0]?.node?.themeOptions,
-		};
+		return response?.data?.themesOptions?.edges[0]?.node?.themeOptions;
 	} catch (error) {
 		console.log(error);
 		throw new Error(

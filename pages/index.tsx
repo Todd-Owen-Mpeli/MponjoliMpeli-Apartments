@@ -7,6 +7,7 @@ import {
 } from "../functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
 import type {NextPage, GetStaticProps} from "next";
+import {ContentContext} from "@/context/context";
 import {getThemesOptionsContent} from "../functions/GetAllThemesOptions";
 import {getAllSeoPagesContent} from "@/functions/GetAllSeoPagesContent";
 import {getAllPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
@@ -45,273 +46,67 @@ interface IHome {
 			mediaItemUrl: string;
 		};
 	};
-	content: {
-		heroSection: {
-			title: string;
-			paragraph: string;
-			backgroundImage: {
-				sourceUrl: string;
-			};
-			buttonLink: {
+	content: any;
+	footerMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-			buttonLinkTwo: {
+		}
+	];
+	mainMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-		};
-		introSection: {
-			title: string;
-			subtitle: string;
-			paragraph: string;
-			buttonLink: {
+		}
+	];
+	heroMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageTwo: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageLarge: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		};
-		trustedBrands: {
-			title: string;
-			logos: [
-				{
-					id: string;
-					image: {
-						altText: string;
-						sourceUrl: string;
-						mediaDetails: {
-							height: number;
-							width: number;
-						};
-					};
-				}
-			];
-		};
-		firstTimeLettings: {
-			title: string;
-			subtitle: string;
-			paragraph: string;
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		};
-		howItWorks: {
-			gridContent: [
-				{
-					card: {
-						id: string;
-						title: string;
-						paragraph: string;
-						imageLocation: string;
-						image: {
-							altText: string;
-							sourceUrl: string;
-							mediaDetails: {
-								height: number;
-								width: number;
-							};
-						};
-					};
-				}
-			];
-		};
-		contactBanner: {
-			title: string;
-			paragraph: string;
-			image: {
-				sourceUrl: string;
-			};
-			buttonLink: {
+		}
+	];
+	locationMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-		};
-		sustainability: {
-			title: string;
-			subtitle: string;
-			paragraph: string;
-			imageText: string;
-			percentage: string;
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		};
-		imageGrid: {
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageTwo: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageThree: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageFour: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageFive: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageSix: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		};
-		articleImageBanner: {
-			title: string;
-			paragraph: string;
-			buttonLink: {
-				url: string;
-				title: string;
-				target: string;
-			};
-			backgroundImage: {
-				sourceUrl: string;
-			};
-		};
-		newsletterSignUp: {
-			title: string;
-			titleTwo: string;
-			paragraph: string;
-			paragraphTwo: string;
-		};
-	};
-	footerMenuLinks: {
-		footerMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	mainMenuLinks: {
-		mainMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	heroMenuLinks: {
-		heroMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	locationMenuLinks: {
-		locationMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
+		}
+	];
 	themesOptionsContent: {
-		themeOptions: {
-			email: string;
-			emailOptionTwo: string;
+		email: string;
+		emailOptionTwo: string;
+		phoneNumber: string;
+		phoneNumberOptionTwo: string;
+		phoneNumberOptionThree: string;
+		linkedinLink: string;
+		instagramLink: string;
+		facebookLink: string;
+		twitterLink: string;
+		businessHours: {
+			content: string;
+		};
+		mbeziContent: {
+			title: string;
 			phoneNumber: string;
-			phoneNumberOptionTwo: string;
-			phoneNumberOptionThree: string;
-			linkedinLink: string;
-			instagramLink: string;
-			facebookLink: string;
-			twitterLink: string;
-			businessHours: {
-				content: string;
-			};
-			mbeziContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
-			mbweniContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
+			email: string;
+			contactAddress: string;
+		};
+		mbweniContent: {
+			title: string;
+			phoneNumber: string;
+			email: string;
+			contactAddress: string;
 		};
 	};
 }
@@ -326,28 +121,29 @@ const Home: NextPage<IHome> = ({
 	themesOptionsContent,
 }) => {
 	return (
-		<motion.div
-			exit={{
-				opacity: 0,
+		<ContentContext.Provider
+			value={{
+				seo: seo,
+				content: content,
+				mainMenuLinks: mainMenuLinks,
+				heroMenuLinks: heroMenuLinks,
+				footerMenuLinks: footerMenuLinks,
+				locationMenuLinks: locationMenuLinks,
+				themesOptionsContent: themesOptionsContent,
 			}}
-			initial="initial"
-			animate="animate"
 		>
-			<Layout
-				seo={seo}
-				pageTitle={`MponjoliMpeli`}
-				footerMenuLinks={footerMenuLinks}
-				themesOptionsContent={themesOptionsContent}
+			<motion.div
+				exit={{
+					opacity: 0,
+				}}
+				initial="initial"
+				animate="animate"
 			>
-				<RenderFlexibleContent
-					content={content}
-					mainMenuLinks={mainMenuLinks}
-					heroMenuLinks={heroMenuLinks}
-					locationMenuLinks={locationMenuLinks}
-					themesOptionsContent={themesOptionsContent}
-				/>
-			</Layout>
-		</motion.div>
+				<Layout>
+					<RenderFlexibleContent />
+				</Layout>
+			</motion.div>
+		</ContentContext.Provider>
 	);
 };
 
@@ -382,7 +178,6 @@ export const getStaticProps: GetStaticProps = async () => {
 			locationMenuLinks,
 			themesOptionsContent,
 			content: flexibleContentComponents?.content,
-			pageTitle: flexibleContentComponents?.pageTitle,
 		},
 		revalidate: 60,
 	};

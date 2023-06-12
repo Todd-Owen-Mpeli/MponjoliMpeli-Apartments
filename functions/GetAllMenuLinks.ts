@@ -22,9 +22,7 @@ export async function getMainMenuLinks() {
 			query: content,
 		});
 
-		return {
-			mainMenuLinks: response?.data?.mainMenuLinks?.edges,
-		};
+		return response?.data?.mainMenuLinks?.edges;
 	} catch (error) {
 		console.log(error);
 		throw new Error(
@@ -54,9 +52,7 @@ export async function getHeroMenuLinks() {
 			query: content,
 		});
 
-		return {
-			heroMenuLinks: response?.data?.heroMenuLinks?.edges,
-		};
+		return response?.data?.heroMenuLinks?.edges;
 	} catch (error) {
 		console.log(error);
 		throw new Error(
@@ -86,9 +82,7 @@ export async function getFooterMenuLinks() {
 			query: content,
 		});
 
-		return {
-			footerMenuLinks: response?.data?.footerMenuLinks?.edges,
-		};
+		return response?.data?.footerMenuLinks?.edges;
 	} catch (error) {
 		console.log(error);
 		throw new Error(
@@ -118,9 +112,7 @@ export async function getLocationMenuLinks() {
 			query: content,
 		});
 
-		return {
-			locationMenuLinks: response?.data?.locationMenuLinks?.edges,
-		};
+		return response?.data?.locationMenuLinks?.edges;
 	} catch (error) {
 		console.log(error);
 		throw new Error(

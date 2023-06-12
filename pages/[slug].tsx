@@ -7,6 +7,7 @@ import {
 } from "@/functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
 import type {NextPage, GetStaticProps} from "next";
+import {ContentContext} from "@/context/context";
 import {getAllPagesSlugs} from "@/functions/GetAllPagesSlugs";
 import {getAllSeoPagesContent} from "@/functions/GetAllSeoPagesContent";
 import {getThemesOptionsContent} from "../functions/GetAllThemesOptions";
@@ -47,77 +48,66 @@ interface IDynamicPages {
 		};
 	};
 	content: any;
-	pageTitle: string;
-	footerMenuLinks: {
-		footerMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	mainMenuLinks: {
-		mainMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	heroMenuLinks: {
-		heroMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	locationMenuLinks: {
-		locationMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
+	footerMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
+	mainMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
+	heroMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
+	locationMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
+			};
+		}
+	];
 	themesOptionsContent: {
-		themeOptions: {
-			email: string;
-			emailOptionTwo: string;
+		email: string;
+		emailOptionTwo: string;
+		phoneNumber: string;
+		phoneNumberOptionTwo: string;
+		phoneNumberOptionThree: string;
+		linkedinLink: string;
+		instagramLink: string;
+		facebookLink: string;
+		twitterLink: string;
+		businessHours: {
+			content: string;
+		};
+		mbeziContent: {
+			title: string;
 			phoneNumber: string;
-			phoneNumberOptionTwo: string;
-			phoneNumberOptionThree: string;
-			linkedinLink: string;
-			instagramLink: string;
-			facebookLink: string;
-			twitterLink: string;
-			businessHours: {
-				content: string;
-			};
-			mbeziContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
-			mbweniContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
+			email: string;
+			contactAddress: string;
+		};
+		mbweniContent: {
+			title: string;
+			phoneNumber: string;
+			email: string;
+			contactAddress: string;
 		};
 	};
 }
@@ -125,7 +115,6 @@ interface IDynamicPages {
 const dynamicPages: NextPage<IDynamicPages> = ({
 	seo,
 	content,
-	pageTitle,
 	mainMenuLinks,
 	heroMenuLinks,
 	footerMenuLinks,
@@ -133,28 +122,29 @@ const dynamicPages: NextPage<IDynamicPages> = ({
 	themesOptionsContent,
 }) => {
 	return (
-		<motion.div
-			exit={{
-				opacity: 0,
+		<ContentContext.Provider
+			value={{
+				seo: seo,
+				content: content,
+				mainMenuLinks: mainMenuLinks,
+				heroMenuLinks: heroMenuLinks,
+				footerMenuLinks: footerMenuLinks,
+				locationMenuLinks: locationMenuLinks,
+				themesOptionsContent: themesOptionsContent,
 			}}
-			initial="initial"
-			animate="animate"
 		>
-			<Layout
-				seo={seo}
-				pageTitle={pageTitle}
-				footerMenuLinks={footerMenuLinks}
-				themesOptionsContent={themesOptionsContent}
+			<motion.div
+				exit={{
+					opacity: 0,
+				}}
+				initial="initial"
+				animate="animate"
 			>
-				<RenderFlexibleContent
-					content={content}
-					mainMenuLinks={mainMenuLinks}
-					heroMenuLinks={heroMenuLinks}
-					locationMenuLinks={locationMenuLinks}
-					themesOptionsContent={themesOptionsContent}
-				/>
-			</Layout>
-		</motion.div>
+				<Layout>
+					<RenderFlexibleContent />
+				</Layout>
+			</motion.div>
+		</ContentContext.Provider>
 	);
 };
 
@@ -200,7 +190,6 @@ export const getStaticProps: GetStaticProps = async ({params}: any) => {
 			locationMenuLinks,
 			themesOptionsContent,
 			content: flexibleContentComponents?.content,
-			pageTitle: flexibleContentComponents?.pageTitle,
 		},
 		revalidate: 60,
 	};

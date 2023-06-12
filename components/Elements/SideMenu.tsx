@@ -6,60 +6,15 @@ import styles from "../../styles/components/Hero.module.scss";
 // Components
 import Paragraph from "./../Elements/Paragraph";
 import NavbarMenuLinks from "./../Elements/NavbarMenuLinks";
+import {useContentContext} from "@/context/context";
 
 interface HeroProps {
 	menuActive: boolean;
-	linkedinLink: string;
-	instagramLink: string;
-	facebookLink: string;
-	twitterLink: string;
-
-	// Menu Links
-	mainMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	locationMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-
-	// Address Content
-	mbeziContent: {
-		email: string;
-		title: string;
-		phoneNumber: string;
-		contactAddress: string;
-	};
-	mbweniContent: {
-		email: string;
-		title: string;
-		phoneNumber: string;
-		contactAddress: string;
-	};
 }
 
-const SideMenu: FC<HeroProps> = ({
-	menuActive,
-	twitterLink,
-	facebookLink,
-	linkedinLink,
-	instagramLink,
-	mbeziContent,
-	mbweniContent,
-	mainMenuLinks,
-	locationMenuLinks,
-}) => {
+const SideMenu: FC<HeroProps> = ({menuActive}) => {
+	const content = useContentContext();
+
 	// Display Locations sublinks
 	const [LocationMenuOpen, setLocationMenuOpen]: any = useState(true);
 
@@ -93,18 +48,22 @@ const SideMenu: FC<HeroProps> = ({
 				</div>
 				<div className="px-4">
 					<ul>
-						{mainMenuLinks?.map((keys) => (
-							<li
-								key={keys?.node?.id}
-								className="mb-1 border-b-[1px] border-green-default border-opacity-50"
-							>
-								<NavbarMenuLinks
-									url={keys?.node?.url}
-									label={keys?.node?.label}
-									tailwindStyling="block py-4 text-base font-semibold text-black hover:text-green-bright"
-								/>
-							</li>
-						))}
+						{content.mainMenuLinks.length > 0 ? (
+							content.mainMenuLinks.map((keys) => (
+								<li
+									key={keys?.node?.id}
+									className="mb-1 border-b-[1px] border-green-default border-opacity-50"
+								>
+									<NavbarMenuLinks
+										url={keys?.node?.url}
+										label={keys?.node?.label}
+										tailwindStyling="block py-4 text-base font-semibold text-black hover:text-green-bright"
+									/>
+								</li>
+							))
+						) : (
+							<></>
+						)}
 
 						{/* Our Locations Menu Links*/}
 						<li className="mb-1">
@@ -116,15 +75,19 @@ const SideMenu: FC<HeroProps> = ({
 							</span>
 							{LocationMenuOpen ? (
 								<ul className="flex flex-col justify-center gap-2 my-2">
-									{locationMenuLinks?.map((keys) => (
-										<li key={keys?.node?.id} className="indent-8">
-											<NavbarMenuLinks
-												url={keys?.node?.url}
-												label={keys?.node?.label}
-												tailwindStyling="block py-4 ml-6 text-base text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
-											/>
-										</li>
-									))}
+									{content.locationMenuLinks.length > 0 ? (
+										content.locationMenuLinks.map((keys) => (
+											<li key={keys?.node?.id} className="indent-8">
+												<NavbarMenuLinks
+													url={keys?.node?.url}
+													label={keys?.node?.label}
+													tailwindStyling="block py-4 ml-6 text-base text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
+												/>
+											</li>
+										))
+									) : (
+										<></>
+									)}
 								</ul>
 							) : null}
 						</li>
@@ -132,7 +95,10 @@ const SideMenu: FC<HeroProps> = ({
 				</div>
 				<div className="mt-20">
 					<div className="flex items-center justify-start gap-4 mb-4 text-center">
-						<Link className="inline-block px-1 text-green" href={facebookLink}>
+						<Link
+							className="inline-block px-1 text-green"
+							href={content.themesOptionsContent.facebookLink}
+						>
 							<svg
 								height="100%"
 								className="w-5 h-5"
@@ -153,7 +119,10 @@ const SideMenu: FC<HeroProps> = ({
 								/>
 							</svg>
 						</Link>
-						<Link className="inline-block px-1 text-green" href={instagramLink}>
+						<Link
+							className="inline-block px-1 text-green"
+							href={content.themesOptionsContent.instagramLink}
+						>
 							<svg
 								height="100%"
 								className="w-6 h-6"
@@ -188,7 +157,10 @@ const SideMenu: FC<HeroProps> = ({
 								</g>
 							</svg>
 						</Link>
-						<Link className="inline-block px-1 text-green" href={twitterLink}>
+						<Link
+							className="inline-block px-1 text-green"
+							href={content.themesOptionsContent.twitterLink}
+						>
 							<svg
 								height="100%"
 								className="w-5 h-5"
@@ -209,7 +181,10 @@ const SideMenu: FC<HeroProps> = ({
 								/>
 							</svg>
 						</Link>
-						<Link className="inline-block px-1 text-green" href={linkedinLink}>
+						<Link
+							className="inline-block px-1 text-green"
+							href={content.themesOptionsContent.linkedinLink}
+						>
 							<svg
 								height="100%"
 								style={{
@@ -234,47 +209,51 @@ const SideMenu: FC<HeroProps> = ({
 					<div className="flex flex-col items-baseline gap-4 sm:flex-row">
 						<div className="flex flex-col items-baseline justify-between my-6">
 							<h2 className="text-green font-[600] text-base">
-								{mbeziContent?.title}
+								{content.themesOptionsContent.mbeziContent?.title}
 							</h2>
 							<Paragraph
-								content={mbeziContent?.contactAddress}
+								content={
+									content.themesOptionsContent.mbeziContent?.contactAddress
+								}
 								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 							/>
 							<div className="flex flex-col mt-4 gap-y-6">
 								<Link
 									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`tel:${mbeziContent?.phoneNumber}`}
+									href={`tel:${content.themesOptionsContent.mbeziContent?.phoneNumber}`}
 								>
-									{mbeziContent?.phoneNumber}
+									{content.themesOptionsContent.mbeziContent?.phoneNumber}
 								</Link>
 								<Link
 									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`mailto:${mbeziContent?.email}`}
+									href={`mailto:${content.themesOptionsContent.mbeziContent?.email}`}
 								>
-									{mbeziContent?.email}
+									{content.themesOptionsContent.mbeziContent?.email}
 								</Link>
 							</div>
 						</div>
 						<div className="flex flex-col items-baseline justify-between my-6">
 							<h2 className="text-green font-[600] text-base">
-								{mbweniContent?.title}
+								{content.themesOptionsContent.mbweniContent?.title}
 							</h2>
 							<Paragraph
-								content={mbweniContent?.contactAddress}
+								content={
+									content.themesOptionsContent.mbweniContent?.contactAddress
+								}
 								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 							/>
 							<div className="flex flex-col mt-4 gap-y-6">
 								<Link
 									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`tel:${mbweniContent?.phoneNumber}`}
+									href={`tel:${content.themesOptionsContent.mbweniContent?.phoneNumber}`}
 								>
-									{mbweniContent?.phoneNumber}
+									{content.themesOptionsContent.mbweniContent?.phoneNumber}
 								</Link>
 								<Link
 									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`mailto:${mbweniContent?.email}`}
+									href={`mailto:${content.themesOptionsContent.mbweniContent?.email}`}
 								>
-									{mbweniContent?.email}
+									{content.themesOptionsContent.mbweniContent?.email}
 								</Link>
 							</div>
 						</div>

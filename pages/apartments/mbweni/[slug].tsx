@@ -1,27 +1,23 @@
 // Import
-import type {NextPage, GetStaticProps} from "next";
-import {
-	fetchApartmentSlugs,
-	fetchApartmentSlugsContent,
-} from "@/functions/ApartmentSlugs";
-import {motion} from "framer-motion";
-import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
 	getFooterMenuLinks,
 	getLocationMenuLinks,
 } from "../../../functions/GetAllMenuLinks";
+import {motion} from "framer-motion";
+import {ContentContext} from "@/context/context";
+import type {NextPage, GetStaticProps} from "next";
+import {getAllApartmentSlugs} from "@/functions/GetAllApartmentSlugs";
+import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
+import {getAllSeoApartmentPagesContent} from "@/functions/GetAllSeoPagesContent";
+import {getAllApartmentPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
 
 // Components
-import Stats from "@/components/InfoContent";
-import Footer from "@/components/Footer";
-import HeroTwo from "@/components/HeroTwo";
-import ImageGrid from "@/components/ImageGrid";
-import MetaTag from "@/components/Meta/MetaTag";
-import ApartmentSingle from "@/components/ApartmentSingle";
+import Layout from "@/components/Layout/Layout";
+import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
 
-interface IMbweniSlugs {
+interface IMbweniDynamicPages {
 	seo: {
 		canonical: string;
 		cornerstone: Boolean;
@@ -51,269 +47,74 @@ interface IMbweniSlugs {
 			mediaItemUrl: string;
 		};
 	};
-	pageTitle: string;
-	content: {
-		heroSection: {
-			title: string;
-			paragraph: string;
-			backgroundImage: {
-				sourceUrl: string;
-			};
-			buttonLink: {
+	content: any;
+	footerMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-			buttonLinkTwo: {
+		}
+	];
+	mainMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-		};
-		stats: [
-			{
-				card: {
-					id: string;
-					icon: {
-						altText: string;
-						sourceUrl: string;
-						mediaDetails: {
-							height: number;
-							width: number;
-						};
-					};
-					title: string;
-					paragraph: string;
-				};
-			}
-		];
-		mainContent: {
-			heroBackgroundImage: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageGallery: [
-				{
-					image: {
-						altText: string;
-						sourceUrl: string;
-						mediaDetails: {
-							height: number;
-							width: number;
-						};
-					};
-				}
-			];
-			mainContent: {
-				title: string;
-				location: string;
-				description: string;
-				lettingCompany: string;
-				buttonLink: {
-					url: string;
-					title: string;
-					target: string;
-				};
-				rightSectionTitle: string;
-				weeklyInfo: {
-					title: string;
-					rent: string;
-				};
-				monthlyInfo: {
-					title: string;
-					rent: string;
-				};
-				lettingDetails: [
-					{
-						bulletPoint: string;
-					}
-				];
-				iconGrid: [
-					{
-						card: {
-							text: string;
-							icon: {
-								altText: string;
-								sourceUrl: string;
-								mediaDetails: {
-									height: number;
-									width: number;
-								};
-							};
-						};
-					}
-				];
-				highlightImages: [
-					{
-						image: {
-							altText: string;
-							sourceUrl: string;
-							mediaDetails: {
-								height: number;
-								width: number;
-							};
-						};
-					}
-				];
-				keyInfoImages: [
-					{
-						image: {
-							altText: string;
-							sourceUrl: string;
-							mediaDetails: {
-								height: number;
-								width: number;
-							};
-						};
-					}
-				];
-			};
-		};
-		contactBanner: {
-			title: string;
-			paragraph: string;
-			image: {
-				sourceUrl: string;
-			};
-			buttonLink: {
+		}
+	];
+	heroMenuLinks: [
+		{
+			node: {
+				id: string;
 				url: string;
-				title: string;
-				target: string;
+				label: string;
 			};
-		};
-		imageGrid: {
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
+		}
+	];
+	locationMenuLinks: [
+		{
+			node: {
+				id: string;
+				url: string;
+				label: string;
 			};
-			imageTwo: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageThree: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageFour: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageFive: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-			imageSix: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		};
-	};
-	footerMenuLinks: {
-		footerMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	mainMenuLinks: {
-		mainMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	heroMenuLinks: {
-		heroMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
-	locationMenuLinks: {
-		locationMenuLinks: [
-			{
-				node: {
-					id: string;
-					url: string;
-					label: string;
-				};
-			}
-		];
-	};
+		}
+	];
 	themesOptionsContent: {
-		themeOptions: {
-			email: string;
-			emailOptionTwo: string;
+		email: string;
+		emailOptionTwo: string;
+		phoneNumber: string;
+		phoneNumberOptionTwo: string;
+		phoneNumberOptionThree: string;
+		linkedinLink: string;
+		instagramLink: string;
+		facebookLink: string;
+		twitterLink: string;
+		businessHours: {
+			content: string;
+		};
+		mbeziContent: {
+			title: string;
 			phoneNumber: string;
-			phoneNumberOptionTwo: string;
-			phoneNumberOptionThree: string;
-			linkedinLink: string;
-			instagramLink: string;
-			facebookLink: string;
-			twitterLink: string;
-			businessHours: {
-				content: string;
-			};
-			mbeziContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
-			mbweniContent: {
-				title: string;
-				phoneNumber: string;
-				email: string;
-				contactAddress: string;
-			};
+			email: string;
+			contactAddress: string;
+		};
+		mbweniContent: {
+			title: string;
+			phoneNumber: string;
+			email: string;
+			contactAddress: string;
 		};
 	};
 }
 
-const mbweniSlugs: NextPage<IMbweniSlugs> = ({
+const mbweniDynamicPages: NextPage<IMbweniDynamicPages> = ({
 	seo,
 	content,
-	pageTitle,
 	mainMenuLinks,
 	heroMenuLinks,
 	footerMenuLinks,
@@ -321,65 +122,34 @@ const mbweniSlugs: NextPage<IMbweniSlugs> = ({
 	themesOptionsContent,
 }) => {
 	return (
-		<motion.div
-			exit={{
-				opacity: 0,
+		<ContentContext.Provider
+			value={{
+				seo: seo,
+				content: content,
+				mainMenuLinks: mainMenuLinks,
+				heroMenuLinks: heroMenuLinks,
+				footerMenuLinks: footerMenuLinks,
+				locationMenuLinks: locationMenuLinks,
+				themesOptionsContent: themesOptionsContent,
 			}}
-			initial="initial"
-			animate="animate"
 		>
-			{/* <!--===== META TAG =====--> */}
-			<MetaTag title={pageTitle} seo={seo} />
-
-			<main>
-				<HeroTwo
-					title={content?.heroSection?.title}
-					paragraph={content?.heroSection?.paragraph}
-					mainMenuLinks={mainMenuLinks?.mainMenuLinks}
-					heroMenuLinks={heroMenuLinks?.heroMenuLinks}
-					locationMenuLinks={locationMenuLinks?.locationMenuLinks}
-					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
-					mbeziContent={themesOptionsContent?.themeOptions?.mbeziContent}
-					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
-					mbweniContent={themesOptionsContent?.themeOptions?.mbweniContent}
-					backgroundImage={content?.heroSection?.backgroundImage?.sourceUrl}
-				/>
-
-				<ApartmentSingle
-					mainContent={content?.mainContent?.mainContent}
-					imageGallery={content?.mainContent?.imageGallery}
-					heroBackgroundImage={content?.mainContent?.heroBackgroundImage}
-				/>
-
-				<Stats stats={content?.stats} />
-
-				<ImageGrid
-					image={content?.imageGrid?.image}
-					imageTwo={content?.imageGrid?.imageTwo}
-					imageThree={content?.imageGrid?.imageThree}
-					imageFour={content?.imageGrid?.imageFour}
-					imageFive={content?.imageGrid?.imageFive}
-					imageSix={content?.imageGrid?.imageSix}
-				/>
-
-				<Footer
-					footerMenuLinks={footerMenuLinks?.footerMenuLinks}
-					twitterLink={themesOptionsContent?.themeOptions?.twitterLink}
-					linkedinLink={themesOptionsContent?.themeOptions?.linkedinLink}
-					facebookLink={themesOptionsContent?.themeOptions?.facebookLink}
-					instagramLink={themesOptionsContent?.themeOptions?.instagramLink}
-				/>
-			</main>
-		</motion.div>
+			<motion.div
+				exit={{
+					opacity: 0,
+				}}
+				initial="initial"
+				animate="animate"
+			>
+				<Layout>
+					<RenderFlexibleContent />
+				</Layout>
+			</motion.div>
+		</ContentContext.Provider>
 	);
 };
 
-export default mbweniSlugs;
-
 export async function getStaticPaths() {
-	const data = await fetchApartmentSlugs();
+	const data = await getAllApartmentSlugs();
 
 	const paths = data.map((slugUrl) => ({
 		params: {
@@ -391,25 +161,39 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({params}: any) => {
-	const response: any = await fetchApartmentSlugsContent(params?.slug);
+	// Fetch priority content
+	const seoContent: any = await getAllSeoApartmentPagesContent(params?.slug);
 
-	const mainMenuLinks: object = await getMainMenuLinks();
-	const heroMenuLinks: object = await getHeroMenuLinks();
-	const footerMenuLinks: object = await getFooterMenuLinks();
-	const locationMenuLinks: object = await getLocationMenuLinks();
-	const themesOptionsContent: object = await getThemesOptionsContent();
+	const flexibleContentComponents: any =
+		await getAllApartmentPagesFlexibleContentComponents(params?.slug);
+
+	// Fetch remaining content simultaneously
+	const [
+		mainMenuLinks,
+		heroMenuLinks,
+		footerMenuLinks,
+		locationMenuLinks,
+		themesOptionsContent,
+	] = await Promise.all([
+		getMainMenuLinks(),
+		getHeroMenuLinks(),
+		getFooterMenuLinks(),
+		getLocationMenuLinks(),
+		getThemesOptionsContent(),
+	]);
 
 	return {
 		props: {
 			mainMenuLinks,
 			heroMenuLinks,
 			footerMenuLinks,
+			seo: seoContent,
 			locationMenuLinks,
 			themesOptionsContent,
-			seo: response?.seo,
-			content: response?.content,
-			pageTitle: response?.pageTitle,
+			content: flexibleContentComponents?.content,
 		},
 		revalidate: 60,
 	};
 };
+
+export default mbweniDynamicPages;

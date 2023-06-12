@@ -10,14 +10,11 @@ import NavbarMenuLinks from "./Elements/NavbarMenuLinks";
 
 // Styling
 import styles from "../styles/components/Hero.module.scss";
+import {useContentContext} from "@/context/context";
 
 interface HeroProps {
 	title: string;
 	paragraph: string;
-	linkedinLink: string;
-	instagramLink: string;
-	facebookLink: string;
-	twitterLink: string;
 	backgroundImage: string;
 	buttonLink: {
 		url: string;
@@ -29,67 +26,17 @@ interface HeroProps {
 		title: string;
 		target: string;
 	};
-
-	// Menu Links
-	mainMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	locationMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	heroMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-
-	// Address Content
-	mbeziContent: {
-		email: string;
-		title: string;
-		phoneNumber: string;
-		contactAddress: string;
-	};
-	mbweniContent: {
-		email: string;
-		title: string;
-		phoneNumber: string;
-		contactAddress: string;
-	};
 }
 
 const Hero: FC<HeroProps> = ({
 	title,
 	paragraph,
 	buttonLink,
-	twitterLink,
-	facebookLink,
-	linkedinLink,
-	instagramLink,
-	mbeziContent,
-	mbweniContent,
 	buttonLinkTwo,
-	mainMenuLinks,
-	heroMenuLinks,
 	backgroundImage,
-	locationMenuLinks,
 }) => {
+	const content = useContentContext();
+
 	/* Hides or Displays the Full Nav Menu */
 	const [menuActive, setMenuActive] = useState(false);
 
@@ -108,15 +55,19 @@ const Hero: FC<HeroProps> = ({
 				<nav className="relative flex items-center justify-between px-6 py-6">
 					<ul className="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:my-6 lg:items-center lg:w-auto lg:gap-x-20">
 						{/* Menu Link*/}
-						{heroMenuLinks?.map((keys) => (
-							<li key={keys?.node?.id}>
-								<NavbarMenuLinks
-									url={keys?.node?.url}
-									label={keys?.node?.label}
-									tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-green-bright transition-all ease-in-out duration-500"
-								/>
-							</li>
-						))}
+						{content.heroMenuLinks.length > 0 ? (
+							content.heroMenuLinks.map((keys) => (
+								<li key={keys?.node?.id}>
+									<NavbarMenuLinks
+										url={keys.node.url}
+										label={keys.node.label}
+										tailwindStyling="text-base xl:text-lg tracking-[.15rem] text-white hover:text-green-bright transition-all ease-in-out duration-500"
+									/>
+								</li>
+							))
+						) : (
+							<></>
+						)}
 					</ul>
 					<button
 						type="button"
@@ -187,17 +138,7 @@ const Hero: FC<HeroProps> = ({
 			</div>
 
 			{/* Hidden Side Menu */}
-			<SideMenu
-				menuActive={menuActive}
-				twitterLink={twitterLink}
-				facebookLink={facebookLink}
-				linkedinLink={linkedinLink}
-				instagramLink={instagramLink}
-				mbeziContent={mbeziContent}
-				mbweniContent={mbweniContent}
-				mainMenuLinks={mainMenuLinks}
-				locationMenuLinks={locationMenuLinks}
-			/>
+			<SideMenu menuActive={menuActive} />
 		</section>
 	);
 };

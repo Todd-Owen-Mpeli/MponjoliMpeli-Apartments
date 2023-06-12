@@ -1,20 +1,13 @@
 import {FC} from "react";
 import Link from "next/link";
+import {useContentContext} from "@/context/context";
+
+// Components
 import Paragraph from "../components/Elements/Paragraph";
 
-interface IProps {
-	email: string;
-	phoneNumber: string;
-	phoneNumberTwo: string;
-	contactAddress: string;
-}
+const ContactInfo = () => {
+	const content = useContentContext();
 
-const ContactInfo: FC<IProps> = ({
-	email,
-	phoneNumber,
-	contactAddress,
-	phoneNumberTwo,
-}) => {
 	return (
 		<section className="relative pt-24 overflow-hidden pb-36 bg-green-dark">
 			<div className="container relative z-10 px-4 mx-auto">
@@ -51,10 +44,10 @@ const ContactInfo: FC<IProps> = ({
 								Send Email
 							</h3>
 							<Link
-								href={`mailto:${email}`}
+								href={`mailto:${content.themesOptionsContent.email}`}
 								className="text-base font-medium leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 							>
-								{email}
+								{content.themesOptionsContent.email}
 							</Link>
 						</div>
 					</div>
@@ -86,19 +79,19 @@ const ContactInfo: FC<IProps> = ({
 								<span className="flex flex-col gap-4 text-base font-medium text-center text-white sm:flex-row lg:text-left">
 									Main Office:
 									<Link
-										href={`tel:${phoneNumber}`}
+										href={`tel:${content.themesOptionsContent.phoneNumber}`}
 										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 									>
-										{phoneNumber}
+										{content.themesOptionsContent.phoneNumber}
 									</Link>
 								</span>
 								<span className="flex flex-col gap-4 text-base font-medium text-center text-white sm:flex-row lg:text-left">
 									Enquires:
 									<Link
-										href={`tel:${phoneNumberTwo}`}
+										href={`tel:${content.themesOptionsContent.phoneNumberOptionTwo}`}
 										className="ml-2 text-base leading-relaxed text-white transition-all duration-500 ease-in-out hover:text-green-bright"
 									>
-										{phoneNumberTwo}
+										{content.themesOptionsContent.phoneNumberOptionTwo}
 									</Link>
 								</span>
 							</div>
@@ -136,7 +129,9 @@ const ContactInfo: FC<IProps> = ({
 								Address
 							</h3>
 							<Paragraph
-								content={contactAddress}
+								content={
+									content.themesOptionsContent?.mbeziContent?.contactAddress
+								}
 								tailwindStyling="font-medium text-base leading-relaxed text-white"
 							/>
 						</div>
