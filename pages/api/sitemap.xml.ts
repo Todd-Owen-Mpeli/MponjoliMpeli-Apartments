@@ -1,6 +1,5 @@
 // Import
 import {
-	getAllApartmentSlugs,
 	getAllMbeziApartmentSlugs,
 	getAllMbweniApartmentSlugs,
 } from "@/functions/GetAllApartmentSlugs";
@@ -12,14 +11,12 @@ import {getAllLocationsSlugs} from "@/functions/GetAllLocationsSlugs";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: any, res: any) => {
 	const pagesSlugs = await getAllPagesSlugs();
-	const apartmentsSlugs = await getAllApartmentSlugs();
 	const locationsSlugs = await getAllLocationsSlugs();
 	const mbeziApartmentsSlugs = await getAllMbeziApartmentSlugs();
 	const mbweniApartmentsSlugs = await getAllMbweniApartmentSlugs();
 
 	// Pages & Blogs Arrays
 	const pagesLinks: any = [];
-	const apartmentsLinks: any = [];
 	const locationsLinks: any = [];
 	const mbeziLinks: any = [];
 	const mbweniLinks: any = [];

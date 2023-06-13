@@ -17,22 +17,26 @@ interface IProps {
 	];
 }
 
-const ContentBackgroundImage: FC<IProps> = ({gridContent}) => {
+const contentBackgroundImage: FC<IProps> = ({gridContent}) => {
 	return (
-		<section className="px-4 py-10 overflow-hidden bg-green-dark">
+		<section className={`px-4 py-10 overflow-hidden bg-green-dark`}>
 			<div className="container flex flex-col gap-4 px-0 mx-auto">
-				{gridContent?.map((keys) => (
-					<ContentImageCard
-						title={keys?.card?.title}
-						paragraph={keys?.card?.paragraph}
-						contentLocation={keys?.card?.contentLocation}
-						key={keys?.card?.id || keys?.card?.title}
-						backgroundImage={keys?.card?.backgroundImage?.sourceUrl}
-					/>
-				))}
+				{gridContent.length > 0 ? (
+					gridContent?.map((item, keys) => (
+						<ContentImageCard
+							key={keys}
+							title={item?.card?.title}
+							paragraph={item?.card?.paragraph}
+							contentLocation={item?.card?.contentLocation}
+							backgroundImage={item?.card?.backgroundImage?.sourceUrl}
+						/>
+					))
+				) : (
+					<></>
+				)}
 			</div>
 		</section>
 	);
 };
 
-export default ContentBackgroundImage;
+export default contentBackgroundImage;

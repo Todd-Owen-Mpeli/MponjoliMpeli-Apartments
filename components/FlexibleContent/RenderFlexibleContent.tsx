@@ -143,7 +143,7 @@ const RenderFlexibleContent = () => {
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_ApartmentsGrid` ? (
 							<>
-								<ApartmentsGrid apartmentsGrid={item?.apartmentsGrid} />
+								<ApartmentsGrid apartmentsGrid={item?.grid} />
 							</>
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_SingleApartmentMainContent` ? (

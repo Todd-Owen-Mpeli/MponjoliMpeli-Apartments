@@ -1,3 +1,4 @@
+// Import
 import {FC} from "react";
 import ApartmentCard from "./Cards/ApartmentCard";
 
