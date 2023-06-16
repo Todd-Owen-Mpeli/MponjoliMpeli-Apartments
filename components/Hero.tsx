@@ -1,6 +1,9 @@
 import Link from "next/link";
+import {IHero} from "./types";
+import Image from "next/image";
 import {useState, FC} from "react";
 import {motion} from "framer-motion";
+import {useContentContext} from "@/context/context";
 import {fadeInUp, fadeInTwo, stagger, initial} from "../animations/animations";
 
 // Components
@@ -10,32 +13,18 @@ import NavbarMenuLinks from "./Elements/NavbarMenuLinks";
 
 // Styling
 import styles from "../styles/components/Hero.module.scss";
-import {useContentContext} from "@/context/context";
 
-interface HeroProps {
-	title: string;
-	paragraph: string;
-	backgroundImage: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-	buttonLinkTwo: {
-		url: string;
-		title: string;
-		target: string;
-	};
-}
-
-const Hero: FC<HeroProps> = ({
+const Hero: FC<IHero> = ({
 	title,
 	paragraph,
 	buttonLink,
 	buttonLinkTwo,
 	backgroundImage,
+	backgroundVideoUrl,
+	backgroundImageOrVideo,
 }) => {
 	const content = useContentContext();
+	const mainImageVideoTailwindcss: string = `object-cover object-center w-full h-full`;
 
 	/* Hides or Displays the Full Nav Menu */
 	const [menuActive, setMenuActive] = useState(false);
@@ -49,10 +38,47 @@ const Hero: FC<HeroProps> = ({
 			<div
 				className="flex flex-col bg-cover bg-center bg-no-repeat h-full min-h-[98.5vh]"
 				style={{
-					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage}")`,
+					backgroundImage: `linear-gradient(0deg,rgba(1, 42, 45, 0.65),rgba(1, 42, 45, 0.65)),url("${backgroundImage.sourceUrl}")`,
 				}}
 			>
-				<nav className="relative flex items-center justify-between px-6 py-6">
+				{/* Background Video */}
+				<div
+					className="absolute top-0 bottom-0 left-0 w-full h-full max-h-[98.5vh] z-[995] bg-center
+					 bg-no-repeat bg-cover overflow-hidden"
+					style={{backgroundImage: `url("${backgroundImage.sourceUrl}")`}}
+				>
+					{/* Background Video */}
+					<div className="absolute top-0 bottom-0 left-0 w-full h-full">
+						<div className="hidden xl:block relative pb-[56.25%] overflow-hidden max-w-full h-auto bg-center bg-no-repeat bg-cover min-h-full xl:min-h-screen">
+							<iframe
+								allowFullScreen
+								className={
+									backgroundImageOrVideo === "Video"
+										? "absolute top-[-100px] left-0 border-none w-full h-full scale-110"
+										: `hidden`
+								}
+								src={backgroundVideoUrl}
+							/>
+						</div>
+					</div>
+
+					{/* Image */}
+					<Image
+						priority={true}
+						width={backgroundImage.mediaDetails.width}
+						height={backgroundImage.mediaDetails?.height}
+						className={
+							backgroundImageOrVideo === "Image"
+								? `block ${mainImageVideoTailwindcss}`
+								: ` hidden`
+						}
+						src={backgroundImage.sourceUrl}
+						alt={backgroundImage.altText}
+					/>
+					<div className="absolute top-0 bottom-0 left-0 w-full h-full opacity-60 bg-green-dark" />
+				</div>
+
+				<nav className="relative flex items-center justify-between px-6 py-6 z-[999]">
 					<ul className="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:my-6 lg:items-center lg:w-auto lg:gap-x-20">
 						{/* Menu Link*/}
 						{content.heroMenuLinks.length > 0 ? (
@@ -79,7 +105,7 @@ const Hero: FC<HeroProps> = ({
 					</button>
 				</nav>
 
-				<div className="container flex flex-col items-baseline justify-center px-4 m-auto text-center sm:text-left">
+				<div className="container flex flex-col items-baseline justify-center px-4 m-auto text-center sm:text-left relative z-[999]">
 					<div className="max-w-lg">
 						<h1 className="flex flex-col sm:block text-left mb-3 text-7xl sm:text-8xl text-white font-bold lg:leading-[4.5rem]">
 							{title}

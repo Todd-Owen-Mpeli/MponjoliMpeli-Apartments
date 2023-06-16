@@ -1,33 +1,10 @@
-import Image from "next/image";
 import {FC} from "react";
-import Paragraph from "./Elements/Paragraph";
+import {ITextImageGrid} from "./types";
+
+// Components
 import TextBoxCard from "./Cards/TextBoxCard";
 
-interface IProps {
-	gridContent: [
-		{
-			card: {
-				id: string;
-				title: string;
-				paragraph: string;
-				imageLocation: string;
-				image: {
-					altText: string;
-					sourceUrl: string;
-					mediaDetails: {
-						height: number;
-						width: number;
-					};
-				};
-			};
-		}
-	];
-}
-
-const TextImageGrid: FC<IProps> = ({gridContent}) => {
-	/* Displays Cards in Either Left Or Right */
-	const cardPositioning: boolean = true;
-
+const TextImageGrid: FC<ITextImageGrid> = ({gridContent}) => {
 	return (
 		<section className="py-20 bg-white">
 			<div className="container px-4 mx-auto">

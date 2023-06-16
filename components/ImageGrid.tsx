@@ -1,58 +1,8 @@
 import {FC} from "react";
 import Image from "next/image";
+import {IImageGrid} from "./types";
 
-interface IProps {
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageTwo: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageThree: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageFour: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageFive: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageSix: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
-
-const ImageGrid: FC<IProps> = ({
+const ImageGrid: FC<IImageGrid> = ({
 	image,
 	imageTwo,
 	imageThree,
@@ -61,7 +11,7 @@ const ImageGrid: FC<IProps> = ({
 	imageSix,
 }) => {
 	return (
-		<section className="py-2 overflow-hidden bg-green-dark">
+		<section className="overflow-hidden bg-green-dark">
 			<div className="flex flex-wrap">
 				<div className="flex flex-wrap w-1/2">
 					<div className="w-1/2 p-1 md:p-2">

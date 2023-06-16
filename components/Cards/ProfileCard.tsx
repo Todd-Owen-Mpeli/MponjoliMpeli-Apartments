@@ -1,25 +1,10 @@
+import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {FunctionComponent} from "react";
+import {IProfileCard} from "../types";
 import {fadeInUp, initial, stagger} from "../../animations/animations";
 
-interface IProps {
-	title: string;
-	jobPosition: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
-const ProfileCard: FunctionComponent<IProps> = ({
-	title,
-	image,
-	jobPosition,
-}) => {
+const ProfileCard: FC<IProfileCard> = ({title, image, jobPosition}) => {
 	return (
 		<div className="w-full py-6 rounded-lg lg:w-1/3 lg:p-3">
 			<div className="mb-6 overflow-hidden">

@@ -33,12 +33,12 @@ export const getAllApartmentSlugs = async (): Promise<ISlug> => {
 	}
 };
 
-/* MBEZI PAGES SLUGS (URLS) */
-export const getAllMbeziApartmentSlugs = async (): Promise<ISlug> => {
+/* JANGWANI PAGES SLUGS (URLS) */
+export const getAllJangwaniApartmentSlugs = async (): Promise<ISlug> => {
 	try {
 		const content: DocumentNode = gql`
 			{
-				mbeziApartments {
+				jangwaniApartments {
 					nodes {
 						slug
 					}
@@ -50,7 +50,7 @@ export const getAllMbeziApartmentSlugs = async (): Promise<ISlug> => {
 			query: content,
 		});
 
-		return response?.data?.mbeziApartments?.nodes;
+		return response?.data?.jangwaniApartments?.nodes;
 	} catch (error) {
 		console.log(error);
 		throw new Error("Something went wrong trying to fetch apartments slugs");

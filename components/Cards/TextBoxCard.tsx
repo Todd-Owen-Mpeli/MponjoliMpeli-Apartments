@@ -1,22 +1,16 @@
 import {FC} from "react";
 import Image from "next/image";
+import {ITextBoxCard} from "../types";
+
+// Components
 import Paragraph from "./../Elements/Paragraph";
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	imageLocation: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
-
-const TextBoxCard: FC<IProps> = ({title, image, paragraph, imageLocation}) => {
+const TextBoxCard: FC<ITextBoxCard> = ({
+	title,
+	image,
+	paragraph,
+	imageLocation,
+}) => {
 	return (
 		<div className="flex flex-col items-center justify-center mb-20 lg:flex-row">
 			<div className="container relative px-0 mx-auto lg:px-4">

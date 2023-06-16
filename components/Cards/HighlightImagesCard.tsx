@@ -3,21 +3,13 @@ import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
+import {IHighlightImagesCard} from "../types";
 import {initial, fadeInUp} from "../../animations/animations";
 
-interface IProps {
-	tailwindStyling: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
-
-const HighlightImagesCard: FC<IProps> = ({image, tailwindStyling}) => {
+const HighlightImagesCard: FC<IHighlightImagesCard> = ({
+	image,
+	tailwindStyling,
+}) => {
 	return (
 		<motion.div
 			initial={initial}

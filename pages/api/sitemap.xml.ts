@@ -1,7 +1,7 @@
 // Import
 import {
-	getAllMbeziApartmentSlugs,
 	getAllMbweniApartmentSlugs,
+	getAllJangwaniApartmentSlugs,
 } from "@/functions/GetAllApartmentSlugs";
 import {Readable} from "stream";
 import {SitemapStream, streamToPromise} from "sitemap";
@@ -10,16 +10,23 @@ import {getAllLocationsSlugs} from "@/functions/GetAllLocationsSlugs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: any, res: any) => {
-	const pagesSlugs = await getAllPagesSlugs();
-	const locationsSlugs = await getAllLocationsSlugs();
-	const mbeziApartmentsSlugs = await getAllMbeziApartmentSlugs();
-	const mbweniApartmentsSlugs = await getAllMbweniApartmentSlugs();
+	const [
+		pagesSlugs,
+		locationsSlugs,
+		mbweniApartmentsSlugs,
+		jangwaniApartmentsSlugs,
+	] = await Promise.all([
+		getAllPagesSlugs(),
+		getAllLocationsSlugs(),
+		getAllMbweniApartmentSlugs(),
+		getAllJangwaniApartmentSlugs(),
+	]);
 
 	// Pages & Blogs Arrays
 	const pagesLinks: any = [];
-	const locationsLinks: any = [];
-	const mbeziLinks: any = [];
 	const mbweniLinks: any = [];
+	const jangwaniLinks: any = [];
+	const locationsLinks: any = [];
 
 	// Pages Dynamic Links
 	pagesSlugs?.map((keys: any) => {
@@ -45,16 +52,16 @@ export default async (req: any, res: any) => {
 		locationsLinks.push(object);
 	});
 
-	// Mbezi Apartment Dynamic Links
-	mbeziApartmentsSlugs?.map((keys: any) => {
+	// Jangwani Apartment Dynamic Links
+	jangwaniApartmentsSlugs?.map((keys: any) => {
 		const object = {
-			url: `/apartments/mbezi/${keys?.slug}`,
+			url: `/apartments/jangwani/${keys?.slug}`,
 			changefreq: "monthly",
 			lastmod: `2023-06-12T14:01:09.000Z`,
 			priority: 0.8,
 		};
 
-		mbeziLinks.push(object);
+		jangwaniLinks.push(object);
 	});
 
 	// Mbweni Apartment Dynamic Links
@@ -72,7 +79,7 @@ export default async (req: any, res: any) => {
 	// Arrays with your all dynamic links
 	const allLinks: any = [
 		...pagesLinks,
-		...mbeziLinks,
+		...jangwaniLinks,
 		...mbweniLinks,
 		...locationsLinks,
 	];

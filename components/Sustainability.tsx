@@ -1,29 +1,16 @@
 import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import Paragraph from "./Elements/Paragraph";
+import {ISustainability} from "./types";
 import {fadeIn, fadeInTwo, initial, initialTwo} from "../animations/animations";
+
+// Components
+import Paragraph from "./Elements/Paragraph";
 
 // Styling
 import styles from "../styles/components/IntroSection.module.scss";
 
-interface IProps {
-	title: string;
-	subtitle: string;
-	paragraph: string;
-	percentage: string;
-	imageText: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
-
-const Sustainability: FC<IProps> = ({
+const Sustainability: FC<ISustainability> = ({
 	title,
 	subtitle,
 	paragraph,

@@ -1,4 +1,4 @@
-// Import
+// Imports
 import {
 	getMainMenuLinks,
 	getHeroMenuLinks,
@@ -6,113 +6,21 @@ import {
 	getLocationMenuLinks,
 } from "../functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
-import type {NextPage, GetStaticProps} from "next";
 import {ContentContext} from "@/context/context";
-import {getThemesOptionsContent} from "../functions/GetAllThemesOptions";
+import type {NextPage, GetStaticProps} from "next";
+import {IContentContext} from "@/components/types";
+import {getAllBlogsContent} from "@/functions/GetAllBlogPostsSlugs";
 import {getAllSeoPagesContent} from "@/functions/GetAllSeoPagesContent";
+import {getThemesOptionsContent} from "../functions/GetAllThemesOptions";
 import {getAllPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
 
 // Components
 import Layout from "@/components/Layout/Layout";
 import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
 
-interface IHome {
-	seo: {
-		canonical: string;
-		cornerstone: Boolean;
-		focuskw: string;
-		fullHead: string;
-		metaDesc: string;
-		metaKeywords: string;
-		metaRobotsNofollow: string;
-		metaRobotsNoindex: string;
-		opengraphAuthor: string;
-		opengraphDescription: string;
-		opengraphImage: {
-			mediaItemUrl: string;
-		};
-		opengraphModifiedTime: string;
-		opengraphPublishedTime: string;
-		opengraphPublisher: string;
-		opengraphSiteName: string;
-		opengraphTitle: string;
-		opengraphType: string;
-		opengraphUrl: string;
-		readingTime: number;
-		title: string;
-		twitterDescription: string;
-		twitterTitle: string;
-		twitterImage: {
-			mediaItemUrl: string;
-		};
-	};
-	content: any;
-	footerMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	mainMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	heroMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	locationMenuLinks: [
-		{
-			node: {
-				id: string;
-				url: string;
-				label: string;
-			};
-		}
-	];
-	themesOptionsContent: {
-		email: string;
-		emailOptionTwo: string;
-		phoneNumber: string;
-		phoneNumberOptionTwo: string;
-		phoneNumberOptionThree: string;
-		linkedinLink: string;
-		instagramLink: string;
-		facebookLink: string;
-		twitterLink: string;
-		businessHours: {
-			content: string;
-		};
-		mbeziContent: {
-			title: string;
-			phoneNumber: string;
-			email: string;
-			contactAddress: string;
-		};
-		mbweniContent: {
-			title: string;
-			phoneNumber: string;
-			email: string;
-			contactAddress: string;
-		};
-	};
-}
-
-const Home: NextPage<IHome> = ({
+const Home: NextPage<IContentContext> = ({
 	seo,
+	blogs,
 	content,
 	mainMenuLinks,
 	heroMenuLinks,
@@ -124,6 +32,7 @@ const Home: NextPage<IHome> = ({
 		<ContentContext.Provider
 			value={{
 				seo: seo,
+				blogs: blogs,
 				content: content,
 				mainMenuLinks: mainMenuLinks,
 				heroMenuLinks: heroMenuLinks,
@@ -156,12 +65,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	// Fetch remaining content simultaneously
 	const [
+		blogs,
 		mainMenuLinks,
 		heroMenuLinks,
 		footerMenuLinks,
 		locationMenuLinks,
 		themesOptionsContent,
 	] = await Promise.all([
+		getAllBlogsContent(),
 		getMainMenuLinks(),
 		getHeroMenuLinks(),
 		getFooterMenuLinks(),
@@ -171,6 +82,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props: {
+			blogs,
 			mainMenuLinks,
 			heroMenuLinks,
 			footerMenuLinks,

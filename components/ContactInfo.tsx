@@ -1,4 +1,3 @@
-import {FC} from "react";
 import Link from "next/link";
 import {useContentContext} from "@/context/context";
 
@@ -130,7 +129,7 @@ const ContactInfo = () => {
 							</h3>
 							<Paragraph
 								content={
-									content.themesOptionsContent?.mbeziContent?.contactAddress
+									content.themesOptionsContent?.jangwaniContent?.contactAddress
 								}
 								tailwindStyling="font-medium text-base leading-relaxed text-white"
 							/>

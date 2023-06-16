@@ -1,18 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import {useState, FC} from "react";
+import {ISideMenu} from "../types";
+import {motion} from "framer-motion";
+import {useContentContext} from "@/context/context";
 import styles from "../../styles/components/Hero.module.scss";
 
 // Components
 import Paragraph from "./../Elements/Paragraph";
 import NavbarMenuLinks from "./../Elements/NavbarMenuLinks";
-import {useContentContext} from "@/context/context";
+import {initial, stagger} from "@/animations/animations";
 
-interface HeroProps {
-	menuActive: boolean;
-}
-
-const SideMenu: FC<HeroProps> = ({menuActive}) => {
+const SideMenu: FC<ISideMenu> = ({menuActive}) => {
 	const content = useContentContext();
 
 	// Display Locations sublinks
@@ -22,6 +21,7 @@ const SideMenu: FC<HeroProps> = ({menuActive}) => {
 	function displayLocationMenu() {
 		setLocationMenuOpen(!LocationMenuOpen);
 	}
+
 	return (
 		<section
 			className={
@@ -209,28 +209,33 @@ const SideMenu: FC<HeroProps> = ({menuActive}) => {
 					<div className="flex flex-col items-baseline gap-4 sm:flex-row">
 						<div className="flex flex-col items-baseline justify-between my-6">
 							<h2 className="text-green font-[600] text-base">
-								{content.themesOptionsContent.mbeziContent?.title}
+								{content.themesOptionsContent.jangwaniContent?.title}
 							</h2>
 							<Paragraph
 								content={
-									content.themesOptionsContent.mbeziContent?.contactAddress
+									content.themesOptionsContent.jangwaniContent?.contactAddress
 								}
 								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 							/>
-							<div className="flex flex-col mt-4 gap-y-6">
+							<motion.div
+								initial={initial}
+								whileInView={stagger}
+								viewport={{once: true}}
+								className="flex flex-col mt-4 gap-y-6"
+							>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`tel:${content.themesOptionsContent.mbeziContent?.phoneNumber}`}
+									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green-default"
+									href={`tel:${content.themesOptionsContent.jangwaniContent?.phoneNumber}`}
 								>
-									{content.themesOptionsContent.mbeziContent?.phoneNumber}
+									{content.themesOptionsContent.jangwaniContent?.phoneNumber}
 								</Link>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
-									href={`mailto:${content.themesOptionsContent.mbeziContent?.email}`}
+									className="leading-none transition-all duration-500 ease-in-out text-green-default text-tiny hover:text-green-dark"
+									href={`mailto:${content.themesOptionsContent.jangwaniContent?.email}`}
 								>
-									{content.themesOptionsContent.mbeziContent?.email}
+									{content.themesOptionsContent.jangwaniContent?.email}
 								</Link>
-							</div>
+							</motion.div>
 						</div>
 						<div className="flex flex-col items-baseline justify-between my-6">
 							<h2 className="text-green font-[600] text-base">
@@ -242,20 +247,25 @@ const SideMenu: FC<HeroProps> = ({menuActive}) => {
 								}
 								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
 							/>
-							<div className="flex flex-col mt-4 gap-y-6">
+							<motion.div
+								initial={initial}
+								whileInView={stagger}
+								viewport={{once: true}}
+								className="flex flex-col mt-4 gap-y-6"
+							>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
+									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green-default"
 									href={`tel:${content.themesOptionsContent.mbweniContent?.phoneNumber}`}
 								>
 									{content.themesOptionsContent.mbweniContent?.phoneNumber}
 								</Link>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green"
+									className="leading-none transition-all duration-500 ease-in-out text-green-default text-tiny hover:text-green-dark"
 									href={`mailto:${content.themesOptionsContent.mbweniContent?.email}`}
 								>
 									{content.themesOptionsContent.mbweniContent?.email}
 								</Link>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 				</div>

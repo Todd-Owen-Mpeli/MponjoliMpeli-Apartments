@@ -1,25 +1,28 @@
 // Import
 import {
 	getMainMenuLinks,
-	getHeroMenuLinks,
 	getFooterMenuLinks,
+	getHeroMenuLinks,
 	getLocationMenuLinks,
-} from "../../../functions/GetAllMenuLinks";
+} from "../../functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
+import {
+	getAllBlogPostsSlugs,
+	getAllBlogsContent,
+} from "@/functions/GetAllBlogPostsSlugs";
 import {ContentContext} from "@/context/context";
 import type {NextPage, GetStaticProps} from "next";
 import {IContentContext} from "@/components/types";
-import {getAllBlogsContent} from "@/functions/GetAllBlogPostsSlugs";
-import {getAllApartmentSlugs} from "@/functions/GetAllApartmentSlugs";
-import {getThemesOptionsContent} from "../../../functions/GetAllThemesOptions";
-import {getAllSeoApartmentPagesContent} from "@/functions/GetAllSeoPagesContent";
-import {getAllApartmentPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
+import {getThemesOptionsContent} from "../../functions/GetAllThemesOptions";
+import {getAllSeoBlogPostsContent} from "@/functions/GetAllSeoPagesContent";
+import {getAllBlogPostFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
 
 // Components
 import Layout from "@/components/Layout/Layout";
+import BackHoverButton from "@/components/Elements/BackHoverButton";
 import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
 
-const mbweniDynamicPages: NextPage<IContentContext> = ({
+const dynamicSinglePosts: NextPage<IContentContext> = ({
 	seo,
 	blogs,
 	content,
@@ -50,6 +53,8 @@ const mbweniDynamicPages: NextPage<IContentContext> = ({
 				animate="animate"
 			>
 				<Layout>
+					<BackHoverButton link={`/blogs`} />
+
 					<RenderFlexibleContent />
 				</Layout>
 			</motion.div>
@@ -58,11 +63,10 @@ const mbweniDynamicPages: NextPage<IContentContext> = ({
 };
 
 export async function getStaticPaths() {
-	const data = await getAllApartmentSlugs();
-
-	const paths = data.map((slugUrl) => ({
+	const data = await getAllBlogPostsSlugs();
+	const paths = data.map((item) => ({
 		params: {
-			slug: slugUrl?.slug as String,
+			slug: item?.slug as String,
 		},
 	}));
 
@@ -71,10 +75,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({params}: any) => {
 	// Fetch priority content
-	const seoContent: any = await getAllSeoApartmentPagesContent(params?.slug);
+	const seoContent: any = await getAllSeoBlogPostsContent(params?.slug);
 
 	const flexibleContentComponents: any =
-		await getAllApartmentPagesFlexibleContentComponents(params?.slug);
+		await getAllBlogPostFlexibleContentComponents(params?.slug);
 
 	// Fetch remaining content simultaneously
 	const [
@@ -108,4 +112,4 @@ export const getStaticProps: GetStaticProps = async ({params}: any) => {
 	};
 };
 
-export default mbweniDynamicPages;
+export default dynamicSinglePosts;

@@ -1,15 +1,15 @@
 import {FC} from "react";
-import Link from "next/link";
+import {INewsletter} from "./types";
+
+// Components
 import Paragraph from "./Elements/Paragraph";
 
-interface IProps {
-	title: string;
-	titleTwo: string;
-	paragraph: string;
-	paragraphTwo: string;
-}
-
-const Newsletter: FC<IProps> = ({title, titleTwo, paragraph, paragraphTwo}) => {
+const Newsletter: FC<INewsletter> = ({
+	title,
+	titleTwo,
+	paragraph,
+	paragraphTwo,
+}) => {
 	return (
 		<section className="py-12 px-4 bg-[#07694e] bg-gradient-to-r from-green-Two">
 			<div className="container px-0 mx-auto">

@@ -3,13 +3,8 @@ import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {
-	initial,
-	initialTwo,
-	fadeIn,
-	fadeInUp,
-	stagger,
-} from "../animations/animations";
+import {IApartmentSingle} from "./types";
+import {initial, stagger, fadeInUp} from "../animations/animations";
 
 // Components
 import Paragraph from "../components/Elements/Paragraph";
@@ -18,94 +13,7 @@ import HighlightImagesCard from "../components/Cards/HighlightImagesCard";
 // Styling
 import styles from "../styles/components/Apartment.module.scss";
 
-interface IProps {
-	heroBackgroundImage: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageGallery: [
-		{
-			image: {
-				altText: string;
-				sourceUrl: string;
-				mediaDetails: {
-					height: number;
-					width: number;
-				};
-			};
-		}
-	];
-	mainContent: {
-		title: string;
-		location: string;
-		description: string;
-		lettingCompany: string;
-		buttonLink: {
-			url: string;
-			title: string;
-			target: string;
-		};
-		rightSectionTitle: string;
-		weeklyInfo: {
-			title: string;
-			rent: string;
-		};
-		monthlyInfo: {
-			title: string;
-			rent: string;
-		};
-		lettingDetails: [
-			{
-				bulletPoint: string;
-			}
-		];
-		iconGrid: [
-			{
-				card: {
-					text: string;
-					icon: {
-						altText: string;
-						sourceUrl: string;
-						mediaDetails: {
-							height: number;
-							width: number;
-						};
-					};
-				};
-			}
-		];
-		highlightImages: [
-			{
-				image: {
-					altText: string;
-					sourceUrl: string;
-					mediaDetails: {
-						height: number;
-						width: number;
-					};
-				};
-			}
-		];
-		keyInfoImages: [
-			{
-				image: {
-					altText: string;
-					sourceUrl: string;
-					mediaDetails: {
-						height: number;
-						width: number;
-					};
-				};
-			}
-		];
-	};
-}
-
-const ApartmentSingle: FC<IProps> = ({
+const ApartmentSingle: FC<IApartmentSingle> = ({
 	mainContent,
 	imageGallery,
 	heroBackgroundImage,

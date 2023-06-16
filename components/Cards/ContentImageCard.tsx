@@ -2,15 +2,18 @@
 import {FC} from "react";
 import {
 	initial,
-	fadeInUp,
 	stagger,
-	slideInRightInitial,
+	fadeInUp,
 	slideInLeftInitial,
 	slideInRightFinish,
+	slideInRightInitial,
 } from "../../animations/animations";
-import styled from "styled-components";
-import Paragraph from "./../Elements/Paragraph";
 import {motion} from "framer-motion";
+import styled from "styled-components";
+import {IContentImageCard} from "../types";
+
+// Components
+import Paragraph from "./../Elements/Paragraph";
 
 const ContentImageCard = styled.div`
 	ol,
@@ -30,14 +33,7 @@ const ContentImageCard = styled.div`
 	}
 `;
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	contentLocation: string;
-	backgroundImage: string;
-}
-
-const contentImageCard: FC<IProps> = ({
+const contentImageCard: FC<IContentImageCard> = ({
 	title,
 	paragraph,
 	contentLocation,
@@ -49,8 +45,8 @@ const contentImageCard: FC<IProps> = ({
 			style={{
 				backgroundImage: `linear-gradient(
 							0deg,
-							rgba(9, 39, 94, 0),
-							rgba(9, 39, 94, 0.65)
+							rgba(1, 42, 45, 0),
+							rgba(1, 42, 45, 0.65)
 						),url("${
 							backgroundImage
 								? backgroundImage

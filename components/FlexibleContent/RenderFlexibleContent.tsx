@@ -5,6 +5,7 @@ import {useContentContext} from "@/context/context";
 import CTA from "../CTA";
 import Hero from "../Hero";
 import Logos from "../Logos";
+import Blogs from "../Blogs";
 import HeroTwo from "../HeroTwo";
 import HeroThree from "../HeroThree";
 import ImageGrid from "../ImageGrid";
@@ -22,6 +23,7 @@ import Sustainability from "../Sustainability";
 import TitleParagraph from "../TitleParagraph";
 import ApartmentsGrid from "../ApartmentsGrid";
 import ApartmentSingle from "../ApartmentSingle";
+import TitleParagraphTwo from "../TitleParagraphTwo";
 import ArticleImageBanner from "../ArticleImageBanner";
 import ContentBackgroundImage from "../ContentBackgroundImage";
 
@@ -43,7 +45,9 @@ const RenderFlexibleContent = () => {
 									paragraph={item?.paragraph}
 									buttonLink={item?.buttonLink}
 									buttonLinkTwo={item?.buttonLinkTwo}
-									backgroundImage={item?.backgroundImage?.sourceUrl}
+									backgroundImage={item?.backgroundImage}
+									backgroundVideoUrl={item?.backgroundVideoUrl}
+									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -52,7 +56,9 @@ const RenderFlexibleContent = () => {
 								<HeroTwo
 									title={item?.title}
 									paragraph={item?.paragraph}
-									backgroundImage={item?.backgroundImage?.sourceUrl}
+									backgroundImage={item?.backgroundImage}
+									backgroundVideoUrl={item?.backgroundVideoUrl}
+									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -61,7 +67,9 @@ const RenderFlexibleContent = () => {
 								<HeroThree
 									title={item?.title}
 									paragraph={item?.paragraph}
-									backgroundImage={item?.backgroundImage?.sourceUrl}
+									backgroundImage={item?.backgroundImage}
+									backgroundVideoUrl={item?.backgroundVideoUrl}
+									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
 						) : item?.fieldGroupName ===
@@ -81,6 +89,14 @@ const RenderFlexibleContent = () => {
 						  `${FlexibleContentComponent}_TitleParagraph` ? (
 							<>
 								<TitleParagraph
+									title={item?.title}
+									paragraph={item?.paragraph}
+								/>
+							</>
+						) : item?.fieldGroupName ===
+						  `${FlexibleContentComponent}_TitleParagraphTwo` ? (
+							<>
+								<TitleParagraphTwo
 									title={item?.title}
 									paragraph={item?.paragraph}
 								/>
@@ -153,6 +169,11 @@ const RenderFlexibleContent = () => {
 									imageGallery={item?.imageGallery}
 									heroBackgroundImage={item?.heroBackgroundImage}
 								/>
+							</>
+						) : item?.fieldGroupName ===
+						  `${FlexibleContentComponent}_BlogsGrid` ? (
+							<>
+								<Blogs />
 							</>
 						) : item?.fieldGroupName ===
 						  `${FlexibleContentComponent}_ImageGrid` ? (

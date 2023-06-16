@@ -2,46 +2,14 @@ import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import Paragraph from "./Elements/Paragraph";
-import {fadeInUp, fadeIn, initial, initialTwo} from "../animations/animations";
+import {IIntroSection} from "./types";
 import styles from "../styles/components/IntroSection.module.scss";
+import {fadeInUp, fadeIn, initial, initialTwo} from "../animations/animations";
 
-interface IProps {
-	title: string;
-	subtitle: string;
-	paragraph: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageTwo: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	imageLarge: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
+// Components
+import Paragraph from "./Elements/Paragraph";
 
-const IntroSection: FC<IProps> = ({
+const IntroSection: FC<IIntroSection> = ({
 	title,
 	image,
 	subtitle,
@@ -52,7 +20,7 @@ const IntroSection: FC<IProps> = ({
 }) => {
 	return (
 		<section
-			className={`flex flex-col justify-center items-center lg:flex-row bg-green-Two bg-cover bg-center bg-no-repeat ${styles.introSection}`}
+			className={`flex flex-col justify-center items-center lg:flex-row bg-green-flat bg-cover bg-center bg-no-repeat ${styles.introSection}`}
 		>
 			<div className="flex flex-col items-center justify-center w-full px-4 py-20 lg:w-1/2">
 				<h2 className="pb-8 mx-auto mb-12 text-6xl font-semibold tracking-normal text-center border-b-2 text-goldPrime w-fit sm:text-7xl lg:text-8xl border-b-goldPrime lg:mb-20">

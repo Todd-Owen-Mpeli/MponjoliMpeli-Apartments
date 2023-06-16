@@ -1,31 +1,12 @@
 import {FC} from "react";
+import {IStats} from "./types";
 import {motion} from "framer-motion";
 import {initial, stagger} from "../animations/animations";
 
 // Components
 import StatsCard from "./Cards/StatsCard";
 
-interface IProps {
-	content: [
-		{
-			card: {
-				id: string;
-				icon: {
-					altText: string;
-					sourceUrl: string;
-					mediaDetails: {
-						height: number;
-						width: number;
-					};
-				};
-				title: string;
-				paragraph: string;
-			};
-		}
-	];
-}
-
-const Stats: FC<IProps> = ({content}) => {
+const Stats: FC<IStats> = ({content}) => {
 	return (
 		<section className="py-20 bg-white">
 			<div className="container px-4 mx-auto">

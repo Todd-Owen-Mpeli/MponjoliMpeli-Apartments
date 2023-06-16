@@ -1,25 +1,13 @@
 import {FC} from "react";
 import Image from "next/image";
+import {ITextImage} from "./types";
 import {motion} from "framer-motion";
-import Paragraph from "./Elements/Paragraph";
 import {fadeInUp, initial} from "../animations/animations";
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	imageText: string;
-	imageTextTwo: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
+// Components
+import Paragraph from "./Elements/Paragraph";
 
-const TextImageTwo: FC<IProps> = ({
+const TextImage: FC<ITextImage> = ({
 	title,
 	image,
 	paragraph,
@@ -91,4 +79,4 @@ const TextImageTwo: FC<IProps> = ({
 	);
 };
 
-export default TextImageTwo;
+export default TextImage;

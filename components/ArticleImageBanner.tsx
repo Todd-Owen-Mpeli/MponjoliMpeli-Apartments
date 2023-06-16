@@ -1,19 +1,11 @@
 import {FC} from "react";
 import Link from "next/link";
+import {IArticleImageBanner} from "./types";
+
+// Components
 import Paragraph from "./Elements/Paragraph";
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	backgroundImage: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-}
-
-const ArticleImageBanner: FC<IProps> = ({
+const ArticleImageBanner: FC<IArticleImageBanner> = ({
 	title,
 	paragraph,
 	buttonLink,
@@ -41,7 +33,7 @@ const ArticleImageBanner: FC<IProps> = ({
 					<Link
 						href={buttonLink?.url}
 						target={buttonLink?.target}
-						className="inline-flex flex-wrap items-center text-white hover:text-darkGrey"
+						className="inline-flex flex-wrap items-center text-white hover:text-green-bright"
 					>
 						<span className="mr-2 font-semibold leading-normal tracking-wider">
 							{buttonLink?.title}

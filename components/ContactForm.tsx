@@ -1,12 +1,13 @@
 // Import
 import {
 	fadeIn,
-	fadeInUp,
-	initial,
-	initialTwo,
 	stagger,
+	initial,
+	fadeInUp,
+	initialTwo,
 } from "../animations/animations";
 import {motion} from "framer-motion";
+import {IContactForm} from "./types";
 import React, {useState, FC} from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import {sendContactForm} from "../functions/api";
@@ -19,11 +20,7 @@ import Paragraph from "./Elements/Paragraph";
 // Styling
 import styles from "../styles/components/ContactForm.module.scss";
 
-interface IProps {
-	title: string;
-}
-
-const ContactForm: FC<IProps> = ({title}) => {
+const ContactForm: FC<IContactForm> = ({title}) => {
 	const content = useContentContext();
 
 	const initState: {

@@ -22,7 +22,7 @@ export async function getThemesOptionsContent() {
 								businessHours {
 									content
 								}
-								mbeziContent {
+								jangwaniContent {
 									title
 									phoneNumber
 									email

@@ -1,29 +1,16 @@
 import {FC} from "react";
 import Link from "next/link";
+import {ICTA} from "./types";
 import {motion} from "framer-motion";
+import {fadeIn, initialTwo} from "../animations/animations";
+
+// Components
 import Paragraph from "./Elements/Paragraph";
-import {fadeIn, initial, initialTwo} from "../animations/animations";
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	backgroundImage: string;
-	buttonLink: {
-		url: string;
-		title: string;
-		target: string;
-	};
-}
-
-const ContactBanner: FC<IProps> = ({
-	title,
-	paragraph,
-	buttonLink,
-	backgroundImage,
-}) => {
+const CTA: FC<ICTA> = ({title, paragraph, buttonLink, backgroundImage}) => {
 	return (
 		<section
-			className="px-4 py-20 bg-center bg-no-repeat bg-cover lg:px-0"
+			className="px-4 py-20 my-4 bg-center bg-no-repeat bg-cover lg:px-0"
 			style={{
 				backgroundImage: `linear-gradient(
 							0deg,
@@ -35,9 +22,14 @@ const ContactBanner: FC<IProps> = ({
 			<div className="container p-0 mx-auto">
 				<div className="flex flex-col items-center justify-between gap-10 px-0 py-8 lg:flex-row lg:px-8">
 					<div className="flex flex-col items-center justify-between gap-4 lg:items-start">
-						<h2 className="mb-4 text-3xl font-semibold leading-tight text-center text-white lg:text-left sm:text-4xl lg:text-5xl">
+						<motion.h2
+							initial={initialTwo}
+							whileInView={fadeIn}
+							viewport={{once: true}}
+							className="mb-4 text-3xl font-semibold leading-tight text-center text-white lg:text-left sm:text-4xl lg:text-5xl"
+						>
 							{title}
-						</h2>
+						</motion.h2>
 						<Paragraph
 							content={paragraph}
 							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white text-base"
@@ -59,4 +51,4 @@ const ContactBanner: FC<IProps> = ({
 	);
 };
 
-export default ContactBanner;
+export default CTA;

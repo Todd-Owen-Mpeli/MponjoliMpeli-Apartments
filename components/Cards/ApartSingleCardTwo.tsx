@@ -1,10 +1,7 @@
 import {FC} from "react";
+import {IApartSingleCardTwo} from "../types";
 
-interface IProps {
-	bulletpoint: string;
-}
-
-const ApartSingleCardTwo: FC<IProps> = ({bulletpoint}) => {
+const ApartSingleCardTwo: FC<IApartSingleCardTwo> = ({bulletpoint}) => {
 	return (
 		<div className="w-auto p-2">
 			<div className="flex flex-wrap px-3 py-2 rounded-full bg-green-flat">

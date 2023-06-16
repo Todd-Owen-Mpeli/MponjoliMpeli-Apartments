@@ -1,25 +1,13 @@
 import {FC} from "react";
 import Image from "next/image";
+import {IStatsCard} from "../types";
 import {motion} from "framer-motion";
 import {fadeInUp, initial} from "../../animations/animations";
 
 // Components
 import Paragraph from ".././Elements/Paragraph";
 
-interface IProps {
-	icon: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-	title: string;
-	paragraph: string;
-}
-
-const StatsCard: FC<IProps> = ({icon, title, paragraph}) => {
+const StatsCard: FC<IStatsCard> = ({icon, title, paragraph}) => {
 	return (
 		<motion.div
 			initial={initial}

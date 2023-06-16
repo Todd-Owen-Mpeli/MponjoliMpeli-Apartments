@@ -1,23 +1,13 @@
 import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import Paragraph from "./Elements/Paragraph";
+import {ITextImageTwo} from "./types";
 import {fadeInUp, initial} from "../animations/animations";
 
-interface IProps {
-	title: string;
-	paragraph: string;
-	image: {
-		altText: string;
-		sourceUrl: string;
-		mediaDetails: {
-			height: number;
-			width: number;
-		};
-	};
-}
+// Components
+import Paragraph from "./Elements/Paragraph";
 
-const TextImageThree: FC<IProps> = ({title, image, paragraph}) => {
+const TextImageTwo: FC<ITextImageTwo> = ({title, image, paragraph}) => {
 	return (
 		<section className="">
 			<div className="flex flex-col items-center justify-center gap-y-8 lg:flex-row gap-x-16 xl:gap-x-24">
@@ -51,4 +41,4 @@ const TextImageThree: FC<IProps> = ({title, image, paragraph}) => {
 	);
 };
 
-export default TextImageThree;
+export default TextImageTwo;
