@@ -1,10 +1,8 @@
 // Imports
-@import "../fonts";
-@import "../colors";
+@import "../base/_fonts.scss";
+@import "../base/_colors.scss";
 
 .apartmentSingleCard {
-	@apply py-10 overflow-hidden bg-lightGrey;
-
 	p,
 	h3,
 	h4,
@@ -12,10 +10,10 @@
 	h6,
 	div,
 	button {
-		font-family: $fontStyle_body;
+		font-family: $body;
 
 		span {
-			font-family: $fontStyle_body;
+			font-family: $body;
 		}
 	}
 }

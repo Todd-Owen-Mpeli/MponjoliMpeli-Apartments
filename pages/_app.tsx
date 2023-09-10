@@ -1,33 +1,56 @@
-// Import
-import postHog from "posthog-js";
-import {useRouter} from "next/router";
-import type {AppProps} from "next/app";
-import {client} from "../config/apollo";
-import {useState, useEffect} from "react";
-import {PostHogProvider} from "posthog-js/react";
-import {ApolloProvider} from "@apollo/client/react";
+"use client";
 
-// Components
-import Layout from "@/components/Layout/Layout";
+// Import
+import {useRouter} from "next/router";
+import {client} from "@/config/apollo";
+import type {AppProps} from "next/app";
+import {useState, useEffect} from "react";
+import {ApolloProvider} from "@apollo/client";
+
+// Cookie Policy
+import postHog from "posthog-js";
+import {PostHogProvider} from "posthog-js/react";
+
+// Global Context Provider
+import {IGlobalProps} from "@/types/context";
+
+// Queries Functions
+import {
+	getMainMenuLinks,
+	getNavbarMenuLinks,
+	getFooterMenuLinks,
+} from "@/functions/graphql/Queries/GetAllMenuLinks";
+import {getAllBlogsContent} from "@/functions/graphql/Queries/GetAllBlogPostsSlugs";
+import {getThemesOptionsContent} from "@/functions/graphql/Queries/GetAllThemesOptions";
+import {getAllApartmentsContent} from "@/functions/graphql/Queries/GetAllApartmentSlugs";
 
 // Styling
 import "../styles/globals.scss";
-import CookiePolicyCard from "@/components/Elements/CookiePolicyCard";
+
+// Components
+import Footer from "@/components/Global/Footer";
+import CookiePolicyCard from "@/components/Global/CookiePolicyCard";
+import GlobalContextProvider from "@/components/context/GlobalContextProvider";
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (typeof window !== "undefined") {
 	postHog.init(`${process.env.POSTHOG_KEY}`, {
 		api_host: `${process.env.POSTHOG_HOST}` || "https://app.posthog.com",
 		// Disable in development
-		loaded: (postHog) => {
+		loaded: (postHog: any) => {
 			if (process.env.NODE_ENV === "development") postHog.opt_out_capturing();
 		},
 	});
 }
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App({
+	Component,
+	pageProps,
+	globalProps,
+}: AppProps | any) {
+	// COOKIES POLICY //
 	// PostHog Cookies Policy
-	const router = useRouter();
+	const router: any = useRouter();
 
 	useEffect(() => {
 		// Track page views
@@ -39,10 +62,9 @@ export default function App({Component, pageProps}: AppProps) {
 		};
 	});
 
+	// PAGE LOADING ANIMATION //
 	// Page Animation Loader
 	function Loading() {
-		const router: any = useRouter();
-
 		const [loading, setLoading]: any = useState(false);
 
 		useEffect(() => {
@@ -106,14 +128,58 @@ export default function App({Component, pageProps}: AppProps) {
 	return (
 		<ApolloProvider client={client}>
 			<PostHogProvider client={postHog}>
-				{/* Cookie Policy Pop Up */}
-				{postHog.has_opted_in_capturing() ||
-				postHog.has_opted_out_capturing() ? null : (
-					<CookiePolicyCard />
-				)}
-				<Loading />
-				<Component {...pageProps} />
+				<GlobalContextProvider globalProps={globalProps}>
+					{/* Cookie Policy Pop Up */}
+					{postHog.has_opted_in_capturing() ||
+					postHog.has_opted_out_capturing() ? null : (
+						<CookiePolicyCard />
+					)}
+					<Loading />
+					<Component {...pageProps} />
+					<Footer />
+				</GlobalContextProvider>
 			</PostHogProvider>
 		</ApolloProvider>
 	);
 }
+
+App.getInitialProps = async ({Component, ctx}: any) => {
+	let pageProps = {};
+
+	if (Component.getInitialProps) {
+		pageProps = await Component.getInitialProps(ctx);
+	}
+
+	// PUBLIC PAGES //
+	/* Fetch all global content
+	remaining content simultaneously */
+	const [
+		blogs,
+		mainMenuLinks,
+		navbarMenuLinks,
+		footerMenuLinks,
+		themesOptionsContent,
+		apartmentsContent,
+	]: any = await Promise.all([
+		getAllBlogsContent(),
+		getMainMenuLinks(),
+		getNavbarMenuLinks(),
+		getFooterMenuLinks(),
+		getThemesOptionsContent(),
+		getAllApartmentsContent(),
+	]);
+
+	const globalProps: IGlobalProps = {
+		blogs: blogs,
+		mainMenuLinks: mainMenuLinks,
+		navbarMenuLinks: navbarMenuLinks,
+		footerMenuLinks: footerMenuLinks,
+		apartmentsContent: apartmentsContent,
+		themesOptionsContent: themesOptionsContent,
+	};
+
+	return {
+		pageProps,
+		globalProps,
+	};
+};

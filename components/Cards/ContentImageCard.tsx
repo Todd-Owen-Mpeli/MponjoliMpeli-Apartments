@@ -1,5 +1,4 @@
 // Import
-import {FC} from "react";
 import {
 	initial,
 	stagger,
@@ -8,9 +7,10 @@ import {
 	slideInRightFinish,
 	slideInRightInitial,
 } from "../../animations/animations";
+import {FC} from "react";
 import {motion} from "framer-motion";
 import styled from "styled-components";
-import {IContentImageCard} from "../types";
+import {IContentImageCard} from "@/types/components";
 
 // Components
 import Paragraph from "./../Elements/Paragraph";
@@ -50,7 +50,7 @@ const contentImageCard: FC<IContentImageCard> = ({
 						),url("${
 							backgroundImage
 								? backgroundImage
-								: `/svg/backgroundSVG/stacked-waves-haikei-blue.svg`
+								: `/svg/background/stacked-waves-haikei-green-darkGreen.svg`
 						}")`,
 			}}
 		>
@@ -82,7 +82,7 @@ const contentImageCard: FC<IContentImageCard> = ({
 					</motion.h2>
 					<Paragraph
 						content={paragraph}
-						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-6 text-black text-left text-base"
+						tailwindStyling="w-full lg:max-w-2xl mx-auto mt-6 text-black text-center sm:text-left text-base"
 					/>
 				</motion.div>
 			</motion.div>

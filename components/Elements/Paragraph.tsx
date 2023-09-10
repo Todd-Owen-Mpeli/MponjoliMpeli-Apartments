@@ -1,11 +1,12 @@
+// Import
 import {FC} from "react";
-import {IParagraph} from "../types";
 import {motion} from "framer-motion";
 import DOMPurify from "isomorphic-dompurify";
-import {fadeIn, initialTwo} from "../../animations/animations";
+import {IParagraphProps} from "@/types/components/index";
+import {fadeInUp, initial} from "@/animations/animations";
 
-const Paragraph: FC<IParagraph> = ({content, tailwindStyling}) => {
-	/* Sanitize paragraph content */
+const Paragraph: FC<IParagraphProps> = ({content, tailwindStyling}) => {
+	/* Sanitize the WYSIWYG paragraph content */
 	function createParagraphMarkup(paragraphContent: string) {
 		return {
 			__html: DOMPurify.sanitize(paragraphContent),
@@ -14,8 +15,8 @@ const Paragraph: FC<IParagraph> = ({content, tailwindStyling}) => {
 
 	return (
 		<motion.div
-			initial={initialTwo}
-			whileInView={fadeIn}
+			initial={initial}
+			whileInView={fadeInUp}
 			viewport={{once: true}}
 			className={content ? `block ${tailwindStyling}` : `hidden`}
 			dangerouslySetInnerHTML={createParagraphMarkup(content)}

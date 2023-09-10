@@ -1,19 +1,13 @@
 // Import
-import {
-	getMainMenuLinks,
-	getHeroMenuLinks,
-	getFooterMenuLinks,
-	getLocationMenuLinks,
-} from "@/functions/GetAllMenuLinks";
 import {motion} from "framer-motion";
-import {ContentContext} from "@/context/context";
-import type {NextPage, GetStaticProps} from "next";
-import {IContentContext} from "@/components/types";
-import {getAllPagesSlugs} from "@/functions/GetAllPagesSlugs";
-import {getAllBlogsContent} from "@/functions/GetAllBlogPostsSlugs";
-import {getAllSeoPagesContent} from "@/functions/GetAllSeoPagesContent";
-import {getThemesOptionsContent} from "../functions/GetAllThemesOptions";
-import {getAllPagesFlexibleContentComponents} from "@/functions/GetAllFlexibleContentComponents";
+import {GetStaticProps, NextPage} from "next";
+import {IContentContext} from "@/types/context";
+import {PagesContext, flexibleContentType, postType} from "@/context/pages";
+
+// Queries Functions
+import {getAllSeoContent} from "@/functions/graphql/Queries/GetAllSeoContent";
+import {getAllPagesSlugs} from "@/functions/graphql/Queries/GetAllPagesSlugs";
+import {getAllFlexibleContentComponents} from "@/functions/graphql/Queries/GetAllFlexibleContentComponents";
 
 // Components
 import Layout from "@/components/Layout/Layout";
@@ -21,87 +15,59 @@ import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleCo
 
 const dynamicPages: NextPage<IContentContext> = ({
 	seo,
-	blogs,
 	content,
-	mainMenuLinks,
-	heroMenuLinks,
-	footerMenuLinks,
-	locationMenuLinks,
-	themesOptionsContent,
+	postTypeFlexibleContent,
 }) => {
 	return (
-		<ContentContext.Provider
-			value={{
-				seo: seo,
-				blogs: blogs,
-				content: content,
-				mainMenuLinks: mainMenuLinks,
-				heroMenuLinks: heroMenuLinks,
-				footerMenuLinks: footerMenuLinks,
-				locationMenuLinks: locationMenuLinks,
-				themesOptionsContent: themesOptionsContent,
-			}}
-		>
-			<motion.div
-				exit={{
-					opacity: 0,
+		<>
+			<PagesContext.Provider
+				value={{
+					seo: seo,
+					content: content,
+					postTypeFlexibleContent: postTypeFlexibleContent,
 				}}
-				initial="initial"
-				animate="animate"
 			>
-				<Layout>
-					<RenderFlexibleContent />
-				</Layout>
-			</motion.div>
-		</ContentContext.Provider>
+				<motion.div
+					exit={{
+						opacity: 0,
+					}}
+					initial="initial"
+					animate="animate"
+				>
+					<Layout>
+						<RenderFlexibleContent />
+					</Layout>
+				</motion.div>
+			</PagesContext.Provider>
+		</>
 	);
 };
 
 export async function getStaticPaths() {
 	const data = await getAllPagesSlugs();
-	const paths = data.map((item) => ({
+	const paths = data.map((item: any) => ({
 		params: {
 			slug: item?.slug as String,
 		},
 	}));
-
 	return {paths, fallback: false};
 }
 
 export const getStaticProps: GetStaticProps = async ({params}: any) => {
 	// Fetch priority content
-	const seoContent: any = await getAllSeoPagesContent(params?.slug);
+	const seoContent: any = await getAllSeoContent(params?.slug, postType?.pages);
 
-	const flexibleContentComponents: any =
-		await getAllPagesFlexibleContentComponents(params?.slug);
-
-	// Fetch remaining content simultaneously
-	const [
-		blogs,
-		mainMenuLinks,
-		heroMenuLinks,
-		footerMenuLinks,
-		locationMenuLinks,
-		themesOptionsContent,
-	] = await Promise.all([
-		getAllBlogsContent(),
-		getMainMenuLinks(),
-		getHeroMenuLinks(),
-		getFooterMenuLinks(),
-		getLocationMenuLinks(),
-		getThemesOptionsContent(),
-	]);
+	const flexibleContentComponents: any = await getAllFlexibleContentComponents(
+		params?.slug,
+		postType?.pages,
+		flexibleContentType?.pages
+	);
 
 	return {
 		props: {
-			blogs,
-			mainMenuLinks,
-			heroMenuLinks,
-			footerMenuLinks,
 			seo: seoContent,
-			locationMenuLinks,
-			themesOptionsContent,
 			content: flexibleContentComponents?.content,
+			postTypeFlexibleContent: flexibleContentType?.pages,
 		},
 		revalidate: 60,
 	};

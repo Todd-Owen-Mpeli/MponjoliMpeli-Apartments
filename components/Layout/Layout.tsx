@@ -1,20 +1,17 @@
+// Import
 import {FC} from "react";
-import {ILayout} from "../types";
+import {ILayout} from "@/types/components/index";
 
 // Components
-import Footer from "../Footer";
-import MetaTag from "../Meta/MetaTag";
+import MetaTag from "@/components/Meta/MetaTag";
 
 const Layout: FC<ILayout> = ({children}) => {
 	return (
-		<div>
-			{/* <!--===== META TAG =====--> */}
+		<>
 			<MetaTag />
 
-			<div>{children}</div>
-
-			<Footer />
-		</div>
+			<main>{children}</main>
+		</>
 	);
 };
 

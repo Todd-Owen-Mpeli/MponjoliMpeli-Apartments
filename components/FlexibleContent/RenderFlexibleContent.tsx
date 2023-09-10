@@ -1,44 +1,42 @@
+"use Client";
+
 // Import
-import {useContentContext} from "@/context/context";
+import {FC} from "react";
+import {usePageContext} from "@/context/pages";
 
 // Components
 import CTA from "../CTA";
 import Hero from "../Hero";
-import Logos from "../Logos";
 import Blogs from "../Blogs";
 import HeroTwo from "../HeroTwo";
-import HeroThree from "../HeroThree";
 import ImageGrid from "../ImageGrid";
-import ErrorPage from "../ErrorPage";
-import TextImage from "../TextImage";
+import TitleStats from "../TitleStats";
 import ContactInfo from "../ContactInfo";
 import ContactForm from "../ContactForm";
-import InfoContent from "../InfoContent";
-import ContentStats from "../ContentStats";
-import IntroSection from "../IntroSection";
-import TextBoxImage from "../TextBoxImage";
-import TextImageTwo from "../TextImageTwo";
-import TextImageGrid from "../TextImageGrid";
-import Sustainability from "../Sustainability";
-import TitleParagraph from "../TitleParagraph";
 import ApartmentsGrid from "../ApartmentsGrid";
+import Sustainability from "../Sustainability";
+import ViewApartments from "../ViewApartments";
+import TitleParagraph from "../TitleParagraph";
+import IntroTitleImage from "../IntroTitleImage";
 import ApartmentSingle from "../ApartmentSingle";
-import TitleParagraphTwo from "../TitleParagraphTwo";
-import ArticleImageBanner from "../ArticleImageBanner";
+import ErrorPage from "@/components/Global/ErrorPage";
+import LargeTitleParagraph from "../LargeTitleParagraph";
+import ContentGridServices from "../ContentGridServices";
+import ApartmentLocationMap from "../ApartmentLocationMap";
 import ContentBackgroundImage from "../ContentBackgroundImage";
+import ContentButtonLinkTwoImages from "../ContentButtonLinkTwoImages";
+import ContentLargeBackgroundImage from "../ContentLargeBackgroundImage";
 
-const RenderFlexibleContent = () => {
-	const content = useContentContext();
+const RenderFlexibleContent: FC = () => {
+	const content = usePageContext();
+	const FlexibleContent = content.postTypeFlexibleContent;
 
-	const FlexibleContentComponent =
-		"DefaultTemplate_Flexiblecontent_FlexibleContent";
 	return (
 		<>
 			{content.content.length > 0 ? (
 				content.content.map((item: any, keys: any) => (
-					<div key={keys}>
-						{item?.fieldGroupName ===
-						`${FlexibleContentComponent}_HeroSection` ? (
+					<section key={keys}>
+						{item?.fieldGroupName === `${FlexibleContent}_HeroSection` ? (
 							<>
 								<Hero
 									title={item?.title}
@@ -50,8 +48,7 @@ const RenderFlexibleContent = () => {
 									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_HeroSectionTwo` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_HeroSectionTwo` ? (
 							<>
 								<HeroTwo
 									title={item?.title}
@@ -61,108 +58,104 @@ const RenderFlexibleContent = () => {
 									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_IntroSection` ? (
+							<></>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_HeroSectionThree` ? (
+						  `${FlexibleContent}_IntroTitleImage` ? (
 							<>
-								<HeroThree
-									title={item?.title}
-									paragraph={item?.paragraph}
-									backgroundImage={item?.backgroundImage}
-									backgroundVideoUrl={item?.backgroundVideoUrl}
-									backgroundImageOrVideo={item?.backgroundImageOrVideo}
-								/>
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_IntroSection` ? (
-							<>
-								<IntroSection
+								<IntroTitleImage
 									title={item?.title}
 									image={item?.image}
 									subtitle={item?.subtitle}
-									imageTwo={item?.imageTwo}
+									titleEnd={item?.titleEnd}
 									paragraph={item?.paragraph}
-									buttonLink={item?.buttonLink}
 									imageLarge={item?.imageLarge}
+									titleStart={item?.titleStart}
+									titleMiddle={item?.titleMiddle}
+									smallImageOne={item?.smallImageOne}
+									smallImageTwo={item?.smallImageTwo}
 								/>
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_TitleParagraph` ? (
+						  `${FlexibleContent}_LargeTitleParagraph` ? (
 							<>
-								<TitleParagraph
-									title={item?.title}
+								<LargeTitleParagraph
+									titleEnd={item?.titleEnd}
 									paragraph={item?.paragraph}
+									titleStart={item?.titleStart}
+									titleMiddle={item?.titleMiddle}
+									smallImageOne={item?.smallImageOne}
+									smallImageTwo={item?.smallImageTwo}
 								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_TitleParagraphTwo` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_ApartmentsGrid` ? (
 							<>
-								<TitleParagraphTwo
-									title={item?.title}
-									paragraph={item?.paragraph}
-								/>
+								<ApartmentsGrid />
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ContentStats` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_ViewApartments` ? (
 							<>
-								<ContentStats
-									title={item?.title}
-									statsOne={item?.statsOne}
-									paragraph={item?.paragraph}
-									statsTwo={item?.statsTwo}
-								/>
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_FirstTimeLettings` ? (
-							<>
-								<TextBoxImage
+								<ViewApartments
 									title={item?.title}
 									image={item?.image}
 									subtitle={item?.subtitle}
-									paragraph={item?.paragraph}
+									buttonLink={item?.buttonLink}
 								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_TextImage` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_TitleStats` ? (
 							<>
-								<TextImage
+								<TitleStats
 									title={item?.title}
 									image={item?.image}
-									paragraph={item?.paragraph}
-									imageText={item?.imageText}
-									imageTextTwo={item?.imageTextTwo}
+									contentGrid={item?.contentGrid}
 								/>
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_TextImageTwo` ? (
+						  `${FlexibleContent}_ApartmentLocationMap` ? (
 							<>
-								<TextImageTwo
+								<ApartmentLocationMap
+									apartmentDisplayOptions={item?.apartmentDisplayOptions}
+								/>
+							</>
+						) : item?.fieldGroupName ===
+						  `${FlexibleContent}_ContentGridServices` ? (
+							<>
+								<ContentGridServices
 									title={item?.title}
-									image={item?.image}
+									subtitle={item?.subtitle}
 									paragraph={item?.paragraph}
+									services={item?.servicesGrid}
 								/>
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_InfoContent` ? (
-							<>
-								<InfoContent content={item?.content} />
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_JumboContent` ? (
-							<>
-								<TextImageGrid gridContent={item?.gridContent} />
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ContentImageGrid` ? (
+						  `${FlexibleContent}_ContentImageGrid` ? (
 							<>
 								<ContentBackgroundImage gridContent={item?.gridContent} />
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ApartmentsGrid` ? (
+						  `${FlexibleContent}_ContentButtonLinkTwoImages` ? (
 							<>
-								<ApartmentsGrid apartmentsGrid={item?.grid} />
+								<ContentButtonLinkTwoImages
+									title={item?.title}
+									paragraph={item?.paragraph}
+									smallImage={item?.smallImage}
+									largeImage={item?.largeImage}
+									buttonLink={item?.buttonLink}
+									paragraphTwo={item?.paragraphTwo}
+								/>
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_SingleApartmentMainContent` ? (
+						  `${FlexibleContent}_ContentLargeBackgroundImage` ? (
+							<>
+								<ContentLargeBackgroundImage
+									title={item?.title}
+									paragraph={item?.paragraph}
+									contentBlockOne={item?.contentBlockOne}
+									contentBlockTwo={item?.contentBlockTwo}
+									backgroundImage={item?.backgroundImage}
+								/>
+							</>
+						) : item?.fieldGroupName ===
+						  `${FlexibleContent}_SingleApartmentMainContent` ? (
 							<>
 								<ApartmentSingle
 									mainContent={item?.mainContent}
@@ -170,25 +163,57 @@ const RenderFlexibleContent = () => {
 									heroBackgroundImage={item?.heroBackgroundImage}
 								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_BlogsGrid` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_TitleParagraph` ? (
 							<>
-								<Blogs />
+								<TitleParagraph
+									title={item?.title}
+									paragraph={item?.paragraph}
+								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ImageGrid` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_TitleParagraph` ? (
+							<>
+								<TitleParagraph
+									title={item?.title}
+									paragraph={item?.paragraph}
+								/>
+							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_ImageGrid` ? (
 							<>
 								<ImageGrid
 									image={item?.image}
 									imageTwo={item?.imageTwo}
-									imageThree={item?.imageThree}
-									imageFour={item?.imageFour}
-									imageFive={item?.imageFive}
 									imageSix={item?.imageSix}
+									imageFive={item?.imageFive}
+									imageFour={item?.imageFour}
+									imageThree={item?.imageThree}
 								/>
 							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_Sustainability` ? (
+						) : item?.fieldGroupName === `${FlexibleContent}_BlogsGrid` ? (
+							<>
+								<Blogs />
+							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_Cta` ? (
+							<>
+								<CTA
+									title={item?.title}
+									paragraph={item?.paragraph}
+									buttonLink={item?.buttonLink}
+									backgroundImage={item?.backgroundImage?.sourceUrl}
+								/>
+							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_ContactInfo` ? (
+							<>
+								<ContactInfo
+									title={item?.title}
+									image={item?.image}
+									paragraph={item?.paragraph}
+								/>
+							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_ContactForm` ? (
+							<>
+								<ContactForm title={item?.title} />
+							</>
+						) : item?.fieldGroupName === `${FlexibleContent}_Sustainability` ? (
 							<>
 								<Sustainability
 									image={item?.image}
@@ -200,54 +225,19 @@ const RenderFlexibleContent = () => {
 								/>
 							</>
 						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_TrustedBrands` ? (
-							<>
-								<Logos title={item?.title} logoGrid={item?.logos} />
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ArticleImageBanner` ? (
-							<>
-								<ArticleImageBanner
-									title={item?.title}
-									paragraph={item?.paragraph}
-									buttonLink={item?.buttonLink}
-									backgroundImage={item?.backgroundImage?.sourceUrl}
-								/>
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ContactInfo` ? (
-							<>
-								<ContactInfo />
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ContactForm` ? (
-							<>
-								<ContactForm title={item?.title} />
-							</>
-						) : item?.fieldGroupName === `${FlexibleContentComponent}_Cta` ? (
-							<>
-								<CTA
-									title={item?.title}
-									paragraph={item?.paragraph}
-									buttonLink={item?.buttonLink}
-									backgroundImage={item?.backgroundImage?.sourceUrl}
-								/>
-							</>
-						) : item?.fieldGroupName ===
-						  `${FlexibleContentComponent}_ErrorPageContent` ? (
+						  `${FlexibleContent}_ErrorPageContent` ? (
 							<>
 								<ErrorPage
 									title={item?.title}
 									paragraph={item?.paragraph}
 									buttonLink={item?.buttonLink}
-									buttonLinkTwo={item?.buttonLinkTwo}
 									backgroundImage={item?.backgroundImage?.sourceUrl}
 								/>
 							</>
 						) : (
 							<></>
 						)}
-					</div>
+					</section>
 				))
 			) : (
 				<></>

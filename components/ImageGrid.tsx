@@ -1,6 +1,6 @@
 import {FC} from "react";
 import Image from "next/image";
-import {IImageGrid} from "./types";
+import {IImageGrid} from "@/types/components";
 
 const ImageGrid: FC<IImageGrid> = ({
 	image,
@@ -20,7 +20,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={image?.sourceUrl}
 							width={image?.mediaDetails?.width}
 							height={image?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -29,7 +29,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={imageTwo?.sourceUrl}
 							width={imageTwo?.mediaDetails?.width}
 							height={imageTwo?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-full p-1 md:p-2">
@@ -38,7 +38,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={imageThree?.sourceUrl}
 							width={imageThree?.mediaDetails?.width}
 							height={imageThree?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 				</div>
@@ -49,7 +49,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={imageFour?.sourceUrl}
 							width={imageFour?.mediaDetails?.width}
 							height={imageFour?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -58,7 +58,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={imageFive?.sourceUrl}
 							width={imageFive?.mediaDetails?.width}
 							height={imageFive?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 					<div className="w-1/2 p-1 md:p-2">
@@ -67,7 +67,7 @@ const ImageGrid: FC<IImageGrid> = ({
 							src={imageSix?.sourceUrl}
 							width={imageSix?.mediaDetails?.width}
 							height={imageSix?.mediaDetails?.height}
-							className="block object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full"
 						/>
 					</div>
 				</div>

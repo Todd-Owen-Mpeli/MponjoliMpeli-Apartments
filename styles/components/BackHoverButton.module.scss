@@ -1,5 +1,5 @@
 // Imports
-@import "../colors";
+@import "../base/_colors.scss";
 
 .cta {
 	display: flex;
@@ -71,13 +71,13 @@
 	/* SVG animations */
 	@keyframes color_anim {
 		0% {
-			fill: $baseColor_white;
+			fill: $white;
 		}
 		50% {
 			fill: $green;
 		}
 		100% {
-			fill: $baseColor_white;
+			fill: $white;
 		}
 	}
 }

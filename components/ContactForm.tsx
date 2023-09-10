@@ -7,21 +7,21 @@ import {
 	initialTwo,
 } from "../animations/animations";
 import {motion} from "framer-motion";
-import {IContactForm} from "./types";
 import React, {useState, FC} from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import {sendContactForm} from "../functions/api";
-import {useContentContext} from "@/context/context";
+import {IContactForm} from "@/types/components";
+import {useGlobalContext} from "@/context/global";
 import {useFormik, Formik, Field, Form} from "formik";
-
-// Components
-import Paragraph from "./Elements/Paragraph";
+import {sendContactForm} from "@/pages/api/contactForm";
 
 // Styling
 import styles from "../styles/components/ContactForm.module.scss";
 
+// Components
+import Paragraph from "./Elements/Paragraph";
+
 const ContactForm: FC<IContactForm> = ({title}) => {
-	const content = useContentContext();
+	const globalContext = useGlobalContext();
 
 	const initState: {
 		error: string;
@@ -122,9 +122,9 @@ const ContactForm: FC<IContactForm> = ({title}) => {
 
 	return (
 		<section
-			className="py-20 mx-auto overflow-hidden bg-center bg-no-repeat bg-cover bg-green-dark"
+			className="py-20 pb-0 sm:pb-20 mx-auto overflow-hidden bg-center bg-no-repeat bg-cover bg-green-dark"
 			style={{
-				backgroundImage: `url("/svg/backgroundWaves.svg")`,
+				backgroundImage: `url("/svg/background/backgroundWaves.svg")`,
 			}}
 		>
 			<div className="container flex flex-col items-center justify-center px-8 mx-auto bg-white lg:p-12 gap-y-20 lg:gap-4 lg:flex-row">
@@ -371,7 +371,9 @@ const ContactForm: FC<IContactForm> = ({title}) => {
 							Business Hours
 						</h3>
 						<Paragraph
-							content={content.themesOptionsContent.businessHours?.content}
+							content={
+								globalContext?.themesOptionsContent?.businessHours?.content
+							}
 							tailwindStyling="font-medium text-base sm:text-base leading-relaxed text-left text-black"
 						/>
 					</div>

@@ -1,5 +1,13 @@
 // Imports
-@import "../colors";
+@import "../base/colors";
+
+.contactInfo {
+	background-image: url("/svg/background/background-layered-waves-haikei-two.svg");
+
+	@screen lg {
+		background-image: url("/svg/background/background-layered-waves-haikei.svg");
+	}
+}
 
 .submitButton {
 	display: flex;
@@ -58,7 +66,6 @@
 	}
 
 	/**************SVG****************/
-
 	.one {
 		transition: 0.4s;
 		transform: translateX(-60%);
@@ -70,16 +77,15 @@
 	}
 
 	/* SVG animations */
-
 	@keyframes color_anim {
 		0% {
-			fill: $baseColor_white;
+			fill: $white;
 		}
 		50% {
 			fill: $green;
 		}
 		100% {
-			fill: $baseColor_white;
+			fill: $white;
 		}
 	}
 }

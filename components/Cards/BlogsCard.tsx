@@ -3,9 +3,9 @@ import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dateFormat from "dateformat";
-import {IBlogsCard} from "../types";
 import {motion} from "framer-motion";
 import DOMPurify from "isomorphic-dompurify";
+import {IBlogsCard} from "@/types/components";
 import {fadeInUp, initial, stagger} from "../../animations/animations";
 
 const BlogsCard: FC<IBlogsCard> = ({
@@ -52,16 +52,19 @@ const BlogsCard: FC<IBlogsCard> = ({
 						initial={initial}
 						whileInView={fadeInUp}
 						viewport={{once: true}}
-						className="mb-2 text-lg font-bold text-black sm:text-xl"
+						className="mb-2 text-3xl font-bold text-black"
 					>
 						{title}
 					</motion.h2>
 				</Link>
-
-				<span className="mt-2 font-semibold text-goldPrimeDark text-tiny">
+				<motion.span
+					initial={initial}
+					whileInView={fadeInUp}
+					viewport={{once: true}}
+					className="mt-2 font-semibold text-goldPrimeDark text-tiny"
+				>
 					{dateFormat(date, "dddd, mmmm d, yyyy")}
-				</span>
-
+				</motion.span>
 				<motion.div
 					initial={initial}
 					whileInView={fadeInUp}
@@ -70,7 +73,7 @@ const BlogsCard: FC<IBlogsCard> = ({
 					<div
 						className={
 							paragraph
-								? `block my-6 text-base leading-normal text-darkGrey`
+								? `block my-3 text-base leading-normal text-darkGrey`
 								: `hidden`
 						}
 						dangerouslySetInnerHTML={createTrimmedParagraphMarkup(paragraph)}

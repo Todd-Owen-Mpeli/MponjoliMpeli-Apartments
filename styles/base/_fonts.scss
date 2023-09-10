@@ -1,0 +1,14 @@
+/*===== FONTS =====*/
+@font-face {
+	font-family: Inter;
+	src: url("../fonts/Inter-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: Dropkicker;
+	src: url("../fonts/Dropkicker-Regular.ttf");
+}
+
+// Font Stack Properties
+$main: "Dropkicker", sans-serif;
+$body: "Inter", sans-serif;

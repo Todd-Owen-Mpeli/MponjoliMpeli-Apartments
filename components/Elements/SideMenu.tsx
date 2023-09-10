@@ -1,26 +1,21 @@
+// Import
 import Link from "next/link";
 import Image from "next/image";
 import {useState, FC} from "react";
-import {ISideMenu} from "../types";
 import {motion} from "framer-motion";
-import {useContentContext} from "@/context/context";
-import styles from "../../styles/components/Hero.module.scss";
+import {ISideMenu} from "@/types/components";
+import {useGlobalContext} from "@/context/global";
+import {initial, stagger} from "@/animations/animations";
+
+// Styling
+import styles from "@/styles/components/Hero.module.scss";
 
 // Components
 import Paragraph from "./../Elements/Paragraph";
 import NavbarMenuLinks from "./../Elements/NavbarMenuLinks";
-import {initial, stagger} from "@/animations/animations";
 
 const SideMenu: FC<ISideMenu> = ({menuActive}) => {
-	const content = useContentContext();
-
-	// Display Locations sublinks
-	const [LocationMenuOpen, setLocationMenuOpen]: any = useState(true);
-
-	// Hides or Display Individual Services sublinks
-	function displayLocationMenu() {
-		setLocationMenuOpen(!LocationMenuOpen);
-	}
+	const globalContext = useGlobalContext();
 
 	return (
 		<section
@@ -30,74 +25,44 @@ const SideMenu: FC<ISideMenu> = ({menuActive}) => {
 					: `hidden ${styles.nav}`
 			}
 		>
-			<div className="fixed inset-0 opacity-25 bg-green-dark"></div>
-			<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-x-hidden overflow-y-auto bg-white">
+			<div className="fixed inset-0 opacity-[65%] bg-green-dark"></div>
+			<nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-x-hidden overflow-y-auto bg-green-dark">
 				<div className="flex flex-col items-center mb-8">
-					<Link
-						className="mt-10 mr-auto text-3xl font-bold leading-none"
-						href="/"
-					>
+					<Link className="mr-auto text-3xl font-bold leading-none" href="/">
 						<Image
-							height={500}
 							width={500}
-							className="object-contain object-center w-full h-75"
-							src="/img/logos/MponjoliMpeli Apartments Logo One.png"
+							height={500}
 							alt="MponjoliMpeli Apartments Logo One"
+							src="/img/logos/MponjoliMpeli Apartments Logo Three.png"
+							className="object-contain object-center w-full h-[47.5px] sm:h-[60px]"
 						/>
 					</Link>
 				</div>
 				<div className="px-4">
 					<ul>
-						{content.mainMenuLinks.length > 0 ? (
-							content.mainMenuLinks.map((keys) => (
+						{globalContext?.mainMenuLinks.length > 0 ? (
+							globalContext?.mainMenuLinks.map((item: any, keys: number) => (
 								<li
-									key={keys?.node?.id}
-									className="mb-1 border-b-[1px] border-green-default border-opacity-50"
+									key={keys}
+									className="mb-1 border-b-[1px] border-goldPrime border-opacity-50"
 								>
 									<NavbarMenuLinks
-										url={keys?.node?.url}
-										label={keys?.node?.label}
-										tailwindStyling="block py-4 text-base font-semibold text-black hover:text-green-bright"
+										url={item?.node?.url}
+										label={item?.node?.label}
+										tailwindStyling="block py-4 text-base font-semibold text-white hover:text-green-bright"
 									/>
 								</li>
 							))
 						) : (
 							<></>
 						)}
-
-						{/* Our Locations Menu Links*/}
-						<li className="mb-1">
-							<span
-								onClick={displayLocationMenu}
-								className="block py-4 font-semibold text-black text-base border-b-[1px] border-green-default border-opacity-50border-b-[1px] border-opacity-50"
-							>
-								Our Locations
-							</span>
-							{LocationMenuOpen ? (
-								<ul className="flex flex-col justify-center gap-2 my-2">
-									{content.locationMenuLinks.length > 0 ? (
-										content.locationMenuLinks.map((keys) => (
-											<li key={keys?.node?.id} className="indent-8">
-												<NavbarMenuLinks
-													url={keys?.node?.url}
-													label={keys?.node?.label}
-													tailwindStyling="block py-4 ml-6 text-base text-goldPrimeDark font-semibold hover:bg-goldPrime hover:text-white border-b-[1px] border-goldPrimeDark hover:border-goldPrime"
-												/>
-											</li>
-										))
-									) : (
-										<></>
-									)}
-								</ul>
-							) : null}
-						</li>
 					</ul>
 				</div>
 				<div className="mt-20">
 					<div className="flex items-center justify-start gap-4 mb-4 text-center">
 						<Link
 							className="inline-block px-1 text-green"
-							href={content.themesOptionsContent.facebookLink}
+							href={globalContext.themesOptionsContent.facebookLink}
 						>
 							<svg
 								height="100%"
@@ -121,45 +86,7 @@ const SideMenu: FC<ISideMenu> = ({menuActive}) => {
 						</Link>
 						<Link
 							className="inline-block px-1 text-green"
-							href={content.themesOptionsContent.instagramLink}
-						>
-							<svg
-								height="100%"
-								className="w-6 h-6"
-								style={{
-									fill: "#00946a",
-									fillRule: "evenodd",
-									clipRule: "evenodd",
-									strokeLinejoin: "round",
-									strokeMiterlimit: "2",
-								}}
-								version="1.1"
-								viewBox="0 0 600 600"
-								width="100%"
-							>
-								<g transform="matrix(1.01619,0,0,1.01619,44,43.8384)">
-									<path
-										d="M251.921,0.159C183.503,0.159 174.924,0.449 148.054,1.675C121.24,2.899 102.927,7.157 86.902,13.385C70.336,19.823 56.287,28.437 42.282,42.442C28.277,56.447 19.663,70.496 13.225,87.062C6.997,103.086 2.739,121.399 1.515,148.213C0.289,175.083 0,183.662 0,252.08C0,320.497 0.289,329.076 1.515,355.946C2.739,382.76 6.997,401.073 13.225,417.097C19.663,433.663 28.277,447.712 42.282,461.718C56.287,475.723 70.336,484.337 86.902,490.775C102.927,497.002 121.24,501.261 148.054,502.484C174.924,503.71 183.503,504 251.921,504C320.338,504 328.917,503.71 355.787,502.484C382.601,501.261 400.914,497.002 416.938,490.775C433.504,484.337 447.553,475.723 461.559,461.718C475.564,447.712 484.178,433.663 490.616,417.097C496.843,401.073 501.102,382.76 502.325,355.946C503.551,329.076 503.841,320.497 503.841,252.08C503.841,183.662 503.551,175.083 502.325,148.213C501.102,121.399 496.843,103.086 490.616,87.062C484.178,70.496 475.564,56.447 461.559,42.442C447.553,28.437 433.504,19.823 416.938,13.385C400.914,7.157 382.601,2.899 355.787,1.675C328.917,0.449 320.338,0.159 251.921,0.159ZM251.921,45.551C319.186,45.551 327.154,45.807 353.718,47.019C378.28,48.14 391.619,52.244 400.496,55.693C412.255,60.263 420.647,65.723 429.462,74.538C438.278,83.353 443.737,91.746 448.307,103.504C451.757,112.381 455.861,125.72 456.981,150.282C458.193,176.846 458.45,184.814 458.45,252.08C458.45,319.345 458.193,327.313 456.981,353.877C455.861,378.439 451.757,391.778 448.307,400.655C443.737,412.414 438.278,420.806 429.462,429.621C420.647,438.437 412.255,443.896 400.496,448.466C391.619,451.916 378.28,456.02 353.718,457.14C327.158,458.352 319.191,458.609 251.921,458.609C184.65,458.609 176.684,458.352 150.123,457.14C125.561,456.02 112.222,451.916 103.345,448.466C91.586,443.896 83.194,438.437 74.378,429.621C65.563,420.806 60.103,412.414 55.534,400.655C52.084,391.778 47.98,378.439 46.859,353.877C45.647,327.313 45.391,319.345 45.391,252.08C45.391,184.814 45.647,176.846 46.859,150.282C47.98,125.72 52.084,112.381 55.534,103.504C60.103,91.746 65.563,83.353 74.378,74.538C83.194,65.723 91.586,60.263 103.345,55.693C112.222,52.244 125.561,48.14 150.123,47.019C176.687,45.807 184.655,45.551 251.921,45.551Z"
-										style={{fillRule: "nonzero"}}
-									/>
-									<path
-										d="M251.921,336.053C205.543,336.053 167.947,298.457 167.947,252.08C167.947,205.702 205.543,168.106 251.921,168.106C298.298,168.106 335.894,205.702 335.894,252.08C335.894,298.457 298.298,336.053 251.921,336.053ZM251.921,122.715C180.474,122.715 122.556,180.633 122.556,252.08C122.556,323.526 180.474,381.444 251.921,381.444C323.367,381.444 381.285,323.526 381.285,252.08C381.285,180.633 323.367,122.715 251.921,122.715Z"
-										style={{
-											fillRule: "nonzero",
-										}}
-									/>
-									<path
-										d="M416.627,117.604C416.627,134.3 403.092,147.834 386.396,147.834C369.701,147.834 356.166,134.3 356.166,117.604C356.166,100.908 369.701,87.374 386.396,87.374C403.092,87.374 416.627,100.908 416.627,117.604Z"
-										style={{
-											fillRule: "nonzero",
-										}}
-									/>
-								</g>
-							</svg>
-						</Link>
-						<Link
-							className="inline-block px-1 text-green"
-							href={content.themesOptionsContent.twitterLink}
+							href={globalContext.themesOptionsContent.twitterLink}
 						>
 							<svg
 								height="100%"
@@ -183,7 +110,7 @@ const SideMenu: FC<ISideMenu> = ({menuActive}) => {
 						</Link>
 						<Link
 							className="inline-block px-1 text-green"
-							href={content.themesOptionsContent.linkedinLink}
+							href={globalContext.themesOptionsContent.linkedinLink}
 						>
 							<svg
 								height="100%"
@@ -208,62 +135,70 @@ const SideMenu: FC<ISideMenu> = ({menuActive}) => {
 					</div>
 					<div className="flex flex-col items-baseline gap-4 sm:flex-row">
 						<div className="flex flex-col items-baseline justify-between my-6">
-							<h2 className="text-green font-[600] text-base">
-								{content.themesOptionsContent.jangwaniContent?.title}
-							</h2>
+							<span className="text-goldPrime text-base">
+								{globalContext.themesOptionsContent.jangwaniContent?.title}
+							</span>
 							<Paragraph
 								content={
-									content.themesOptionsContent.jangwaniContent?.contactAddress
+									globalContext.themesOptionsContent.jangwaniContent
+										?.contactAddress
 								}
-								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
+								tailwindStyling="my-3 text-white leading-[1.75rem] text-sm text-left"
 							/>
 							<motion.div
 								initial={initial}
 								whileInView={stagger}
 								viewport={{once: true}}
-								className="flex flex-col mt-4 gap-y-6"
+								className="flex flex-col mt-4 gap-y-2"
 							>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green-default"
-									href={`tel:${content.themesOptionsContent.jangwaniContent?.phoneNumber}`}
+									className="text-green-default transition-all duration-500 ease-in-out text-sm hover:text-goldPrime"
+									href={`tel:${globalContext.themesOptionsContent.jangwaniContent?.phoneNumber}`}
 								>
-									{content.themesOptionsContent.jangwaniContent?.phoneNumber}
+									{
+										globalContext.themesOptionsContent.jangwaniContent
+											?.phoneNumber
+									}
 								</Link>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-green-default text-tiny hover:text-green-dark"
-									href={`mailto:${content.themesOptionsContent.jangwaniContent?.email}`}
+									className="transition-all duration-500 ease-in-out text-green-default text-sm hover:text-goldPrime"
+									href={`mailto:${globalContext.themesOptionsContent.jangwaniContent?.email}`}
 								>
-									{content.themesOptionsContent.jangwaniContent?.email}
+									{globalContext.themesOptionsContent.jangwaniContent?.email}
 								</Link>
 							</motion.div>
 						</div>
 						<div className="flex flex-col items-baseline justify-between my-6">
-							<h2 className="text-green font-[600] text-base">
-								{content.themesOptionsContent.mbweniContent?.title}
-							</h2>
+							<span className="text-goldPrime text-base">
+								{globalContext.themesOptionsContent.mbweniContent?.title}
+							</span>
 							<Paragraph
 								content={
-									content.themesOptionsContent.mbweniContent?.contactAddress
+									globalContext.themesOptionsContent.mbweniContent
+										?.contactAddress
 								}
-								tailwindStyling="my-3 text-black leading-[1.75rem] font-[500] text-tiny text-left"
+								tailwindStyling="my-3 text-white leading-[1.75rem] text-sm text-left"
 							/>
 							<motion.div
 								initial={initial}
 								whileInView={stagger}
 								viewport={{once: true}}
-								className="flex flex-col mt-4 gap-y-6"
+								className="flex flex-col mt-4 gap-y-2"
 							>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-tiny hover:text-green-default"
-									href={`tel:${content.themesOptionsContent.mbweniContent?.phoneNumber}`}
+									className="transition-all duration-500 ease-in-out text-green-default text-sm hover:text-goldPrime"
+									href={`tel:${globalContext.themesOptionsContent.mbweniContent?.phoneNumber}`}
 								>
-									{content.themesOptionsContent.mbweniContent?.phoneNumber}
+									{
+										globalContext.themesOptionsContent.mbweniContent
+											?.phoneNumber
+									}
 								</Link>
 								<Link
-									className="leading-none transition-all duration-500 ease-in-out text-green-default text-tiny hover:text-green-dark"
-									href={`mailto:${content.themesOptionsContent.mbweniContent?.email}`}
+									className="transition-all duration-500 ease-in-out text-green-default text-sm hover:text-goldPrime"
+									href={`mailto:${globalContext.themesOptionsContent.mbweniContent?.email}`}
 								>
-									{content.themesOptionsContent.mbweniContent?.email}
+									{globalContext.themesOptionsContent.mbweniContent?.email}
 								</Link>
 							</motion.div>
 						</div>

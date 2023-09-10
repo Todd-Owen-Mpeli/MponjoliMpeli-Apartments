@@ -3,7 +3,7 @@ import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {IApartmentSingle} from "./types";
+import {IApartmentSingle} from "@/types/components";
 import {initial, stagger, fadeInUp} from "../animations/animations";
 
 // Components
@@ -19,7 +19,9 @@ const ApartmentSingle: FC<IApartmentSingle> = ({
 	heroBackgroundImage,
 }) => {
 	return (
-		<section className={styles.apartmentSingleCard}>
+		<section
+			className={styles.apartmentSingleCard + ` py-10 overflow-hidden bg-white`}
+		>
 			<motion.div
 				initial={initial}
 				whileInView={stagger}
@@ -216,7 +218,7 @@ const ApartmentSingle: FC<IApartmentSingle> = ({
 							initial={initial}
 							viewport={{once: true}}
 							whileInView={fadeInUp}
-							className="mb-4 text-2xl text-black"
+							className="text-4xl lg:text-5xl mb-6 tracking-tighter text-black"
 						>
 							{mainContent?.title}
 						</motion.h2>

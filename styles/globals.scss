@@ -1,11 +1,10 @@
-// Imports
 @tailwind base;
-@tailwind utilities;
 @tailwind components;
+@tailwind utilities;
 
-// Imports
-@import "./_fonts";
-@import "./_colors";
+/* Imports */
+@import "./base/_fonts.scss";
+@import "./base/_colors.scss";
 
 html,
 body {
@@ -42,12 +41,8 @@ a {
 }
 
 * {
+	font-family: $body;
 	box-sizing: border-box;
-	font-family: $fontStyle_main;
-}
-
-svg:hover {
-	fill: $goldYellow !important;
 }
 
 h1,
@@ -57,48 +52,27 @@ h4,
 h5,
 h6,
 button {
-	font-family: $fontStyle_main;
+	font-family: $main;
 
 	span {
-		font-family: $fontStyle_main;
+		font-family: $main;
 	}
 }
 
-a,
-p,
-ul,
-li,
-span,
-input,
-strong,
-label,
-textarea {
-	font-family: $fontStyle_body;
-}
-
-ol,
-ul {
-	li {
-		strong {
-			font-family: $fontStyle_main;
-			@apply text-goldPrime font-bold tracking-wider uppercase text-xl py-4;
-		}
-	}
-}
-
-li,
 p {
+	@apply py-2;
+
 	a {
-		@apply text-green-bright transition-all ease-in-out duration-500 hover:text-goldPrime focus:text-goldPrime;
+		@apply text-green-default hover:underline hover:text-goldYellow;
 	}
 }
 
-p {
-	@apply tracking-wide;
+svg:hover {
+	fill: $goldPrime;
 }
 
-/* SQUARES
-PAGE LOADING ANIMATION */
+/* SQUARES PAGE 
+LOADING ANIMATION */
 .spinner-wrapper {
 	top: 0;
 	left: 0;

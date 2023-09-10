@@ -1,14 +1,14 @@
 import {FC} from "react";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {ISustainability} from "./types";
+import {ISustainability} from "@/types/components";
 import {fadeIn, fadeInTwo, initial, initialTwo} from "../animations/animations";
 
 // Components
 import Paragraph from "./Elements/Paragraph";
 
 // Styling
-import styles from "../styles/components/IntroSection.module.scss";
+import styles from "../styles/components/Sustainability.module.scss";
 
 const Sustainability: FC<ISustainability> = ({
 	title,

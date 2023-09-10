@@ -1,7 +1,7 @@
 import {FC} from "react";
 import Link from "next/link";
-import {ICTA} from "./types";
 import {motion} from "framer-motion";
+import {ICTA} from "@/types/components";
 import {fadeIn, initialTwo} from "../animations/animations";
 
 // Components
@@ -10,7 +10,7 @@ import Paragraph from "./Elements/Paragraph";
 const CTA: FC<ICTA> = ({title, paragraph, buttonLink, backgroundImage}) => {
 	return (
 		<section
-			className="px-4 py-20 my-4 bg-center bg-no-repeat bg-cover lg:px-0"
+			className="px-4 my-2 py-20 bg-center bg-no-repeat bg-cover lg:px-0"
 			style={{
 				backgroundImage: `linear-gradient(
 							0deg,
@@ -26,25 +26,30 @@ const CTA: FC<ICTA> = ({title, paragraph, buttonLink, backgroundImage}) => {
 							initial={initialTwo}
 							whileInView={fadeIn}
 							viewport={{once: true}}
-							className="mb-4 text-3xl font-semibold leading-tight text-center text-white lg:text-left sm:text-4xl lg:text-5xl"
+							className="mb-4 text-white text-center py-0 lg:text-left text-4xl lg:text-5xl"
 						>
 							{title}
 						</motion.h2>
 						<Paragraph
 							content={paragraph}
-							tailwindStyling="w-full lg:max-w-[40rem] mt-4 text-center lg:text-left text-white text-base"
+							tailwindStyling="max-w-lg mx-auto lg:mx-0 text-white text-center lg:text-left text-base"
 						/>
 					</div>
-					<Link href={`${buttonLink?.url}`} target={`${buttonLink?.target}`}>
-						<motion.button
-							initial={initialTwo}
-							whileInView={fadeIn}
-							viewport={{once: true}}
-							className="px-12 py-4 text-base font-semibold tracking-widest text-white uppercase transition-all duration-500 ease-in-out md:py-6 xl:px-20 bg-green-default hover:bg-goldPrimeDark"
+
+					<motion.button
+						initial={initialTwo}
+						whileInView={fadeIn}
+						viewport={{once: true}}
+						className={buttonLink?.url ? "block" : "hidden"}
+					>
+						<Link
+							href={buttonLink?.url}
+							target={buttonLink?.target}
+							className="px-12 py-6 mb-3 text-center text-white transition duration-200 xl:px-20 bg-green-default hover:bg-goldPrimeDarker"
 						>
 							{buttonLink?.title}
-						</motion.button>
-					</Link>
+						</Link>
+					</motion.button>
 				</div>
 			</div>
 		</section>
