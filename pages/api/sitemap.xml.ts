@@ -2,12 +2,12 @@
 import {Readable} from "stream";
 import {SitemapStream, streamToPromise} from "sitemap";
 import {getAllPagesSlugs} from "@/functions/graphql/Queries/GetAllPagesSlugs";
-import {getAllApartmentsContent} from "@/functions/graphql/Queries/GetAllApartmentSlugs";
+import {getAllApartmentsSlugs} from "@/functions/graphql/Queries/GetAllApartmentSlugs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: any, res: any) => {
 	const pagesSlugs = await getAllPagesSlugs();
-	const apartmentsSlugs = await getAllApartmentsContent();
+	const apartmentsSlugs = await getAllApartmentsSlugs();
 
 	// Pages & Blogs Arrays
 	const pagesLinks: any = [];
@@ -26,16 +26,16 @@ export default async (req: any, res: any) => {
 	});
 
 	// Apartments Locations Dynamic Links
-	// apartmentsSlugs?.map((keys: any) => {
-	// 	const object = {
-	// 		url: `/apartments/${keys?.slug}`,
-	// 		changefreq: "monthly",
-	// 		lastmod: `${keys?.modified}`,
-	// 		priority: 0.8,
-	// 	};
+	apartmentsSlugs?.map((keys: any) => {
+		const object = {
+			url: `/apartments/${keys?.slug}`,
+			changefreq: "monthly",
+			lastmod: `${keys?.modified}`,
+			priority: 0.8,
+		};
 
-	// 	apartmentsLinks.push(object);
-	// });
+		apartmentsLinks.push(object);
+	});
 
 	// Arrays with your all dynamic links
 	const allLinks: any = [...pagesLinks, ...apartmentsLinks];
