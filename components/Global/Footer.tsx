@@ -74,7 +74,7 @@ const Footer = () => {
 					className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-between gap-16 lg:gap-28 py-16 px-4 md:px-0"
 				>
 					<div className="flex flex-col items-center lg:items-start mb-10 sm:mb-0">
-						<Link href={`/`}>
+						<Link href="/">
 							<Image
 								width={500}
 								height={500}
