@@ -105,6 +105,7 @@ const RenderFlexibleContent: FC = () => {
 							<>
 								<TitleStats
 									title={item?.title}
+									backgroundColorOptions={item?.backgroundColorOptions}
 									image={item?.image}
 									contentGrid={item?.contentGrid}
 								/>

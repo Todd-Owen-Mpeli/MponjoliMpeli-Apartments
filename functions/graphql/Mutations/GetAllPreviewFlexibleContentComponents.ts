@@ -158,6 +158,7 @@ export const getAllPreviewFlexibleContentComponents = async (
 							... on ${postTypeFlexibleContent}_TitleStats {
 								fieldGroupName
 								title
+								backgroundColorOptions
 								image {
 									altText
 									sourceUrl

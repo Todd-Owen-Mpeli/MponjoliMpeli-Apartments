@@ -106,6 +106,7 @@ export interface IApartmentCardTwo {
 // Components Cards
 export interface ITitleStats {
 	title: string;
+	backgroundColorOptions: string;
 	image: {
 		altText: string;
 		sourceUrl: string;

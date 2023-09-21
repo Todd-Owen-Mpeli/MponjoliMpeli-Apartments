@@ -235,6 +235,39 @@ const Footer = () => {
 									Privacy Policy
 								</Link>
 							</li>
+							<li className="flex gp-x-8">
+								<span className="opacity-60 mr-2">
+									<svg
+										height="24"
+										width="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+										<g
+											id="SVGRepo_tracerCarrier"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										></g>
+										<g id="SVGRepo_iconCarrier">
+											<path
+												d="M9 5L11 7.33333M9 19L15 12L13.5 10.25"
+												stroke="#dfc695"
+												strokeWidth="1.5"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											></path>
+										</g>
+									</svg>
+								</span>
+								<Link
+									href={`/cookie-policy`}
+									className="tracking-widest text-white transition-all duration-500 ease-in-out text-tiny hover:text-goldPrime"
+								>
+									Cookie Policy
+								</Link>
+							</li>
 						</ul>
 					</div>
 					<div className="flex flex-col items-center lg:items-start gap-4 text-left">

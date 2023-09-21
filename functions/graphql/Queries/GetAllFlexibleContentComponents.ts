@@ -159,6 +159,7 @@ export async function getAllFlexibleContentComponents(
 											... on ${postTypeFlexibleContent}_TitleStats {
 												fieldGroupName
 												title
+												backgroundColorOptions
 												image {
 													altText
 													sourceUrl
