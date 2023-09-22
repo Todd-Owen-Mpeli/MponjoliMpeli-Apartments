@@ -65,16 +65,16 @@ const ContentButtonLinkTwoImages: FC<IContentButtonLinkTwoImages> = ({
 														<path
 															d="M9 1L1 9"
 															stroke="currentColor"
-															stroke-width="1.3"
-															stroke-miterlimit="10"
+															strokeWidth="1.3"
+															strokeMiterlimit="10"
 															stroke-linecap="round"
 															stroke-linejoin="round"
 														></path>
 														<path
 															d="M9 8.33571V1H1.66429"
 															stroke="currentColor"
-															stroke-width="1.3"
-															stroke-miterlimit="10"
+															strokeWidth="1.3"
+															strokeMiterlimit="10"
 															stroke-linecap="round"
 															stroke-linejoin="round"
 														></path>
