@@ -157,11 +157,7 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 												src={item?.image?.sourceUrl}
 												width={item?.image?.mediaDetails.width}
 												height={item?.image?.mediaDetails.height}
-												className={`w-full h-[500px] lg:h-[600px] object-cover transition-opacity duration-200 ease-in-out rounded-lg cursor-pointer hover:opacity-75 ${
-													index !== activeSlide
-														? "border-0"
-														: "border-2 border-goldPrime"
-												}`}
+												className="w-full h-[500px] lg:h-[600px] object-cover transition-opacity duration-200 ease-in-out rounded-lg cursor-pointer hover:opacity-75"
 												onClick={() =>
 													imageClickHandler({
 														url: item?.image?.sourceUrl,
