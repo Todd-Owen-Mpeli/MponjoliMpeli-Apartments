@@ -343,6 +343,122 @@ export type IApartmentGallerySlider = {
 		}
 	];
 };
+export type IApartmentSingleDescription = {
+	title: string;
+	location: string;
+	description: string;
+	lettingCompany: string;
+	buttonLink: {
+		url: string;
+		title: string;
+		target: string;
+	};
+	rightSectionTitle: string;
+	weeklyInfo: {
+		title: string;
+		rent: string;
+	};
+	monthlyInfo: {
+		title: string;
+		rent: string;
+	};
+	lettingDetails: [
+		{
+			bulletPoint: string;
+		}
+	];
+	iconGrid: [
+		{
+			card: {
+				text: string;
+				icon: {
+					altText: string;
+					sourceUrl: string;
+					mediaDetails: {
+						height: number;
+						width: number;
+					};
+				};
+			};
+		}
+	];
+	keyInfoImages: [
+		{
+			image: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+		}
+	];
+};
+export type IApartmentSingleHighlightInfo = {
+	heroBackgroundImage: {
+		altText: string;
+		sourceUrl: string;
+		mediaDetails: {
+			height: number;
+			width: number;
+		};
+	};
+	imageGallery: [
+		{
+			image: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+		}
+	];
+	lettingCompany: string;
+	buttonLink: {
+		url: string;
+		title: string;
+		target: string;
+	};
+	rightSectionTitle: string;
+	weeklyInfo: {
+		title: string;
+		rent: string;
+	};
+	monthlyInfo: {
+		title: string;
+		rent: string;
+	};
+	iconGrid: [
+		{
+			card: {
+				text: string;
+				icon: {
+					altText: string;
+					sourceUrl: string;
+					mediaDetails: {
+						height: number;
+						width: number;
+					};
+				};
+			};
+		}
+	];
+	highlightImages: [
+		{
+			image: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+		}
+	];
+};
 
 export type IApartmentImage = {
 	url: string;
