@@ -3,7 +3,7 @@ import {FC, Fragment} from "react";
 import {useGlobalContext} from "@/context/global";
 
 // Components
-import ApartmentCardTwo from "./Cards/ApartmentCardTwo";
+import ApartmentCardTwo from "./../Cards/ApartmentCardTwo";
 
 const ApartmentsGrid: FC = () => {
 	const globalContext = useGlobalContext();

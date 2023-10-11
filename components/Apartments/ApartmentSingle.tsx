@@ -4,14 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {IApartmentSingle} from "@/types/components";
-import {initial, stagger, fadeInUp} from "../animations/animations";
+import {initial, stagger, fadeInUp} from "../../animations/animations";
 
 // Components
-import Paragraph from "../components/Elements/Paragraph";
-import HighlightImagesCard from "../components/Cards/HighlightImagesCard";
+import Paragraph from "../../components/Elements/Paragraph";
+import HighlightImagesCard from "../../components/Cards/HighlightImagesCard";
 
 // Styling
-import styles from "../styles/components/Apartment.module.scss";
+import styles from "../../styles/components/Apartment.module.scss";
+import ApartmentGallerySlider from "./ApartmentGallerySlider";
 
 const ApartmentSingle: FC<IApartmentSingle> = ({
 	mainContent,
@@ -29,52 +30,8 @@ const ApartmentSingle: FC<IApartmentSingle> = ({
 				className="container flex flex-col px-4 mx-auto"
 			>
 				{/* Image Gallery */}
-				<div className="relative">
-					<div
-						className={heroBackgroundImage?.sourceUrl ? `block p-4 ` : `hidden`}
-					>
-						<Image
-							alt={heroBackgroundImage?.altText}
-							src={heroBackgroundImage?.sourceUrl}
-							width={heroBackgroundImage?.mediaDetails?.width}
-							height={heroBackgroundImage?.mediaDetails?.height}
-							className={
-								heroBackgroundImage?.sourceUrl
-									? `block w-full rounded-2xl h-[600px] object-cover object-center`
-									: `hidden`
-							}
-						/>
-					</div>
-					<motion.div
-						initial={initial}
-						whileInView={fadeInUp}
-						viewport={{once: true}}
-						className={
-							imageGallery?.length > 0
-								? `hidden sm:block absolute bottom-[25px] right-[25px] p-4 rounded-xl`
-								: `hidden`
-						}
-					>
-						<Link href={imageGallery[0]?.image?.sourceUrl} target=" ">
-							<div
-								className="relative flex items-center justify-center px-4 bg-center bg-no-repeat bg-cover w-[200px] h-[125px] rounded-xl"
-								style={{
-									backgroundImage: `url("${
-										imageGallery[0]?.image?.sourceUrl
-											? imageGallery[0]?.image?.sourceUrl
-											: heroBackgroundImage?.sourceUrl
-									}")`,
-								}}
-							>
-								<div className="absolute top-0 bottom-0 left-0 w-full h-full opacity-75 bg-gradient-to-b from-green-dark from-20% via-green-dark via-60% to-transparent to-100% rounded-xl" />
+				<ApartmentGallerySlider imageGallery={imageGallery} />
 
-								<h3 className="absolute w-full max-w-[7.5rem] text-base text-center text-white">
-									View all {imageGallery?.length} photos
-								</h3>
-							</div>
-						</Link>
-					</motion.div>
-				</div>
 				{/* Main Content */}
 				<motion.div
 					initial={initial}

@@ -1,7 +1,7 @@
 // Imports
 import {FC} from "react";
 import {motion} from "framer-motion";
-import {fadeIn, initialTwo} from "../animations/animations";
+import {fadeIn, initialTwo} from "../../animations/animations";
 import {IApartmentLocationMap} from "@/types/components/index";
 
 const ApartmentLocationMap: FC<IApartmentLocationMap> = ({

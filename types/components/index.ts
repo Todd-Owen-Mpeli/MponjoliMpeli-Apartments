@@ -329,6 +329,25 @@ export type IApartmentSingle = {
 		];
 	};
 };
+export type IApartmentGallerySlider = {
+	imageGallery: [
+		{
+			image: {
+				altText: string;
+				sourceUrl: string;
+				mediaDetails: {
+					height: number;
+					width: number;
+				};
+			};
+		}
+	];
+};
+
+export type IApartmentImage = {
+	url: string;
+	alt: string;
+};
 
 export type IViewApartments = {
 	title: string;
