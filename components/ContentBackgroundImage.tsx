@@ -1,4 +1,4 @@
-// Import
+// Imports
 import {FC} from "react";
 import {IContentBackgroundImage} from "@/types/components";
 

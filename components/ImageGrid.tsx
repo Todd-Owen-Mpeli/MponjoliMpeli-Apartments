@@ -1,3 +1,4 @@
+// Imports
 import {FC} from "react";
 import Image from "next/image";
 import {IImageGrid} from "@/types/components";

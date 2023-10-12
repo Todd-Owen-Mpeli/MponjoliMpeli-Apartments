@@ -1,4 +1,4 @@
-// Import
+// Imports
 import {motion} from "framer-motion";
 import {initial, stagger} from "../animations/animations";
 import {useGlobalContext} from "@/context/global";

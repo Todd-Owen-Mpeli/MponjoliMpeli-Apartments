@@ -1,3 +1,4 @@
+// Imports
 import {FC} from "react";
 import {GlobalContext} from "@/context/global";
 import {IGlobalContextProvider} from "@/types/context";

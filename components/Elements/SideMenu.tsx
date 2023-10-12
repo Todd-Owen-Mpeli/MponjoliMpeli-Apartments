@@ -1,7 +1,7 @@
-// Import
+// Imports
+import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {useState, FC} from "react";
 import {motion} from "framer-motion";
 import {ISideMenu} from "@/types/components";
 import {useGlobalContext} from "@/context/global";

@@ -7,6 +7,7 @@ import {
 	initialTwo,
 } from "../../animations/animations";
 import {motion} from "framer-motion";
+import {useRouter} from "next/router";
 import React, {useState, FC} from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import {useFormik, Formik, Field, Form} from "formik";
@@ -18,7 +19,6 @@ import styles from "../../styles/components/ContactForm.module.scss";
 
 // Components
 import Paragraph from "../Elements/Paragraph";
-import {useRouter} from "next/router";
 
 const ApartmentContactForm: FC<IApartmentContactForm> = ({
 	title,

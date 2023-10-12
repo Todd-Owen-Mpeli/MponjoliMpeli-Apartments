@@ -1,8 +1,8 @@
 // Import
 import Link from "next/link";
 import Image from "next/image";
-import {LazyMotion, domMax, motion} from "framer-motion";
 import {useGlobalContext} from "@/context/global";
+import {LazyMotion, domMax, motion} from "framer-motion";
 import {FC, Fragment, useEffect, useRef, useState} from "react";
 import {IApartmentImage, IViewApartments} from "@/types/components";
 import {fadeInUp, stagger, initial} from "../animations/animations";

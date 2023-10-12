@@ -1,4 +1,4 @@
-// Import
+// Imports
 import Head from "next/head";
 import {usePageContext} from "@/context/pages";
 

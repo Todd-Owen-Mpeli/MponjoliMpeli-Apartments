@@ -1,4 +1,4 @@
-// Import
+// Imports
 import {
 	fadeIn,
 	initial,
