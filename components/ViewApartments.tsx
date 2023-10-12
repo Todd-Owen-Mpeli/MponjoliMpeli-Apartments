@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {LazyMotion, domMax, motion} from "framer-motion";
 import {useGlobalContext} from "@/context/global";
-import {FC, useEffect, useRef, useState} from "react";
+import {FC, Fragment, useEffect, useRef, useState} from "react";
 import {IApartmentImage, IViewApartments} from "@/types/components";
 import {fadeInUp, stagger, initial} from "../animations/animations";
 
@@ -131,9 +131,8 @@ const ViewApartments: FC<IViewApartments> = ({
 										{globalContext?.apartmentsContent?.length > 0 ? (
 											globalContext?.apartmentsContent?.map(
 												(item: any, keys: number) => (
-													<>
+													<Fragment key={keys}>
 														<div
-															key={keys}
 															ref={largeSlideRef}
 															className={`flex-shrink-0 w-4/5 sm:w-2/3 pr-3 sm:pr-4 transition-opacity duration-200 ease-in-out ${
 																keys !== activeSlide
@@ -149,7 +148,7 @@ const ViewApartments: FC<IViewApartments> = ({
 																}
 															/>
 														</div>
-													</>
+													</Fragment>
 												)
 											)
 										) : (
