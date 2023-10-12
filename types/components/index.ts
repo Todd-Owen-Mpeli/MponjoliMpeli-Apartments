@@ -2,7 +2,6 @@
 export interface IBackHoverButton {
 	link: string;
 }
-
 export interface IBlogsCard {
 	uri: string;
 	date: string;
@@ -19,7 +18,6 @@ export interface IBlogsCard {
 		};
 	};
 }
-
 export type IIntroTitleImage = {
 	title: string;
 	subtitle: string;
@@ -60,11 +58,9 @@ export type IIntroTitleImage = {
 		};
 	};
 };
-
 export type ISideMenu = {
 	menuActive: boolean;
 };
-
 export interface IContactInfo {
 	title: string;
 	paragraph: string;
@@ -77,11 +73,13 @@ export interface IContactInfo {
 		};
 	};
 }
-
 export interface IContactForm {
 	title: string;
 }
-
+export interface IApartmentContactForm {
+	title: string;
+	paragraph: string;
+}
 export type IApartmentLocationMap = {
 	apartmentDisplayOptions: string;
 };
@@ -92,7 +90,6 @@ export type IApartmentCard = {
 	title: string;
 	backgroundImage: string;
 };
-
 export interface IApartmentCardTwo {
 	title: string;
 	link: {
@@ -122,14 +119,12 @@ export interface ITitleStats {
 		}
 	];
 }
-
 export interface IContentImageCard {
 	title: string;
 	paragraph: string;
 	contentLocation: string;
 	backgroundImage: string;
 }
-
 export type IContentButtonLinkTwoImages = {
 	title: string;
 	paragraph: string;
@@ -156,7 +151,6 @@ export type IContentButtonLinkTwoImages = {
 		};
 	};
 };
-
 export type IContentLargeBackgroundImage = {
 	title: string;
 	paragraph: string;
@@ -179,7 +173,6 @@ export type IContentLargeBackgroundImage = {
 		};
 	};
 };
-
 export type IContentGridServicesCard = {
 	title: string;
 	paragraph: string;
@@ -192,7 +185,6 @@ export type IContentGridServicesCard = {
 		};
 	};
 };
-
 export type IContentGridServices = {
 	title: string;
 	subtitle: string;
@@ -214,7 +206,6 @@ export type IContentGridServices = {
 		}
 	];
 };
-
 export interface IContentBackgroundImage {
 	gridContent: [
 		{
@@ -230,7 +221,6 @@ export interface IContentBackgroundImage {
 		}
 	];
 }
-
 export type IHighlightImagesCard = {
 	tailwindStyling: string;
 	image: {
@@ -242,7 +232,6 @@ export type IHighlightImagesCard = {
 		};
 	};
 };
-
 export type IApartmentSingle = {
 	heroBackgroundImage: {
 		altText: string;
@@ -459,12 +448,10 @@ export type IApartmentSingleHighlightInfo = {
 		}
 	];
 };
-
 export type IApartmentImage = {
 	url: string;
 	alt: string;
 };
-
 export type IViewApartments = {
 	title: string;
 	subtitle: string;
@@ -482,7 +469,6 @@ export type IViewApartments = {
 		};
 	};
 };
-
 export type IHero = {
 	title: string;
 	paragraph: string;
@@ -507,7 +493,6 @@ export type IHero = {
 	backgroundVideoUrl: string;
 	backgroundImageOrVideo: string;
 };
-
 export interface ICTA {
 	title: string;
 	paragraph: string;
@@ -518,7 +503,6 @@ export interface ICTA {
 		target: string;
 	};
 }
-
 export type IHeroTwo = {
 	title: string;
 	paragraph: string;
@@ -533,12 +517,10 @@ export type IHeroTwo = {
 	backgroundVideoUrl: string;
 	backgroundImageOrVideo: string;
 };
-
 export type ITitleParagraph = {
 	title: string;
 	paragraph: string;
 };
-
 export type ILargeTitleParagraph = {
 	titleEnd: string;
 	titleStart: string;
@@ -561,18 +543,15 @@ export type ILargeTitleParagraph = {
 		};
 	};
 };
-
 export type IParagraphProps = {
 	content: string;
 	tailwindStyling: string;
 };
-
 export type INavbarLinks = {
 	url: string;
 	label: string;
 	tailwindStyling: string;
 };
-
 export type ISustainability = {
 	title: string;
 	subtitle: string;
@@ -588,7 +567,6 @@ export type ISustainability = {
 		};
 	};
 };
-
 export type IImageGrid = {
 	image: {
 		altText: string;
@@ -644,7 +622,6 @@ export type IImageGrid = {
 export type ILayout = {
 	children: React.ReactNode;
 };
-
 export type IErrorPage = {
 	title: string;
 	paragraph: string;

@@ -24,6 +24,7 @@ import ApartmentsGrid from "../Apartments/ApartmentsGrid";
 import ApartmentSingle from "../Apartments/ApartmentSingle";
 import ContentBackgroundImage from "../ContentBackgroundImage";
 import ApartmentLocationMap from "../Apartments/ApartmentLocationMap";
+import ApartmentContactForm from "../Apartments/ApartmentContactForm";
 import ContentButtonLinkTwoImages from "../ContentButtonLinkTwoImages";
 import ContentLargeBackgroundImage from "../ContentLargeBackgroundImage";
 
@@ -213,6 +214,14 @@ const RenderFlexibleContent: FC = () => {
 						) : item?.fieldGroupName === `${FlexibleContent}_ContactForm` ? (
 							<>
 								<ContactForm title={item?.title} />
+							</>
+						) : item?.fieldGroupName ===
+						  `${FlexibleContent}_ApartmentContactForm` ? (
+							<>
+								<ApartmentContactForm
+									title={item?.title}
+									paragraph={item?.paragraph}
+								/>
 							</>
 						) : item?.fieldGroupName === `${FlexibleContent}_Sustainability` ? (
 							<>

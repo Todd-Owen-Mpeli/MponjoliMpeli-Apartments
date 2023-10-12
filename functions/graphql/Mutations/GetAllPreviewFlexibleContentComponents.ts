@@ -454,6 +454,11 @@ export const getAllPreviewFlexibleContentComponents = async (
 								fieldGroupName
 								title
 							}
+							... on ${postTypeFlexibleContent}_ApartmentContactForm {
+								fieldGroupName
+								title
+								paragraph
+							}
         		            ... on ${postTypeFlexibleContent}_ErrorPageContent {
         		                fieldGroupName
         		                paragraph

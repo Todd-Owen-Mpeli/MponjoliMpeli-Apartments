@@ -256,13 +256,13 @@ const ApartmentSingleDescription: FC<IApartmentSingleDescription> = ({
 					)}
 				</div>
 
-				<div className="grid max-w-4xl grid-cols-2 gap-2 mt-4 sm:flex sm:flex-row">
+				<div className="grid max-w-4xl grid-cols-2 gap-2 mt-4 lg:flex lg:flex-row">
 					{keyInfoImages?.length > 0 ? (
 						keyInfoImages?.map((item, keys) => (
 							<HighlightImagesCard
 								key={keys}
 								image={item?.image}
-								tailwindStyling={`w-full rounded-lg max-w-[200px] h-[125px] object-cover object-center`}
+								tailwindStyling={`rounded-lg w-full lg:w-[200px] h-[150px] lg:h-[125px] object-cover object-center`}
 							/>
 						))
 					) : (

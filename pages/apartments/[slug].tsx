@@ -11,6 +11,7 @@ import {getAllFlexibleContentComponents} from "@/functions/graphql/Queries/GetAl
 
 // Components
 import Layout from "@/components/Layout/Layout";
+import BackToApartmentsButton from "@/components/Elements/BackToApartmentsButton";
 import RenderFlexibleContent from "@/components/FlexibleContent/RenderFlexibleContent";
 
 const dynamicPages: NextPage<IContentContext> = ({
@@ -35,6 +36,7 @@ const dynamicPages: NextPage<IContentContext> = ({
 					animate="animate"
 				>
 					<Layout>
+						<BackToApartmentsButton link={`/apartments`} />
 						<RenderFlexibleContent />
 					</Layout>
 				</motion.div>

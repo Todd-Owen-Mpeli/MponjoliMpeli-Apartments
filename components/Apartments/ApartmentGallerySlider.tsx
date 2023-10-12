@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, {FC, useState, useEffect, useRef} from "react";
 import {motion, AnimatePresence, LazyMotion, domMax} from "framer-motion";
 import {IApartmentGallerySlider, IApartmentImage} from "@/types/components";
-import {initial, stagger, fadeInUp} from "../../animations/animations";
 
 // Hooks
 import useWindowSize from "@/Hooks/useWindowSize";
@@ -126,15 +125,16 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 								className={
 									activeImage
 										? "hidden"
-										: "absolute top-1/2 left-[2.5%] z-10 w-8 lg:w-12 hover:opacity-70 transition-opacity duration-200 ease-in-out transform -translate-y-1/2"
+										: "absolute top-1/2 left-[2.5%] z-10 w-8 lg:w-12 transform -translate-y-1/2"
 								}
 								onClick={() => arrowHandler("prev")}
 							>
 								<Image
 									width={500}
 									height={500}
-									src="/svg/circle-arrow.svg"
+									src="/svg/circle-arrow-green.svg"
 									alt="White arrow in a green circle"
+									className="transition-opacity duration-200 ease-in-out hover:opacity-70"
 								/>
 							</motion.button>
 							<motion.div
@@ -177,15 +177,16 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 								className={
 									activeImage
 										? "hidden"
-										: "absolute z-10 w-8 transition-opacity duration-200 ease-in-out transform rotate-180 -translate-y-1/2 top-1/2 right-[2.5%] lg:right-[37%] lg:w-12 hover:opacity-70"
+										: "absolute z-10 w-8 transform rotate-180 -translate-y-1/2 top-1/2 right-[2.5%] lg:right-[37%] lg:w-12"
 								}
 								onClick={() => arrowHandler("next")}
 							>
 								<Image
 									width={500}
 									height={500}
-									src="/svg/circle-arrow.svg"
+									src="/svg/circle-arrow-green.svg"
 									alt="White arrow in a green circle"
+									className="transition-opacity duration-200 ease-in-out hover:opacity-70"
 								/>
 							</motion.button>
 						</div>
@@ -242,14 +243,15 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 										initial={{opacity: 0}}
 										animate={{opacity: 1}}
 										exit={{opacity: 0}}
-										className="absolute z-10 w-8 left-[50px] lg:left-[-60px] transition-opacity duration-200 ease-in-out transform -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12 hover:opacity-70"
+										className="absolute z-10 w-8 left-[50px] lg:left-[-60px] transform -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12"
 										onClick={() => arrowModalHandler("prev")}
 									>
 										<Image
 											width={500}
 											height={500}
-											src="/svg/circle-arrow.svg"
+											src="/svg/circle-arrow-green.svg"
 											alt="White arrow in a green circle"
+											className="transition-opacity duration-200 ease-in-out hover:opacity-70"
 										/>
 									</motion.button>
 									{/* Close Modal */}
@@ -258,13 +260,14 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 										animate={{opacity: 1}}
 										exit={{opacity: 0}}
 										onClick={closeHandler}
-										className="absolute right-0 w-8 text-green-default transition-colors duration-200 ease-in-out cursor-pointer -top-12 hover:text-green-Two"
+										className="absolute right-0 w-8 text-green-default cursor-pointer -top-12 hover:text-green-Two"
 									>
 										<Image
 											width={500}
 											height={500}
 											src="/svg/cross.svg"
 											alt="White arrow in a green circle"
+											className="transition-opacity duration-200 ease-in-out hover:opacity-70"
 										/>
 									</motion.button>
 									<Image
@@ -279,14 +282,15 @@ const ApartmentGallerySlider: FC<IApartmentGallerySlider> = ({
 										initial={{opacity: 0}}
 										animate={{opacity: 1}}
 										exit={{opacity: 0}}
-										className="absolute z-10 w-8 right-[50px] lg:right-[-60px] transition-opacity duration-200 ease-in-out transform rotate-180 -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12 hover:opacity-70"
+										className="absolute z-10 w-8 right-[50px] lg:right-[-60px] transform rotate-180 -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12"
 										onClick={() => arrowModalHandler("next")}
 									>
 										<Image
 											width={500}
 											height={500}
-											src="/svg/circle-arrow.svg"
+											src="/svg/circle-arrow-green.svg"
 											alt="White arrow in a green circle"
+											className="transition-opacity duration-200 ease-in-out hover:opacity-70"
 										/>
 									</motion.button>
 								</div>

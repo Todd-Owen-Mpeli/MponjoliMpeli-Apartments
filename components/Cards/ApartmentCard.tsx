@@ -1,17 +1,16 @@
 // Import
 import {FC} from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {motion} from "framer-motion";
 import {IApartmentCard} from "@/types/components";
-import {fadeInUp, stagger, initial} from "@/animations/animations";
+import {fadeInUp, initial} from "@/animations/animations";
 
 const ApartmentCard: FC<IApartmentCard> = ({title, link, backgroundImage}) => {
 	return (
-		<div>
+		<>
 			<Link href={link} target={``}>
 				<div
-					className="flex items-end bg-cover bg-no-repeat bg-center w-full lg:w-[550px] h-[550px] py-8 px-16"
+					className="flex items-end bg-cover bg-no-repeat bg-center w-full h-[550px] py-8 px-16"
 					style={{
 						backgroundImage: `linear-gradient(
 							0deg,
@@ -26,13 +25,13 @@ const ApartmentCard: FC<IApartmentCard> = ({title, link, backgroundImage}) => {
 						initial={initial}
 						whileInView={fadeInUp}
 						viewport={{once: true}}
-						className="font-bold text-left text-lg mb-4 text-white"
+						className="font-medium hover:text-goldPrimeDark transition-all duration-200 ease-in-out uppercase tracking-[0.075rem] text-left text-base mb-4 text-white border-b-2 border-goldPrimeDark"
 					>
 						{title}
 					</motion.h2>
 				</div>
 			</Link>
-		</div>
+		</>
 	);
 };
 

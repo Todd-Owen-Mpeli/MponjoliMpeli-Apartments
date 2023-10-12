@@ -1,10 +1,13 @@
 // Imports
-import {FC} from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {motion} from "framer-motion";
-import {IApartmentSingleHighlightInfo} from "@/types/components";
+import {
+	IApartmentImage,
+	IApartmentSingleHighlightInfo,
+} from "@/types/components";
+import React, {FC, useState} from "react";
 import {initial, stagger, fadeInUp} from "../../animations/animations";
+import {AnimatePresence, LazyMotion, domMax, motion} from "framer-motion";
 
 // Components
 import HighlightImagesCard from "../Cards/HighlightImagesCard";
@@ -20,6 +23,64 @@ const ApartmentSingleHighlightInfo: FC<IApartmentSingleHighlightInfo> = ({
 	rightSectionTitle,
 	heroBackgroundImage,
 }) => {
+	const [activeSlide, setActiveSlide] = useState(0);
+	const [activeImage, setActiveImage] = useState<IApartmentImage | null>(null);
+
+	// Pop up Image Modal
+	const arrowModalHandler = (direction: "prev" | "next") => {
+		if (direction === "prev") {
+			if (activeSlide === 0) {
+				const previousImagePosition = imageGallery.length - 1;
+				const newActiveImage: IApartmentImage = {
+					url: `${imageGallery[previousImagePosition]?.image?.sourceUrl}`,
+					alt: `${imageGallery[previousImagePosition]?.image?.altText}`,
+				};
+
+				return (
+					setActiveSlide(imageGallery.length - 1),
+					setActiveImage(newActiveImage)
+				);
+			}
+
+			const previousImagePosition = activeSlide - 1;
+			const newActiveImage: IApartmentImage = {
+				url: `${imageGallery[previousImagePosition]?.image?.sourceUrl}`,
+				alt: `${imageGallery[previousImagePosition]?.image?.altText}`,
+			};
+
+			return setActiveSlide(activeSlide - 1), setActiveImage(newActiveImage);
+		}
+
+		if (direction === "next") {
+			// Last Image in the Array
+			if (activeSlide === imageGallery.length - 1) {
+				const newActiveImage: IApartmentImage = {
+					url: `${imageGallery[0]?.image?.sourceUrl}`,
+					alt: `${imageGallery[0]?.image?.altText}`,
+				};
+
+				return setActiveSlide(0), setActiveImage(newActiveImage);
+			}
+
+			const nextImagePosition = activeSlide + 1;
+			const newActiveImage: IApartmentImage = {
+				url: `${imageGallery[nextImagePosition]?.image?.sourceUrl}`,
+				alt: `${imageGallery[nextImagePosition]?.image?.altText}`,
+			};
+
+			return setActiveSlide(activeSlide + 1), setActiveImage(newActiveImage);
+		}
+	};
+
+	const imageClickHandler = (image: IApartmentImage) => {
+		document.documentElement.classList.add("overflow-hidden");
+		setActiveImage(image);
+	};
+
+	const closeHandler = () => {
+		document.documentElement.classList.remove("overflow-hidden");
+		setActiveImage(null);
+	};
 	return (
 		<>
 			<motion.div
@@ -169,30 +230,108 @@ const ApartmentSingleHighlightInfo: FC<IApartmentSingleHighlightInfo> = ({
 						<></>
 					)}
 					{/* View alL Images */}
-					<motion.div
+					<motion.button
 						initial={initial}
 						whileInView={fadeInUp}
 						viewport={{once: true}}
+						className="w-full"
+						onClick={() =>
+							imageClickHandler({
+								url: imageGallery[0]?.image?.sourceUrl,
+								alt: imageGallery[0]?.image?.altText,
+							})
+						}
 					>
-						<Link href={imageGallery[0]?.image?.sourceUrl} target=" ">
-							<div
-								className="relative flex items-center justify-center px-4 bg-center bg-no-repeat bg-cover w-full h-[200px] rounded-xl"
-								style={{
-									backgroundImage: `url("${
-										imageGallery[0]?.image?.sourceUrl
-											? imageGallery[0]?.image?.sourceUrl
-											: heroBackgroundImage?.sourceUrl
-									}")`,
-								}}
-							>
-								<div className="absolute top-0 bottom-0 left-0 w-full h-full opacity-75 bg-gradient-to-b from-green-dark from-20% via-green-dark via-60% to-transparent to-100% rounded-xl" />
+						<div
+							className="relative flex items-center justify-center px-4 bg-center bg-no-repeat bg-cover w-full h-[200px] rounded-xl"
+							style={{
+								backgroundImage: `url("${
+									imageGallery[0]?.image?.sourceUrl
+										? imageGallery[0]?.image?.sourceUrl
+										: heroBackgroundImage?.sourceUrl
+								}")`,
+							}}
+						>
+							<div className="absolute top-0 bottom-0 left-0 w-full h-full opacity-75 bg-gradient-to-b from-green-dark from-20% via-green-dark via-60% to-transparent to-100% rounded-xl" />
 
-								<h3 className="absolute w-full max-w-[7.5rem] text-base text-center text-white">
-									View all {imageGallery?.length} photos
-								</h3>
-							</div>
-						</Link>
-					</motion.div>
+							<h3 className="absolute w-full max-w-[7.5rem] text-base text-center text-white">
+								View all {imageGallery?.length} photos
+							</h3>
+						</div>
+					</motion.button>
+					<LazyMotion features={domMax}>
+						<AnimatePresence>
+							{activeImage && (
+								<>
+									<motion.div
+										initial={{opacity: 0}}
+										animate={{opacity: 1}}
+										exit={{opacity: 0}}
+										className="fixed top-0 left-0 z-[995] w-full h-full bg-black bg-opacity-90"
+									/>
+									<div className="fixed top-0 left-0 z-[996] flex w-full h-full px-4 py-24 overflow-y-scroll">
+										<div className="relative m-auto">
+											{/* Prev */}
+											<motion.button
+												initial={{opacity: 0}}
+												animate={{opacity: 1}}
+												exit={{opacity: 0}}
+												className="absolute z-10 w-8 left-[50px] lg:left-[-60px] transform -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12"
+												onClick={() => arrowModalHandler("prev")}
+											>
+												<Image
+													width={500}
+													height={500}
+													src="/svg/circle-arrow-green.svg"
+													alt="White arrow in a green circle"
+													className="transition-opacity duration-200 ease-in-out hover:opacity-70"
+												/>
+											</motion.button>
+											{/* Close Modal */}
+											<motion.button
+												initial={{opacity: 0}}
+												animate={{opacity: 1}}
+												exit={{opacity: 0}}
+												onClick={closeHandler}
+												className="absolute right-0 w-8 text-green-default cursor-pointer -top-12 hover:text-green-Two"
+											>
+												<Image
+													width={500}
+													height={500}
+													src="/svg/cross.svg"
+													alt="White arrow in a green circle"
+													className="transition-opacity duration-200 ease-in-out hover:opacity-70"
+												/>
+											</motion.button>
+											<Image
+												width={500}
+												height={500}
+												src={activeImage?.url}
+												alt={activeImage?.alt}
+												className="w-full h-full lg:min-w-[450px] object-cover object-center min-h-[450px] xl:min-h-[550px] max-h-[550px] rounded-lg"
+											/>
+											{/* Next */}
+											<motion.button
+												initial={{opacity: 0}}
+												animate={{opacity: 1}}
+												exit={{opacity: 0}}
+												className="absolute z-10 w-8 right-[50px] lg:right-[-60px] transform rotate-180 -translate-y-1/2 bottom-[-75px] sx:bottom-[-100px] md:bottom-[-115px] lg:bottom-0 lg:top-1/2 md:w-12"
+												onClick={() => arrowModalHandler("next")}
+											>
+												<Image
+													width={500}
+													height={500}
+													src="/svg/circle-arrow-green.svg"
+													alt="White arrow in a green circle"
+													className="transition-opacity duration-200 ease-in-out hover:opacity-70"
+												/>
+											</motion.button>
+										</div>
+									</div>
+								</>
+							)}
+						</AnimatePresence>
+					</LazyMotion>
 				</motion.div>
 			</motion.div>
 		</>
