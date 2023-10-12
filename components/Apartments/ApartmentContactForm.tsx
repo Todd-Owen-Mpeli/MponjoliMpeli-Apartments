@@ -36,6 +36,7 @@ const ApartmentContactForm: FC<IApartmentContactForm> = ({
 		isLoading: boolean;
 	} = {isLoading: false, error: " "};
 	const [state, setState]: any = useState(initState);
+
 	const {
 		isLoading,
 		error,
@@ -43,6 +44,7 @@ const ApartmentContactForm: FC<IApartmentContactForm> = ({
 		error: string;
 		isLoading: boolean;
 	} = state;
+
 	// A custom validation function. This must return an object
 	// which keys are symmetrical to our values/initialValues
 	const validate: any = (values: any) => {
