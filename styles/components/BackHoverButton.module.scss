@@ -85,6 +85,7 @@
 .backHoverButton {
 	display: flex;
 	transition: 1s;
+	width: fit-content;
 	padding: 10px 15px;
 	align-items: center;
 	background: $darkGreen;
