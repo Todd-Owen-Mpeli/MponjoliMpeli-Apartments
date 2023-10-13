@@ -455,6 +455,9 @@ export type IApartmentImage = {
 export type IViewApartments = {
 	title: string;
 	subtitle: string;
+	lastSlideImage: {
+		sourceUrl: string;
+	};
 	buttonLink: {
 		url: string;
 		title: string;

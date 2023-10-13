@@ -181,24 +181,6 @@ export async function getAllFlexibleContentComponents(
 											}
 											... on ${postTypeFlexibleContent}_ApartmentsGrid {
 												fieldGroupName
-												grid {
-													card {
-														title
-														link {
-															url
-															title
-															target
-														}
-														backgroundImage {
-															altText
-															sourceUrl
-															mediaDetails {
-																height
-																width
-															}
-														}
-													}
-												}
 											}
 											... on ${postTypeFlexibleContent}_ContentButtonLinkTwoImages {
 												fieldGroupName
@@ -264,6 +246,9 @@ export async function getAllFlexibleContentComponents(
 												fieldGroupName
 												title
 												subtitle
+												lastSlideImage {
+													sourceUrl
+												}
 												buttonLink {
 													url
 													title

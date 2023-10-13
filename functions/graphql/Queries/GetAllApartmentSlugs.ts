@@ -45,20 +45,6 @@ export async function getAllApartmentsContent() {
 							uri
 							date
 							title(format: RENDERED)
-							template {
-								... on DefaultTemplate {
-									templateName
-									flexibleContent {
-										flexibleContent {
-											... on DefaultTemplate_Flexiblecontent_FlexibleContent_HeroSectionThree {
-												fieldGroupName
-												paragraph
-												title
-											}
-										}
-									}
-								}
-							}
 							featuredImage {
 								node {
 									altText

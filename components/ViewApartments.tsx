@@ -16,6 +16,7 @@ const ViewApartments: FC<IViewApartments> = ({
 	image,
 	subtitle,
 	buttonLink,
+	lastSlideImage,
 }) => {
 	const {width} = useWindowSize();
 	const globalContext = useGlobalContext();
@@ -154,6 +155,17 @@ const ViewApartments: FC<IViewApartments> = ({
 										) : (
 											<></>
 										)}
+										{/* Last Slide */}
+										<div
+											ref={largeSlideRef}
+											className="flex-shrink-0 w-4/5 sm:w-2/3 pr-3 sm:pr-4 transition-opacity duration-200 ease-in-out opacity-100 hover:opacity-90"
+										>
+											<ApartmentCard
+												link={buttonLink?.url}
+												title={buttonLink?.title}
+												backgroundImage={lastSlideImage?.sourceUrl}
+											/>
+										</div>
 									</motion.div>
 									{/* Next */}
 									<motion.button

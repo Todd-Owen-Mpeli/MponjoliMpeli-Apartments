@@ -59,8 +59,6 @@ const RenderFlexibleContent: FC = () => {
 									backgroundImageOrVideo={item?.backgroundImageOrVideo}
 								/>
 							</>
-						) : item?.fieldGroupName === `${FlexibleContent}_IntroSection` ? (
-							<></>
 						) : item?.fieldGroupName ===
 						  `${FlexibleContent}_IntroTitleImage` ? (
 							<>
@@ -100,6 +98,7 @@ const RenderFlexibleContent: FC = () => {
 									image={item?.image}
 									subtitle={item?.subtitle}
 									buttonLink={item?.buttonLink}
+									lastSlideImage={item?.lastSlideImage}
 								/>
 							</>
 						) : item?.fieldGroupName === `${FlexibleContent}_TitleStats` ? (
@@ -172,7 +171,8 @@ const RenderFlexibleContent: FC = () => {
 									paragraph={item?.paragraph}
 								/>
 							</>
-						) : item?.fieldGroupName === `${FlexibleContent}_TitleParagraph` ? (
+						) : item?.fieldGroupName ===
+						  `${FlexibleContent}_TitleParagraphTwo` ? (
 							<>
 								<TitleParagraph
 									title={item?.title}

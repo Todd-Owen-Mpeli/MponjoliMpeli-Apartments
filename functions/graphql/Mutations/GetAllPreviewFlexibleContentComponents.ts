@@ -180,24 +180,6 @@ export const getAllPreviewFlexibleContentComponents = async (
 							}
 							... on ${postTypeFlexibleContent}_ApartmentsGrid {
 								fieldGroupName
-								grid {
-									card {
-										title
-										link {
-											url
-											title
-											target
-										}
-										backgroundImage {
-											altText
-											sourceUrl
-											mediaDetails {
-												height
-												width
-											}
-										}
-									}
-								}
 							}
 							... on ${postTypeFlexibleContent}_ContentButtonLinkTwoImages {
 								fieldGroupName
@@ -263,6 +245,9 @@ export const getAllPreviewFlexibleContentComponents = async (
 									fieldGroupName
 									title
 									subtitle
+									lastSlideImage {
+											sourceUrl
+										}
 									buttonLink {
 										url
 										title
