@@ -8,9 +8,12 @@ import {IBackHoverButton} from "@/types/components";
 
 const BackToApartmentsButton: FC<IBackHoverButton> = ({link}) => {
 	return (
-		<div className="absolute items-center justify-center w-fit h-full flex">
+		<div className="absolute items-center justify-center w-fit h-full hidden lg:flex">
 			<div className="fixed left-10 z-[994] bottom-[1rem] flex justify-center">
-				<Link href={link ? `${link}` : `/`} className={styles.backHoverButton}>
+				<Link
+					href={link ? `${link}` : `/`}
+					className={styles.backToApartmentsButton}
+				>
 					<span className={styles.span}>
 						<svg
 							width="45px"
