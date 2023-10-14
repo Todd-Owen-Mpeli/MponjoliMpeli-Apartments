@@ -4,6 +4,7 @@ import Image from "next/image";
 import {motion} from "framer-motion";
 import {ILargeTitleParagraph} from "@/types/components";
 import {fadeInUp, stagger, initial} from "../animations/animations";
+import styles from "../styles/components/TitleParagraph.module.scss";
 
 // Components
 import Paragraph from "./Elements/Paragraph";
@@ -18,14 +19,14 @@ const LargeTitleParagraph: FC<ILargeTitleParagraph> = ({
 }) => {
 	return (
 		<>
-			<div className="bg-white">
+			<div className={`bg-white ${styles.largeTitleParagraph}`}>
 				<div className="container p-0 mx-auto">
 					<div className="flex flex-col px-4">
 						<motion.div
 							initial={initial}
 							whileInView={fadeInUp}
 							viewport={{once: true}}
-							className="py-16 sm:py-20 md:py-28"
+							className="py-8 sm:py-12"
 						>
 							<motion.h2
 								initial={initial}
@@ -65,14 +66,16 @@ const LargeTitleParagraph: FC<ILargeTitleParagraph> = ({
 								/>
 								<span className={titleEnd ? "mx-2" : "hidden"}>{titleEnd}</span>
 							</motion.h2>
-							<Paragraph
-								content={paragraph}
-								tailwindStyling={
-									paragraph
-										? "lg:max-w-2xl mx-auto py-8 text-black text-center lg:text-left text-base"
-										: "hidden"
-								}
-							/>
+							<div className={styles.textarea}>
+								<Paragraph
+									content={paragraph}
+									tailwindStyling={
+										paragraph
+											? "lg:max-w-2xl mx-auto py-8 text-black text-center lg:text-left text-base"
+											: "hidden"
+									}
+								/>
+							</div>
 						</motion.div>
 					</div>
 				</div>
