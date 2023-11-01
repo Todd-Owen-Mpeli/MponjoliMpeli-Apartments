@@ -3,7 +3,7 @@ import {FC} from "react";
 import Link from "next/link";
 import {motion} from "framer-motion";
 import {IApartmentCard} from "@/types/components";
-import {fadeInUp, initial} from "@/animations/animations";
+import {fadeIn, initialTwo} from "@/animations/animations";
 
 const ApartmentCard: FC<IApartmentCard> = ({title, link, backgroundImage}) => {
 	return (
@@ -22,8 +22,8 @@ const ApartmentCard: FC<IApartmentCard> = ({title, link, backgroundImage}) => {
 					}}
 				>
 					<motion.h2
-						initial={initial}
-						whileInView={fadeInUp}
+						initial={initialTwo}
+						whileInView={fadeIn}
 						viewport={{once: true}}
 						className="font-medium hover:text-goldPrimeDark transition-all duration-200 ease-in-out uppercase tracking-[0.075rem] text-left text-base mb-4 text-white border-b-2 border-goldPrimeDark"
 					>

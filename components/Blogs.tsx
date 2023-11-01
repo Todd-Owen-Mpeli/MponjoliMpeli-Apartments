@@ -1,12 +1,13 @@
 // Imports
+import {FC, Fragment} from "react";
 import {motion} from "framer-motion";
-import {initial, stagger} from "../animations/animations";
 import {useGlobalContext} from "@/context/global";
+import {initial, stagger} from "../animations/animations";
 
 // Components
 import BlogsCard from "./Cards/BlogsCard";
 
-const Blogs = () => {
+const Blogs: FC = () => {
 	const globalContext = useGlobalContext();
 
 	return (
@@ -21,17 +22,18 @@ const Blogs = () => {
 					{globalContext.blogs ? (
 						globalContext.blogs?.length > 0 ? (
 							globalContext.blogs.map((item: any, keys: any) => (
-								<BlogsCard
-									key={keys}
-									uri={item?.node?.uri}
-									date={item?.node?.date}
-									title={item?.node?.title}
-									featuredImage={item?.node?.featuredImage}
-									paragraph={
-										item?.node?.template?.flexibleContent?.flexibleContent[1]
-											?.paragraph
-									}
-								/>
+								<Fragment key={keys}>
+									<BlogsCard
+										uri={item?.node?.uri}
+										date={item?.node?.date}
+										title={item?.node?.title}
+										featuredImage={item?.node?.featuredImage}
+										paragraph={
+											item?.node?.template?.flexibleContent?.flexibleContent[1]
+												?.paragraph
+										}
+									/>
+								</Fragment>
 							))
 						) : (
 							<h2 className="mx-auto text-3xl text-center text-black md:text-4xl">

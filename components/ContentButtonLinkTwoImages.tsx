@@ -67,16 +67,16 @@ const ContentButtonLinkTwoImages: FC<IContentButtonLinkTwoImages> = ({
 															stroke="currentColor"
 															strokeWidth="1.3"
 															strokeMiterlimit="10"
-															stroke-linecap="round"
-															stroke-linejoin="round"
+															strokeLinecap="round"
+															strokeLinejoin="round"
 														></path>
 														<path
 															d="M9 8.33571V1H1.66429"
 															stroke="currentColor"
 															strokeWidth="1.3"
 															strokeMiterlimit="10"
-															stroke-linecap="round"
-															stroke-linejoin="round"
+															strokeLinecap="round"
+															strokeLinejoin="round"
 														></path>
 													</svg>
 												</span>
