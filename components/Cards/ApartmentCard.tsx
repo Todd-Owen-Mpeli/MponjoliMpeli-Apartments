@@ -10,7 +10,7 @@ const ApartmentCard: FC<IApartmentCard> = ({title, link, backgroundImage}) => {
 		<>
 			<Link href={link} target={``}>
 				<div
-					className="flex items-end bg-cover bg-no-repeat bg-center w-full h-[300px] md:h-[400px] lg:h-[550px] py-8 px-16"
+					className="flex items-end bg-cover bg-no-repeat bg-center w-full h-[350px] md:h-[400px] lg:h-[550px] py-8 px-16"
 					style={{
 						backgroundImage: `linear-gradient(
 							0deg,
